@@ -32,7 +32,10 @@ class Frame extends Component {
         <LabelCircle/>
         <PrivacyRatingFont/>
         <LabelBar/>
-        <CategoryBox/>
+        <CategoryBox label={"COLLECTION"}/>
+        <CategoryBox label={"SHARING"}/>
+        <CategoryBox label={"CONTROL"}/>
+        <CategoryBox label={"SECURITY"}/>
       </div>
     );
   }
