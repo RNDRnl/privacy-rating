@@ -13,6 +13,21 @@ $color-F: #EC6C01;
 $color-G: #E82613;
 
 
+@font-face {
+    font-family: 'cooper_hewittmedium';
+    src: url('/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-medium-webfont.woff2') format('woff2'),
+         url('/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'cooper_hewittsemibold';
+    src: url('/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-semibold-webfont.woff2') format('woff2'),
+         url('/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 body,html {
@@ -22,4 +37,5 @@ body,html {
 
 body {
     background-color: $color-G;
+    font-family: 'cooper_hewittmedium', 'Courier New', Courier, monospace;
 }
