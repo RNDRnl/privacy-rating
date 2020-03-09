@@ -1,9 +1,11 @@
 @import "src/main";
 
 .holder {
-    background-color: $color-D;
-    h1 {
-        padding:50px;
-        margin:0px;
-    }
+    background-color: #f3f3f4;
+    width: 320pt;
+    height: 320pt;
+    margin:0px;
+    padding-left: 12pt;
+    padding-right: 12pt;
+    padding-top: 8pt;
 }

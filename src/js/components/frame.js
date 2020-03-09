@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import styles from './frame.scss';
+import PrivacyRatingFont from "./PrivacyRatingFont";
+import LabelCircle from "./LabelCircle";
+import LabelBar from "./LabelBar";
+import CategoryBox from "./CategoryBox";
+import DescriptionBox from "./DescriptionBox";
 
 class Frame extends Component {
   constructor() {
@@ -24,7 +29,10 @@ class Frame extends Component {
   render() {
     return (
       <div className={styles.holder} >
-        <h1>Privacy label frame</h1>
+        <LabelCircle/>
+        <PrivacyRatingFont/>
+        <LabelBar/>
+        <CategoryBox/>
       </div>
     );
   }

@@ -1,0 +1,32 @@
+@import "src/main";
+
+.holder {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  height: 26pt;
+  margin: auto;
+
+  div {
+    flex: 1;
+    text-align: center;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    border-radius: 10pt;
+    border: 2pt solid white;
+    padding-top: 8pt;
+    padding-bottom: 8pt;
+
+    &:nth-child(1) {
+      background-color: $color-G;
+    }
+
+    &:nth-child(2) {
+      background-color: $color-F;
+    }
+
+    &:nth-child(3) {
+      background-color: $color-D;
+    }
+  }
+}

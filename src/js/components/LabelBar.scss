@@ -1,0 +1,44 @@
+@import "src/main";
+
+.holder {
+  display: flex;
+  width: 100%;
+
+  div {
+    flex: 1;
+    line-height: 15pt;
+    text-align: center;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 8pt;
+    border: 2pt solid;
+
+    &:nth-child(1) {
+      background-color: $color-A;
+      border: #f3f3f4;
+    }
+
+    &:nth-child(2) {
+      background-color: $color-B;
+    }
+
+    &:nth-child(3) {
+      background-color: $color-C;
+    }
+
+    &:nth-child(4) {
+      background-color: $color-D;
+    }
+
+    &:nth-child(5) {
+      background-color: $color-E;
+    }
+
+    &:nth-child(6) {
+      background-color: $color-F;
+    }
+
+    &:nth-child(7) {
+      background-color: $color-G;
+    }
+  }
+}
