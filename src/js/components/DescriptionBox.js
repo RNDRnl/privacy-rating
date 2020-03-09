@@ -24,9 +24,7 @@ class DescriptionBox extends Component {
     render() {
         return (
             <div className={styles.holder} >
-                <div>No sales of user data</div>
-                <div>Sales of anonymous users</div>
-                <div>Legally required disclosure to local law enforcement</div>
+                <div className={styles.label}>No sales of user data</div>
             </div>
         );
     }

@@ -23,13 +23,15 @@ class CategoryBox extends Component {
     }
 
     render() {
+
+        console.log(this.props);
+
         return (
             <div className={styles.holder} >
-                <div>COLLECTION</div>
-                <div>SHARING</div>
-                <div>CONTROL</div>
-                <div>SECURITY</div>
-                <DescriptionBox/>
+                <div className={styles.label}>{this.props.label}</div>
+                <DescriptionBox />
+                <DescriptionBox />
+                <DescriptionBox />
             </div>
         );
     }
