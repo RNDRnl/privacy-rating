@@ -1,6 +1,7 @@
+@import "src/main";
 
 .holder {
-    background-color: lightgreen;
+    background-color: $color-D;
     h1 {
         padding:50px;
         margin:0px;

@@ -1,8 +1,25 @@
+$color-A: #2EA952;
+
+$color-B: #7CD452;
+
+$color-C: #C0EA7D;
+
+$color-D: #FFEE42;
+
+$color-E: #EFAF48;
+
+$color-F: #EC6C01;
+
+$color-G: #E82613;
+
+
+
+
 body,html {
     margin:0px;
     padding:0px;
 }
 
 body {
-    background-color: blue;
+    background-color: $color-G;
 }
