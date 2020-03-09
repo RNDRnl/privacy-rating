@@ -5,16 +5,24 @@ import LabelCircle from "./LabelCircle";
 import LabelBar from "./LabelBar";
 import CategoryBox from "./CategoryBox";
 import DescriptionBox from "./DescriptionBox";
+import LabelContext from '../../state/LabelContext'
 
-class Frame extends Component {
+class Frame extends Component {  
+  static contextType = LabelContext
+  
   constructor() {
     super();
 
     this.state = {
       value: ""
     };
-
+    
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    const user = this.context
+    console.log(user)
   }
 
   handleChange(event) {

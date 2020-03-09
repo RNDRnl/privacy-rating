@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import styles from './main.scss';
-import Frame from "./js/components/frame";
+import App from './js/components/App'
+
 
 ReactDOM.render(
-  <Frame />,
-  document.getElementById("container")
+    <App />
+  ,document.getElementById("container")
 );
