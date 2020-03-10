@@ -26,6 +26,8 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-hot-loader": "^4.12.19",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "sass": "^1.26.2",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.0",
