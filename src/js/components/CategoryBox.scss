@@ -8,34 +8,23 @@
   background-color: $color-A;
   border-radius: 8pt;
   margin-top: 4pt;
-
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
   cursor: pointer;
+  height: 35pt;
+  transition: all .4s ease-in-out;
+  overflow: hidden;
 
-.holder:after {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  text-align: center;
-  background-color: $color-B;
-  border-radius: 8pt;
-  margin-top: 4pt;
-  height: 400pt;
+  &.selected {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    background-color: $color-A;
+    border-radius: 8pt;
+    margin-top: 4pt;
+    height: 140pt;
+  }
 
-  display: none;
-  opacity: 0;
-  transition: all 0.8s
-}
 
-.holder:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
 
   .label {
     flex: 1;

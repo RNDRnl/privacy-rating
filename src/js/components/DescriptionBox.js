@@ -23,7 +23,7 @@ class DescriptionBox extends Component {
 
     render() {
         return (
-            <div className={styles.holder} >
+            <div className={styles.holder}>
                 <div className={styles.label}>No sales of user data</div>
             </div>
         );
