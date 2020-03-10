@@ -15,14 +15,16 @@ class Frame extends Component {
 
     this.state = {
       value: ""
-    };
+    };    
     
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    const user = this.context
-    console.log(user)
+    const { setLabel } = this.context
+
+    const newState = this.props
+    setLabel(newState)
   }
 
   handleChange(event) {
@@ -35,6 +37,10 @@ class Frame extends Component {
   }
 
   render() {
+    const { label } = this.context
+
+    console.log(label)
+
     return (
       <div className={styles.holder} >
         <LabelCircle/>

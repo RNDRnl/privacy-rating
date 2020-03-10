@@ -1,20 +1,21 @@
 import React from 'react';
 
 import Frame from './frame'
-import { UserProvider } from '../../state/LabelContext'
+import { LabelProvider } from '../../state/LabelContext'
 
+
+const initialLabelState = {
+    path: '123456789', 
+    valid: true,
+    domain: 'bol.com',
+    openCategory: null
+}
 
 const App = () => {
-    const globalState = { 
-        path: '123456789', 
-        valid: true,
-        domain: 'bol.com'
-    }
-
     return (
-        <UserProvider value={globalState}>
-            <Frame />
-        </UserProvider>        
+        <LabelProvider>
+            <Frame init={initialLabelState} />
+        </LabelProvider>
     );
 };
 

@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const UserContext = React.createContext()
+const LabelContext = React.createContext()
 
-export const UserProvider = UserContext.Provider
-export const UserConsumer = UserContext.Consumer
+class LabelProvider extends Component {
+    // Context state
+    state = {
+      label: {
+        domain: 'bol.com'
+      }      
+    }
+    
+    // Method to update state
+    setLabel = label => {
+      this.setState(prevState => ({ label }))
+    }
+  
+    render() {
 
-export default UserContext
+      const { children } = this.props
+      const { label } = this.state
+      const { setLabel } = this
+
+  
+      return (
+          
+        <LabelContext.Provider
+          value={{
+            label,
+            setLabel,
+          }}
+        >
+          {children}
+        </LabelContext.Provider>
+      )
+    }
+  }
+  
+export default LabelContext
+
+export { LabelProvider }
