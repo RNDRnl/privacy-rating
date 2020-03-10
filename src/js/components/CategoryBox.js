@@ -11,6 +11,13 @@ class CategoryBox extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+
+        this.wrapperRef = React.createRef();
+    }
+
+    handleClick( ) {
+        const wrapper = this.wrapperRef.current;
+        wrapper.classList.toggle(styles.selected)
     }
 
     handleChange(event) {
@@ -27,11 +34,14 @@ class CategoryBox extends Component {
         console.log(this.props);
 
         return (
-            <div className={styles.holder} >
-                <div className={styles.label}>{this.props.label}</div>
-                {/*<DescriptionBox/>*/}
-                {/*<DescriptionBox/>*/}
-                {/*<DescriptionBox/>*/}
+            <div ref={this.wrapperRef} className={styles.holder} onClick={() => this.handleClick()}>
+                <div className={styles.label}>{this.props.label}
+                    <DescriptionBox/>
+                    <DescriptionBox/>
+                    <DescriptionBox/>
+                </div>
+
+
             </div>
         );
     }
