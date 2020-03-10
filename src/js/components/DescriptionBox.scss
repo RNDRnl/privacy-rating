@@ -2,6 +2,8 @@
 
 .holder {
   display: flex;
+  padding-left: 10pt;
+  padding-right: 10pt;
 
   .label {
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
@@ -9,27 +11,9 @@
     background-color: $color-B;
     border-radius: 10pt;
     flex: 1;
-    margin: 1px;
-
+    margin: 2pt;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    border: 2pt solid white;
   }
-
-  //div {
-  //  flex: 1;
-  //  text-align: center;
-  //  font-size: 10pt;
-  //  border-radius: 10pt;
-  //  border: 2pt solid white;
-  //
-  //  &:nth-child(1) {
-  //    background-color: $color-G;
-  //  }
-  //
-  //  &:nth-child(2) {
-  //    background-color: $color-F;
-  //  }
-  //
-  //  &:nth-child(3) {
-  //    background-color: $color-D;
-  //  }
-  //}
 }

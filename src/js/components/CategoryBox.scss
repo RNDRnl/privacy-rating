@@ -9,32 +9,38 @@
   border-radius: 8pt;
   margin-top: 4pt;
 
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+
+.holder:after {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  background-color: $color-B;
+  border-radius: 8pt;
+  margin-top: 4pt;
+  height: 400pt;
+
+  display: none;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.holder:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
 
   .label {
     flex: 1;
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     font-size: 23pt;
     padding-top: 5pt;
-    min-height: 33pt;
-
-    //&:nth-child(1) {
-    //}
-    //
-    //&:nth-child(2) {
-    //  background-color: $color-C;
-    //  min-height: 33pt;
-    //}
-    //
-    //&:nth-child(3) {
-    //  background-color: $color-C;
-    //  min-height: 33pt;
-    //}
-    //
-    //&:nth-child(4) {
-    //  background-color: $color-D;
-    //  min-height: 33pt;
-    //}
   }
-
-
 }

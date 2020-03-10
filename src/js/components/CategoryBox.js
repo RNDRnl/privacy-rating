@@ -29,9 +29,9 @@ class CategoryBox extends Component {
         return (
             <div className={styles.holder} >
                 <div className={styles.label}>{this.props.label}</div>
-                <DescriptionBox/>
-                <DescriptionBox/>
-                <DescriptionBox/>
+                {/*<DescriptionBox/>*/}
+                {/*<DescriptionBox/>*/}
+                {/*<DescriptionBox/>*/}
             </div>
         );
     }
