@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import styles from './CategoryBox.scss';
 import DescriptionBox from "./DescriptionBox";
+import LabelContext from "../../state/LabelContext";
 
 class CategoryBox extends Component {
+    static contextType = LabelContext
+
     constructor() {
         super();
 
@@ -12,12 +15,27 @@ class CategoryBox extends Component {
 
         this.handleChange = this.handleChange.bind(this);
 
-        this.wrapperRef = React.createRef();
     }
 
     handleClick( ) {
-        const wrapper = this.wrapperRef.current;
-        wrapper.classList.toggle(styles.selected)
+
+        const { label, setLabel } = this.context
+
+        if (label.init.openCategory == this.props.categoryId) {
+            setLabel({
+                'init': {
+                    ...label.init, "openCategory": null
+                }
+            })
+
+        } else {
+            setLabel({
+                'init': {
+                    ...label.init, "openCategory": this.props.categoryId
+                }
+            })
+        }
+
     }
 
     handleChange(event) {
@@ -34,14 +52,11 @@ class CategoryBox extends Component {
         console.log(this.props);
 
         return (
-            <div ref={this.wrapperRef} className={styles.holder} onClick={() => this.handleClick()}>
-                <div className={styles.label}>{this.props.label}
-                    <DescriptionBox/>
-                    <DescriptionBox/>
-                    <DescriptionBox/>
-                </div>
-
-
+            <div className={styles.container} onClick={() => this.handleClick()}>
+                <div className={styles.label}>{this.props.label}</div>
+                <DescriptionBox/>
+                <DescriptionBox/>
+                <DescriptionBox/>
             </div>
         );
     }

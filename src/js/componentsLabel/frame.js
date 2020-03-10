@@ -18,6 +18,8 @@ class Frame extends Component {
     };    
     
     this.handleChange = this.handleChange.bind(this);
+
+    this.wrapperRef = React.createRef();
   }
 
   componentDidMount() {
@@ -25,6 +27,9 @@ class Frame extends Component {
 
     const newState = this.props
     setLabel(newState)
+
+    const wrapper = this.wrapperRef.current;
+    wrapper.classList.add(styles.selected_category_0)
   }
 
   handleChange(event) {
@@ -42,14 +47,16 @@ class Frame extends Component {
     console.log(label)
 
     return (
-      <div className={styles.holder} >
+      <div ref={this.wrapperRef} className={styles.holder} >
         <LabelCircle/>
         <PrivacyRatingFont/>
         <LabelBar/>
-        <CategoryBox label={"COLLECTION"}/>
-        <CategoryBox label={"SHARING"}/>
-        <CategoryBox label={"CONTROL"}/>
-        <CategoryBox label={"SECURITY"}/>
+        <div className={styles.categoryBoxes}>
+            <CategoryBox categoryId={0} label={"COLLECTION"}/>
+            <CategoryBox categoryId={1} label={"SHARING"}/>
+            <CategoryBox categoryId={2} label={"CONTROL"}/>
+            <CategoryBox categoryId={3} label={"SECURITY"}/>
+        </div>
       </div>
     );
   }
