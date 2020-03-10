@@ -5,7 +5,7 @@ const initialFormState = {
 
 const NotFound = () => {
     return (
-        <div>404 no provacy here!</div>
+        <div>404 no privacy here!</div>
     );
 };
 

@@ -5,12 +5,22 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams
 } from "react-router-dom";
 
-import App from './js/components/App'
-import Form from './js/components/Form'
-import NotFound from './js/components/NotFound'
+import App from './js/componentsLabel/App'
+import Home from './js/componentsHome/Home'
+import Form from './js/componentsForm/Form'
+import NotFound from './js/NotFound'
+
+function LabelView() {
+  let { id } = useParams();
+
+  return (
+    <App formId={id} />
+  );
+}
 
 const routes = (
    <Router>
@@ -18,9 +28,10 @@ const routes = (
         <Route path="/form">
           <Form />
         </Route>
-       <Route exact path="/">
-          <App />
+        <Route exact path="/">
+          <Home />
         </Route>
+        <Route path="/:id" children={<LabelView />} />
         <Route path="*">
           <NotFound />
         </Route>
