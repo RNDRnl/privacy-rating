@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { Button, Container, Row, Form, Col } from 'react-bootstrap';
 
 const initialFormState = {
