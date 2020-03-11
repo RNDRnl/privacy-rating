@@ -6,7 +6,10 @@ class LabelProvider extends Component {
     // Context state
     state = {
       label: {
-        domain: 'bol.com'
+        path: '', 
+        valid: false,
+        domain: '',
+        openCategory: null
       }      
     }
     
@@ -23,7 +26,6 @@ class LabelProvider extends Component {
 
   
       return (
-          
         <LabelContext.Provider
           value={{
             label,
