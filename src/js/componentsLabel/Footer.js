@@ -24,7 +24,7 @@ class Footer extends Component {
     render() {
         return (
             <div className={styles.footer} >
-                <div>Bol.com 2020</div>
+                <div>Bol.com | 2020</div>
             </div>
         );
     }

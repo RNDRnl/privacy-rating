@@ -13,7 +13,7 @@ const Home = () => {
 
                     <h2>About</h2>
                     <p>
-                        Privacy Rating specializes in helping enterprises comply
+                        !!!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! Privacy Rating specializes in helping enterprises comply
                         with client-side privacy and data leakage
                         regulations by protecting the customers' private data.
                         The company's qprivacy is a solution that allows businesses
@@ -26,7 +26,7 @@ const Home = () => {
                         The company's qprivacy is a solution that allows businesses
                         that operate within highly regulated environments, such as financial services institutions,
                         to scrutinize and enforce their own data privacy policy and prevent the flow
-                        of unauthorized communication from customers' devices.
+                        of unauthorized communication from customers' devices. !!!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!!
                     </p>
 
                     <h2>Create your own label</h2>

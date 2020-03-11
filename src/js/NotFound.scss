@@ -1,0 +1,33 @@
+.holder {
+  background-color: #f3f3f4;
+  width: 320pt;
+  height: 320pt;
+  padding-left: 12pt;
+  padding-right: 12pt;
+  padding-top: 8pt;
+
+  .privacyRatingFont {
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 37pt;
+  }
+
+  .circle {
+    width: 106pt;
+    height: 106pt;
+    border-radius: 50%;
+    font-size: 48pt;
+    line-height: 106pt;
+    text-align: center;
+    background: gray;
+    float: right;
+    margin-bottom: 5pt;
+  }
+
+  .footer {
+    padding-top: 26pt;
+    text-align: center;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 8pt;
+    color: #A6A8AB;
+  }
+}
