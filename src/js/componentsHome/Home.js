@@ -4,7 +4,7 @@ import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "rea
 const initialFormState = {
 }
 
-const FormView = () => {
+const Home = () => {
     return (
         <Container>
             <Row>
@@ -80,4 +80,4 @@ const FormView = () => {
     );
 };
 
-export default FormView;
+export default Home;

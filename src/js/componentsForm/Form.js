@@ -1,75 +1,117 @@
 import React from 'react';
-import { Button, Container, Row, Form, Col } from 'react-bootstrap';
+import {Button, Container, Jumbotron} from "react-bootstrap";
+import { Wizard, Step, Controls } from "react-decision-tree-flow";
 
-const initialFormState = {
-}
+const tree = {
+    collection1_1: ["collection1_2", "collection2_1"],
+    collection1_2: ["collection2_1"],
+    collection2_1: ["collection2_2", "collection3_1"],
+    collection2_2: ["collection3_1"],
+    collection3_1: ["collection3_2", "sharing1_1"],
+    collection3_2: ["sharing1_1"],
+    sharing1_1: ["sharing2_1"],
 
-const FormView = () => {
-    return (
-        <Container>
-            <Row>
-                <Button>hi i'm a form!</Button>
-            </Row>
-
-            <p>
-                When multiple awnsers apply:
-                Choose the default use case.
-                Consider the wors-case senario.
-            </p>
-            <Row>
-                <Form>
-
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-
-                    <fieldset>
-                        <Form.Group as={Row}>
-                            <Form.Label as="legend" column sm={2}>
-                                Radios
-                            </Form.Label>
-                            <Col sm={10}>
-                                <Form.Check
-                                    type="radio"
-                                    label="first radio"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios1"
-                                />
-                                <Form.Check
-                                    type="radio"
-                                    label="second radio"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios2"
-                                />
-                                <Form.Check
-                                    type="radio"
-                                    label="third radio"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios3"
-                                />
-                            </Col>
-                        </Form.Group>
-                    </fieldset>
-                    <Button variant="primary" type="submit" href="1">
-                        Submit
-                    </Button>
-                </Form>
-            </Row>
-
-        </Container>
-    );
 };
+
+const FormView = () => (
+    <Wizard tree={tree} first="collection1_1">
+        <Container>
+                <Container>
+                    <Jumbotron>
+                        <Step name="collection1_1">
+                            <div>
+                                <h1>Question collection 1.1</h1>
+                                <br />
+                                <Controls>
+                                    {({ collection1_2, collection2_1 }) => (
+                                        <div>
+                                            <Button variant="success" onClick={collection2_1}>YES go to collection 2.1</Button>
+                                            <br />
+                                            <br />
+                                            <Button variant="danger" onClick={collection1_2}>NO go to collection 1.2</Button>
+                                        </div>
+                                    )}
+                                </Controls>
+                            </div>
+                        </Step>
+                    </Jumbotron>
+                    <Jumbotron>
+                        <Step name="collection1_2">
+                            <div>
+                                <h1>Question collection 1.2</h1>
+                                <br />
+                                <Controls>
+                                    {({ collection2_1}) => (
+                                        <div>
+                                            <Button variant="success" onClick={collection2_1}>YES go collection to 2.1</Button>
+                                            <br />
+                                            <br />
+                                            <Button variant="danger" onClick={collection2_1}>NO go collection to 2.1</Button>
+                                        </div>
+                                    )}
+                                </Controls>
+                            </div>
+                        </Step>
+                    </Jumbotron>
+                    <Jumbotron>
+                        <Step name="collection2_1">
+                            <div>
+                                <h1>Question collection 2.1</h1>
+                                <br />
+                                <Controls>
+                                    {({ collection2_2, collection3_1 }) => (
+                                        <div>
+                                            <Button variant="success" onClick={collection3_1}>YES go collection to 3.1</Button>
+                                            <br />
+                                            <br />
+                                            <Button variant="danger" onClick={collection2_2}>NO go collection to 2.2</Button>
+                                        </div>
+                                    )}
+                                </Controls>
+                            </div>
+                        </Step>
+                    </Jumbotron>
+                    <Jumbotron>
+                        <Step name="collection2_2">
+                            <div>
+                                <h1>Question collection 2.2</h1>
+                                <br />
+                                <Controls>
+                                    {({ collection3_1 }) => (
+                                        <div>
+                                            <Button variant="success" onClick={collection3_1}>YES go to collection 3.1</Button>
+                                            <br />
+                                            <br />
+                                            <Button variant="danger" onClick={collection3_1}>NO go to collection 3.1</Button>
+                                        </div>
+                                    )}
+                                </Controls>
+                            </div>
+                        </Step>
+                    </Jumbotron>
+                    <Jumbotron>
+                        <Step name="collection3_1">
+                            <div>
+                                <h1>Question collection 3.1</h1>
+                                <br />
+                                <Controls>
+                                    {({ collection3_2, sharing1_1 }) => (
+                                        <div>
+                                            <Button variant="success" onClick={sharing1_1}>YES go to sharing 1.1</Button>
+                                            <br />
+                                            <br />
+                                            <Button variant="danger" onClick={collection3_2}>NO go to collection 3.2</Button>
+                                        </div>
+                                    )}
+                                </Controls>
+                            </div>
+                        </Step>
+                    </Jumbotron>
+                </Container>
+        </Container>
+
+    </Wizard>
+);
+
 
 export default FormView;
