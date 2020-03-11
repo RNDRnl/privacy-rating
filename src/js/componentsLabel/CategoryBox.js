@@ -13,46 +13,35 @@ class CategoryBox extends Component {
             value: ""
         };
 
-        this.handleChange = this.handleChange.bind(this);
-
+        this.wrapperRef = React.createRef();
     }
 
     handleClick( ) {
-
         const { label, setLabel } = this.context
-
-        if (label.init.openCategory == this.props.categoryId) {
-            setLabel({
-                'init': {
-                    ...label.init, "openCategory": null
-                }
-            })
-
+          
+        if (label.openCategory == this.props.categoryId) {
+            setLabel({ ...label, "openCategory": null })
         } else {
-            setLabel({
-                'init': {
-                    ...label.init, "openCategory": this.props.categoryId
-                }
-            })
-        }
-
-    }
-
-    handleChange(event) {
-        const { value } = event.target;
-        this.setState(() => {
-            return {
-                value
-            };
-        });
+            setLabel({ ...label, "openCategory": this.props.categoryId  })
+        }        
     }
 
     render() {
+        const { label, setLabel } = this.context
 
-        console.log(this.props);
+        const wrapper = this.wrapperRef.current
 
+        if(this.props.isSelected) {            
+            wrapper.classList.add(styles.selected)
+        } else {
+            if(wrapper != null) {
+                const wrapper = this.wrapperRef.current
+                wrapper.classList.remove(styles.selected)
+            }
+        }
+        
         return (
-            <div className={styles.container} onClick={() => this.handleClick()}>
+            <div className={styles.container} ref={this.wrapperRef}  onClick={() => this.handleClick()}>
                 <div className={styles.label}>{this.props.label}</div>
                 <DescriptionBox/>
                 <DescriptionBox/>

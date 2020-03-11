@@ -14,48 +14,30 @@ class Frame extends Component {
     super();
 
     this.state = {
-      value: ""
+     
     };    
     
-    this.handleChange = this.handleChange.bind(this);
-
-    this.wrapperRef = React.createRef();
   }
 
   componentDidMount() {
     const { setLabel } = this.context
-
-    const newState = this.props
+    const newState = this.props.init
     setLabel(newState)
-
-    const wrapper = this.wrapperRef.current;
-    wrapper.classList.add(styles.selected_category_0)
-  }
-
-  handleChange(event) {
-    const { value } = event.target;
-    this.setState(() => {
-      return {
-        value
-      };
-    });
   }
 
   render() {
     const { label } = this.context
 
-    console.log(label)
-
     return (
-      <div ref={this.wrapperRef} className={styles.holder} >
+      <div  className={styles.holder} >
         <LabelCircle/>
         <PrivacyRatingFont/>
         <LabelBar/>
         <div className={styles.categoryBoxes}>
-            <CategoryBox categoryId={0} label={"COLLECTION"}/>
-            <CategoryBox categoryId={1} label={"SHARING"}/>
-            <CategoryBox categoryId={2} label={"CONTROL"}/>
-            <CategoryBox categoryId={3} label={"SECURITY"}/>
+            <CategoryBox categoryId={0} isSelected={label.openCategory == 0} label={"COLLECTION"}/>
+            <CategoryBox categoryId={1} isSelected={label.openCategory == 1} label={"SHARING"}/>
+            <CategoryBox categoryId={2} isSelected={label.openCategory == 2} label={"CONTROL"}/>
+            <CategoryBox categoryId={3} isSelected={label.openCategory == 3} label={"SECURITY"}/>
         </div>
       </div>
     );
