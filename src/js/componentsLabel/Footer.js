@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from './LabelBar.scss';
+import styles from './Footer.scss';
 
-class LabelBar extends Component {
+class Footer extends Component {
     constructor() {
         super();
 
@@ -23,17 +23,11 @@ class LabelBar extends Component {
 
     render() {
         return (
-            <div className={styles.holder} >
-                <div>A</div>
-                <div>B</div>
-                <div>C</div>
-                <div>D</div>
-                <div>E</div>
-                <div>F</div>
-                <div>G</div>
+            <div className={styles.footer} >
+                <div>Bol.com 2020</div>
             </div>
         );
     }
 }
 
-export default LabelBar;
+export default Footer;

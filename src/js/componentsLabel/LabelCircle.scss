@@ -9,5 +9,18 @@
   text-align: center;
   background: $color-B;
   float: right;
-  margin-bottom: 4pt;
+  margin-bottom: 5pt;
+  transition: $duration;
+
+  &.holderminimal {
+    width: 38pt;
+    height: 38pt;
+    border-radius: 50%;
+    font-size: 22pt;
+    line-height: 38pt;
+    text-align: center;
+    background: $color-B;
+    float: right;
+    margin-bottom: 4pt;
+  }
 }

@@ -4,8 +4,8 @@ import PrivacyRatingFont from "./PrivacyRatingFont";
 import LabelCircle from "./LabelCircle";
 import LabelBar from "./LabelBar";
 import CategoryBox from "./CategoryBox";
-import DescriptionBox from "./DescriptionBox";
 import LabelContext from '../../state/LabelContext'
+import Footer from "./Footer";
 
 class Frame extends Component {  
   static contextType = LabelContext
@@ -39,6 +39,7 @@ class Frame extends Component {
             <CategoryBox categoryId={2} isSelected={label.openCategory == 2} label={"CONTROL"}/>
             <CategoryBox categoryId={3} isSelected={label.openCategory == 3} label={"SECURITY"}/>
         </div>
+        <Footer/>
       </div>
     );
   }

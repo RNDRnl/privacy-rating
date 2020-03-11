@@ -9,8 +9,8 @@
   border-radius: 8pt;
   margin-top: 4pt;
   cursor: pointer;
-  height: 35pt;
-  transition: all .4s ease-in-out;
+  height: 34pt;
+  transition: $duration;
   overflow: hidden;
 
   &.selected {
@@ -21,15 +21,40 @@
     background-color: $color-A;
     border-radius: 8pt;
     margin-top: 4pt;
-    height: 140pt;
+    height: 127pt;
   }
-
-
 
   .label {
     flex: 1;
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 23pt;
-    padding-top: 5pt;
+    font-size: 22pt;
+    padding-top: 3pt;
+  }
+
+
+  &.notSelected {
+    background-color: $color-Inactive;
+    height: 26pt;
+
+    .label {
+      font-size: 10pt;
+      color: $color-Grey-Text;
+    }
+  }
+
+  .icon {
+    float: left;
+    height: 30pt;
+    width: 30pt;
+
+  }
+
+  .arrow {
+    float: right;
+    height: 30pt;
+    width: 30pt;
+    //transform: rotate(90deg);
   }
 }
+
+

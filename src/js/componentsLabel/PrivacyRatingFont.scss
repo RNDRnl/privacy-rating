@@ -3,4 +3,10 @@
 .holder {
   font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
   font-size: 37pt;
+  transition: $duration;
+
+  &.holderminimal {
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+  }
 }
