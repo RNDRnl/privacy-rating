@@ -3,6 +3,10 @@
 .holder {
   font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
   font-size: 37pt;
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -o-transition: $duration;
+  -ms-transiton: $duration;
   transition: $duration;
 
   &.holderminimal {
