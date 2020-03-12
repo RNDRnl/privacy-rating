@@ -17,6 +17,24 @@
   transition: $duration;
   overflow: hidden;
 
+  .icon {
+    float: left;
+    height: 30pt;
+    width: 30pt;
+
+  }
+
+  .arrow {
+    float: right;
+    height: 30pt;
+    width: 30pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+  }
+
   &.selected {
     display: flex;
     width: 100%;
@@ -26,6 +44,10 @@
     border-radius: 8pt;
     margin-top: 4pt;
     height: 127pt;
+
+    .arrow {
+      transform: rotate(90deg);
+    }
   }
 
   .label {
@@ -41,28 +63,23 @@
     height: 26pt;
 
     .label {
-      font-size: 10pt;
+      font-size: 16pt;
       color: $color-Grey-Text;
     }
+
+    .icon {
+      float: left;
+      height: 20pt;
+      width: 20pt;
+
+    }
+
+    .arrow {
+      float: right;
+      height: 20pt;
+      width: 20pt;
+    }
   }
-
-  .icon {
-    float: left;
-    height: 30pt;
-    width: 30pt;
-
-  }
-
-  .arrow {
-    float: right;
-    height: 30pt;
-    width: 30pt;
-  }
-
-  &.arrowSelected {
-    transform: rotate(90deg);
-  }
-
 }
 
 
