@@ -6,6 +6,7 @@ import LabelBar from "./LabelBar";
 import CategoryBox from "./CategoryBox";
 import LabelContext from '../../state/LabelContext'
 import Footer from "./Footer";
+import {Image} from "react-bootstrap";
 
 class Frame extends Component {  
   static contextType = LabelContext

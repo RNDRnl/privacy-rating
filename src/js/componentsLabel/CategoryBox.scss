@@ -53,8 +53,12 @@
     float: right;
     height: 30pt;
     width: 30pt;
-    //transform: rotate(90deg);
   }
+
+  &.arrowSelected {
+    transform: rotate(90deg);
+  }
+
 }
 
 

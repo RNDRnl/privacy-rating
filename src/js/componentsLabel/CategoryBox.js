@@ -51,7 +51,6 @@ class CategoryBox extends Component {
                 }
             }
         }
-
         return (
             <div className={styles.container} ref={this.wrapperRef}  onClick={() => this.handleClick()}>
                 <div className={styles.label}>
