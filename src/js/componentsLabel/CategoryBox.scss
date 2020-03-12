@@ -17,6 +17,13 @@
   transition: $duration;
   overflow: hidden;
 
+  .label {
+    flex: 1;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+    padding-top: 3pt;
+  }
+
   .icon {
     float: left;
     height: 30pt;
@@ -49,14 +56,6 @@
       transform: rotate(90deg);
     }
   }
-
-  .label {
-    flex: 1;
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 22pt;
-    padding-top: 3pt;
-  }
-
 
   &.notSelected {
     background-color: $color-Inactive;

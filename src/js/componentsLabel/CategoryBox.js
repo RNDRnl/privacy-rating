@@ -3,6 +3,7 @@ import styles from './CategoryBox.scss';
 import DescriptionBox from "./DescriptionBox";
 import LabelContext from "../../state/LabelContext";
 import {Image} from "react-bootstrap";
+import divWithClassName from "react-bootstrap/cjs/divWithClassName";
 
 class CategoryBox extends Component {
     static contextType = LabelContext
@@ -51,6 +52,7 @@ class CategoryBox extends Component {
                 }
             }
         }
+
         return (
             <div className={styles.container} ref={this.wrapperRef}  onClick={() => this.handleClick()}>
                 <div className={styles.label}>
