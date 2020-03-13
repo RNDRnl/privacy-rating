@@ -53,11 +53,11 @@ class CategoryBox extends Component {
         }
 
         return (
-            <div className={styles.container} ref={this.wrapperRef}  onClick={() => this.handleClick()}>
+            <div className={styles.container} ref={this.wrapperRef} onClick={() => this.handleClick()}>
                 <div className={styles.label}>
                     {this.props.label}
-                    <Image className={styles.icon} src={this.props.gifPath} fluid />
-                    <Image className={styles.arrow} src="resources/icons/arrow-right.png" fluid />
+                    <Image className={styles.icon} src={this.props.icon} fluid />
+                    <Image className={styles.arrow} src="resources/icons/arrow.png" fluid />
                     <DescriptionBox/>
                     <DescriptionBox/>
                     <DescriptionBox/>

@@ -11,7 +11,7 @@
     line-height: 20pt;
     text-align: center;
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 8pt;
+    font-size: 9pt;
 
     &:nth-child(1) {
       background-color: $color-A;
@@ -22,7 +22,7 @@
     &:nth-child(2) {
       line-height: 22pt;
       background-color: $color-B;
-      border: 2pt solid black;
+      border: 1.5pt solid black;
       border-radius: 5pt;
     }
 
