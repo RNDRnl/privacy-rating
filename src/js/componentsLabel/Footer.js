@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import styles from './Footer.scss';
+import {Image, Switch} from "react-bootstrap";
+import Home from "../componentsHome/Home";
+import {Route, Router} from "react-router-dom";
 
 class Footer extends Component {
     constructor() {
@@ -23,7 +26,8 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className={styles.footer} >
+            <div className={styles.footer}>
+                <a href="/" title="Report" className={styles.reportFlag}/>
                 <div>Bol.com | 2020</div>
             </div>
         );

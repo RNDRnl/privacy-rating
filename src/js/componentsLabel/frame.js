@@ -6,6 +6,7 @@ import LabelBar from "./LabelBar";
 import CategoryBox from "./CategoryBox";
 import LabelContext from '../../state/LabelContext'
 import Footer from "./Footer";
+import {Image} from "react-bootstrap";
 
 class Frame extends Component {  
   static contextType = LabelContext
@@ -34,10 +35,10 @@ class Frame extends Component {
         <PrivacyRatingFont/>
         <LabelBar/>
         <div className={styles.categoryBoxes}>
-            <CategoryBox categoryId={0} isSelected={label.openCategory == 0} label={"COLLECTION"}/>
-            <CategoryBox categoryId={1} isSelected={label.openCategory == 1} label={"SHARING"}/>
-            <CategoryBox categoryId={2} isSelected={label.openCategory == 2} label={"CONTROL"}/>
-            <CategoryBox categoryId={3} isSelected={label.openCategory == 3} label={"SECURITY"}/>
+            <CategoryBox categoryId={0} isSelected={label.openCategory == 0} gifPath={"resources/icons/collection-transparant.gif"} label={"COLLECTION"}/>
+            <CategoryBox categoryId={1} isSelected={label.openCategory == 1} gifPath={"resources/icons/sharing-transparant.gif"} label={"SHARING"}/>
+            <CategoryBox categoryId={2} isSelected={label.openCategory == 2} gifPath={"resources/icons/control-transparant.gif"} label={"CONTROL"}/>
+            <CategoryBox categoryId={3} isSelected={label.openCategory == 3} gifPath={"resources/icons/security-transparant.gif"} label={"SECURITY"}/>
         </div>
         <Footer/>
       </div>
