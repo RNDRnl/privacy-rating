@@ -21,14 +21,14 @@ class CategoryBox extends Component {
         const { label, setLabel } = this.context
           
         if (label.openCategory == this.props.categoryId) {
-            setLabel({ ...label, "openCategory": null })
+            setLabel({ ...label,  "openCategory": null })
         } else {
             setLabel({ ...label, "openCategory": this.props.categoryId  })
-        }        
+        }
     }
 
     render() {
-        const { label, setLabel } = this.context
+        const { label, setLabel} = this.context
 
         const wrapper = this.wrapperRef.current
 
@@ -53,11 +53,11 @@ class CategoryBox extends Component {
         }
 
         return (
-            <div className={styles.container} ref={this.wrapperRef}  onClick={() => this.handleClick()}>
+            <div className={styles.container} ref={this.wrapperRef} onClick={() => this.handleClick()}>
                 <div className={styles.label}>
                     {this.props.label}
-                    <Image className={styles.icon} src="resources/icons/control-transparant.gif" fluid />
-                    <Image className={styles.arrow} src="resources/icons/arrow-right.png" fluid />
+                    <Image className={styles.icon} src={this.props.icon} fluid />
+                    <Image className={styles.arrow} src="resources/icons/arrow.png" fluid />
                     <DescriptionBox/>
                     <DescriptionBox/>
                     <DescriptionBox/>

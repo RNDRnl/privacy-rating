@@ -1,0 +1,54 @@
+.holder {
+  background-color: #f3f3f4;
+  min-width: 400pt;
+  min-height: auto;
+  padding-left: 12pt;
+  padding-right: 12pt;
+  padding-top: 8pt;
+
+  .privacyRatingFont {
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 37pt;
+    line-height: 1.1;
+  }
+
+  .privacyRatingBox {
+    background-color: #D0D2D3;
+    padding: 16pt;
+    height: 110pt;
+    border-top-right-radius: 60pt;
+    border-bottom-right-radius: 60pt;
+    border-top-left-radius: 8pt;
+    border-bottom-left-radius: 8pt;
+  }
+
+  .cirleA {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #2EA952;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .subTitleBox {
+    margin-top: 10pt;
+    background-color: #2EA952;
+    border-radius: 8pt;
+    padding: 10pt;
+    min-width: 300pt;
+    text-align: center;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 25pt;
+    line-height: 1.1;
+  }
+
+  .plaintextBox {
+    background-color: #D0D2D3;
+    padding: 15pt;
+    min-width: 300pt;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    line-height: 1.1;
+  }
+}

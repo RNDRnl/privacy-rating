@@ -10,6 +10,10 @@
   background: $color-B;
   float: right;
   margin-bottom: 5pt;
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -o-transition: $duration;
+  -ms-transiton: $duration;
   transition: $duration;
 
   &.holderminimal {

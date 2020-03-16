@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './NotFound.scss';
 import {Button, ButtonGroup} from "react-bootstrap";
+import Footer from "./componentsLabel/Footer";
 
 const initialFormState = {
 }
@@ -21,8 +22,7 @@ const NotFound = () => {
             <ButtonGroup>
                 <Button variant="secondary" href="/">About</Button>
             </ButtonGroup>
-            <div className={styles.footer}>PRIVACY RATING | 2020</div>
-
+            <div className={styles.footer}><Footer/></div>
         </div>
     );
 };
