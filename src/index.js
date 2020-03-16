@@ -8,6 +8,7 @@ import {
   Link,
   useParams
 } from "react-router-dom";
+import { FormProvider } from './state/FormContext'
 
 import App from './js/componentsLabel/App'
 import Home from './js/componentsHome/Home'
@@ -26,7 +27,9 @@ const routes = (
    <Router>
      <Switch>
         <Route path="/form">
-          <Form />
+          <FormProvider>
+            <Form />
+          </FormProvider>
         </Route>
         <Route exact path="/">
           <Home />

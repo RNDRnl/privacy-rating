@@ -1,0 +1,25 @@
+
+
+.accordionView {
+    padding:15px;
+    min-width: 100% !important;
+    
+}
+
+.ProgressBar {
+    height: 50px;
+    font-size: 16px;
+}
+
+.answerButton {
+    background-color: rgb(50, 50, 50);
+    padding: 5px 40px 5px ;
+    color:white;
+    transition: background-color 100ms ease-in-out;
+    
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
+

@@ -1,0 +1,26 @@
+
+.justifyContentEnd {
+    justify-content: flex-end!important;
+    float:right;
+}
+
+
+.answerButton {
+    background-color: rgb(50, 50, 50);
+    padding: 5px 40px 5px ;
+    color:white;
+    transition: background-color 100ms ease-in-out;
+    
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+
+    &.notSelected {
+        background-color: black;
+    }
+
+    &.selected {
+        background-color:blue;
+    }
+}

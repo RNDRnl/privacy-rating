@@ -23,7 +23,6 @@ class LabelProvider extends Component {
       const { children } = this.props
       const { label } = this.state
       const { setLabel } = this
-
   
       return (
         <LabelContext.Provider
