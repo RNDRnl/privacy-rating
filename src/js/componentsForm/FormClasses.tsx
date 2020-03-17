@@ -133,14 +133,18 @@ export class Answer {
     formRef: String;
     targetKey: String;
     answer: String;
+    score?: Number;
+    text?: String;
     getTag = (_index:String) => {
         return (
             <FormAnser key={""+_index} targetKey={this.targetKey} formRef={this.formRef} eventKey={""+_index}  answer={this.answer} />
         )
     }
-    constructor(_formRef: string, _targetKey: string, _answer: String) { 
+    constructor(_formRef: string, _targetKey: string, _answer: String, _score?: Number, _text?: String) { 
         this.formRef = _formRef;
         this.targetKey = _targetKey;
         this.answer = _answer;
+        this.score = _score;
+        this.text = _text;
     }
 }

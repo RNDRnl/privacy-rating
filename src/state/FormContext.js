@@ -46,27 +46,49 @@ class FormProvider extends Component {
         security_2_a:null,
         security_2_b:null,
         
+        generatedHash:null,
       }      
     }
     
     updateForm = (ref, value) => {
+      let that = this;
       this.setState({ 
         Form : {
             ...this.state.Form,
             [ref]: value   
         }
+      }, function() {
+        that.checkHash()
       });
-      FormStateToHash(this.state.Form);
     }
 
     updateFormMultiple = (ref1, value1, ref2, value2) => {
+      let that = this;
       this.setState({ 
         Form : {
             ...this.state.Form,
             [ref1]: value1,
             [ref2]: value2
         }
+      }, function() {
+        that.checkHash()
       });
+    }
+
+    checkHash = () => {
+      var hash = FormStateToHash(this.state.Form);
+      console.log("check hash", hash);
+      if( hash != null) {
+        this.setState({
+          Form: {
+            ...this.state.Form,
+            generatedHash: hash
+          }
+        })
+      }
+    }
+
+    componentDidUpdate() {
     }
 
     checkForm = (ref) => {
