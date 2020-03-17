@@ -1,35 +1,10 @@
 .holder {
-  background-color: #f3f3f4;
+  background-color: white;
   min-width: 400pt;
   min-height: auto;
   padding-left: 12pt;
   padding-right: 12pt;
   padding-top: 8pt;
-
-  .privacyRatingFont {
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 37pt;
-    line-height: 1.1;
-  }
-
-  .privacyRatingBox {
-    background-color: #D0D2D3;
-    padding: 16pt;
-    height: 110pt;
-    border-top-right-radius: 60pt;
-    border-bottom-right-radius: 60pt;
-    border-top-left-radius: 8pt;
-    border-bottom-left-radius: 8pt;
-  }
-
-  .cirleA {
-    width: 80pt;
-    height: 80pt;
-    border-radius: 50%;
-    background: #2EA952;
-    float: right;
-    margin-left: 5pt;
-  }
 
   .subTitleBox {
     margin-top: 10pt;
@@ -43,12 +18,28 @@
     line-height: 1.1;
   }
 
-  .plaintextBox {
-    background-color: #D0D2D3;
-    padding: 15pt;
-    min-width: 300pt;
+  .Box {
+    background-color: #F3f3F4;
+    border-radius: 8pt;
+  }
+
+  .plainText {
+    padding-left: 12pt;
+    padding-right: 12pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    width: 400pt;
+    min-height: 330pt;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
-    font-size: 10pt;
+    font-size: 12pt;
     line-height: 1.1;
+  }
+
+  .image {
+    width: 300pt;
+    height: 300pt;
+    float: right;
+    margin-top: 15pt;
+    margin-right: 72pt;
   }
 }
