@@ -22,38 +22,33 @@ class CategoryBox extends Component {
           
         if (label.openCategory == this.props.categoryId) {
             setLabel({ ...label,  "openCategory": null })
+           
         } else {
             setLabel({ ...label, "openCategory": this.props.categoryId  })
         }
     }
 
+    componentDidUpdate() {
+
+    }
+
     render() {
-        const { label, setLabel} = this.context
+        const { label } = this.context
 
-        const wrapper = this.wrapperRef.current
-
-        if(this.props.isSelected) {            
-            wrapper.classList.add(styles.selected)
-        } else {
-            if(wrapper != null) {
-                const wrapper = this.wrapperRef.current
-                wrapper.classList.remove(styles.selected)
-            }
-        }
+        var classNames = `${styles.container} `
 
         if(label.openCategory != null) {
             if (label.openCategory != this.props.categoryId) {
-                wrapper.classList.add(styles.notSelected)
-            } else {
-                if (wrapper != null) {
-                    const wrapper = this.wrapperRef.current
-                    wrapper.classList.remove(styles.notSelected)
-                }
+                classNames += `${styles.notSelected} `
             }
         }
 
+        if(this.props.isSelected) {  
+            classNames += `${styles.selected} `
+        }
+
         return (
-            <div className={styles.container} ref={this.wrapperRef} onClick={() => this.handleClick()}>
+            <div className={classNames} onClick={() => this.handleClick()}>
                 <div className={styles.label}>
                     {this.props.label}
                     <Image className={styles.icon} src={this.props.icon} fluid />
