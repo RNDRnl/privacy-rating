@@ -79,7 +79,7 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
     static contextType = FormContext
 
     render() {
-        console.log(this.props.children);
+        //console.log(this.props.children);
 
         const { checkForm } = this.context;
 
@@ -181,7 +181,7 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 
     handleChange(event) {
         const { Form, updateForm } = this.context;
-        console.log(event.target.value);
+        //console.log(event.target.value);
         updateForm(
             this.props.formRef,
             event.target.value    

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { FormStateToHash, HashToLabelState } from "./Logic"
 const FormContext = React.createContext()
 
 class FormProvider extends Component {
@@ -56,6 +56,7 @@ class FormProvider extends Component {
             [ref]: value   
         }
       });
+      FormStateToHash(this.state.Form);
     }
 
     updateFormMultiple = (ref1, value1, ref2, value2) => {
@@ -69,13 +70,10 @@ class FormProvider extends Component {
     }
 
     checkForm = (ref) => {
-      console.log(ref);
-      console.log("img gonne rturn",this.state.Form[ref] )
       return this.state.Form[ref];
     }
   
     render() {
-
       const { children } = this.props
       const { Form } = this.state
       const { updateForm, checkForm, updateFormMultiple } = this

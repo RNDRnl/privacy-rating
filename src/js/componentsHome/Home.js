@@ -3,6 +3,7 @@ import styles from './Home.scss';
 import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "react-bootstrap";
 import LabelBar from "../componentsLabel/LabelBar";
 
+
 const initialFormState = {
 }
 

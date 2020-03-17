@@ -14,7 +14,7 @@ export class Category {
     completedIf: String;
     sections: Section[] = new Array();
     getTag = (_index:String) => {
-        console.log(_index);
+        //console.log(_index);
         return (
             <FormCategory 
                 key={""+this.categoryName} 
@@ -58,7 +58,7 @@ export class Section {
         var result: any = new Array()
         var sectionName = this.sectionName;
         this.questions.forEach(function(element:any, index:any) {
-            console.log("question", index)
+            // console.log("question", index)
             result.push(element.getTag(""+index, sectionName))
         })
         return result
@@ -91,7 +91,7 @@ export class Question {
         return result
     }
     checkVisible = (_in: String) => {
-        console.log("hi", _in)
+        // console.log("hi", _in)
     }
     
     constructor(_question: String, _ansers: Array<Answer>) { 

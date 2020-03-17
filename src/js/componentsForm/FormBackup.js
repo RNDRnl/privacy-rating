@@ -75,27 +75,27 @@ const EmptyRating = {
             rank: null,
             category: 'Sharing',
             descriptoins: [
-                { rank: 0, text: null },
-                { rank: 2, text: null },
-                { rank: 2, text: null }
+                { rank: null, text: null },
+                { rank: null, text: null },
+                { rank: null, text: null }
             ]
         },
         {
             rank: null,
             category: 'Control',
             descriptoins: [
-                { rank: 2, text: null },
-                { rank: 0, text: null },
-                { rank: 0, text: null }
+                { rank: null, text: null },
+                { rank: null, text: null },
+                { rank: null, text: null }
             ]
         },
         {
             rank: null,
             category: 'Security',
             descriptoins: [
-                { rank: 2, text: null },
-                { rank: 0, text: null },
-                { rank: 0, text: null }
+                { rank: null, text: null },
+                { rank: null, text: null },
+                { rank: null, text: null }
             ]
         }
     ]   
