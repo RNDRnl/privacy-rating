@@ -1,0 +1,87 @@
+.holder {
+  background-color: #D0D2D3;
+  padding: 16pt;
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 60pt;
+  border-bottom-right-radius: 60pt;
+  border-top-left-radius: 8pt;
+  border-bottom-left-radius: 8pt;
+
+  .privacyRatingFont {
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 37pt;
+    line-height: 1.1;
+  }
+
+  .circlebox {
+    max-width: 100%;
+    max-height: 80pt;
+    float: right;
+    margin-left: 5pt;
+    overflow: hidden;
+  }
+
+  .cirleA {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #2EA952;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .cirleB {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #7CD452;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .cirleC {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #C0EA7D;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .cirleD {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #FFEE42;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .cirleE {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #EFAF48;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .cirleF {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #EC6C01;
+    float: right;
+    margin-left: 5pt;
+  }
+
+  .cirleG {
+    width: 80pt;
+    height: 80pt;
+    border-radius: 50%;
+    background: #E82613;
+    float: right;
+    margin-left: 5pt;
+  }
+}

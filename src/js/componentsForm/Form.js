@@ -5,6 +5,7 @@ import styles from './Form.scss';
 import _ from 'underscore'
 import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
+import Header from "../Header";
 
 class FormView extends Component {
     static contextType = FormContext
@@ -43,7 +44,7 @@ class FormView extends Component {
                     <Row >
                         <Col>
                             <br />
-                            <h1>PRIVACY LABEL FORM</h1>
+                            <Header/>
                             {/* <br />
                             <div>current handle:{this.state.currentHandle}</div>
                             <div>current category: {this.state.currentCategory}</div>
