@@ -7,6 +7,7 @@ import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
+import * as Scroll from 'react-scroll';
 
 class FormView extends Component {
     static contextType = FormContext
@@ -32,12 +33,15 @@ class FormView extends Component {
             </Accordion>
         )
     }
+
+    componentDidUpdate() {
+        // var scroll = Scroll.animateScroll;
+        // scroll.scrollToBottom({duration: 1500});
+    }
     
     render() {
 
         const { Form } = this.context
-
-        console.log("what i got", Form.generatedHash)
         return (
                 <div>
                     <Container>

@@ -14,7 +14,7 @@ export interface ValidPropsCategory {
     eventKey: string;
     children: any;
     availableIf: String;
-    completedIf: String;
+    completedIf: String[];
 }
 
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
@@ -31,18 +31,9 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
             <Card key={""+this.props.categoryName} >   
                 <Card.Header>
                         <div>
-                            { checkForm(this.props.availableIf) != null &&
-                                // <Accordion.Toggle as={Button} variant="link" eventKey={this.props.eventKey}>
-                                <Navbar.Text>
-                                    {this.props.categoryName}
-                                </Navbar.Text>
-                                ///* </Accordion.Toggle> */
-                            }
-                            { checkForm(this.props.availableIf) == null &&
-                                 <Navbar.Text>
-                                    {this.props.categoryName}
-                                </Navbar.Text>
-                            }
+                            <Navbar.Text>
+                                {this.props.categoryName}
+                            </Navbar.Text>
                             <Navbar.Text className={styles.justifyContentEnd}>
                                 { checkForm(this.props.completedIf) != null &&
                                     <div>Check</div>
