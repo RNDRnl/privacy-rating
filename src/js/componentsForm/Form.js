@@ -7,7 +7,6 @@ import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
-import Footer from "../Footer";
 import * as Scroll from 'react-scroll';
 
 class FormView extends Component {
@@ -39,44 +38,51 @@ class FormView extends Component {
         // var scroll = Scroll.animateScroll;
         // scroll.scrollToBottom({duration: 1500});
     }
-
+    
     render() {
 
         const { Form } = this.context
         return (
-
-                <Container>
-                    {/* {JSON.stringify(Form)} */}
-                    <Row >
-                        <Header/>
-                        <Col>
-                            {/* <br />
-                            <div>current handle:{this.state.currentHandle}</div>
-                            <div>current category: {this.state.currentCategory}</div>
-                            <div>current step:{this.state.currentStep}</div> */}
-                        </Col>
-                    </Row>
-                    <Row >
-                        { this.getForm(FormConfig) }
-                    </Row>
-                    <Row>
-                        <Col>
-                        <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
-                        </Col>
-                    </Row>
-                    { Form.generatedHash != null &&
-                        <Row>
+                <div>
+                    <Container>
+                        {/* {JSON.stringify(Form)} */}
+                        <Row >
                             <Col>
-                                <div>We have a valid label for you!</div>
-                                <Link to={`/embed/${Form.generatedHash}`}>
-                                    {Form.generatedHash}
-                                </Link>
+                                <br />
+                                <Header/>
+                                {/* <br />
+                                <div>current handle:{this.state.currentHandle}</div>
+                                <div>current category: {this.state.currentCategory}</div>
+                                <div>current step:{this.state.currentStep}</div> */}
                             </Col>
                         </Row>
-                    }
-                    <br/>
-                    <Footer/>
-                </Container>
+                        <Row >
+                            { this.getForm(FormConfig) }
+                        </Row>
+                    </Container>
+
+
+                    <div className={styles.formFooter}>
+                        <Container>
+                        <Row>
+                            <Col>
+                                <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
+                            </Col>
+                        </Row>
+                        { Form.generatedHash != null && 
+                            <Row>
+                                <Col>
+                                    <div>We have a valid label for you!</div>
+                                    <Link to={`/embed/${Form.generatedHash}`}>
+                                        {Form.generatedHash}
+                                    </Link>
+                                </Col>
+                            </Row>
+                        }
+                        </Container>
+                    </div>
+                    
+                </div>
         )
     }
 };
