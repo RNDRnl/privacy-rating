@@ -52,7 +52,7 @@ class CategoryBox extends Component {
                 <div className={styles.label}>
                     {this.props.label}
                     <Image className={styles.icon} src={this.props.icon} fluid />
-                    <Image className={styles.arrow} src="resources/icons/arrow.png" fluid />
+                    <Image className={styles.arrow} src="/resources/icons/arrow.png" fluid />
                     <DescriptionBox/>
                     <DescriptionBox/>
                     <DescriptionBox/>

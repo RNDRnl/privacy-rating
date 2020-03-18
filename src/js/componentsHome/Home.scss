@@ -6,40 +6,99 @@
   padding-right: 12pt;
   padding-top: 8pt;
 
-  .subTitleBox {
-    margin-top: 10pt;
-    background-color: #2EA952;
-    border-radius: 8pt;
-    padding: 10pt;
-    min-width: 300pt;
-    text-align: center;
+
+  .backgroundAbout {
+
+    background-color: #F3f3F4;
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
+  }
+
+  .backgroundCreate {
+
+    background-color: white;
+    height: 200pt;
+  }
+
+  .backgroundUse {
+
+    background-color: #F3f3F4;
+    border-bottom-left-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+  }
+
+  .subtitleAbout {
+    padding-left: 12pt;
+    padding-right: 12pt;
+    padding-top: 25pt;
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 25pt;
+    font-size: 22pt;
     line-height: 1.1;
   }
 
-  .Box {
-    background-color: #F3f3F4;
-    border-radius: 8pt;
-  }
-
-  .plainText {
+  .plainTextAbout {
     padding-left: 12pt;
     padding-right: 12pt;
     padding-top: 15pt;
-    padding-bottom: 15pt;
+    padding-bottom: 25pt;
     width: 400pt;
-    min-height: 330pt;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
     font-size: 12pt;
     line-height: 1.1;
   }
 
-  .image {
-    width: 300pt;
-    height: 300pt;
+  .subtitleCreate {
+    padding-right: 190pt;
+    padding-top: 25pt;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+    line-height: 1.1;
     float: right;
-    margin-top: 15pt;
-    margin-right: 72pt;
+  }
+
+
+  .plainTextCreate {
+    padding-right: 32pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    width: 400pt;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 12pt;
+    line-height: 1.1;
+    float: right;
+  }
+
+  .plainTextUse {
+    padding-left: 12pt;
+    padding-right: 12pt;
+    padding-top: 15pt;
+    width: 400pt;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+    line-height: 1.1;
+  }
+
+
+  .image {
+    width: 250pt;
+    height: 250pt;
+    float: right;
+    margin-top: 32pt;
+    margin-right: 110pt;
+  }
+
+  .button {
+    float: left;
+    margin-top: 70pt;
+    margin-left: 42pt;
+    width: 250pt;
+    font-size: 22pt;
+  }
+
+  .logos {
+    width: 60pt;
+    float: right;
+    margin-top: 22pt;
+    margin-right: 30pt;
   }
 }

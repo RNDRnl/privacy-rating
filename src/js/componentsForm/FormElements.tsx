@@ -1,5 +1,21 @@
 import * as React from "react";
-import {Button, Container, InputGroup, Navbar, Jumbotron, FormControl, Accordion, Col, Row, Card, Table, ListGroup, ProgressBar, FormCheck} from "react-bootstrap";
+import {
+    Button,
+    Container,
+    InputGroup,
+    Navbar,
+    Jumbotron,
+    FormControl,
+    Accordion,
+    Col,
+    Row,
+    Card,
+    Table,
+    ListGroup,
+    ProgressBar,
+    FormCheck,
+    Image
+} from "react-bootstrap";
 // import * as stylesvalues from './FormElements.scss';
 const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
@@ -28,27 +44,28 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
         var openState = checkForm( `${this.props.categoryName.toLowerCase()}_open` )
 
         return (
-            <Card key={""+this.props.categoryName} >   
+            <Card key={""+this.props.categoryName}>
                 <Card.Header>
                         <div>
                             { checkForm(this.props.availableIf) != null &&
                                 // <Accordion.Toggle as={Button} variant="link" eventKey={this.props.eventKey}>
-                                <Navbar.Text>
+                                <Navbar.Text className={styles.headerstyle}>
                                     {this.props.categoryName}
                                 </Navbar.Text>
                                 ///* </Accordion.Toggle> */
                             }
                             { checkForm(this.props.availableIf) == null &&
                                  <Navbar.Text>
+                                     <Image className={styles.headerIcon} src="/resources/icons/collection-transparant.gif" />
                                     {this.props.categoryName}
                                 </Navbar.Text>
                             }
                             <Navbar.Text className={styles.justifyContentEnd}>
                                 { checkForm(this.props.completedIf) != null &&
-                                    <div>Check</div>
+                                    <div>✓</div>
                                 }
                                 { checkForm(this.props.completedIf) == null &&
-                                    <div>x</div>
+                                    <div>×</div>
                                 }
                             </Navbar.Text>
                         </div>
@@ -256,6 +273,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
                 <button className={className} type="button" onClick={handleClick.handleClick} >
                     {answer}
                 </button>
+
             );
         }
 

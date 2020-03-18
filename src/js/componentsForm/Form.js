@@ -7,6 +7,7 @@ import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
+import Footer from "../Footer";
 
 class FormView extends Component {
     static contextType = FormContext
@@ -44,9 +45,8 @@ class FormView extends Component {
                 <Container>
                     {/* {JSON.stringify(Form)} */}
                     <Row >
+                        <Header/>
                         <Col>
-                            <br />
-                            <Header/>
                             {/* <br />
                             <div>current handle:{this.state.currentHandle}</div>
                             <div>current category: {this.state.currentCategory}</div>
@@ -58,7 +58,7 @@ class FormView extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <ProgressBar variant="primary" className={styles.ProgressBar} animated now={now} label={`domain`} />
+                            <ProgressBar variant="success" className={styles.ProgressBar} animated now={now} label={`domain`} />
                         </Col>
                     </Row>
                     { Form.generatedHash != null && 
@@ -71,6 +71,8 @@ class FormView extends Component {
                             </Col>
                         </Row>
                     }
+                    <br/>
+                    <Footer/>
                 </Container>
         )
     }

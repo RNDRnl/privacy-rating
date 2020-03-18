@@ -28,7 +28,8 @@ class Footer extends Component {
         return (
             <div className={styles.footer}>
                 <a href="/" title="Report" className={styles.reportFlag}/>
-                <div>Bol.com | 2020</div>
+                <a className={styles.domainName}>bol.com</a>
+                <a className={styles.year}>2020</a>
             </div>
         );
     }

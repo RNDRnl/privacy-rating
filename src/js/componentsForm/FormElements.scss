@@ -1,26 +1,42 @@
 
 .justifyContentEnd {
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 20pt;
     justify-content: flex-end!important;
     float:right;
 }
 
+.headerstyle {
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+}
+
+.headerIcon {
+    width: 20pt;
+    height: 20pt;
+}
+
+.noAnswer {
+    padding-left: 400pt;
+}
 
 .answerButton {
     background-color: rgb(50, 50, 50);
     padding: 5px 40px 5px ;
     color:white;
     transition: background-color 100ms ease-in-out;
+    border-radius: 8pt;
     
     &:hover {
         background-color: black;
-        color: white;
+        color: black;
     }
 
     &.notSelected {
-        background-color: black;
+        background-color: gray;
     }
 
     &.selected {
-        background-color:blue;
+        background-color: #2EA952;
     }
 }

@@ -3,10 +3,7 @@
   padding: 16pt;
   height: 100%;
   width: 100%;
-  border-top-right-radius: 60pt;
-  border-bottom-right-radius: 60pt;
-  border-top-left-radius: 8pt;
-  border-bottom-left-radius: 8pt;
+  border-radius: 10pt;
 
   .privacyRatingFont {
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
@@ -25,6 +22,9 @@
   .cirleA {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #2EA952;
     float: right;
@@ -34,6 +34,9 @@
   .cirleB {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #7CD452;
     float: right;
@@ -43,6 +46,9 @@
   .cirleC {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #C0EA7D;
     float: right;
@@ -52,6 +58,9 @@
   .cirleD {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #FFEE42;
     float: right;
@@ -61,6 +70,9 @@
   .cirleE {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #EFAF48;
     float: right;
@@ -70,6 +82,9 @@
   .cirleF {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #EC6C01;
     float: right;
@@ -79,6 +94,9 @@
   .cirleG {
     width: 80pt;
     height: 80pt;
+    font-size: 50pt;
+    line-height: 80pt;
+    text-align: center;
     border-radius: 50%;
     background: #E82613;
     float: right;

@@ -10,13 +10,13 @@ const Header= () => {
 
             <div className={styles.circlebox}>
 
-                <div className={styles.cirleG}/>
-                <div className={styles.cirleF}/>
-                <div className={styles.cirleE}/>
-                <div className={styles.cirleD}/>
-                <div className={styles.cirleC}/>
-                <div className={styles.cirleB}/>
-                <div className={styles.cirleA}/>
+                <div className={styles.cirleG}>G</div>
+                <div className={styles.cirleF}>F</div>
+                <div className={styles.cirleE}>E</div>
+                <div className={styles.cirleD}>D</div>
+                <div className={styles.cirleC}>C</div>
+                <div className={styles.cirleB}>B</div>
+                <div className={styles.cirleA}>A</div>
 
             </div>
 

@@ -1,18 +1,27 @@
 .footer {
   padding-top: 5pt;
-  padding-left: 112pt;
-  text-align: center;
-  font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
   font-size: 8pt;
   color: #A6A8AB;
+
+
+  .domainName {
+    text-align: left;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+
+  }
+
+  .year {
+    padding-left: 120pt;
+    text-align: center;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+
+  }
 
   .reportFlag {
     background: url("/resources/icons/reportflag-outline.svg");
     float: right;
     width: 13pt;
     height: 13pt;
-    font-size: 20pt;
-    margin-right: 112pt;
   }
 
   .reportFlag:hover {
