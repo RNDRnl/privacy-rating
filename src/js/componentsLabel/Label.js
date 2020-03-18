@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import styles from './frame.scss';
-import PrivacyRatingFont from "./PrivacyRatingFont";
-import LabelCircle from "./LabelCircle";
-import LabelBar from "./LabelBar";
-import CategoryBox from "./CategoryBox";
+import styles from './Label.scss';
 import LabelContext from '../../state/LabelContext'
-import Footer from "./Footer";
-import {Image} from "react-bootstrap";
+
 
 class Frame extends Component {  
   static contextType = LabelContext
@@ -20,29 +15,31 @@ class Frame extends Component {
     
   }
 
-    handleExit( ) {
-        const { label, setLabel } = this.context
+  handleExit( ) {
+      const { label, setLabel } = this.context
 
-        if (label.openCategory == this.props.categoryId) {
-            setLabel({ ...label,  "openCategory": null })
+      if (label.openCategory == this.props.categoryId) {
+          setLabel({ ...label,  "openCategory": null })
 
-        } else {
-            setLabel({ ...label, "openCategory": null  })
-        }
-    }
+      } else {
+          setLabel({ ...label, "openCategory": null  })
+      }
+  }
 
   componentDidMount() {
-    const { setLabel } = this.context
-    const newState = this.props.init
-    setLabel(newState)
+    // const { setLabel } = this.context
+    // const newState = this.props.init
+    // setLabel(newState)
   }
 
   render() {
-    const { label } = this.context
+    const { label, pupulateLabel } = this.context
+
+    pupulateLabel(this.props.labelId);
 
     return (
       <div  className={styles.holder} onMouseLeave={() => this.handleExit()} >
-        <LabelCircle/>
+        {/* <LabelCircle/>
         <PrivacyRatingFont/>
         <LabelBar/>
         <div className={styles.categoryBoxes}>
@@ -51,7 +48,7 @@ class Frame extends Component {
             <CategoryBox categoryId={2} isSelected={label.openCategory == 2} icon={"/resources/icons/control-transparant.gif"} label={"CONTROL"}/>
             <CategoryBox categoryId={3} isSelected={label.openCategory == 3} icon={"/resources/icons/security-transparant.gif"} label={"SECURITY"}/>
         </div>
-        <Footer/>
+        <Footer/> */}
       </div>
     );
   }

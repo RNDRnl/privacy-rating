@@ -1,75 +1,5 @@
-
-class Rating {
-    score: Number
-    text: String
-    constructor(_score: Number, _text: String) {
-        this.score = _score;
-        this.text = _text;
-    }
-}
-
-var RatingIndex = {
-    collection_0_a_yes: new Rating(2.0, "this is a test"),
-    collection_0_a_no: null,
-    collection_0_b_yes: new Rating(1.0, "this is a test"),
-    collection_0_b_no: new Rating(0.0, "this is a test"),
-    
-    collection_1_a_yes: new Rating(2.0, "this is a test"),
-    collection_1_a_no: null,
-    collection_1_b_yes: new Rating(1.0, "this is a test"),
-    collection_1_b_no: new Rating(0.0, "this is a test"),
-
-    collection_2_a_yes: new Rating(2.0, "this is a test"),
-    collection_2_a_no: null,
-    collection_2_b_yes: new Rating(1.0, "this is a test"),
-    collection_2_b_no: new Rating(0.0, "this is a test"),
-
-    sharing_0_a_yes: new Rating(2.0, "this is a test"),
-    sharing_0_a_no: null,
-    sharing_0_b_yes: new Rating(1.0, "this is a test"),
-    sharing_0_b_no: new Rating(0.0, "this is a test"),
-    
-    sharing_1_a_yes: new Rating(2.0, "this is a test"),
-    sharing_1_a_no: null,
-    sharing_1_b_yes: new Rating(1.0, "this is a test"),
-    sharing_1_b_no: new Rating(0.0, "this is a test"),
-
-    sharing_2_a_yes: new Rating(2.0, "this is a test"),
-    sharing_2_a_no: null,
-    sharing_2_b_yes: new Rating(1.0, "this is a test"),
-    sharing_2_b_no: new Rating(0.0, "this is a test"),
-
-    control_0_a_yes: new Rating(2.0, "this is a test"),
-    control_0_a_no: null,
-    control_0_b_yes: new Rating(1.0, "this is a test"),
-    control_0_b_no: new Rating(0.0, "this is a test"),
-    
-    control_1_a_yes: new Rating(2.0, "this is a test"),
-    control_1_a_no: null,
-    control_1_b_yes: new Rating(1.0, "this is a test"),
-    control_1_b_no: new Rating(0.0, "this is a test"),
-
-    control_2_a_yes: new Rating(2.0, "this is a test"),
-    control_2_a_no: null,
-    control_2_b_yes: new Rating(1.0, "this is a test"),
-    control_2_b_no: new Rating(0.0, "this is a test"),
-
-    security_0_a_yes: new Rating(2.0, "this is a test"),
-    security_0_a_no: null,
-    security_0_b_yes: new Rating(1.0, "this is a test"),
-    security_0_b_no: new Rating(0.0, "this is a test"),
-    
-    security_1_a_yes: new Rating(2.0, "this is a test"),
-    security_1_a_no: null,
-    security_1_b_yes: new Rating(1.0, "this is a test"),
-    security_1_b_no: new Rating(0.0, "this is a test"),
-
-    security_2_a_yes: new Rating(2.0, "this is a test"),
-    security_2_a_no: null,
-    security_2_b_yes: new Rating(1.0, "this is a test"),
-    security_2_b_no: new Rating(0.0, "this is a test"),
-}
-
+// import { Label, Category, Section } from "../js/componentsLabel/LabelClasses";
+import { RatingConfig } from "./RatingConfig"
 
 class Label {
     score: 0.0;
@@ -110,11 +40,11 @@ const getMatchingScore = (FormState:any, cat: String, i: Number) => {
     var answerB = FormState[questionB];
                 
     if(answerA == "YES") {
-        return RatingIndex[`${questionA}_yes`]
+        return RatingConfig[`${questionA}_yes`]
     } else if(answerA == "NO" && answerB == "YES") {
-        return RatingIndex[`${questionB}_yes`]
+        return RatingConfig[`${questionB}_yes`]
     } else if(answerA == "NO" && answerB == "NO") {
-        return RatingIndex[`${questionB}_no`]
+        return RatingConfig[`${questionB}_no`]
     }
     
     return null;
@@ -222,12 +152,50 @@ const FormStateToHash = (FormState:any) => {
     }
 }
 
-const HashToLabelState = () => {
+const indexToCategory = (index:any) => {
+    switch(index) {
+        case 0: case 1: case 2:
+            return "collection"
+        case 3: case 4: case 5:
+            return "sharing"
+        case 6: case 7: case 8:
+            return "control"
+        case 9: case 10: case 11:
+            return "security"
+    }
+}
+
+const indexToSection = (index:any) => {
+    return index % 3
+}
+
+const charToFinalAnswer = (char:String) => {
+    switch(char) {
+        case 'C':
+            return "a_yes"
+        case 'B':
+            return "b_yes"
+        case "A":
+            return "b_no"
+    }
+}
+
+const HashToLabelState = (labelHash:String) => {
+
+    // conversion
+    console.log("the hash i got", labelHash)
+
+    var characters = labelHash.split("")
+    characters.forEach(function(char, index) {
+
+        var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${charToFinalAnswer(char)}`
+        var result = RatingConfig[targetPath];
+        console.log(`${index} ${char} ${targetPath}`, result);
+    })
 
     return {
-        name: "this is my label",
+        name: "this is my label"
     }
-
 }
 
 module.exports = { FormStateToHash, HashToLabelState  }

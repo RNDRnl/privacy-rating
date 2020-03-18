@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { HashToLabelState } from "./Logic"
 const LabelContext = React.createContext()
 
 class LabelProvider extends Component {
@@ -17,18 +17,24 @@ class LabelProvider extends Component {
     setLabel = label => {
       this.setState(prevState => ({ label }))
     }
+
+    pupulateLabel = (labelHash) => {
+      var labelState = HashToLabelState(labelHash);
+      console.log("got a label for you", labelState);
+    }
   
     render() {
 
       const { children } = this.props
       const { label } = this.state
-      const { setLabel } = this
+      const { setLabel, pupulateLabel } = this
   
       return (
         <LabelContext.Provider
           value={{
             label,
             setLabel,
+            pupulateLabel
           }}
         >
           {children}

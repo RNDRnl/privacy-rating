@@ -18,7 +18,7 @@ import Embed from './js/componentsEmbed/Embed'
 
 function LabelView() {
   let { id } = useParams();
-  return (<App formId={id} />);
+  return (<App labelId={id} />);
 }
 
 function EmbedView() {

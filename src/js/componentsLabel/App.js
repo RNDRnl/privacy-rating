@@ -1,22 +1,20 @@
-import React from 'react';
-
-import Frame from './frame'
+import React, {Component} from 'react';
+import Label from './Label'
 import { LabelProvider } from '../../state/LabelContext'
 
+class App extends Component {  
+    constructor() {
+        super()
+    }
 
-const initialLabelState = {
-    path: '', 
-    valid: false,
-    domain: '',
-    openCategory: null
-}
-
-const App = () => {
-    return (
-        <LabelProvider>
-            <Frame init={initialLabelState} />
-        </LabelProvider>
-    );
+    render() {
+        return (
+            <LabelProvider>
+                <div>{this.props.labelId}</div>
+                <Label labelId={this.props.labelId} />
+            </LabelProvider>
+        );
+    }
 };
 
 export default App;
