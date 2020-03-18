@@ -2,7 +2,7 @@ import * as React from "react";
 import Form, { Category, Section, Question, Prompt, Answer} from "./FormClasses"
 
 var FormConfig = new Form([
-    new Category( "Domain", "loaded", "domainSubmit",
+    new Category( "Domain", "loaded", ["domainSubmit"],
         [ new Section( "domain_0",
                 [ 
                     new Prompt( "domain", "Please fill in a valid domain name",
@@ -14,7 +14,7 @@ var FormConfig = new Form([
             ),
         ]
     ),
-    new Category( "Declaration", "domainSubmit", "declare",
+    new Category( "Declaration", "domainSubmit", ["declare"],
         [ new Section( "start_0",
                 [
                     new Question( "I declare that the answers accurately represent the full extent of  storage, processing, and handling of user data.",
@@ -26,7 +26,7 @@ var FormConfig = new Form([
             ),
         ]
     ), 
-    new Category( "Collection", "declare", "collection_2_a",
+    new Category( "Collection", "declare", ["collection_2_a", "collection_2_b"],
         [ new Section( "collection_0", 
                 [ 
                     new Question( "Does the service provider collect  data consisting of racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data, data concerning health or data concerning a natural person's sex life or sexual orientation from its users? (GDPR Art. 9)",
@@ -78,7 +78,7 @@ var FormConfig = new Form([
         ]
     ),
 
-    new Category( "Sharing", "declare", "Sharing_2_a",
+    new Category( "Sharing", "declare", ["sharing_2_a", "sharing_2_b"],
         [ new Section( "sharing_0",
             [
                 new Question( "Does any personal user data ever leave the ownership of the service provider?",
@@ -130,7 +130,7 @@ var FormConfig = new Form([
         ]
     ),
 
-    new Category( "Control", "declare", "Control_2_a",
+    new Category( "Control", "declare", ["control_2_a", "control_2_b"],
         [ new Section( "control_0",
             [
                 new Question( "Can users opt-out of data collection?",
@@ -181,7 +181,7 @@ var FormConfig = new Form([
             ),
         ]
     ),
-    new Category( "Security", "declare", "Security_2_a",
+    new Category( "Security", "declare", ["security_2_a", "security_2_b"],
     [ new Section( "security_0",
             [ 
                 new Question( "Is the service provider certified to be compliant with the latest version of either ISO 27001 or NIST 800-53?",
@@ -192,8 +192,8 @@ var FormConfig = new Form([
                 ),
                 new Question( "Was the service developed in compliance with the OWASP (Mobile) Top 10 standard and tested according to the OWASP Mobile/Web security Testing Guide or equivalent.",
                     [
-                        new Answer( "securityg_0_b", "security", "YES"),
-                        new Answer( "securityg_0_b", "sharing", "NO")
+                        new Answer( "security_0_b", "security", "YES"),
+                        new Answer( "security_0_b", "security", "NO")
                     ]
                 )
             ]
@@ -218,14 +218,14 @@ var FormConfig = new Form([
             [
                 new Question( "Is the service provider legally accountable for privacy violations?",
                     [
-                        new Answer( "security_2_a", "xxx", "YES"),
+                        new Answer( "security_2_a", "security", "YES"),
                         new Answer( "security_2_a", "security", "NO")
                     ]
                 ),
                 new Question( "Is the privacy policy legally binding?",
                     [
-                        new Answer( "security_2_b", "xxx", "YES"),
-                        new Answer( "security_2_b", "xxx", "NO")
+                        new Answer( "security_2_b", "security", "YES"),
+                        new Answer( "security_2_b", "security", "NO")
                     ]
                 )
             ]

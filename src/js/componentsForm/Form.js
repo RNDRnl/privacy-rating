@@ -8,6 +8,7 @@ import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
+import * as Scroll from 'react-scroll';
 
 class FormView extends Component {
     static contextType = FormContext
@@ -33,13 +34,15 @@ class FormView extends Component {
             </Accordion>
         )
     }
-    
+
+    componentDidUpdate() {
+        // var scroll = Scroll.animateScroll;
+        // scroll.scrollToBottom({duration: 1500});
+    }
+
     render() {
 
         const { Form } = this.context
-
-        const now = 20;
-        console.log("what i got", Form.generatedHash)
         return (
 
                 <Container>
@@ -61,7 +64,7 @@ class FormView extends Component {
                             <ProgressBar variant="success" className={styles.ProgressBar} animated now={now} label={`domain`} />
                         </Col>
                     </Row>
-                    { Form.generatedHash != null && 
+                    { Form.generatedHash != null &&
                         <Row>
                             <Col>
                                 <div>We have a valid label for you!</div>

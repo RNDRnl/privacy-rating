@@ -47,6 +47,7 @@ class FormProvider extends Component {
         security_2_b:null,
         
         generatedHash:null,
+        progress:{ variant:"primary", value:0, text:""}
       }      
     }
     
@@ -76,16 +77,18 @@ class FormProvider extends Component {
     }
 
     checkHash = () => {
-      var hash = FormStateToHash(this.state.Form);
-      console.log("check hash", hash);
-      if( hash != null) {
-        this.setState({
-          Form: {
-            ...this.state.Form,
-            generatedHash: hash
-          }
-        })
-      }
+      var hashData = FormStateToHash(this.state.Form)
+      var hash = hashData.value;
+      console.log("hash", hash);
+      var progress = hashData.progress;
+      console.log(progress);
+      this.setState({
+        Form: {
+          ...this.state.Form,
+          generatedHash: hash,
+          progress: progress
+        }
+      })
     }
 
     componentDidUpdate() {

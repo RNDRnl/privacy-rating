@@ -168,6 +168,36 @@ const categoriesToHash = (catagories:any) => {
     }
 }
 
+const calculateProcess = (catagories:any) => {
+
+    var variant = "primary"
+    var value = 20;
+    var text = "collection";
+    
+    if(catagories[0].sections[2]!=null) {
+        var variant = "primary"
+        var value = 40;
+        var text = "sharing";
+    }
+    if(catagories[1].sections[2]!=null) {
+        var variant = "primary"
+        var value = 60;
+        var text = "control";
+    }
+    if(catagories[2].sections[2]!=null) {
+        var variant = "primary"
+        var value = 80;
+        var text = "security";
+    }
+    if(catagories[3].sections[2]!=null) {
+        var variant = "success"
+        var value = 100;
+        var text = "label completed";
+    }
+
+    return { variant:variant, value:value, text:text};
+}
+
 const FormStateToHash = (FormState:any) => {
     var categoriesToCheck = ["collection", "sharing", "control", "security"];
     var catagories = [];
@@ -181,18 +211,18 @@ const FormStateToHash = (FormState:any) => {
         catagories.push( new Category(score, cat, sections) );
     });
 
-    var hashValue = categoriesToHash(catagories)
+    console.log(catagories);
+    var hashValue = categoriesToHash(catagories);
+    var calculatedProgress = calculateProcess(catagories);
 
     if(hashValue != null) {
-        return `${hashValue}?domain=${FormState.domain}`;
+        return { 'value': `${hashValue}?domain=${FormState.domain}`, 'progress': calculatedProgress };
     } else {
-        return hashValue;
+        return { 'value': hashValue, 'progress': calculatedProgress};
     }
 }
 
 const HashToLabelState = () => {
-
-    
 
     return {
         name: "this is my label",

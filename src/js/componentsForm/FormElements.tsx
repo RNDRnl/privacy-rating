@@ -30,7 +30,7 @@ export interface ValidPropsCategory {
     eventKey: string;
     children: any;
     availableIf: String;
-    completedIf: String;
+    completedIf: String[];
 }
 
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
@@ -177,7 +177,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
 }
 
 // //////////////
-// Propt
+// Prompt
 // /////////////
 
 export interface ValidPropsFormPrompt { 
@@ -273,7 +273,6 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
                 <button className={className} type="button" onClick={handleClick.handleClick} >
                     {answer}
                 </button>
-
             );
         }
 
