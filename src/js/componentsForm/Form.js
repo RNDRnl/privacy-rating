@@ -61,7 +61,7 @@ class FormView extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <ProgressBar variant="success" className={styles.ProgressBar} animated now={now} label={`domain`} />
+                            <ProgressBar variant="success" className={styles.ProgressBar} animated label={`domain`} />
                         </Col>
                     </Row>
                     { Form.generatedHash != null &&

@@ -5,9 +5,9 @@ import { LabelProvider } from '../../state/LabelContext'
 
 
 const initialLabelState = {
-    path: '123456789', 
-    valid: true,
-    domain: 'bol.com',
+    path: '', 
+    valid: false,
+    domain: '',
     openCategory: null
 }
 

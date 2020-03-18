@@ -14,13 +14,16 @@ import App from './js/componentsLabel/App'
 import Home from './js/componentsHome/Home'
 import Form from './js/componentsForm/Form'
 import NotFound from './js/NotFound'
+import Embed from './js/componentsEmbed/Embed'
 
 function LabelView() {
   let { id } = useParams();
+  return (<App formId={id} />);
+}
 
-  return (
-    <App formId={id} />
-  );
+function EmbedView() {
+  let { id } = useParams();
+  return (<Embed labelId={id} />);
 }
 
 const routes = (
@@ -34,6 +37,7 @@ const routes = (
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/embed/:id" children={<EmbedView />} />
         <Route path="/:id" children={<LabelView />} />
         <Route path="*">
           <NotFound />
