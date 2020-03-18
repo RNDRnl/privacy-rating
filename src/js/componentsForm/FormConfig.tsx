@@ -192,8 +192,8 @@ var FormConfig = new Form([
                 ),
                 new Question( "Was the service developed in compliance with the OWASP (Mobile) Top 10 standard and tested according to the OWASP Mobile/Web security Testing Guide or equivalent.",
                     [
-                        new Answer( "securityg_0_b", "security", "YES"),
-                        new Answer( "securityg_0_b", "sharing", "NO")
+                        new Answer( "security_0_b", "security", "YES"),
+                        new Answer( "security_0_b", "security", "NO")
                     ]
                 )
             ]
@@ -218,14 +218,14 @@ var FormConfig = new Form([
             [
                 new Question( "Is the service provider legally accountable for privacy violations?",
                     [
-                        new Answer( "security_2_a", "xxx", "YES"),
+                        new Answer( "security_2_a", "security", "YES"),
                         new Answer( "security_2_a", "security", "NO")
                     ]
                 ),
                 new Question( "Is the privacy policy legally binding?",
                     [
-                        new Answer( "security_2_b", "xxx", "YES"),
-                        new Answer( "security_2_b", "xxx", "NO")
+                        new Answer( "security_2_b", "security", "YES"),
+                        new Answer( "security_2_b", "security", "NO")
                     ]
                 )
             ]

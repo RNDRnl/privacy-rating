@@ -151,7 +151,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
 }
 
 // //////////////
-// Propt
+// Prompt
 // /////////////
 
 export interface ValidPropsFormPrompt { 
