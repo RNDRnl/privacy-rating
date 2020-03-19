@@ -36,8 +36,8 @@ class FormView extends Component {
     }
 
     componentDidUpdate() {
-        // var scroll = Scroll.animateScroll;
-        // scroll.scrollToBottom({duration: 1500});
+        var scroll = Scroll.animateScroll;
+        scroll.scrollToBottom({duration: 1500});
     }
     
     render() {
