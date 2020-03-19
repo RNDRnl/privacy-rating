@@ -10,17 +10,10 @@ class Embed extends Component {
     
     constructor() {
         super();
-
-       
     }
 
-    componentDidUpdate() {
-
-    }
-    
     render() {
-    //    const { Form } = this.context
-
+    
         return (
                 <div>
                     <Container>
@@ -33,6 +26,7 @@ class Embed extends Component {
                             <Col>
                                 <div>Here is your label: {this.props.labelId}</div>
                                 <div>Use this embed code</div>
+                                <iframe width={"500pt"} height={"500pt"} src={`http://0.0.0.0:3000/${this.props.labelId}/${this.props.domain}`} />
                             </Col>
                             <Col>
                                 <div>Download the label from here</div>
@@ -40,7 +34,6 @@ class Embed extends Component {
                                 <div>as png</div>
                             </Col>
                         </Row>
-                        
                     </Container>
                 </div>
         )

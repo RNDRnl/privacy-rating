@@ -1,4 +1,4 @@
-@import "src/main";
+@import "../../main.scss";
 
 .holder {
     background-color: #f3f3f4;
@@ -8,3 +8,81 @@
     padding-right: 12pt;
     padding-top: 8pt;
 }
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    background-color: $color-A;
+    border-radius: 8pt;
+    margin-top: 4pt;
+    cursor: pointer;
+    height: 34pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+    overflow: hidden;
+  
+    .label {
+      flex: 1;
+      font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+      font-size: 22pt;
+      padding-top: 3pt;
+    }
+  
+    .icon {
+      float: left;
+      height: 30pt;
+      width: 30pt;
+  
+    }
+  
+    .arrow {
+      float: right;
+      height: 30pt;
+      width: 30pt;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
+    }
+  
+    &.selected {
+      background-color: $color-A;
+      height: 127pt;
+  
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+  
+    &.notSelected {
+      background-color: $color-Inactive;
+      height: 26pt;
+  
+      .label {
+        font-size: 16pt;
+        color: $color-Grey-Text;
+      }
+  
+      .icon {
+        float: left;
+        height: 20pt;
+        width: 20pt;
+  
+      }
+  
+      .arrow {
+        float: right;
+        height: 20pt;
+        width: 20pt;
+      }
+    }
+  
+  
+  }
+  

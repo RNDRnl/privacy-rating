@@ -1,4 +1,4 @@
-@import "src/main";
+@import "../../main.scss";
 
 .holder {
   width: 106pt;
@@ -7,7 +7,6 @@
   font-size: 68pt;
   line-height: 106pt;
   text-align: center;
-  background: $color-B;
   float: right;
   margin-bottom: 5pt;
   -webkit-transition: $duration;
@@ -16,6 +15,14 @@
   -ms-transiton: $duration;
   transition: $duration;
 
+  &.colorA { background-color: $color-A;}
+  &.colorB { background-color: $color-B;}
+  &.colorC { background-color: $color-C;}
+  &.colorD { background-color: $color-D;}
+  &.colorE { background-color: $color-E;}
+  &.colorF { background-color: $color-F;}
+  &.colorG { background-color: $color-G;}
+
   &.holderminimal {
     width: 38pt;
     height: 38pt;
@@ -23,7 +30,6 @@
     font-size: 22pt;
     line-height: 38pt;
     text-align: center;
-    background: $color-B;
     float: right;
     margin-bottom: 4pt;
   }

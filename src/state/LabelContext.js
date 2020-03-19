@@ -5,35 +5,35 @@ const LabelContext = React.createContext()
 class LabelProvider extends Component {
     // Context state
     state = {
-      label: {
-        path: '', 
-        valid: false,
-        domain: '',
-        openCategory: null
-      }      
+      Label: null,
+      openCategory: null
     }
     
     // Method to update state
-    setLabel = label => {
-      this.setState(prevState => ({ label }))
+    setLabelState = (newState) => {
+      this.setState({
+          openCategory: newState
+       })
     }
 
     pupulateLabel = (labelHash) => {
-      var labelState = HashToLabelState(labelHash);
-      console.log("got a label for you", labelState);
+      var labelData = HashToLabelState(labelHash);
+      this.setState({
+        Label: labelData
+      });
     }
   
     render() {
-
       const { children } = this.props
-      const { label } = this.state
-      const { setLabel, pupulateLabel } = this
-  
+      const { Label, openCategory } = this.state
+      const { setLabelState, pupulateLabel } = this
+      
       return (
         <LabelContext.Provider
           value={{
-            label,
-            setLabel,
+            Label,
+            openCategory,
+            setLabelState,
             pupulateLabel
           }}
         >

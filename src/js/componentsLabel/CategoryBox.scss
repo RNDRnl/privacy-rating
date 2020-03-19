@@ -5,7 +5,7 @@
   width: 100%;
   flex-direction: column;
   text-align: center;
-  background-color: $color-A;
+  background-color: white;
   border-radius: 8pt;
   margin-top: 4pt;
   cursor: pointer;
@@ -17,35 +17,16 @@
   transition: $duration;
   overflow: hidden;
 
-  .label {
-    flex: 1;
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 22pt;
-    padding-top: 3pt;
-  }
-
-  .icon {
-    float: left;
-    height: 30pt;
-    width: 30pt;
-
-  }
-
-  .arrow {
-    float: right;
-    height: 30pt;
-    width: 30pt;
-    -webkit-transition: $duration;
-    -moz-transition: $duration;
-    -o-transition: $duration;
-    -ms-transiton: $duration;
-    transition: $duration;
-  }
+  &.colorA { background-color: $color-A;}
+  &.colorB { background-color: $color-B;}
+  &.colorC { background-color: $color-C;}
+  &.colorD { background-color: $color-D;}
+  &.colorE { background-color: $color-E;}
+  &.colorF { background-color: $color-F;}
+  &.colorG { background-color: $color-G;}
 
   &.selected {
-    background-color: $color-A;
     height: 127pt;
-
     .arrow {
       transform: rotate(90deg);
     }
@@ -75,6 +56,32 @@
   }
 
 
+  .label {
+    flex: 1;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+    padding-top: 3pt;
+  }
+
+  .icon {
+    float: left;
+    height: 30pt;
+    width: 30pt;
+
+  }
+
+  .arrow {
+    float: right;
+    height: 30pt;
+    width: 30pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+  }
+
+ 
+
+
 }
-
-

@@ -1,15 +1,38 @@
+import * as React from "react";
+import {LabelObject, Section } from "../../state/Logic" 
+import { LabelElement, LabelCategoryElement, LabelSectionElement } from "./LabelElements"
+import {Image} from "react-bootstrap";
+// const styles = require("./Label.scss");
+
 // /////////
-//  LABEL
+// LABEL
 // /////////
 
-export default class Label { 
-    rating: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g'
-    categories: Category[] = new Array();
+export default class LabelTag { 
+    rank : any;
+    labelObject: LabelObject
     getTag = () => {
-        // render labelContainer
+       return (
+           <div>
+                <LabelElement 
+                    rating={this.rank} 
+                    children={this.getChildren()} 
+                    domain={this.labelObject.domain}
+                    year={this.labelObject.year}
+                />
+           </div>
+       )
     }
-    constructor(_categories: Array<Category>) { 
-        this.categories = _categories; 
+    getChildren = () => {
+        var result: any = new Array()
+        this.labelObject.categories.forEach(function(element, index) {
+            result.push(new CategoryTag(element.categoryName, element.rank, element.sections ).getTag(index))
+        })
+        return result
+    }
+    constructor(_labelObject:LabelObject) { 
+        this.labelObject = _labelObject
+        this.rank = this.labelObject.rank
     }
 }
 
@@ -17,25 +40,30 @@ export default class Label {
 //  CATEGORY
 // /////////
 
-export class Category {
+export class CategoryTag {
     categoryName: String
+    rating: any
     sections: Section[] = new Array();
-    getTag = (_index:String) => {
-        // return (
-        //     <div index={_index}>
-               
-        //     </div>    
-        // )
+    getTag = (_index:any) => {
+        return (
+            <LabelCategoryElement
+                key={_index}  
+                rating={this.rating}
+                categoryName={this.categoryName} 
+                children={this.getChildren()} 
+            />
+        )
     }
     getChildren = () => {
         var result: any = new Array()
         this.sections.forEach(function(element, index) {
-            result.push(element.getTag(""+index))
+            result.push( new SectionTag(element.text, element.score).getTag(index) ) ;
         })
         return result
     }
-    constructor(_categoryName: String, _sections: Array<Section>) { 
+    constructor(_categoryName: String, _rating: any, _sections: Array<Section>) { 
         this.categoryName = _categoryName; 
+        this.rating = _rating;
         this.sections = _sections; 
     }
 }
@@ -43,14 +71,16 @@ export class Category {
 // /////////
 //  SECTION
 // /////////
-export class Section {
-    sectionName: String;
-    getTag = (_index:String) => {
-        // return(
-        //     <div>hi</div>
-        // )
+export class SectionTag {
+    sectionText: String;
+    score: any;
+    getTag = (_index:any) => {
+        return(
+            <LabelSectionElement key={_index} sectionText={this.sectionText} score={this.score} />
+        )
     }
-    constructor(_sectionName: String) { 
-        this.sectionName = _sectionName; 
+    constructor(_sectionText: any, _score: any) { 
+        this.sectionText = _sectionText; 
+        this.score = _score;
     }
 }

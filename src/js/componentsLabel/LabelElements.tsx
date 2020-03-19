@@ -1,29 +1,41 @@
 import * as React from "react";
-import PrivacyRatingFont from "./PrivacyRatingFont";
+// import LabelBar from "./LabelBar";
+// import CategoryBox from "./CategoryBox";
+// import Footer from "./Footer";
+
 import LabelCircle from "./LabelCircle";
+import PrivacyRatingFont from './PrivacyRatingFont';
 import LabelBar from "./LabelBar";
-import CategoryBox from "./CategoryBox";
 import Footer from "./Footer";
+import CategoryBox from "./CategoryBox";
+import DescriptionBox from "./DescriptionBox";
+
+
+// import LabelContext from '../../state/LabelContext';
 
 // //////////////
 // Category
 // /////////////
 
 export interface ValidPropsLabel { 
-    rating: String;
+    rating: any;
     children: any;
+    domain: any;
+    year: any;
 }
 export class LabelElement extends React.Component<ValidPropsLabel, {}> {
+    // static contextType = LabelContext
+
     render() {
         return (
             <div>
-                <LabelCircle />
-                <PrivacyRatingFont />
-                <LabelBar />
                 <div>
+                    <LabelCircle rating={this.props.rating} />
+                    <PrivacyRatingFont />
+                    <LabelBar rating={this.props.rating} />
                     {this.props.children}
+                    <Footer domain={this.props.domain} year={this.props.year} />
                 </div>
-                <Footer />
             </div>
         );
     }
@@ -31,31 +43,26 @@ export class LabelElement extends React.Component<ValidPropsLabel, {}> {
 //className={styles.categoryBoxes}
 
 export interface ValidPropsCategory { 
-    category: String;
+    categoryName: any;
+    rating: any;
     children: any;
 }
 export class LabelCategoryElement extends React.Component<ValidPropsCategory, {}> {
-    render() {
-        return (
-            <div>
-                <div>category</div>
-                <div>
-                    {this.props.children}
-                </div>
-            </div>
-        );
-    }
+        render() {
+            return (
+                <CategoryBox rating={this.props.rating} categoryName={this.props.categoryName} children={this.props.children} />
+            );
+        }
 }
 
 export interface ValidPropsSection { 
-    section: String;
+    sectionText: String;
+    score: any;
 }
 export class LabelSectionElement extends React.Component<ValidPropsSection, {}> {
     render() {
         return (
-            <div>
-                <div>section</div>
-            </div>
+            <DescriptionBox sectionText={this.props.sectionText} score={this.props.score} />
         );
     }
 }

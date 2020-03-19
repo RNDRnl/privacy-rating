@@ -10,8 +10,7 @@ class App extends Component {
     render() {
         return (
             <LabelProvider>
-                <div>{this.props.labelId}</div>
-                <Label labelId={this.props.labelId} />
+                <Label labelId={this.props.labelId} domain={this.props.domain} />
             </LabelProvider>
         );
     }

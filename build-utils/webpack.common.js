@@ -7,6 +7,9 @@ const config = {
   // entry: {
   //   vendor: ['semantic-ui-react']
   // },
+  resolve: {
+    extensions: [".js", ".json", ".ts", ".tsx", ".css", ".scss"],
+  },
   output: {
     path: commonPaths.outputPath,
     publicPath: '/'

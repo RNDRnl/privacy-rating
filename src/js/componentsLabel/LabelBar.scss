@@ -20,10 +20,9 @@
     }
 
     &:nth-child(2) {
-      line-height: 22pt;
       background-color: $color-B;
-      border: 1.5pt solid black;
-      border-radius: 5pt;
+      border-top: 4pt solid $color-Background;
+      border-bottom: 4pt solid $color-Background;
     }
 
     &:nth-child(3) {
@@ -54,6 +53,12 @@
       background-color: $color-G;
       border-top: 4pt solid $color-Background;
       border-bottom: 4pt solid $color-Background;
+    }
+    
+    &.selected {
+      line-height: 22pt;
+      border: 1.5pt solid black;
+      border-radius: 5pt;
     }
   }
 }

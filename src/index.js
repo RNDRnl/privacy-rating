@@ -17,13 +17,13 @@ import NotFound from './js/NotFound'
 import Embed from './js/componentsEmbed/Embed'
 
 function LabelView() {
-  let { id } = useParams();
-  return (<App labelId={id} />);
+  let { id, domain } = useParams();
+  return (<App labelId={id} domain={domain} />);
 }
 
 function EmbedView() {
-  let { id } = useParams();
-  return (<Embed labelId={id} />);
+  let { id, domain } = useParams();
+  return (<Embed labelId={id} domain={domain}  />);
 }
 
 const routes = (
@@ -37,8 +37,8 @@ const routes = (
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/embed/:id" children={<EmbedView />} />
-        <Route path="/:id" children={<LabelView />} />
+        <Route path="/embed/:id/:domain" children={<EmbedView />} />
+        <Route path="/:id/:domain" children={<LabelView />} />
         <Route path="*">
           <NotFound />
         </Route>

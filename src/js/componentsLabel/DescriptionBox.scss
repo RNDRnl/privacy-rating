@@ -9,11 +9,15 @@
     flex: 1;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
     font-size: 11.5pt;
-    background-color: $color-B;
     border-radius: 10pt;
     margin: 2pt;
     padding-top: 4pt;
     border: 2pt solid white;
     height: 25pt;
+
+    &.colorA { background-color: $color-A;}
+    &.colorD { background-color: $color-D;}
+    &.colorG { background-color: $color-G;}
+
   }
 }

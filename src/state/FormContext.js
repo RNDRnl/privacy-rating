@@ -60,6 +60,7 @@ class FormProvider extends Component {
         }
       }, function() {
         that.checkHash()
+        console.log("state", that.state);
       });
     }
 
@@ -79,7 +80,6 @@ class FormProvider extends Component {
     checkHash = () => {
       var hashData = FormStateToHash(this.state.Form)
       var hash = hashData.value;
-      console.log("hash", hash);
       var progress = hashData.progress;
       console.log(progress);
       this.setState({

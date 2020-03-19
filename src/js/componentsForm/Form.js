@@ -43,6 +43,13 @@ class FormView extends Component {
     render() {
 
         const { Form } = this.context
+
+        var domain = null;
+        
+        if( Form.generatedHash != null) { 
+            domain = Form.domain.replace(".", "**");
+        }
+
         return (
                 <div>
                     <Container>
@@ -76,8 +83,8 @@ class FormView extends Component {
                             <Row>
                                 <Col>
                                     <div>We have a valid label for you!</div>
-                                    <Link to={`/embed/${Form.generatedHash}`}>
-                                        {Form.generatedHash}
+                                    <Link to={`/embed/${Form.generatedHash}/${domain}`}>
+                                        {`/embed/${Form.generatedHash}/${domain}`}
                                     </Link>
                                 </Col>
                             </Row>

@@ -1,29 +1,71 @@
-// import { Label, Category, Section } from "../js/componentsLabel/LabelClasses";
+import LabelTag from "../js/componentsLabel/LabelClasses";
+
 import { RatingConfig } from "./RatingConfig"
 
-class Label {
-    score: 0.0;
-    rank: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g';
-    sections: Category[] = new Array();
+export class LabelObject {
+    score: any;
+    rank: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
+    categories: Category[] = new Array();
     domain: String;
     year: 2020;
-    constructor() {
+    calculateRank() {
+        this.rank = scoreToRank(this.score);
+        console.log(this.score, this.rank);
+    }
+    constructor(_score:any, _domain:String, _categories:Category[]) {
+        this.score = _score;
+        this.domain = _domain;
+        this.categories = _categories;
+        this.calculateRank();
     }
 }
 
 class Category {
-    score: Number;
+    score: any;
+    rank: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
     categoryName: String;
     sections: Section[] = new Array();
-    constructor(_score: Number, _categoryName: String, _sections:Section[]) {
+    calculateRank() {
+        this.rank = scoreToRank(this.score);
+        console.log(this.score, this.rank);
+    }
+    constructor(_score: any, _categoryName: String, _sections:Section[]) {
         this.categoryName = _categoryName;
         this.score = _score;
         this.sections = _sections;
+        this.calculateRank();
     }
 }
 
-class Section {
-    score: Number;
+const mapRange = (value:any, low1:any, high1:any, low2:any, high2:any) => {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+const mapToRank = (value:any) => {
+    if(value == 0.0) {
+        return 'A'
+    } else if (value < 1.0) {
+        return 'B'
+    } else if (value < 2.0) {
+        return 'C'
+    } else if (value < 3.0) {
+        return 'D'
+    } else if (value < 4.0) {
+        return 'E'
+    } else if (value < 5.0) {        
+        return 'F'
+    } else if (value == 6.0) {
+        return 'G'
+    }
+}
+
+const scoreToRank = (score:any) => {
+    var remap = mapRange(score, 0.0, 2.0, 0.0, 6.0);
+    return mapToRank(remap);
+}
+
+export class Section {
+    score: any;
     text: String;
     constructor(_score: Number, _text: String) {
         this.score = _score;
@@ -50,23 +92,23 @@ const getMatchingScore = (FormState:any, cat: String, i: Number) => {
     return null;
 }
 
-const calculateScoreFromSections = (sections:any) => {
+const calculateScore = (elements:any, devide:any) => {
 
     var runningScore = 0.0
     var isInvalid = false
 
-    sections.forEach((section) => {
-        if(section == null) {
+    elements.forEach((element) => {
+        if(element == null) {
             isInvalid = true
         } else {
-            runningScore += section.score
+            runningScore += element.score
         }
     });
 
     if(isInvalid) {
         return null
     } else {
-        return (runningScore / 3.0);
+        return Math.round( ((runningScore / devide) * 1000)/1000 );
     }
 }
 
@@ -137,7 +179,7 @@ const FormStateToHash = (FormState:any) => {
             sections.push(getMatchingScore( FormState, cat, i));
         }
 
-        var score = calculateScoreFromSections(sections)
+        var score = calculateScore(sections, 3.0)
         catagories.push( new Category(score, cat, sections) );
     });
 
@@ -146,7 +188,7 @@ const FormStateToHash = (FormState:any) => {
     var calculatedProgress = calculateProcess(catagories);
 
     if(hashValue != null) {
-        return { 'value': `${hashValue}?domain=${FormState.domain}`, 'progress': calculatedProgress };
+        return { 'value': `${hashValue}`, 'progress': calculatedProgress };
     } else {
         return { 'value': hashValue, 'progress': calculatedProgress};
     }
@@ -180,23 +222,48 @@ const charToFinalAnswer = (char:String) => {
     }
 }
 
-const HashToLabelState = (labelHash:String) => {
+const covertDomain = (domain:any) => {
+    return domain.replace("**", ".")
+}
+
+const HashToLabelState = (labelHash:any) => {
 
     // conversion
-    console.log("the hash i got", labelHash)
+    console.log("the hash i got", labelHash.hash)
 
-    var characters = labelHash.split("")
+    var characters = labelHash.hash.split("")
+    var sections = [];
     characters.forEach(function(char, index) {
 
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${charToFinalAnswer(char)}`
-        var result = RatingConfig[targetPath];
-        console.log(`${index} ${char} ${targetPath}`, result);
+        var resultRating = RatingConfig[targetPath];
+        var section = new Section(resultRating.score, resultRating.text);
+        sections.push(section);
     })
 
-    return {
-        name: "this is my label"
-    }
+    var category1 = sections.slice(0, 3);
+    var category2 = sections.slice(3, 6);
+    var category3 = sections.slice(6, 9);
+    var category4 = sections.slice(9, 12);
+
+    var categories = [
+        new Category(calculateScore(category1, 3.0), "collection", category1),
+        new Category(calculateScore(category2, 3.0), "sharing", category2),
+        new Category(calculateScore(category3, 3.0), "control", category3),
+        new Category(calculateScore(category4, 3.0), "security", category4)
+    ]
+    
+    var cScore = calculateScore(categories, 4.0);
+    var labelObject = new LabelObject(cScore, covertDomain(labelHash.domain), categories);
+    console.log(labelObject);
+    var labelRender = new LabelTag(labelObject).getTag;
+
+    return labelRender;
 }
 
-module.exports = { FormStateToHash, HashToLabelState  }
-
+export  {
+    HashToLabelState, 
+    FormStateToHash
+}
+// export FormStateToHash
+// module.exports = { FormStateToHash, HashToLabelState }
