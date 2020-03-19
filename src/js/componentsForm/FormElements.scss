@@ -11,22 +11,56 @@
     font-size: 22pt;
 }
 
-.headerIcon {
-    width: 20pt;
-    height: 20pt;
+.headerstyleNotSelected {
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 15pt;
+    height: 30px;
 }
 
-.noAnswer {
-    padding-left: 400pt;
+.headerIconSmall {
+    width: 20pt;
+    height: 20pt;
+    float: left;
+}
+
+.headerIconBig {
+    width: 30pt;
+    height: 30pt;
+    float: left;
+}
+
+.answerContainer {
+    display: block;
+    height: 60px;
+    width: 100%;
+    background-color: pink;
+}
+
+.greenCheck {
+    color: #2EA952;
+}
+
+.question {
+    text-align: center;
 }
 
 .answerButton {
     background-color: rgb(50, 50, 50);
-    padding: 5px 40px 5px ;
+    line-height: 35px;
+    text-align: center;
+    width: 100px;
+    height: 40px;
     color:white;
-    transition: background-color 100ms ease-in-out;
     border-radius: 8pt;
-    
+    float: left;
+    margin: 10px auto;
+    position: relative;
+    left: 45%;
+    font-size: 18px;
+    transition: background-color 100ms ease-in-out;
+
+
+
     &:hover {
         background-color: black;
         color: black;

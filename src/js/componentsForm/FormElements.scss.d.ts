@@ -2,11 +2,15 @@
 // Please do not change this file!
 interface CssExports {
   'answerButton': string;
-  'headerIcon': string;
+  'answerContainer': string;
+  'greenCheck': string;
+  'headerIconBig': string;
+  'headerIconSmall': string;
   'headerstyle': string;
+  'headerstyleNotSelected': string;
   'justifyContentEnd': string;
-  'noAnswer': string;
   'notSelected': string;
+  'question': string;
   'selected': string;
 }
 export const cssExports: CssExports;

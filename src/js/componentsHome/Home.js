@@ -61,15 +61,21 @@ const Home = () => {
             </div>
             <div className={styles.backgroundUse}>
 
-                <Image className={styles.logos} src="/resources/logos/bol.jpg" />
-                <Image className={styles.logos} src="/resources/logos/eu.jpg" />
-                <Image className={styles.logos} src="/resources/logos/rijksoverheid.jpg" />
+                <div className={styles.logosBox}>
+                    <div className={styles.logosFrame}>
+                        <Image className={styles.logos} src="/resources/logos/bol.jpg" />
+                    </div>
+                    <div className={styles.logosFrame}>
+                        <Image className={styles.logos} src="/resources/logos/eu.jpg" />
+                    </div>
+                    <div className={styles.logosFrame}>
+                        <Image className={styles.logos} src="/resources/logos/rijksoverheid.jpg"/>
+                    </div>
+                </div>
 
                 <div className={styles.plainTextUse}>
                     Website who already use the label:
                 </div>
-                    <br/>
-                    <br/>
                     <div className={styles.plainTextAbout}>
                     Privacy Rating specializes in helping enterprises comply
                     with client-side privacy and data leakage

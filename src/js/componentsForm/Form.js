@@ -8,6 +8,7 @@ import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
+import Footer from "../Footer";
 
 class FormView extends Component {
     static contextType = FormContext
@@ -45,11 +46,11 @@ class FormView extends Component {
         return (
                 <div>
                     <Container>
+                        <Header/>
                         {/* {JSON.stringify(Form)} */}
                         <Row >
                             <Col>
                                 <br />
-                                <Header/>
                                 {/* <br />
                                 <div>current handle:{this.state.currentHandle}</div>
                                 <div>current category: {this.state.currentCategory}</div>
@@ -69,6 +70,8 @@ class FormView extends Component {
                                 <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
                             </Col>
                         </Row>
+                            <br/>
+                            <Footer/>
                         { Form.generatedHash != null && 
                             <Row>
                                 <Col>
@@ -81,7 +84,6 @@ class FormView extends Component {
                         }
                         </Container>
                     </div>
-                    
                 </div>
         )
     }

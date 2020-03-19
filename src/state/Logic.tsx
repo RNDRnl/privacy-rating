@@ -100,27 +100,27 @@ const categoriesToHash = (catagories:any) => {
 
 const calculateProcess = (catagories:any) => {
 
-    var variant = "primary"
+    var variant = "secondary";
     var value = 20;
     var text = "collection";
-    
+
     if(catagories[0].sections[2]!=null) {
-        var variant = "primary"
+        var variant = "secondary";
         var value = 40;
         var text = "sharing";
     }
     if(catagories[1].sections[2]!=null) {
-        var variant = "primary"
+        var variant = "secondary";
         var value = 60;
         var text = "control";
     }
     if(catagories[2].sections[2]!=null) {
-        var variant = "primary"
+        var variant = "secondary";
         var value = 80;
         var text = "security";
     }
     if(catagories[3].sections[2]!=null) {
-        var variant = "success"
+        var variant = "secondary";
         var value = 100;
         var text = "label completed";
     }

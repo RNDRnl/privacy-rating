@@ -8,20 +8,17 @@
 
 
   .backgroundAbout {
-
     background-color: #F3f3F4;
     border-top-left-radius: 10pt;
     border-top-right-radius: 10pt;
   }
 
   .backgroundCreate {
-
     background-color: white;
     height: 200pt;
   }
 
   .backgroundUse {
-
     background-color: #F3f3F4;
     border-bottom-left-radius: 10pt;
     border-bottom-right-radius: 10pt;
@@ -87,6 +84,7 @@
     margin-right: 110pt;
   }
 
+
   .button {
     float: left;
     margin-top: 70pt;
@@ -96,9 +94,21 @@
   }
 
   .logos {
-    width: 60pt;
+    width: 100%;
+    padding: 5pt;
+  }
+
+  .logosFrame {
+    background-color: white;
+    width: 70pt;
+    height: 70pt;
     float: right;
-    margin-top: 22pt;
+    margin-top: 52pt;
     margin-right: 30pt;
+    border-radius: 10pt;
+  }
+
+  .logosBox {
+    margin-right: 40pt;
   }
 }

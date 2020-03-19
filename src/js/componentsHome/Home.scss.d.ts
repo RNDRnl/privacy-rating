@@ -8,6 +8,8 @@ interface CssExports {
   'holder': string;
   'image': string;
   'logos': string;
+  'logosBox': string;
+  'logosFrame': string;
   'plainTextAbout': string;
   'plainTextCreate': string;
   'plainTextUse': string;

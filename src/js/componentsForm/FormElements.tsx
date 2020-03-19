@@ -50,19 +50,25 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                             { checkForm(this.props.availableIf) != null &&
                                 // <Accordion.Toggle as={Button} variant="link" eventKey={this.props.eventKey}>
                                 <Navbar.Text className={styles.headerstyle}>
+
+                                    { this.props.categoryName != 'Domain' && this.props.categoryName != 'Declaration' &&
+                                    <Image className={styles.headerIconBig} src={`/resources/icons/${this.props.categoryName}-transparant.gif`}/>
+                                    }
                                     {this.props.categoryName}
                                 </Navbar.Text>
                                 ///* </Accordion.Toggle> */
                             }
                             { checkForm(this.props.availableIf) == null &&
-                                 <Navbar.Text>
-                                     <Image className={styles.headerIcon} src="/resources/icons/collection-transparant.gif" />
-                                    {this.props.categoryName}
+                                 <Navbar.Text className={styles.headerstyleNotSelected}>
+                                     { this.props.categoryName != 'Domain' && this.props.categoryName != 'Declaration' &&
+                                     <Image className={styles.headerIconSmall} src={`/resources/icons/${this.props.categoryName}-transparant.gif`}/>
+                                     }
+                                     {this.props.categoryName}
                                 </Navbar.Text>
                             }
                             <Navbar.Text className={styles.justifyContentEnd}>
                                 { checkForm(this.props.completedIf) != null &&
-                                    <div>✓</div>
+                                    <div className={styles.greenCheck}>✓</div>
                                 }
                                 { checkForm(this.props.completedIf) == null &&
                                     <div>×</div>
@@ -158,17 +164,22 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         return (
             <ListGroup.Item key={""+this.props.eventKey}>
                     { this.props.eventKey == "0" && 
-                        <div>
+                        <div className={styles.question}>
                             {/* <div>{this.props.sectionName}</div> */}
                             <div>{this.props.question}</div>
-                            {this.props.children}
+                            <div className={styles.answerContainer}>
+                                {this.props.children}
+                            </div>
                         </div>
                     }
                     { this.props.eventKey != "0" && checkForm(tempCheck) == "NO" &&
                         <div>
                             <div>{this.props.sectionName}</div>
                             <div>{this.props.question}</div>
-                            {this.props.children}
+                            <div className={styles.answerContainer}>
+                                {this.props.children}
+                            </div>
+
                         </div>
                     }
             </ListGroup.Item>
