@@ -3,15 +3,20 @@
 interface CssExports {
   'answerButton': string;
   'answerContainer': string;
-  'greenCheck': string;
+  'catStatus': string;
+  'check': string;
+  'cross': string;
   'headerIconBig': string;
-  'headerIconSmall': string;
   'headerstyle': string;
   'headerstyleNotSelected': string;
+  'helpButton': string;
   'justifyContentEnd': string;
+  'list-group-item': string;
   'notSelected': string;
   'question': string;
+  'questionText': string;
   'selected': string;
+  'urlInput': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

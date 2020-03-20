@@ -9,6 +9,7 @@ class FormProvider extends Component {
         loaded: true,
         domain: null,
         domainSubmit: null,
+        validUrl: false,
         declare: null,
         
         domain_open: "1",
