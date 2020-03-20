@@ -1,105 +1,120 @@
 .holder {
+  display: flex;
   background-color: #D0D2D3;
   padding: 16pt;
-  height: 100%;
-  width: 100%;
   border-radius: 10pt;
+  width: 100%;
 
   .privacyRatingFont {
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 37pt;
+    font-size: 4vw;
     line-height: 1.1;
   }
 
-  .circlebox {
-    max-width: 100%;
-    max-height: 80pt;
+  .flexbox {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
     float: right;
-    margin-left: 5pt;
-    overflow: hidden;
   }
 
   .cirleA {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #2EA952;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color: #2EA952;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 5vw;
   }
 
   .cirleB {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #7CD452;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color: #7CD452;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 1vw;
   }
 
   .cirleC {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #C0EA7D;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color: #C0EA7D;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 1vw;
   }
 
   .cirleD {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #FFEE42;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color:  #FFEE42;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 1vw;
   }
 
   .cirleE {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #EFAF48;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color: #EFAF48;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 1vw;
   }
 
   .cirleF {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #EC6C01;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color: #EC6C01;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 1vw;
   }
 
   .cirleG {
-    width: 80pt;
-    height: 80pt;
-    font-size: 50pt;
-    line-height: 80pt;
-    text-align: center;
-    border-radius: 50%;
-    background: #E82613;
     float: right;
-    margin-left: 5pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 9vw;
+    background-color: #E82613;
+    border-radius: 100%;
+    font-size: 6vw;
+    margin-left: 1vw;
+    margin-right: 10vw;
   }
 }
