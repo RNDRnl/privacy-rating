@@ -53,7 +53,11 @@ class FormView extends Component {
         return (
                 <div>
                     <Container>
-                        <Header/>
+                        <Row >
+                            <Col>
+                                <Header/>
+                            </Col>
+                        </Row>
                         {/* {JSON.stringify(Form)} */}
                         <Row >
                             <Col>
@@ -78,7 +82,11 @@ class FormView extends Component {
                             </Col>
                         </Row>
                             <br/>
-                            <Footer/>
+                            <Row >
+                                <Col>
+                                    <Footer/>
+                                </Col>
+                            </Row>
                         { Form.generatedHash != null && 
                             <Row>
                                 <Col>

@@ -4,6 +4,7 @@ import styles from './Embed.scss';
 import _ from 'underscore'
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
+import Footer from "../Footer";
 
 class Embed extends Component {
     static contextType = FormContext
@@ -32,6 +33,11 @@ class Embed extends Component {
                                 <div>Download the label from here</div>
                                 <div>as svg</div>
                                 <div>as png</div>
+                            </Col>
+                        </Row>
+                        <Row >
+                            <Col>
+                                <Footer/>
                             </Col>
                         </Row>
                     </Container>
