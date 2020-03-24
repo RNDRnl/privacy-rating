@@ -14,13 +14,15 @@ import {
     ListGroup,
     ProgressBar,
     FormCheck,
-    Image
+    Image,
+    Tooltip,
+    OverlayTrigger
 } from "react-bootstrap";
 // import * as stylesvalues from './FormElements.scss';
 const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
 import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
-
+import classnames from "classnames";
 // //////////////
 // Category
 // /////////////
@@ -40,45 +42,34 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
 
         const { checkForm } = this.context;
 
-
         var openState = checkForm( `${this.props.categoryName.toLowerCase()}_open` )
 
         return (
             <Card key={""+this.props.categoryName}>
                 <Card.Header>
                         <div>
-                            { checkForm(this.props.availableIf) != null &&
-                                // <Accordion.Toggle as={Button} variant="link" eventKey={this.props.eventKey}>
+                            {/* { checkForm(this.props.availableIf) == null && */}
                                 <Navbar.Text className={styles.headerstyle}>
-
-                                    { this.props.categoryName != 'Domain' && this.props.categoryName != 'Declaration' &&
-                                    <Image className={styles.headerIconBig} src={`/resources/icons/${this.props.categoryName}-transparant.gif`}/>
-                                    }
-                                    {this.props.categoryName}
-                                </Navbar.Text>
-                                ///* </Accordion.Toggle> */
-                            }
-                            { checkForm(this.props.availableIf) == null &&
-                                 <Navbar.Text className={styles.headerstyleNotSelected}>
                                      { this.props.categoryName != 'Domain' && this.props.categoryName != 'Declaration' &&
-                                     <Image className={styles.headerIconSmall} src={`/resources/icons/${this.props.categoryName}-transparant.gif`}/>
+                                        <Image className={styles.headerIconBig} src={`/resources/icons/${this.props.categoryName}-transparant.gif`}/>
                                      }
                                      {this.props.categoryName}
                                 </Navbar.Text>
-                            }
+                            {/* } */}
+
                             <Navbar.Text className={styles.justifyContentEnd}>
                                 { checkForm(this.props.completedIf) != null &&
-                                    <div className={styles.greenCheck}>✓</div>
+                                    <div className={classnames(styles.catStatus, styles.check)}>✓</div>
                                 }
                                 { checkForm(this.props.completedIf) == null &&
-                                    <div>×</div>
+                                    <div className={classnames(styles.catStatus, styles.cross)} >×</div>
                                 }
                             </Navbar.Text>
                         </div>
                 </Card.Header>
                 <Accordion.Collapse eventKey={openState}>
                     <Card.Body>
-                        <ListGroup variant="flush">
+                        <ListGroup className={styles.listGroup} variant="flush">
                             {this.props.children}
                         </ListGroup>
                     </Card.Body>
@@ -102,15 +93,13 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
     static contextType = FormContext
 
     render() {
-        //console.log(this.props.children);
-
         const { checkForm } = this.context;
 
         // check!
         var currentName = this.props.sectionName
         var handle = currentName.substring(0, currentName.length - 2);
         var numberRef = parseInt(this.props.eventKey) - 1;
-        var checkA = checkForm(`${handle}_${numberRef}_a`) == "YES"
+        var checkA = checkForm(`${handle}_${numberRef}_a`) == "Yes"
         var checkB = checkForm(`${handle}_${numberRef}_b`) != null
         var isValid = checkA || checkB
         
@@ -118,19 +107,11 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
             <div key={""+this.props.eventKey}>
                 { this.props.eventKey == "0" && 
                     <div>
-                        {/* <div>
-                            section <u>{this.props.sectionName}</u>
-                        </div> */}
-                        {/* <div>{this.props.eventKey}</div> */}
                         {this.props.children}
                     </div>
                 }
                 { this.props.eventKey != "0" && isValid && 
                     <div>
-                        <div>
-                            section <u>{this.props.sectionName}</u>
-                        </div>
-                        <div>{this.props.eventKey}</div>
                         {this.props.children}
                     </div>
                 }
@@ -160,29 +141,60 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         // check!
         var handle = this.props.sectionName
         var tempCheck = `${handle}_a`
-
+        
         return (
-            <ListGroup.Item key={""+this.props.eventKey}>
+                <div>
                     { this.props.eventKey == "0" && 
-                        <div className={styles.question}>
-                            {/* <div>{this.props.sectionName}</div> */}
-                            <div>{this.props.question}</div>
-                            <div className={styles.answerContainer}>
-                                {this.props.children}
-                            </div>
-                        </div>
-                    }
-                    { this.props.eventKey != "0" && checkForm(tempCheck) == "NO" &&
-                        <div>
-                            <div>{this.props.sectionName}</div>
-                            <div>{this.props.question}</div>
-                            <div className={styles.answerContainer}>
-                                {this.props.children}
-                            </div>
+                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                            <div className={styles.question}>
+                                {/* <div>{this.props.sectionName}</div> */}
+                                <div className={styles.questionText}>{this.props.question}</div>
+                                <div className={styles.answerContainer}>
+                                    {this.props.children}
 
-                        </div>
+                                    <OverlayTrigger
+                                        key={'top'}
+                                        placement={'top'}
+                                        overlay={
+                                        <Tooltip id={`tooltip`}>
+                                               Here we will explain to you how to answer this question as quick as possible.
+                                        </Tooltip>
+                                        }
+                                      >
+                                        <button className={styles.helpButton} type="button">
+                                            Help
+                                        </button>
+                                    </OverlayTrigger>
+                                
+                                </div>
+                            </div>
+                        </ListGroup.Item>
                     }
-            </ListGroup.Item>
+                    { this.props.eventKey != "0" && checkForm(tempCheck) == "No" &&
+                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                            <div className={styles.question}>
+                                {/* <div>{this.props.sectionName}</div> */}
+                                <div className={styles.questionText} >{this.props.question}</div>
+                                <div className={styles.answerContainer}>
+                                    {this.props.children}
+                                    <OverlayTrigger
+                                        key={'top'}
+                                        placement={'top'}
+                                        overlay={
+                                        <Tooltip id={`tooltip`}>
+                                               Here we will explain to you how to answer this question as quick as possible.
+                                        </Tooltip>
+                                        }
+                                      >
+                                    <button className={styles.helpButton} type="button">
+                                        Help
+                                    </button>
+                                    </OverlayTrigger>
+                                </div>
+                            </div>
+                        </ListGroup.Item>
+                    }
+            </div>
         );
     }
 }
@@ -207,12 +219,25 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    validURL(str) {
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+          '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+          '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+          '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        return !!pattern.test(str);
+      }
+
     handleChange(event) {
-        const { Form, updateForm } = this.context;
+        const { Form, updateFormMultiple } = this.context;
         //console.log(event.target.value);
-        updateForm(
+        
+        updateFormMultiple(
             this.props.formRef,
-            event.target.value    
+            event.target.value,
+            'validUrl',
+            this.validURL(event.target.value)    
         )
 
     }
@@ -221,10 +246,17 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
     }
 
     render() {
+
+        const { Form } = this.context;
+
         return (
             <ListGroup.Item key={""+this.props.eventKey}>
-                    <div>{this.props.prompt}</div>
-                    <InputGroup className="mb-3">
+                    <div className={styles.question}>
+                        <div className={styles.questionText} >
+                            {this.props.prompt}
+                        </div>
+                    </div>
+                    <InputGroup className={classnames(styles.urlInput, "mb-3")} >
                         <InputGroup.Prepend>
                         <InputGroup.Text id="basic-addon3">
                             https://
@@ -232,7 +264,11 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
                         </InputGroup.Prepend>
                         <FormControl onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
                     </InputGroup>
-                    {this.props.children}
+                    { Form.validUrl &&
+                        <div className={styles.answerContainer}>
+                            {this.props.children}
+                        </div>
+                    }
             </ListGroup.Item>
         );
     }
@@ -273,13 +309,6 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
         const { checkForm } = this.context;
 
         function CustomToggle({ className, answer, eventKey, handleClick }) {
-            
-            // const decoratedOnClick = useAccordionToggle(eventKey, (_handleClick:any) => {
-            //     console.log("nav switch");
-            //     _handleClick.handleClick();
-            // });
-            //onClick={() => decoratedOnClick(handleClick)} 
-
             return (
                 <button className={className} type="button" onClick={handleClick.handleClick} >
                     {answer}
@@ -294,9 +323,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
         }
 
         return (
-            <div>
-                <CustomToggle className={classToUse} answer={this.props.answer} eventKey={this.props.targetKey} handleClick={this}  />
-            </div>
+           <CustomToggle className={classToUse} answer={this.props.answer} eventKey={this.props.targetKey} handleClick={this}  />
         );
     }
 }

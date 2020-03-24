@@ -7,7 +7,7 @@ import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
-import * as Scroll from 'react-scroll';
+// import * as Scroll from 'react-scroll';
 import Footer from "../Footer";
 
 class FormView extends Component {
@@ -16,7 +16,7 @@ class FormView extends Component {
     constructor() {
         super();
 
-        this.state = { 
+        this.state = {
             currentHandle: null,
             currentCategory: 0,
             currentStep: 0
@@ -36,8 +36,8 @@ class FormView extends Component {
     }
 
     componentDidUpdate() {
-        var scroll = Scroll.animateScroll;
-        scroll.scrollToBottom({duration: 1500});
+        // var scroll = Scroll.animateScroll;
+        // scroll.scrollToBottom({duration: 1500});
     }
     
     render() {
@@ -55,7 +55,9 @@ class FormView extends Component {
                     <Header/>
                     <Container>
                         <Row >
-
+                            <Col>
+                                {/* <Header/> */}
+                            </Col>
                         </Row>
                         {/* {JSON.stringify(Form)} */}
                         <Row >
@@ -72,30 +74,32 @@ class FormView extends Component {
                         </Row>
                     </Container>
 
-
                     <div className={styles.formFooter}>
                         <Container>
-                        <Row>
-                            <Col>
-                                <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
-                            </Col>
-                        </Row>
-                            <br/>
-                            <Row >
-                                <Col>
-                                    <Footer/>
-                                </Col>
-                            </Row>
-                        { Form.generatedHash != null && 
-                            <Row>
-                                <Col>
-                                    <div>We have a valid label for you!</div>
-                                    <Link to={`/embed/${Form.generatedHash}/${domain}`}>
-                                        {`/embed/${Form.generatedHash}/${domain}`}
-                                    </Link>
-                                </Col>
-                            </Row>
-                        }
+                                { Form.generatedHash == null  &&
+                                    <Row>
+                                        <Col>
+                                            <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
+                                        </Col>
+                                    </Row>
+                                }
+                                { Form.generatedHash != null &&
+                                    <Row>
+                                        <Col>
+                                            <Link to={`/embed/${Form.generatedHash}/${domain}`}>
+                                                <ProgressBar variant={"success"} className={styles.ProgressBar} animated now={100} label={"Label completed! Download here your embed code"}  >
+                                                    </ProgressBar>
+                                            </Link>
+                                        </Col>
+                                    </Row>
+                                }
+
+                                <br/>
+                                <Row >
+                                    <Col>
+                                        <Footer/>
+                                    </Col>
+                                </Row>
                         </Container>
                     </div>
                 </div>

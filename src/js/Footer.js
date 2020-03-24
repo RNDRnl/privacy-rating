@@ -8,7 +8,6 @@ const Footer= () => {
     return (
         <div  className={styles.holder} >
             <div> PRIVACY RATING | Made by .... designed by RNDR | link to research paper | other links | 2020 </div>
-
         </div>
     );
 };

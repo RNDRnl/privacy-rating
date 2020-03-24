@@ -81,11 +81,11 @@ const getMatchingScore = (FormState:any, cat: String, i: Number) => {
     var answerA = FormState[questionA];
     var answerB = FormState[questionB];
                 
-    if(answerA == "YES") {
+    if(answerA == "Yes") {
         return RatingConfig[`${questionA}_yes`]
-    } else if(answerA == "NO" && answerB == "YES") {
+    } else if(answerA == "No" && answerB == "Yes") {
         return RatingConfig[`${questionB}_yes`]
-    } else if(answerA == "NO" && answerB == "NO") {
+    } else if(answerA == "No" && answerB == "No") {
         return RatingConfig[`${questionB}_no`]
     }
     
@@ -140,29 +140,50 @@ const categoriesToHash = (catagories:any) => {
     }
 }
 
-const calculateProcess = (catagories:any) => {
+const calculateProcess = (catagories:any, FormState:any) => {
 
     var variant = "secondary";
-    var value = 20;
-    var text = "collection";
+    var value = 0;
+    var text = "";
+
+    if(FormState.domainSubmit!=null) {
+        var variant = "secondary";
+        var value = 20;
+        var text = "domain";
+    }
+
+
+    if(FormState.declare!=null) {
+        var variant = "secondary";
+        var value = 30;
+        var text = "declaration";
+    }
+    
+    if(catagories[0].sections[2]!=null) {
+        var variant = "secondary";
+        var value = 40;
+        var text = "collection";
+    }
 
     if(catagories[0].sections[2]!=null) {
         var variant = "secondary";
         var value = 40;
-        var text = "sharing";
+        var text = "collection";
     }
+
+
     if(catagories[1].sections[2]!=null) {
         var variant = "secondary";
         var value = 60;
-        var text = "control";
+        var text = "sharing";
     }
     if(catagories[2].sections[2]!=null) {
         var variant = "secondary";
         var value = 80;
-        var text = "security";
+        var text = "control";
     }
     if(catagories[3].sections[2]!=null) {
-        var variant = "secondary";
+        var variant = "success";
         var value = 100;
         var text = "label completed";
     }
@@ -185,7 +206,7 @@ const FormStateToHash = (FormState:any) => {
 
     console.log(catagories);
     var hashValue = categoriesToHash(catagories);
-    var calculatedProgress = calculateProcess(catagories);
+    var calculatedProgress = calculateProcess(catagories, FormState);
 
     if(hashValue != null) {
         return { 'value': `${hashValue}`, 'progress': calculatedProgress };
