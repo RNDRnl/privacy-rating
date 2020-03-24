@@ -27,6 +27,8 @@
 
   &.selected {
     height: 127pt;
+    text-align: center;
+
     .arrow {
       transform: rotate(90deg);
     }
@@ -35,16 +37,33 @@
   &.notSelected {
     background-color: $color-Inactive;
     height: 26pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
 
     .label {
       font-size: 16pt;
       color: $color-Grey-Text;
+      text-align: center;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
     }
 
     .icon {
       float: left;
       height: 20pt;
       width: 20pt;
+      margin-right: 10pt;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
 
     }
 
@@ -52,6 +71,12 @@
       float: right;
       height: 20pt;
       width: 20pt;
+      margin-left: 10pt;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
     }
   }
 
@@ -61,13 +86,23 @@
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     font-size: 22pt;
     padding-top: 3pt;
+    text-align: center;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
   }
 
   .icon {
     float: left;
     height: 30pt;
     width: 30pt;
-
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
   }
 
   .arrow {
@@ -80,8 +115,4 @@
     -ms-transiton: $duration;
     transition: $duration;
   }
-
- 
-
-
 }

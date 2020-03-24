@@ -1,6 +1,5 @@
 import * as React from "react";
 const styles = require("./CategoryBox.scss");
-import DescriptionBox from "./DescriptionBox";
 import LabelContext from "../../state/LabelContext";
 import {Image} from "react-bootstrap";
 
@@ -62,7 +61,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
         var icon = `/resources/icons/${this.props.categoryName}-transparant.gif`;
        
         return (
-            <div className={classNames} onClick={() => this.handleClick()}>
+            <div className={classNames} onClick={() => this.handleClick()} onMouseEnter={() => this.handleClick()}>
                 <div className={styles.label}>
                     {this.props.categoryName}
                     <Image className={styles.icon} src={icon} fluid />

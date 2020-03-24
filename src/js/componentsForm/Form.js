@@ -52,11 +52,10 @@ class FormView extends Component {
 
         return (
                 <div>
+                    <Header/>
                     <Container>
                         <Row >
-                            <Col>
-                                <Header/>
-                            </Col>
+
                         </Row>
                         {/* {JSON.stringify(Form)} */}
                         <Row >

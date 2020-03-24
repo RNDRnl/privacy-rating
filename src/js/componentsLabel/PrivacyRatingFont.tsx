@@ -1,6 +1,7 @@
 import * as React from "react";
 const styles = require("./PrivacyRatingFont.scss");
 import LabelContext from "../../state/LabelContext";
+import License from "./License";
 
 class PrivacyRatingFont extends React.Component {
     static contextType = LabelContext
@@ -20,6 +21,7 @@ class PrivacyRatingFont extends React.Component {
         return (
             <div className={classNames} >
                 <div>PRIVACY RATING</div>
+                <License/>
             </div>
         );
     }

@@ -1,8 +1,4 @@
 import * as React from "react";
-// import LabelBar from "./LabelBar";
-// import CategoryBox from "./CategoryBox";
-// import Footer from "./Footer";
-
 import LabelCircle from "./LabelCircle";
 import PrivacyRatingFont from './PrivacyRatingFont';
 import LabelBar from "./LabelBar";
@@ -37,6 +33,7 @@ export class LabelElement extends React.Component<ValidPropsLabel, {}> {
                     <Footer domain={this.props.domain} year={this.props.year} />
                 </div>
             </div>
+
         );
     }
 }

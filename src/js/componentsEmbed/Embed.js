@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, Container, Jumbotron, Accordion, Col, Row, Card, Table, ListGroup, ProgressBar} from "react-bootstrap";
+import {Container, Col, Row, Jumbotron} from "react-bootstrap";
 import styles from './Embed.scss';
 import _ from 'underscore'
 import FormContext from '../../state/FormContext'
@@ -17,17 +17,29 @@ class Embed extends Component {
     
         return (
                 <div>
+                    <Header/>
                     <Container>
-                        <Row >
-                            <Col>
-                                <Header/>
-                            </Col>
-                        </Row>
                         <Row>
                             <Col>
                                 <div>Here is your label: {this.props.labelId}</div>
                                 <div>Use this embed code</div>
-                                <iframe width={"500pt"} height={"500pt"} src={`/${this.props.labelId}/${this.props.domain}`} />
+
+                                <div>
+                                    &lt;iframe
+                                    style="top: 0; left: 0;
+                                    width: 320pt; height: 320pt;
+                                    border: 0; overflow: hidden;
+                                    margin: 0; padding: 0; border-radius: 8pt;"
+                                    frameBorder="0" gesture="media"
+                                    allow="encrypted-media" allowFullScreen/&gt;
+                                </div>
+                                <Col>
+                                    <iframe className={styles.iframe}
+                                            src={`/${this.props.labelId}/${this.props.domain}`} frameBorder="0"
+                                            gesture="media" allow="encrypted-media" allowFullScreen/>
+
+                                </Col>
+
                             </Col>
                             <Col>
                                 <div>Download the label from here</div>
@@ -37,10 +49,10 @@ class Embed extends Component {
                         </Row>
                         <Row >
                             <Col>
-                                <Footer/>
                             </Col>
                         </Row>
                     </Container>
+                    <Footer/>
                 </div>
         )
     }

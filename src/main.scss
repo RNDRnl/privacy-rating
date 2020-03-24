@@ -18,7 +18,7 @@ $color-Inactive: #D0D2D3;
 
 $color-Grey-Text: #A6A8AB;
 
-$duration: all .4s ease-in-out;
+$duration: all .45s ease-in-out;
 
 
 @font-face {
@@ -39,9 +39,10 @@ $duration: all .4s ease-in-out;
 
 
 body,html {
-    margin:0px;
-    padding:0px;
-    padding-bottom: 100px;
+    margin:0;
+    padding:0;
+    width: 100%;
+    height: 100%;
 }
 
 body {
