@@ -1,0 +1,32 @@
+.license {
+  display: flex;
+
+  .explain {
+    position: absolute;
+    flex: 1;
+  }
+
+  a {
+    position: relative;
+    background: url("/resources/icons/cc.svg");
+    float:right;
+    width: 13pt;
+    height: 13pt;
+    margin-top: 3pt;
+  }
+
+  .tooltip {
+    float: right;
+    width: 13pt;
+    height: 13pt;
+    margin-left: 2pt;
+  }
+
+  .licenseText{
+    display: flex;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    color: #A6A8AB;
+    margin-left: 2pt;
+  }
+}
