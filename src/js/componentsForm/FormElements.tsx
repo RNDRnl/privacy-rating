@@ -58,7 +58,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                             {/* } */}
 
                             <Navbar.Text className={styles.justifyContentEnd}>
-                                { checkForm(this.props.completedIf) != null &&
+                                { checkForm (this.props.completedIf) != null &&
                                     <div className={classnames(styles.catStatus, styles.check)}>✓</div>
                                 }
                                 { checkForm(this.props.completedIf) == null &&

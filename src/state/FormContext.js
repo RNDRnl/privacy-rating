@@ -61,7 +61,7 @@ class FormProvider extends Component {
         }
       }, function() {
         that.checkHash()
-        console.log("state", that.state);
+        //console.log("state", that.state);
       });
     }
 
@@ -82,7 +82,7 @@ class FormProvider extends Component {
       var hashData = FormStateToHash(this.state.Form)
       var hash = hashData.value;
       var progress = hashData.progress;
-      console.log(progress);
+      //console.log(progress);
       this.setState({
         Form: {
           ...this.state.Form,
@@ -96,7 +96,24 @@ class FormProvider extends Component {
     }
 
     checkForm = (ref) => {
-      return this.state.Form[ref];
+      if(Array.isArray(ref)) {
+        var boolean = null;
+
+        if(ref.length == 1) {
+          boolean = this.state.Form[ref[0]]
+        } else if(ref.length == 2) {
+          if(this.state.Form[ref[0]] == null && this.state.Form[ref[1]] == null) {
+            boolean = null;
+          } else if(this.state.Form[ref[0]] == 'Yes' && this.state.Form[ref[1]] == null) {
+            boolean = true;
+          } else if(this.state.Form[ref[0]] == 'No' && this.state.Form[ref[1]] != null) {
+            boolean = true;
+          }
+        }
+        return boolean;
+      } else {
+        return this.state.Form[ref];
+      }
     }
   
     render() {
