@@ -3,23 +3,36 @@ const styles = require("./CategoryBox.scss");
 import LabelContext from "../../state/LabelContext";
 import {Image} from "react-bootstrap";
 
-class CategoryBox extends React.Component<{rating:any, categoryName:any, children:any}, {}> {
+type LabelState = {
+    timer: NodeJS.Timeout
+}
+
+class CategoryBox extends React.Component<{rating:any, categoryName:any, children:any}, LabelState> {
     static contextType = LabelContext
 
 
     constructor(props) {
         super(props);
 
-        this.state = {
-            value: ""
-        };
-
         this.handleClick = this.handleClick.bind(this);
-        this.handleHoverDelay = this.handleHoverDelay.bind(this);
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
+        this.toggleCheck = this.toggleCheck.bind(this);
+        this.cancelTimout = this.cancelTimout.bind(this);
     }
 
     handleClick( ) {
-        const {  openCategory, setLabelState } = this.context
+        this.toggleCheck()
+    }
+
+    setCategoryOpen() {
+        const {openCategory, setLabelState} = this.context
+        setLabelState(this.props.categoryName)
+    }
+
+    toggleCheck() {
+        const {openCategory, setLabelState} = this.context
+        this.cancelTimout();
 
         if (openCategory == this.props.categoryName) {
             setLabelState(null)
@@ -28,16 +41,28 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
         }
     }
 
-    handleHoverDelay( ) {
-        const {openCategory, setLabelState} = this.context
-        const timer = setTimeout(() => {
-            if (openCategory == this.props.categoryName) {
-                setLabelState(null)
-            } else {
-                setLabelState(this.props.categoryName)
-            }
-        }, 800);
-        return () => clearTimeout(timer);
+    handleMouseEnter( ) {
+       //console.log("set timer");
+       const {openCategory, setLabelState} = this.context
+       if (openCategory == this.props.categoryName) {
+        this.cancelTimout();
+       }
+       
+       this.setState({
+            timer: setTimeout(() => { 
+                // console.log("execute");
+                this.setCategoryOpen() 
+            }, 800)
+        });
+    }
+
+    handleMouseLeave( ) {
+        this.cancelTimout();
+    }
+
+    cancelTimout() {
+        //console.log("cancel timer");
+        clearTimeout(this.state.timer);
     }
 
     render() {
@@ -72,12 +97,14 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             }
         }
 
-
         var icon = `/resources/icons/${this.props.categoryName}-transparant.gif`;
 
-
         return (
-            <div className={classNames} onClick={() => this.handleClick()}  onMouseEnter={() => this.handleHoverDelay()}>
+            <div className={classNames} 
+                onClick={() => this.handleClick()}  
+                onMouseEnter={() => this.handleMouseEnter()}
+                onMouseLeave={() => this.handleMouseLeave()}
+                >
                 <div className={styles.label}>
                     {this.props.categoryName}
                     <Image className={styles.icon} src={icon} fluid />
