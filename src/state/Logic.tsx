@@ -268,10 +268,10 @@ const HashToLabelState = (labelHash:any) => {
     var category4 = sections.slice(9, 12);
 
     var categories = [
-        new Category(calculateScore(category1, 3.0), "collection", category1),
-        new Category(calculateScore(category2, 3.0), "sharing", category2),
-        new Category(calculateScore(category3, 3.0), "control", category3),
-        new Category(calculateScore(category4, 3.0), "security", category4)
+        new Category(calculateScore(category1, 3.0), "COLLECTION", category1),
+        new Category(calculateScore(category2, 3.0), "SHARING", category2),
+        new Category(calculateScore(category3, 3.0), "CONTROL", category3),
+        new Category(calculateScore(category4, 3.0), "SECURITY", category4)
     ]
     
     var cScore = calculateScore(categories, 4.0);

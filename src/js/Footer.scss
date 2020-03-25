@@ -1,9 +1,16 @@
 .holder {
+  display: flex;
   background-color: #D0D2D3;
   padding: 12pt;
-  height: 20pt;
-  line-height: 3pt;
+  height: 100%;
   width: 100%;
-  font-size: 7pt;
   border-radius: 8pt;
+  text-align: left;
+
+  .footerText {
+    flex: 1;
+    font-size: 7pt;
+    line-height: 11pt;
+    padding-right: 8pt;
+  }
 }

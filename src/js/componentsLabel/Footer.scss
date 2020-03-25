@@ -1,5 +1,5 @@
 .footer {
-  padding-top: 5pt;
+  padding-top: 6pt;
   font-size: 8pt;
   color: #A6A8AB;
   display: flex;
@@ -13,10 +13,12 @@
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     flex:1;
     text-align: center;
+    margin-left: 115pt;
   }
 
   .reportFlag {
     flex:1;
+    margin-left: 119pt;
     
     a {
       background: url("/resources/icons/reportflag-outline.svg");

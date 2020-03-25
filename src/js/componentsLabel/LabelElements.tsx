@@ -5,6 +5,7 @@ import LabelBar from "./LabelBar";
 import Footer from "./Footer";
 import CategoryBox from "./CategoryBox";
 import DescriptionBox from "./DescriptionBox";
+const styles = require("./LabelElements.scss");
 
 
 // import LabelContext from '../../state/LabelContext';
@@ -24,15 +25,18 @@ export class LabelElement extends React.Component<ValidPropsLabel, {}> {
 
     render() {
         return (
-            <div>
+            <div className={styles.holder}>
+                <div className={styles.footer}>
+                    <Footer domain={this.props.domain} year={this.props.year} />
+                </div>
                 <div>
                     <LabelCircle rating={this.props.rating} />
                     <PrivacyRatingFont />
                     <LabelBar rating={this.props.rating} />
                     {this.props.children}
-                    <Footer domain={this.props.domain} year={this.props.year} />
                 </div>
             </div>
+
 
         );
     }

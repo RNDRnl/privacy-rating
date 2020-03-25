@@ -4,29 +4,31 @@
   .explain {
     position: absolute;
     flex: 1;
+    margin-left: 106pt;
   }
 
   a {
     position: relative;
     background: url("/resources/icons/cc.svg");
     float:right;
-    width: 13pt;
-    height: 13pt;
-    margin-top: 3pt;
+    width: 11pt;
+    height: 11pt;
   }
 
   .tooltip {
     float: right;
-    width: 13pt;
-    height: 13pt;
-    margin-left: 2pt;
+    width: 11pt;
+    height: 11pt;
+    margin-left: 1pt;
+    padding-top: 1.5pt;
   }
 
   .licenseText{
     display: flex;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
-    font-size: 10pt;
+    font-size: 9pt;
     color: #A6A8AB;
-    margin-left: 2pt;
+    margin-left: 1pt;
+    padding-top: 1.5pt;
   }
 }

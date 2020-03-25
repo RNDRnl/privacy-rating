@@ -1,114 +1,144 @@
 .holder {
   background-color: white;
-  min-width: 400pt;
+  width: 100%;
   min-height: auto;
   padding-left: 12pt;
   padding-right: 12pt;
   padding-top: 8pt;
 
-
-  .backgroundAbout {
-    background-color: #F3f3F4;
-    border-top-left-radius: 10pt;
-    border-top-right-radius: 10pt;
-  }
-
-  .backgroundCreate {
-    background-color: white;
-    height: 200pt;
-  }
-
-  .backgroundUse {
-    background-color: #F3f3F4;
-    border-bottom-left-radius: 10pt;
-    border-bottom-right-radius: 10pt;
-  }
-
-  .subtitleAbout {
+  .backgroundWhite {
+    display: flex;
     padding-left: 12pt;
     padding-right: 12pt;
-    padding-top: 25pt;
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 22pt;
-    line-height: 1.1;
-  }
-
-  .plainTextAbout {
-    padding-left: 12pt;
-    padding-right: 12pt;
-    padding-top: 15pt;
+    padding-top: 35pt;
     padding-bottom: 25pt;
-    width: 400pt;
-    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
-    font-size: 12pt;
-    line-height: 1.1;
   }
 
-  .subtitleCreate {
-    padding-right: 190pt;
-    padding-top: 25pt;
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 22pt;
-    line-height: 1.1;
-    float: right;
-  }
-
-
-  .plainTextCreate {
-    padding-right: 32pt;
-    padding-top: 15pt;
-    padding-bottom: 15pt;
-    width: 400pt;
-    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
-    font-size: 12pt;
-    line-height: 1.1;
-    float: right;
-  }
-
-  .plainTextUse {
+  .backgroundGray {
+    display: flex;
+    background-color: #F3f3F4;
     padding-left: 12pt;
     padding-right: 12pt;
-    padding-top: 15pt;
-    width: 400pt;
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 22pt;
+    padding-top: 35pt;
+    padding-bottom: 25pt;
+    border-radius: 8pt;
+  }
+
+  .text {
+    flex: 1;
+    padding-right: 12pt;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 12pt;
     line-height: 1.1;
   }
-
-
-  .image {
-    width: 250pt;
-    height: 250pt;
-    float: right;
-    margin-top: 32pt;
-    margin-right: 110pt;
-  }
-
 
   .button {
-    float: left;
-    margin-top: 70pt;
-    margin-left: 42pt;
-    width: 250pt;
-    font-size: 22pt;
-  }
-
-  .logos {
+    flex: 1;
     width: 100%;
-    padding: 5pt;
+    font-size: 22pt;
+    border-radius: 8pt;
   }
 
-  .logosFrame {
-    background-color: white;
-    width: 70pt;
-    height: 70pt;
-    float: right;
-    margin-top: 52pt;
-    margin-right: 30pt;
-    border-radius: 10pt;
-  }
+  .circleBox {
+    width: 50%;
 
-  .logosBox {
-    margin-right: 40pt;
+    .circleA {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color: #2EA952;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
+    .circleB {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color: #7CD452;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
+    .circleC {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color: #C0EA7D;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
+    .circleD {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color:  #FFEE42;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
+    .circleE {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color: #EFAF48;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
+    .circleF {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color: #EC6C01;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
+    .circleG {
+      float: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 5vw;
+      height: 5vw;
+      background-color: #E82613;
+      border-radius: 100%;
+      font-size: 3vw;
+      margin-left: 1vw;
+    }
+
   }
 }

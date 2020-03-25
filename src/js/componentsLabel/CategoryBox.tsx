@@ -6,25 +6,43 @@ import {Image} from "react-bootstrap";
 class CategoryBox extends React.Component<{rating:any, categoryName:any, children:any}, {}> {
     static contextType = LabelContext
 
+
     constructor(props) {
         super(props);
-        
+
         this.state = {
             value: ""
         };
-        
+
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick( ) {
         const {  openCategory, setLabelState } = this.context
-          
+
         if (openCategory == this.props.categoryName) {
             setLabelState(null)
         } else {
             setLabelState(this.props.categoryName)
         }
     }
+
+    handleClickDelay( ) {
+        const {openCategory, setLabelState} = this.context
+        const timer = setTimeout(() => {
+            if (openCategory == this.props.categoryName) {
+                setLabelState(null)
+            } else {
+                setLabelState(this.props.categoryName)
+            }
+        }, 800);
+
+
+
+        return () => clearTimeout(timer);
+    }
+
+
 
     render() {
         const { openCategory } = this.context
@@ -48,7 +66,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             default: colorStyle = null
                     break
         }
-        
+
         var classNames = `${styles.container} ${colorStyle} `
         if(openCategory != null) {
             if (openCategory != this.props.categoryName) {
@@ -57,11 +75,13 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 classNames += `${styles.selected} `
             }
         }
-        
+
+
         var icon = `/resources/icons/${this.props.categoryName}-transparant.gif`;
-       
+
+
         return (
-            <div className={classNames} onClick={() => this.handleClick()} onMouseEnter={() => this.handleClick()}>
+            <div className={classNames} onClick={() => this.handleClick()}  onMouseEnter={() => this.handleClickDelay()}>
                 <div className={styles.label}>
                     {this.props.categoryName}
                     <Image className={styles.icon} src={icon} fluid />

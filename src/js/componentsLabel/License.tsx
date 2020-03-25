@@ -15,7 +15,7 @@ function renderTooltip(props) {
 
 const CreativeCommons = () => (
     <OverlayTrigger
-        placement="right"
+        placement="left"
         delay={{ show: 250, hide: 400 }}
         overlay={renderTooltip}
     >
