@@ -16,15 +16,19 @@ class Embed extends Component {
     render() {
     
         return (
-                <div>
+            <div  className={styles.holder} >
                     <Header/>
-                    <Container>
                         <Row>
                             <Col>
-                                <div>Here is your label: {this.props.labelId}</div>
-                                <div>Use this embed code</div>
-
-                                <div>
+                                {/*<div>Here is your label: {this.props.labelId}</div>*/}
+                                <div className={styles.text}>Here is your label: </div>
+                                <iframe className={styles.iframe}
+                                        src={`/${this.props.labelId}/${this.props.domain}`} frameBorder="0"
+                                        gesture="media" allow="encrypted-media" allowFullScreen/>
+                            </Col>
+                            <Col>
+                                <div className={styles.text}>Use this embed code for your website:</div>
+                                <div className={styles.iframeCodeBox}>
                                     &lt;iframe
                                     style="top: 0; left: 0;
                                     width: 320pt; height: 320pt;
@@ -33,25 +37,17 @@ class Embed extends Component {
                                     frameBorder="0" gesture="media"
                                     allow="encrypted-media" allowFullScreen/&gt;
                                 </div>
-                                <Col>
-                                    <iframe className={styles.iframe}
-                                            src={`/${this.props.labelId}/${this.props.domain}`} frameBorder="0"
-                                            gesture="media" allow="encrypted-media" allowFullScreen/>
-
-                                </Col>
-
-                            </Col>
-                            <Col>
-                                <div>Download the label from here</div>
+                                <br/>
+                                <div>Download the label from here:</div>
                                 <div>as svg</div>
                                 <div>as png</div>
+
                             </Col>
                         </Row>
                         <Row >
                             <Col>
                             </Col>
                         </Row>
-                    </Container>
                     <Footer/>
                 </div>
         )

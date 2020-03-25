@@ -52,7 +52,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             timer: setTimeout(() => { 
                 // console.log("execute");
                 this.setCategoryOpen() 
-            }, 800)
+            }, 600)
         });
     }
 
