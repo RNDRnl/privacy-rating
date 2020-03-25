@@ -27,7 +27,7 @@ class Category {
     sections: Section[] = new Array();
     calculateRank() {
         this.rank = scoreToRank(this.score);
-        console.log(this.score, this.rank);
+        // console.log(this.score, this.rank);
     }
     constructor(_score: any, _categoryName: String, _sections:Section[]) {
         this.categoryName = _categoryName;
@@ -133,7 +133,7 @@ const categoriesToHash = (catagories:any) => {
         });
     });
     if(isInvalid) {
-        console.log("invalid hash!");
+        // console.log("invalid hash!");
         return null;
     } else {
         return hash;
@@ -204,7 +204,7 @@ const FormStateToHash = (FormState:any) => {
         catagories.push( new Category(score, cat, sections) );
     });
 
-    console.log(catagories);
+    // console.log(catagories);
     var hashValue = categoriesToHash(catagories);
     var calculatedProgress = calculateProcess(catagories, FormState);
 
@@ -276,7 +276,7 @@ const HashToLabelState = (labelHash:any) => {
     
     var cScore = calculateScore(categories, 4.0);
     var labelObject = new LabelObject(cScore, covertDomain(labelHash.domain), categories);
-    console.log(labelObject);
+    //console.log(labelObject);
     var labelRender = new LabelTag(labelObject).getTag;
 
     return labelRender;
