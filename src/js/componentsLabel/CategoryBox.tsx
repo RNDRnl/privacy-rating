@@ -15,6 +15,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
         };
 
         this.handleClick = this.handleClick.bind(this);
+        this.handleHoverDelay = this.handleHoverDelay.bind(this);
     }
 
     handleClick( ) {
@@ -27,7 +28,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
         }
     }
 
-    handleClickDelay( ) {
+    handleHoverDelay( ) {
         const {openCategory, setLabelState} = this.context
         const timer = setTimeout(() => {
             if (openCategory == this.props.categoryName) {
@@ -36,13 +37,8 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 setLabelState(this.props.categoryName)
             }
         }, 800);
-
-
-
         return () => clearTimeout(timer);
     }
-
-
 
     render() {
         const { openCategory } = this.context
@@ -81,7 +77,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
 
 
         return (
-            <div className={classNames} onClick={() => this.handleClick()}  onMouseEnter={() => this.handleClickDelay()}>
+            <div className={classNames} onClick={() => this.handleClick()}  onMouseEnter={() => this.handleHoverDelay()}>
                 <div className={styles.label}>
                     {this.props.categoryName}
                     <Image className={styles.icon} src={icon} fluid />

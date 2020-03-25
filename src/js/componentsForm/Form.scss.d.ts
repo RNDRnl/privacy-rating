@@ -4,6 +4,7 @@ interface CssExports {
   'ProgressBar': string;
   'accordionView': string;
   'answerButton': string;
+  'formContainer': string;
   'formFooter': string;
 }
 export const cssExports: CssExports;

@@ -53,22 +53,7 @@ class FormView extends Component {
         return (
                 <div>
                     <Header/>
-                    <Container>
-                        <Row >
-                            <Col>
-                                {/* <Header/> */}
-                            </Col>
-                        </Row>
-                        {/* {JSON.stringify(Form)} */}
-                        <Row >
-                            <Col>
-                                <br />
-                                {/* <br />
-                                <div>current handle:{this.state.currentHandle}</div>
-                                <div>current category: {this.state.currentCategory}</div>
-                                <div>current step:{this.state.currentStep}</div> */}
-                            </Col>
-                        </Row>
+                    <Container className={styles.formContainer}>
                         <Row >
                             { this.getForm(FormConfig) }
                         </Row>
