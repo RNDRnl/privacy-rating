@@ -10,15 +10,17 @@
   }
 
   .year {
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     flex:1;
+    position: absolute;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     text-align: center;
-    margin-left: 105pt;
+    margin-left: 140pt;
   }
 
   .reportFlag {
+    position: absolute;
     flex:1;
-    margin-left: 129pt;
+    margin-left: 286pt;
     
     a {
       background: url("/resources/icons/reportflag-outline.svg");
@@ -29,6 +31,10 @@
         background: url("/resources/icons/reportflag-hover.svg");
       }
     }
+  }
+
+  .license {
+    position: absolute;
   }
 
   

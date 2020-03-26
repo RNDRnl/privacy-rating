@@ -3,6 +3,7 @@
 interface CssExports {
   'domainName': string;
   'footer': string;
+  'license': string;
   'reportFlag': string;
   'year': string;
 }

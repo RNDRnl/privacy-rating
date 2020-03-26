@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Container, Col, Row, Jumbotron} from "react-bootstrap";
+import {Container, Col, Row, Jumbotron, Image, Button} from "react-bootstrap";
 import styles from './Embed.scss';
 import _ from 'underscore'
 import FormContext from '../../state/FormContext'
@@ -13,7 +13,12 @@ class Embed extends Component {
         super();
     }
 
+
+
     render() {
+
+        var png = `/resources/privacyRatingSmall/PNG/PrivacyRating${this.props.labelId}.png`;
+        var svg = `/resources/privacyRatingSmall/SVG/PrivacyRating${this.props.labelId}.svg`;
     
         return (
             <div  className={styles.holder} >
@@ -37,10 +42,28 @@ class Embed extends Component {
                                     frameBorder="0" gesture="media"
                                     allow="encrypted-media" allowFullScreen/&gt;
                                 </div>
+
                                 <br/>
-                                <div>Download the label from here:</div>
-                                <div>as svg</div>
-                                <div>as png</div>
+
+                                <div className={styles.text}>Download the header label here:</div>
+
+                                <div className={styles.headerLabelDescription}>
+                                    !!!!!!!!!!!PLACE HOLDER TEXT!!!!!!!!!!!
+                                    Besides the label that you can implement in to your website you can also download a
+                                    .svg or .png to put into your header of your website.
+                                    !!!!!!!!!!!PLACE HOLDER TEXT!!!!!!!!!!!
+                                </div>
+
+                                <Image className={styles.privacyRatingSmall} src={svg}/>
+
+                                <div className={styles.downloadButton}>
+                                    <Button variant="secondary" href={svg} download>Download SVG</Button>
+                                </div>
+
+                                <div className={styles.downloadButton}>
+                                    <Button variant="secondary" href={png} download>Download PNG</Button>
+                                </div>
+
 
                             </Col>
                         </Row>

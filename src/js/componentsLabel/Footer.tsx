@@ -12,7 +12,9 @@ class Footer extends React.Component<{domain:any, year:any}, {}> {
                 <div className={styles.year}>
                     <a >2020</a>
                 </div>
-                <License/>
+                <div className={styles.license}>
+                    <License/>
+                </div>
                 <div className={styles.reportFlag}>
                     <a href="/" title="Report" target="_blank" />
                 </div>

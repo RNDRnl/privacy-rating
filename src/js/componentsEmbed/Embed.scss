@@ -9,6 +9,7 @@
 
   .text {
     flex: 1;
+    padding-left: 12pt;
     padding-right: 12pt;
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     font-size: 22pt;
@@ -24,9 +25,11 @@
     height: 320pt;
     border: 0;
     overflow: hidden;
-    margin: 12pt;
+    margin-left: 12pt;
+    margin-right: 12pt;
     padding: 0;
     border-radius: 8pt;
+    margin-bottom: 12pt;
   }
 
   .iframeCodeBox {
@@ -34,11 +37,30 @@
     background-color: #F3f3F4;
     border-radius: 8pt;
     padding: 10pt;
-    margin: 12pt;
+    margin-left: 12pt;
+    margin-right: 12pt;
     -webkit-user-select: all;
     -moz-user-select: all;
     -ms-user-select: all;
     user-select: all;
+  }
+
+  .privacyRatingSmall {
+    float: left;
+    width: 220pt;
+    padding-right: 20pt;
+    margin-left: 12pt;
+    margin-bottom: 12pt;
+  }
+
+  .downloadButton {
+    margin: 12pt;
+  }
+
+  .headerLabelDescription {
+    padding-left: 12pt;
+    padding-right: 12pt;
+    margin-bottom: 12pt;
   }
 
 }
