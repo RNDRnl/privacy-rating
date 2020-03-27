@@ -71,7 +71,7 @@ class Embed extends Component {
                                 <div ref={this.containerRef} className={styles.containerRef} >
                                     { this.state.show &&
                                         <div className={styles.overlayView}>
-                                                <span>Embed code has been coppied to clipboard</span>
+                                                <span>Embed code has been copied to clipboard</span>
                                         </div>
                                     }
 
