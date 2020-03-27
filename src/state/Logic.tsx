@@ -279,7 +279,10 @@ const HashToLabelState = (labelHash:any) => {
     //console.log(labelObject);
     var labelRender = new LabelTag(labelObject).getTag;
 
-    return labelRender;
+    return {
+        labelRender: labelRender, 
+        labelObject: labelObject
+    };
 }
 
 export  {

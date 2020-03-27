@@ -6,6 +6,7 @@ class LabelProvider extends Component {
     // Context state
     state = {
       Label: null,
+      LabelObject : null,
       openCategory: null
     }
     
@@ -19,19 +20,21 @@ class LabelProvider extends Component {
     pupulateLabel = (labelHash) => {
       var labelData = HashToLabelState(labelHash);
       this.setState({
-        Label: labelData
+        Label: labelData.labelRender,
+        LabelObject: labelData.labelObject
       });
     }
   
     render() {
       const { children } = this.props
-      const { Label, openCategory } = this.state
+      const { Label, LabelObject, openCategory } = this.state
       const { setLabelState, pupulateLabel } = this
       
       return (
         <LabelContext.Provider
           value={{
             Label,
+            LabelObject,
             openCategory,
             setLabelState,
             pupulateLabel

@@ -2,10 +2,13 @@
 // Please do not change this file!
 interface CssExports {
   'downloadButton': string;
+  'example': string;
+  'fadeInOut': string;
   'headerLabelDescription': string;
   'holder': string;
   'iframe': string;
   'iframeCodeBox': string;
+  'overlayView': string;
   'privacyRatingSmall': string;
   'text': string;
 }

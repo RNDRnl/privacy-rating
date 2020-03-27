@@ -18,6 +18,56 @@
     margin-bottom: 10pt;
   }
 
+  .containerRef {
+    //background-color: red;
+  }
+
+  .overlayView {
+    
+    overflow: hidden;
+    margin-left:15px;
+    width: 100%;
+    height: 50px;
+    //margin-bottom: 5px;
+    
+    animation-name: example;
+    animation-duration: 150ms;
+    animation-iteration-count: 1;
+    margin-bottom: 10px;
+    span {
+      border-radius: 5px;
+      background-color: rgb(84, 91, 98);
+      padding:12px;
+      display: block;
+      animation-name: fadeInOut;
+      animation-duration: 800ms;
+      animation-iteration-count: 2;
+      color:white;
+      
+    }
+  }
+
+  @keyframes fadeInOut {
+    0%   { 
+      background-color:rgb(84, 91, 98);
+    }
+    50% { 
+      background-color: lightgray;
+    }
+    100%   { 
+      background-color:rgb(84, 91, 98);
+    }
+  }
+
+  @keyframes example {
+    0%   { 
+      height: 0px; 
+    }
+    100% { 
+      height: 50px;
+    }
+  }
+
   .iframe {
     top: 0;
     left: 0;
@@ -33,10 +83,11 @@
   }
 
   .iframeCodeBox {
-    cursor: text;
     background-color: #F3f3F4;
     border-radius: 8pt;
     padding: 10pt;
+    width: 100%;
+    height: 90pt;
     margin-left: 12pt;
     margin-right: 12pt;
     -webkit-user-select: all;

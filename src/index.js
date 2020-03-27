@@ -9,6 +9,7 @@ import {
   useParams
 } from "react-router-dom";
 import { FormProvider } from './state/FormContext'
+import { LabelProvider } from './state/LabelContext';
 
 import App from './js/componentsLabel/App'
 import Home from './js/componentsHome/Home'
@@ -37,7 +38,12 @@ const routes = (
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/embed/:id/:domain" children={<EmbedView />} />
+
+        <Route path="/embed/:id/:domain" children={
+            <LabelProvider>
+              <EmbedView />
+            </LabelProvider>
+        } />
         <Route path="/:id/:domain" children={<LabelView />} />
         <Route path="*">
           <NotFound />
