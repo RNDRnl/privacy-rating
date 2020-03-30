@@ -1,119 +1,120 @@
+@import "../main.scss";
+
 .holder {
-  display: flex;
   background-color: #D0D2D3;
-  padding: 16pt;
+  padding: 16px;
   border-radius: 10pt;
   width: 100%;
-
-  .privacyRatingFont {
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 4vw;
-    line-height: 1.1;
-  }
+  display: flex;
+  margin-top: 8pt;
 
   .flexbox {
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    float: right;
+    flex:1;
+    width: 100%;
+    display: flex;
+    .element {
+      flex: 1;
+      padding:0px 8px 0px;
+      .label {
+        width: 100%;
+        text-align: center;
+        padding-top: 0px;
+        border-radius: 100%;
+        align-items: stretch;
+        font-size: 70px;
+      }
+    } 
   }
 
-  .cirleA {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color: #2EA952;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 3vw;
+  .flexboxTitle {
+    flex:0.25;
+    .privacyRatingFont {
+      font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+      font-size: 50px;
+      line-height: 1.1;
+    }
   }
 
-  .cirleB {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color: #7CD452;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 1vw;
+  @media (max-width: 1200px) {
+    .flexbox {
+      .element {
+        padding:0px 8px 0px;
+        .label {
+          font-size: 55px;
+        }
+      } 
+    }
+
+    .flexboxTitle {
+      flex:0.25;
+      .privacyRatingFont {
+        font-size: 40px;
+      }
+    }
   }
 
-  .cirleC {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color: #C0EA7D;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 1vw;
+  @media (max-width: 992px) {
+    .flexbox {
+      .element {
+        padding:0px 6px 0px;
+        .label {
+          font-size: 40px;
+        }
+      } 
+    }
+
+    .flexboxTitle {
+      flex:0.25;
+      .privacyRatingFont {
+        font-size: 30px;
+      }
+    }
   }
 
-  .cirleD {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color:  #FFEE42;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 1vw;
+  @media (max-width: 768px) {
+    
+    .flexbox {
+      .element {
+        padding:0px 4px 0px;
+        .label {
+          font-size: 30px;
+        }
+      } 
+    }
+
+    .flexboxTitle {
+      flex:0.25;
+      .privacyRatingFont {
+        font-size: 20px;
+      }
+    }
   }
 
-  .cirleE {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color: #EFAF48;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 1vw;
+  @media (max-width: 576px) {
+    
+    .flexbox {
+      .element {
+        padding:0px 4px 0px;
+        .label {
+          font-size: 29px;
+        }
+      } 
+    }
+
+    .flexboxTitle {
+      flex:0.25;
+      .privacyRatingFont {
+        font-size: 20px;
+      }
+    }
   }
 
-  .cirleF {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color: #EC6C01;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 1vw;
-  }
+  .circleA { background-color: $color-A;}
+  .circleB { background-color: $color-B;}
+  .circleC { background-color: $color-C;}
+  .circleD { background-color: $color-D;}
+  .circleE { background-color: $color-E;}
+  .circleF { background-color: $color-F;}
+  .circleG { background-color: $color-G;}
 
-  .cirleG {
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 9vw;
-    background-color: #E82613;
-    border-radius: 100%;
-    font-size: 6vw;
-    margin-left: 1vw;
-  }
 }

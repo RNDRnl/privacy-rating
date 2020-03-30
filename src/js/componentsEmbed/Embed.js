@@ -51,8 +51,9 @@ class Embed extends Component {
     
         return (
             <div className={styles.holder} >
-                    <Header/>
+                   
                         <Container>
+                        <Header/>
                         <br />
                         <Row>
                             <Col>

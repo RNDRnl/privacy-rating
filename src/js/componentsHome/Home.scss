@@ -1,10 +1,13 @@
+@import "../../main.scss";
+
+
 .holder {
-  background-color: white;
-  width: 100%;
-  min-height: auto;
-  padding-left: 12pt;
-  padding-right: 12pt;
-  padding-top: 8pt;
+  // background-color: white;
+  // width: 100%;
+  // min-height: auto;
+  // padding-left: 12pt;
+  // padding-right: 12pt;
+  // padding-top: 8pt;
 
   .backgroundWhite {
     display: flex;
@@ -12,6 +15,7 @@
     padding-right: 12pt;
     padding-top: 35pt;
     padding-bottom: 25pt;
+    
   }
 
   .backgroundGray {
@@ -32,11 +36,26 @@
     line-height: 1.1;
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+
   .button {
-    flex: 1;
+    // flex: 1;
     width: 100%;
+    background-color:$botton-Color;
+    text-align: center;
+    color:white;
+    margin: 10px;
+    padding: 20px;
     font-size: 22pt;
     border-radius: 8pt;
+    transition: background-color 200ms ease-in-out;
+    &:hover {
+      background-color: $button-Color-Hover;
+
+      
+    }
   }
 
   .circleBox {

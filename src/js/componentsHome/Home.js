@@ -3,6 +3,7 @@ import styles from './Home.scss';
 import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "react-bootstrap";
 import Header from "../Header";
 import Footer from "../Footer";
+import { Link } from "react-router-dom";
 
 
 const initialFormState = {
@@ -11,9 +12,9 @@ const initialFormState = {
 const Home = () => {
     return (
         <div  className={styles.holder} >
-
-            <Header/>
-
+            <Container>
+                <Header/>
+            <Row>
             <div className={styles.backgroundWhite}>
 
                 <div className={styles.text}>
@@ -32,13 +33,13 @@ const Home = () => {
                 </div>
 
             </div>
-
-            <div className={styles.backgroundWhite}>
-
-                <Button className={styles.button} variant="dark" href="form">Create a new label</Button>
-
-            </div>
-
+            </Row>
+            <Row>
+                <Link className={styles.button} to="/form">
+                        Create a new label
+                </Link>
+            </Row>
+            <Row>
             <div className={styles.backgroundGray}>
 
                 <div className={styles.text}>
@@ -57,7 +58,6 @@ const Home = () => {
                     to scrutinize and enforce their own data privacy policy and prevent the flow
                     of unauthorized communication from customers' devices. !!!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY
                 </div>
-
                 <div className={styles.text}>
                     !!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! Privacy Rating specializes in helping enterprises comply
                     with client-side privacy and data leakage
@@ -76,26 +76,30 @@ const Home = () => {
                 </div>
 
             </div>
+            </Row>
+            <Row>
+                <div className={styles.backgroundWhite}>
 
-            <div className={styles.backgroundWhite}>
+                    <div className={styles.text}>
+                        Together, the 12 attributes determine the privacy class (A-to-G) of the online service.
+                    </div>
 
-                <div className={styles.text}>
-                    Together, the 12 attributes determine the privacy class (A-to-G) of the online service.
+                    <div className={styles.circleBox}>
+                        <div className={styles.circleA}>A</div>
+                        <div className={styles.circleB}>B</div>
+                        <div className={styles.circleC}>C</div>
+                        <div className={styles.circleD}>D</div>
+                        <div className={styles.circleE}>E</div>
+                        <div className={styles.circleF}>F</div>
+                        <div className={styles.circleG}>G</div>
+                    </div>
+
                 </div>
-
-                <div className={styles.circleBox}>
-                    <div className={styles.circleA}>A</div>
-                    <div className={styles.circleB}>B</div>
-                    <div className={styles.circleC}>C</div>
-                    <div className={styles.circleD}>D</div>
-                    <div className={styles.circleE}>E</div>
-                    <div className={styles.circleF}>F</div>
-                    <div className={styles.circleG}>G</div>
-                </div>
-
-            </div>
-
+            </Row>
             <Footer/>
+            </Container>
+
+           
 
         </div>
     );

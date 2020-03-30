@@ -52,8 +52,9 @@ class FormView extends Component {
 
         return (
                 <div>
-                    <Header/>
+                   
                     <Container className={styles.formContainer}>
+                        <Header/>
                         <Row >
                             { this.getForm(FormConfig) }
                         </Row>
