@@ -18,6 +18,7 @@ class Home extends React.Component {
             message: ''
         }
     }
+
     render() {
         return(
 
@@ -94,7 +95,6 @@ class Home extends React.Component {
                         Together, the 12 attributes determine the privacy class (A-to-G) of the online service.
                     </div>
                 <div className={styles.text}>
-                    Together, the 12 attributes determine the privacy class (A-to-G) of the online service.
 
                     <div className={styles.label}>
                         <iframe src="http://0.0.0.0:3000/AAAAAAAAAAAA/google" top="0" left="0" width="430pt" height="430pt" border="0" overflow="hidden" margin="0" padding="0" border-radius="8pt" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen/>
@@ -102,6 +102,7 @@ class Home extends React.Component {
 
                 </div>
             </div>
+            </Row>
 
                 <div className={styles.backgroundGray}>
 
@@ -109,16 +110,13 @@ class Home extends React.Component {
                         !!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! To read more about the this project click here for the ToS and a Whitepaper.
                         <br/>
                         <br/>
-
-                        <div className={styles.text}>
                             <Button className={styles.pdfButton} variant="dark" href="form">ToS</Button>
                             <Button className={styles.pdfButton} variant="dark" href="form">Whitepaper</Button>
-                        </div>
                     </div>
 
                 </div>
 
-
+                <Row>
                 <div className={styles.backgroundWhite}>
 
                     <div className={styles.text}>
@@ -144,30 +142,29 @@ class Home extends React.Component {
                     </div>
 
                 </div>
+                </Row>
 
             <Footer/>
             </Container>
 
-
-
-        </div>
+            </div>
     );
-}
+    }
 
-        onNameChange(event) {
-            this.setState({name: event.target.value})
-        }
+    onNameChange(event) {
+        this.setState({name: event.target.value})
+    }
 
-        onEmailChange(event) {
-            this.setState({email: event.target.value})
-        }
+    onEmailChange(event) {
+        this.setState({email: event.target.value})
+    }
 
-        onMessageChange(event) {
-            this.setState({message: event.target.value})
-        }
+    onMessageChange(event) {
+        this.setState({message: event.target.value})
+    }
 
-        handleSubmit(event) {
-        }
+    handleSubmit(event) {
+    }
     }
 
 export default Home;
