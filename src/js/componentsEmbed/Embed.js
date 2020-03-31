@@ -51,8 +51,8 @@ class Embed extends Component {
     
         return (
             <div className={styles.holder} >
-                    <Header/>
                         <Container>
+                            <Header/>
                         <br />
                         <Row>
                             <Col>
@@ -75,7 +75,7 @@ class Embed extends Component {
                                         </div>
                                     }
 
-                                     <textarea ref={this.myRef} onFocus={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="https://privacy-label.com/${this.props.labelId}}/${this.props.domain}" style="top: 0; left: 0; width: 320pt; height: 320pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen />`} /> 
+                                     <textarea ref={this.myRef} onFocus={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="https://privacy-label.com/${this.props.labelId}}/${this.props.domain}" style="top: 0; left: 0; width: 320pt; height: 320pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen />`} />
                                 </div>
 
                                 <div className={styles.text}>Download the header label here</div>
@@ -105,7 +105,7 @@ class Embed extends Component {
 
                             </Col>
                         </Row>
-                        <Footer/>
+                            <Footer/>
                         </Container>
                 </div>
         )

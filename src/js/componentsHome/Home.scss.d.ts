@@ -4,15 +4,10 @@ interface CssExports {
   'backgroundGray': string;
   'backgroundWhite': string;
   'button': string;
-  'circleA': string;
-  'circleB': string;
-  'circleBox': string;
-  'circleC': string;
-  'circleD': string;
-  'circleE': string;
-  'circleF': string;
-  'circleG': string;
+  'contactForm': string;
   'holder': string;
+  'label': string;
+  'pdfButton': string;
   'text': string;
 }
 export const cssExports: CssExports;

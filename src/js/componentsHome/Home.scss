@@ -39,106 +39,23 @@
     border-radius: 8pt;
   }
 
-  .circleBox {
-    width: 50%;
+  .label {
+    flex: 1;
+    display: flex;
+    float: right;
+  }
 
-    .circleA {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color: #2EA952;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
+  .pdfButton {
+    width: 90pt;
+    height: 30pt;
+    font-size: 12pt;
+    border-radius: 8pt;
+    margin-right: 15pt;
+    margin-left: 15pt;
+  }
 
-    .circleB {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color: #7CD452;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
-
-    .circleC {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color: #C0EA7D;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
-
-    .circleD {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color:  #FFEE42;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
-
-    .circleE {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color: #EFAF48;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
-
-    .circleF {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color: #EC6C01;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
-
-    .circleG {
-      float: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      background-color: #E82613;
-      border-radius: 100%;
-      font-size: 3vw;
-      margin-left: 1vw;
-    }
-
+  .contactForm {
+    flex: 1;
+    float: right;
   }
 }

@@ -57,7 +57,6 @@
     .icon {
       float: left;
       height: 20pt;
-      width: 20pt;
       margin-right: 10pt;
       -webkit-transition: $duration;
       -moz-transition: $duration;
@@ -69,8 +68,8 @@
 
     .arrow {
       float: right;
-      height: 20pt;
-      width: 20pt;
+      height: 15pt;
+      width: 15pt;
       margin-left: 10pt;
       -webkit-transition: $duration;
       -moz-transition: $duration;
@@ -97,7 +96,6 @@
   .icon {
     float: left;
     height: 30pt;
-    width: 30pt;
     -webkit-transition: $duration;
     -moz-transition: $duration;
     -o-transition: $duration;
@@ -107,8 +105,9 @@
 
   .arrow {
     float: right;
-    height: 30pt;
-    width: 30pt;
+    padding-top: 8pt;
+    height: 20pt;
+    width: 20pt;
     -webkit-transition: $duration;
     -moz-transition: $duration;
     -o-transition: $duration;

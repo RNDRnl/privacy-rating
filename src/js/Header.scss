@@ -3,11 +3,11 @@
   background-color: #D0D2D3;
   padding: 16pt;
   border-radius: 10pt;
-  width: 100%;
+  width: 105%;
 
   .privacyRatingFont {
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 4vw;
+    font-size: 2vw;
     line-height: 1.1;
   }
 
@@ -16,104 +16,105 @@
     flex-direction:row;
     justify-content:center;
     align-items:center;
-    float: right;
+    float: left;
+    width: 100%;
   }
 
   .cirleA {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color: #2EA952;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 3vw;
   }
 
   .cirleB {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color: #7CD452;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 1vw;
   }
 
   .cirleC {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color: #C0EA7D;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 1vw;
   }
 
   .cirleD {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color:  #FFEE42;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 1vw;
   }
 
   .cirleE {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color: #EFAF48;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 1vw;
   }
 
   .cirleF {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color: #EC6C01;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 1vw;
   }
 
   .cirleG {
-    float: right;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 9vw;
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     background-color: #E82613;
     border-radius: 100%;
-    font-size: 6vw;
+    font-size: 3vw;
     margin-left: 1vw;
   }
 }
