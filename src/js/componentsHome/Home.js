@@ -3,6 +3,7 @@ import styles from './Home.scss';
 import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "react-bootstrap";
 import Header from "../Header";
 import Footer from "../Footer";
+import { Link } from "react-router-dom";
 
 
 const initialFormState = {
@@ -22,9 +23,8 @@ class Home extends React.Component {
 
         <div  className={styles.holder} >
             <Container>
-
-            <Header/>
-
+                <Header/>
+            <Row>
             <div className={styles.backgroundWhite}>
 
                 <div className={styles.text}>
@@ -43,13 +43,13 @@ class Home extends React.Component {
                 </div>
 
             </div>
-
-            <div className={styles.backgroundWhite}>
-
-                <Button className={styles.button} variant="dark" href="form">Create a new label</Button>
-
-            </div>
-
+            </Row>
+            <Row>
+                <Link className={styles.button} to="/form">
+                        Create a new label
+                </Link>
+            </Row>
+            <Row>
             <div className={styles.backgroundGray}>
 
                 <div className={styles.text}>
@@ -68,7 +68,6 @@ class Home extends React.Component {
                     to scrutinize and enforce their own data privacy policy and prevent the flow
                     of unauthorized communication from customers' devices. !!!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY
                 </div>
-
                 <div className={styles.text}>
                     !!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! Privacy Rating specializes in helping enterprises comply
                     with client-side privacy and data leakage
@@ -87,9 +86,13 @@ class Home extends React.Component {
                 </div>
 
             </div>
+            </Row>
+            <Row>
+                <div className={styles.backgroundWhite}>
 
-            <div className={styles.backgroundWhite}>
-
+                    <div className={styles.text}>
+                        Together, the 12 attributes determine the privacy class (A-to-G) of the online service.
+                    </div>
                 <div className={styles.text}>
                     Together, the 12 attributes determine the privacy class (A-to-G) of the online service.
 
@@ -143,8 +146,10 @@ class Home extends React.Component {
                 </div>
 
             <Footer/>
-
             </Container>
+
+
+
         </div>
     );
 }

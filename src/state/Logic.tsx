@@ -149,43 +149,43 @@ const calculateProcess = (catagories:any, FormState:any) => {
     if(FormState.domainSubmit!=null) {
         var variant = "secondary";
         var value = 20;
-        var text = "domain";
+        var text = "20%";
     }
 
 
     if(FormState.declare!=null) {
         var variant = "secondary";
         var value = 30;
-        var text = "declaration";
+        var text = "30%";
     }
     
     if(catagories[0].sections[2]!=null) {
         var variant = "secondary";
         var value = 40;
-        var text = "collection";
+        var text = "40%";
     }
 
     if(catagories[0].sections[2]!=null) {
         var variant = "secondary";
         var value = 40;
-        var text = "collection";
+        var text = "40%";
     }
 
 
     if(catagories[1].sections[2]!=null) {
         var variant = "secondary";
         var value = 60;
-        var text = "sharing";
+        var text = "60%";
     }
     if(catagories[2].sections[2]!=null) {
         var variant = "secondary";
         var value = 80;
-        var text = "control";
+        var text = "80%";
     }
     if(catagories[3].sections[2]!=null) {
         var variant = "success";
         var value = 100;
-        var text = "label completed";
+        var text = "100%";
     }
 
     return { variant:variant, value:value, text:text};
