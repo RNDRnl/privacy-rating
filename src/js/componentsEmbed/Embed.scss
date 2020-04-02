@@ -1,3 +1,5 @@
+@import "../../main.scss";
+
 .holder {
   cursor: default;
   background-color: white;
@@ -47,6 +49,25 @@
     }
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+
+  .button {
+    width: 100%;
+    background-color:$button-Color;
+    text-align: center;
+    color:white;
+    margin-left: 72px;
+    padding: 20px;
+    font-size: 22pt;
+    border-radius: 8pt;
+    transition: background-color 200ms ease-in-out;
+    &:hover {
+      background-color: $button-Color-Hover;
+    }
+  }
+
   @keyframes fadeInOut {
     0%   { 
       background-color:rgb(84, 91, 98);
@@ -79,14 +100,14 @@
     margin-right: 12pt;
     padding: 0;
     border-radius: 8pt;
-    margin-bottom: 12pt;
+    margin-bottom: 22pt;
   }
 
   .iframeCodeBox {
     background-color: #F3f3F4;
     border-radius: 8pt;
     padding: 10pt;
-    width: 100%;
+    width: 90%;
     height: 90pt;
     margin-left: 12pt;
     margin-right: 12pt;

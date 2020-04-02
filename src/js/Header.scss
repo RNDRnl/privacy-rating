@@ -32,7 +32,18 @@
       font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
       font-size: 50px;
       line-height: 1.1;
+      color: black;
+
+      &:hover {
+        color: gray;
+        text-decoration: none;
+      }
     }
+  }
+
+  a:hover, a:visited, a:link, a:active
+  {
+    text-decoration: none;
   }
 
   @media (max-width: 1200px) {

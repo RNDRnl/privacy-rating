@@ -51,7 +51,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                             {/* { checkForm(this.props.availableIf) == null && */}
                                 <Navbar.Text className={styles.headerstyle}>
                                      { this.props.categoryName != 'Domain' && this.props.categoryName != 'Declaration' &&
-                                        <Image className={styles.headerIconBig} src={`/resources/icons/${this.props.categoryName}-V2.gif`}/>
+                                        <Image className={styles.headerIconBig} src={`/resources/icons/${this.props.categoryName}-V3.gif`}/>
                                      }
                                      {this.props.categoryName}
                                 </Navbar.Text>

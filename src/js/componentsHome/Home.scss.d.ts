@@ -5,9 +5,12 @@ interface CssExports {
   'backgroundWhite': string;
   'button': string;
   'contactForm': string;
+  'form': string;
   'holder': string;
   'label': string;
   'pdfButton': string;
+  'send': string;
+  'subject': string;
   'text': string;
 }
 export const cssExports: CssExports;

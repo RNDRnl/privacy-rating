@@ -43,7 +43,7 @@
   .button {
     // flex: 1;
     width: 100%;
-    background-color:$botton-Color;
+    background-color:$button-Color;
     text-align: center;
     color:white;
     margin: 10px;
@@ -59,8 +59,6 @@
   }
 
   .label {
-    flex: 1;
-    display: flex;
     float: right;
   }
 
@@ -75,5 +73,36 @@
   .contactForm {
     flex: 1;
     float: right;
+  }
+
+  .form {
+    flex: 1;
+
+    .subject {
+      width: 500px;
+      border-radius: 8pt;
+      border: 0;
+      padding: 6pt;
+      background-color: #F3f3F4;
+    }
+
+    .text {
+      width: 500px;
+      height: 300px;
+      border-radius: 8pt;
+      border: 0;
+      padding: 6pt;
+      background-color: #F3f3F4;
+    }
+
+    .send {
+      flex: 1;
+      width: 90%;
+      border-radius: 8pt;
+      border: 0;
+      padding: 6pt;
+      background-color: $button-Color;
+      color: white;
+    }
   }
 }

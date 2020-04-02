@@ -5,6 +5,7 @@ import _ from 'underscore'
 import LabelContext from '../../state/LabelContext';
 import Header from "../Header";
 import Footer from "../Footer";
+import {Link} from "react-router-dom";
 
 class Embed extends Component {
     static contextType = LabelContext;
@@ -65,8 +66,15 @@ class Embed extends Component {
                                         allow="encrypted-media" 
                                         allowFullScreen
                                 />
+                                    <Link className={styles.button} to="/form">
+                                        Create another label
+                                    </Link>
+                                <br/>
+                                <br/>
+
+
                             </Col>
-                            <Col>
+                                <Col>
 
                                 <div className={styles.text}>Use this embed code for your website</div>
                                 <div ref={this.containerRef} className={styles.containerRef} >

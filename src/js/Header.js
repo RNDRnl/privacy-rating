@@ -7,10 +7,12 @@ const initialFormState = {
 
 const Header= () => {
     return (
-        <div  className={styles.holder} >
-             <div className={styles.flexboxTitle}>
+        <div  className={styles.holder}>
+
+            <a className={styles.flexboxTitle} href="/" title="Home">
                 <div className={classnames(styles.element, styles.privacyRatingFont)}>PRIVACY<br/>RATING</div>
-             </div>
+            </a>
+
             <div className={styles.flexbox}>
                
                 <div className={classnames(styles.element)}>

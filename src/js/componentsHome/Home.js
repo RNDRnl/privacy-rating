@@ -9,18 +9,8 @@ import { Link } from "react-router-dom";
 const initialFormState = {
 }
 
-class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: '',
-            message: ''
-        }
-    }
-
-    render() {
-        return(
+const Home= () => {
+    return (
 
         <div  className={styles.holder} >
             <Container>
@@ -120,26 +110,17 @@ class Home extends React.Component {
                 <div className={styles.backgroundWhite}>
 
                     <div className={styles.text}>
-                        !!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! I you have trouble with the label or want to contact us send your message here.
+                        !!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! If you have any questions or want to conctact us please send us an e-mail and we will resopond to you.
                     </div>
 
-                    <div className={styles.contactForm}>
-                        <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
-                            <div className="form-group">
-                                <label htmlFor="name">Name</label>
-                                <input type="text" className="form-control" value={this.state.name} onChange={this.onNameChange.bind(this)} />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="message">Message</label>
-                                <textarea className="form-control" rows="5" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
-                            </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
+                    <form className={styles.form} action="mailto:privacyrating@email.here">
+                        <div>Subject</div>
+                        <input className={styles.subject} name="subject" type="text"  /><br/>
+                        <div>Text</div>
+                        <textarea className={styles.text} name="body"></textarea><br/>
+                        <input className={styles.send} type="submit" value="Send" /><br/>
+
+                    </form>
 
                 </div>
                 </Row>
@@ -149,22 +130,6 @@ class Home extends React.Component {
 
             </div>
     );
-    }
-
-    onNameChange(event) {
-        this.setState({name: event.target.value})
-    }
-
-    onEmailChange(event) {
-        this.setState({email: event.target.value})
-    }
-
-    onMessageChange(event) {
-        this.setState({message: event.target.value})
-    }
-
-    handleSubmit(event) {
-    }
     }
 
 export default Home;
