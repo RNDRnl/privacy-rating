@@ -16,6 +16,7 @@ import Home from './js/componentsHome/Home'
 import Form from './js/componentsForm/Form'
 import NotFound from './js/NotFound'
 import Embed from './js/componentsEmbed/Embed'
+import Contact from './js/componentsContact/Contact'
 
 function LabelView() {
   let { id, domain } = useParams();
@@ -38,7 +39,9 @@ const routes = (
         <Route exact path="/">
           <Home />
         </Route>
-
+        <Route path="/contact" children={
+          <Contact />
+        } />
         <Route path="/embed/:id/:domain" children={
             <LabelProvider>
               <EmbedView />

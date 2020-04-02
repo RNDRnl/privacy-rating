@@ -1,12 +1,18 @@
 @import "../main.scss";
 
 .holder {
-  background-color: #D0D2D3;
+  // background-color: #D0D2D3;
   padding: 16px;
   border-radius: 10pt;
-  width: 100%;
+  // width: 100%;
   display: flex;
-  margin-top: 8pt;
+  
+  margin-left: -15px;
+  margin-right: -15px;
+  
+  
+  // flex-wrap: wrap;
+  // margin-top: 8pt;
 
   .flexbox {
     flex:1;

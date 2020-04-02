@@ -2,7 +2,7 @@
 
 
 .holder {
-  // background-color: white;
+  // background-color: green;
   // width: 100%;
   // min-height: auto;
   // padding-left: 12pt;
@@ -10,30 +10,47 @@
   // padding-top: 8pt;
 
   .backgroundWhite {
+    // background-color: red;
     display: flex;
-    padding-left: 12pt;
-    padding-right: 12pt;
-    padding-top: 35pt;
-    padding-bottom: 25pt;
-    
+    // padding-left: 12pt;
+    // padding-right: 12pt;
+    padding-top: 8pt;
+    // padding-bottom: 15pt;
+    border-radius: 8pt;
+
+    div {
+      // padding:12pt;
+      flex: 1;
+    }
   }
 
   .backgroundGray {
     display: flex;
     background-color: #F3f3F4;
-    padding-left: 12pt;
-    padding-right: 12pt;
-    padding-top: 35pt;
-    padding-bottom: 25pt;
+    margin-top: 8pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
     border-radius: 8pt;
+
+    div {
+      flex: 1;
+      // padding:12pt;
+      
+    }
+  }
+
+  .backgroundButton {
+    background-color: gray;
+    padding: 50px;
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
   }
 
   .text {
     flex: 1;
-    padding-right: 12pt;
+    padding: 0px 20px 0px;
+    // padding-right: 12pt;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
     font-size: 12pt;
-    line-height: 1.1;
   }
 
   a:hover {
@@ -41,68 +58,59 @@
   }
 
   .button {
-    // flex: 1;
     width: 100%;
-    background-color:$button-Color;
+    background-color:black;
     text-align: center;
     color:white;
-    margin: 10px;
+    // margin: 10px;
     padding: 20px;
     font-size: 22pt;
-    border-radius: 8pt;
+    border-radius: 0pt 0pt 8pt 8pt;
+    
     transition: background-color 200ms ease-in-out;
+    margin-left: 0px;
+    margin-right: -15px;
+
     &:hover {
       background-color: $button-Color-Hover;
-
-      
     }
   }
 
   .label {
-    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 
   .pdfButton {
     width: 90pt;
-    height: 30pt;
+    padding-top:50px;
+    height: 120pt;
     font-size: 12pt;
-    border-radius: 8pt;
-    margin-right: 15pt;
+    border-radius: 3pt;
+    background-color: white;
+    text-align: center;
+    color:white;
+    background-color: black;
+    border: black 1px solid;
   }
 
-  .contactForm {
-    flex: 1;
-    float: right;
-  }
-
-  .form {
-    flex: 1;
-
-    .subject {
-      width: 500px;
-      border-radius: 8pt;
-      border: 0;
-      padding: 6pt;
-      background-color: #F3f3F4;
-    }
-
-    .text {
-      width: 500px;
-      height: 300px;
-      border-radius: 8pt;
-      border: 0;
-      padding: 6pt;
-      background-color: #F3f3F4;
-    }
-
-    .send {
+  .downloadHandle {
+    display: flex;
+    padding:50px;
+    
+    div {
       flex: 1;
-      width: 90%;
-      border-radius: 8pt;
-      border: 0;
-      padding: 6pt;
-      background-color: $button-Color;
-      color: white;
     }
+
+    div:first-child {
+      max-width: 110pt;
+    }
+    div:nth-child(2) {
+      max-width: 250pt;
+    }
+
   }
+
+
 }

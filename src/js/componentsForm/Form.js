@@ -81,11 +81,11 @@ class FormView extends Component {
                                 }
 
                                 <br/>
-                                <Row >
+                                {/* <Row >
                                     <Col>
                                         <Footer/>
                                     </Col>
-                                </Row>
+                                </Row> */}
                         </Container>
                     </div>
                 </div>

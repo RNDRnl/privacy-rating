@@ -1,16 +1,24 @@
 .holder {
-  display: flex;
-  background-color: #D0D2D3;
-  padding: 12pt;
-  height: 100%;
-  width: 100%;
-  border-radius: 8pt;
-  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+  .container {
+    display: flex;
+    background-color: #F3f3F4;
+    border-radius: 8pt;
+    font-size: 10pt;
 
-  .footerText {
-    flex: 1;
-    font-size: 7pt;
-    line-height: 11pt;
-    padding-right: 8pt;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    .footerText {
+      flex: 1;
+      padding:15px;
+  
+      .button {
+        float: right;
+        margin-left: 10px;
+      }
+    }
   }
 }

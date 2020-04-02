@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Header.scss';
 import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 const initialFormState = {
 }
@@ -9,10 +10,11 @@ const Header= () => {
     return (
         <div  className={styles.holder}>
 
-            <a className={styles.flexboxTitle} href="/" title="Home">
+        
+            <Link to="/" className={styles.flexboxTitle}>   
                 <div className={classnames(styles.element, styles.privacyRatingFont)}>PRIVACY<br/>RATING</div>
-            </a>
-
+            </Link>
+            
             <div className={styles.flexbox}>
                
                 <div className={classnames(styles.element)}>
