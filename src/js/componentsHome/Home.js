@@ -34,7 +34,7 @@ const Home= () => {
                 
                 <Row className={styles.backgroundButton}>
                     <div className={styles.label}>
-                        <iframe src="http://0.0.0.0:3000/AAAAAAAAAAAA/google" top="0" left="0" width="430pt" height="430pt" border="0" overflow="hidden" margin="0" padding="0" border-radius="8pt" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen/>
+                        <iframe src="/AAAAAAAAAAAA/google**com" top="0" left="0" width="430pt" height="430pt" border="0" overflow="hidden" margin="0" padding="0" border-radius="8pt" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen/>
                     </div>
                 </Row>
                 <Row >
