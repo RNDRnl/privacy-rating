@@ -2,24 +2,13 @@
 
 
 .holder {
-  // background-color: green;
-  // width: 100%;
-  // min-height: auto;
-  // padding-left: 12pt;
-  // padding-right: 12pt;
-  // padding-top: 8pt;
 
   .backgroundWhite {
-    // background-color: red;
     display: flex;
-    // padding-left: 12pt;
-    // padding-right: 12pt;
     padding-top: 8pt;
-    // padding-bottom: 15pt;
     border-radius: 8pt;
 
     div {
-      // padding:12pt;
       flex: 1;
     }
   }
@@ -34,8 +23,6 @@
 
     div {
       flex: 1;
-      // padding:12pt;
-      
     }
   }
 
@@ -48,7 +35,6 @@
   .text {
     flex: 1;
     padding: 0px 20px 0px;
-    // padding-right: 12pt;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
     font-size: 12pt;
   }
@@ -62,7 +48,6 @@
     background-color:black;
     text-align: center;
     color:white;
-    // margin: 10px;
     padding: 20px;
     font-size: 22pt;
     border-radius: 0pt 0pt 8pt 8pt;

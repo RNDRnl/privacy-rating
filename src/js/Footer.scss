@@ -1,10 +1,12 @@
+@import "../main.scss";
+
 .holder {
   padding-top: 10px;
   padding-bottom: 10px;
   
   .container {
     display: flex;
-    background-color: #F3f3F4;
+    background-color: $color-Background;
     border-radius: 8pt;
     font-size: 10pt;
 
