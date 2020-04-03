@@ -13,29 +13,55 @@
     flex: 1;
     padding-left: 12pt;
     padding-right: 12pt;
-    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-    font-size: 22pt;
+    padding-top: 5pt;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
     line-height: 1.1;
     margin-top: 10pt;
     margin-bottom: 10pt;
+    width: 50%;
   }
 
-  .containerRef {
-    //background-color: red;
+  h3 {
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+
+  }
+
+  .backgroundGray {
+    text-align: center;
+    display: flex;
+    background-color: #F3f3F4;
+    margin-top: 8pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    border-radius: 8pt;
+
+    div {
+      flex: 1;
+    }
+  }
+
+  .backgroundWhite {
+    display: flex;
+    margin-top: 8pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    border-radius: 8pt;
+
+    div {
+      flex: 1;
+    }
   }
 
   .overlayView {
     
     overflow: hidden;
-    margin-left:15px;
     width: 100%;
     height: 50px;
-    //margin-bottom: 5px;
-    
     animation-name: example;
     animation-duration: 150ms;
     animation-iteration-count: 1;
-    margin-bottom: 10px;
+    margin-top: 10px;
     span {
       border-radius: 5px;
       background-color: rgb(84, 91, 98);
@@ -55,16 +81,21 @@
 
   .button {
     width: 100%;
-    background-color:$button-Color;
+    background-color:$button-Color-Hover;
     text-align: center;
     color:white;
-    margin-left: 72px;
     padding: 20px;
     font-size: 22pt;
+    margin-top: 12pt;
     border-radius: 8pt;
+
+
     transition: background-color 200ms ease-in-out;
+    margin-left: 0px;
+    margin-right: -15px;
+
     &:hover {
-      background-color: $button-Color-Hover;
+      background-color: black;
     }
   }
 
@@ -89,28 +120,26 @@
     }
   }
 
-  .iframe {
-    top: 0;
-    left: 0;
-    width: 320pt;
-    height: 320pt;
-    border: 0;
-    overflow: hidden;
-    margin-left: 12pt;
-    margin-right: 12pt;
-    padding: 0;
+  .backgroundButton {
+    background-color: gray;
+    padding: 50px;
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
     border-radius: 8pt;
-    margin-bottom: 22pt;
+  }
+
+  .label {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 
   .iframeCodeBox {
+    margin-top: 12pt;
     background-color: #F3f3F4;
     border-radius: 8pt;
-    padding: 10pt;
-    width: 90%;
-    height: 90pt;
-    margin-left: 12pt;
-    margin-right: 12pt;
+    padding: 12pt;
+    width: 100%;
+    height: 80pt;
     -webkit-user-select: all;
     -moz-user-select: all;
     -ms-user-select: all;
@@ -126,13 +155,12 @@
   }
 
   .downloadButton {
-    margin: 12pt;
+    padding-top: 12pt;
+    width: 50%;
   }
 
-  .headerLabelDescription {
-    padding-left: 12pt;
-    padding-right: 12pt;
-    margin-bottom: 12pt;
+  .privacyRatingSmallButton {
+    margin-bottom: 62pt;
   }
 
 }

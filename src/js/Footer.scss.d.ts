@@ -5,6 +5,8 @@ interface CssExports {
   'container': string;
   'footerText': string;
   'holder': string;
+  'labelSmall': string;
+  'textLicense': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

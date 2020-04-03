@@ -3,8 +3,11 @@
 interface CssExports {
   'backgroundButton': string;
   'backgroundGray': string;
+  'backgroundLabel': string;
   'backgroundWhite': string;
   'button': string;
+  'categories': string;
+  'categoryBoxes': string;
   'downloadHandle': string;
   'holder': string;
   'label': string;
