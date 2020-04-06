@@ -27,8 +27,7 @@ const Home= () => {
                         <p>All of these services handle personal data.</p>
                         <p>Privacy policies describe how services handle user data but most users never
                         read them. Users often call for support in managing their online security and privacy.
-                        To empower end- users in making informed decisions about which service to use and what data to share,
-                        we developed a privacy rating, similar to the EU energy label.</p>
+                        </p>
                     </div>
                 </Row>
                 
@@ -39,7 +38,7 @@ const Home= () => {
                 </Row>
                 <Row >
                     <Link className={styles.button} to="/form">
-                            Create privacy label
+                            Create a privacy label for your website
                     </Link>
                 </Row>
                 <Row className={styles.backgroundGray}>

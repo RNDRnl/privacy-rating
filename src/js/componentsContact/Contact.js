@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, Container, Jumbotron, Accordion, Col, Row, Card, Table, ListGroup, ProgressBar} from "react-bootstrap";
+import {Button, Container, Jumbotron, Accordion, Col, Row, Form, Card, Table, ListGroup, ProgressBar} from "react-bootstrap";
 import styles from './Contact.scss';
 import Header from "../Header";
 import Footer from "../Footer";
@@ -10,7 +10,36 @@ class ContactView extends Component {
         super();
 
         this.state = {
-        }
+            subject: "",
+            body: "",
+            send: false
+        };
+
+        this.setSubject = this.setSubject.bind(this);
+        this.setBody = this.setBody.bind(this);
+        this.sendToMailClient = this.sendToMailClient.bind(this);
+    }
+
+    setSubject(e) {
+        this.setState({
+            subject: e.target.value
+        })
+    }
+
+    setBody(e) {
+        this.setState({
+            body: e.target.value
+        })
+    }
+
+    sendToMailClient(e) {
+        e.preventDefault();
+
+        var email = "privacyrating@somemail.com";
+        var subject = this.state.subject.replace(" ", "%20");
+        var body = this.state.body.replace(" ", "%20");
+
+        window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     }
     
     render() {
@@ -19,21 +48,37 @@ class ContactView extends Component {
             <Container className={styles.formContainer}>
                 <Header/>
 
-                <div className={styles.backgroundWhite}>
+                    <Row className={styles.row}>
+                       
+                        <Col className={styles.contactField}>
+                            <h1>Contact</h1>
 
-                    <div className={styles.text}>
-                        !!!!!!!!!!!!!!!!!!!!!!! THIS A DUMMY TEXT !!!!!!!!!!!!!!!!!!!!!!!! If you have any questions or want to conctact us please send us an e-mail and we will resopond to you.
-                    </div>
+                            <div className={styles.text}>
+                                <p>If you have any questions or want to conctact us please send us an e-mail and we will resopond to you.</p>
+                            </div>
+                            <br /><br />
+                            <Form>
+                                <Form.Row>
+                                    <Form.Group as={Col}  controlId="subject">
+                                        <Form.Label>Subject</Form.Label>
+                                        <Form.Control value={this.state.subject} onChange={this.setSubject} placeholder="Subject" />
+                                    </Form.Group>
+                                </Form.Row>
 
-                    <form className={styles.form} action="mailto:privacyrating@email.here" method="get"  enctype="text/plain">
-                        <div>Subject</div>
-                        <input className={styles.subject} name="subject" type="text"  /><br/>
-                        <div>Text</div>
-                        <textarea className={styles.text} name="body"></textarea><br/>
-                        <input className={styles.send} type="submit" value="Send" /><br/>
-                    </form>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="body">
+                                        <Form.Label>Text</Form.Label>
+                                        <Form.Control value={this.state.body} onChange={this.setBody} rows={10} as="textarea" placeholder="Text" />
+                                    </Form.Group>
+                                </Form.Row>
 
-                </div>
+                                <Button variant="dark" type="submit" onClick={this.sendToMailClient}>
+                                    Open mail client
+                                </Button>
+                            </Form>
+
+                        </Col>
+                    </Row>
                             
                 <Footer/>
             </Container>
