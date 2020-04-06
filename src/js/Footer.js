@@ -35,21 +35,23 @@ const Footer= () => {
                     <p>
                         Design by <a target="_blank" href="https://rndr.studio/">RNDR</a>.
                     </p>
-                </div>
-
-                <div className={styles.footerText}>
-                    <Image className={styles.labelSmall} src="/resources/privacyRatingSmall/SVG/PrivacyRatingA.svg"/>
-                    <br/>
-                    <br/>
-                    <Link to="/termsofuse"><Button variant="dark" className={styles.button}>Terms of Use</Button></Link>
-                    <Link to="/privacypolicy"><Button variant="dark"  className={styles.button}>Privacy policy</Button></Link>
-                    <Link to="/contact"><Button  variant="dark" className={styles.button}>Contact</Button></Link>
-                    <br/>
-                    <br/>
-                    <p className={styles.textLicense}>
+                    <p>
                         <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND</a>
                         -2020
                     </p>
+                    <p>
+                    <Image width={200} src="/resources/privacyRatingSmall/SVG/PrivacyRatingA.svg"/>
+                    </p>
+                </div>
+                <div className={styles.footerText}>
+                    <Row>
+                        <Col>
+                        <Link to="/contact"><Button  variant="dark" className={styles.button}>Contact</Button></Link>   
+                            <Link to="/"><Button variant="dark" className={styles.button}>About</Button></Link>
+                            <Link to="/terms-of-use"><Button variant="dark" className={styles.button}>Terms of Use</Button></Link>
+                            <Link to="/privacy-policy"><Button variant="dark"  className={styles.button}>Privacy policy</Button></Link>
+                        </Col>
+                    </Row>
                 </div>
             </div>
 

@@ -17,6 +17,9 @@ import Form from './js/componentsForm/Form'
 import NotFound from './js/NotFound'
 import Embed from './js/componentsEmbed/Embed'
 import Contact from './js/componentsContact/Contact'
+import PrivacyPolicy from './js/componentsPrivacyPolicy/PrivacyPolicy'
+import TermsOfUse from './js/componentsTermsOfUse/TermsOfUse'
+
 
 function LabelView() {
   let { id, domain } = useParams();
@@ -41,6 +44,12 @@ const routes = (
         </Route>
         <Route path="/contact" children={
           <Contact />
+        } />
+        <Route path="/terms-of-use" children={
+          <TermsOfUse />
+        } />
+        <Route path="/privacy-policy" children={
+          <PrivacyPolicy />
         } />
         <Route path="/embed/:id/:domain" children={
             <LabelProvider>

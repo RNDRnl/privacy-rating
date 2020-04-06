@@ -15,12 +15,6 @@ const Home= () => {
             <Container>
                 <Header/>
 
-                <Row>
-                    <Link className={styles.button} to="/form">
-                        Generate your own label
-                    </Link>
-                </Row>
-                
                 <Row className={styles.backgroundGray}>
                     <div className={styles.text}>
                         <p>As online services handle increasing amounts of data, it becomes difficult to inform users about how their information is handled. </p>
@@ -157,11 +151,7 @@ const Home= () => {
                     </div>
                 </Row>
 
-                <Row>
-                    <Link className={styles.button} to="/form">
-                        Generate your own label
-                    </Link>
-                </Row>
+                
             <Footer/>
             </Container>
             </div>
