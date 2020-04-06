@@ -5,7 +5,7 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any}, {}> {
     
     render() {
 
-        var classNames = `${styles.label} `
+        var classDots = `${styles.colouredDots} `
         
         var colorStyle = null
         var text = ""
@@ -24,11 +24,12 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any}, {}> {
             break
         }
 
-        classNames += `${colorStyle} `
+        classDots += `${colorStyle} `
 
         return (
             <div className={styles.holder}>
-                <div className={classNames}>
+                <div className={styles.label}>
+                    <div className={classDots}/>
                     {this.props.sectionText}
                 </div>
             </div>

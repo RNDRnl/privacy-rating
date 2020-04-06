@@ -13,12 +13,20 @@
     border-radius: 10pt;
     margin: 2pt;
     padding-top: 4pt;
-    border: 2pt solid white;
     height: 25pt;
+  }
+
+  .colouredDots {
+    width: 8pt;
+    height: 8pt;
+    border-radius: 50%;
+    margin-bottom: 4pt;
+    float: left;
+    border: 1px solid black;
+
 
     &.colorA { background-color: $color-A;}
     &.colorD { background-color: $color-D;}
     &.colorG { background-color: $color-G;}
-
   }
 }
