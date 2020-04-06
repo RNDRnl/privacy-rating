@@ -14,13 +14,17 @@ const Home= () => {
         <div  className={styles.holder} >
             <Container>
                 <Header/>
+
+                <Row>
+                    <Link className={styles.button} to="/form">
+                        Generate your own label
+                    </Link>
+                </Row>
                 
                 <Row className={styles.backgroundGray}>
                     <div className={styles.text}>
-                        <p>The Web 2.0 provides many possibilities such as almost unlimited access
-                        to information and "round-the-clock" connectivity.</p>
-                        <p>Online services range from social media (e.g. Facebook or lnstagram) and entertainment
-                        (e.g. Netflix or Spotify) to shopping (e.g. Amazon or eBay) and banking (e.g. PayPal and e-banking).
+                        <p>As online services handle increasing amounts of data, it becomes difficult to inform users about how their information is handled. </p>
+                        <p>Nevertheless, more and more regulations and standards require transparency when handling personal data.
                         </p>
                     </div>
                     <div className={styles.text}>
@@ -28,6 +32,9 @@ const Home= () => {
                         <p>Privacy policies describe how services handle user data but most users never
                         read them. Users often call for support in managing their online security and privacy.
                         </p>
+                        <p>Privacy policies describe how services handle user data, but most users never read them. </p>
+                        <p>PrivacyRating.info creates an intuitive visualization of your privacy policy that users will actually look at.
+                            It shows the most relevant privacy attributes to help obtain truly informed consent.</p>
                     </div>
                 </Row>
                 
@@ -41,74 +48,120 @@ const Home= () => {
                             Create a privacy label for your website
                     </Link>
                 </Row>
+
                 <Row className={styles.backgroundGray}>
                     <div className={styles.text}>
-                        <p>Privacy Rating specializes in helping enterprises comply
-                        with client-side privacy and data leakage
-                        regulations by protecting the customers' private data.
-                        The company's qprivacy is a solution that allows businesses
-                        that operate within highly regulated environments, such as financial services institutions,
-                        to scrutinize and enforce their own data privacy policy and prevent the flow
-                        of unauthorized communication from customers' devices.
-                        Privacy Rating specializes in helping enterprises comply
-                        with client-side privacy and data leakage
+                        <h4>What is The Privacy Rating?</h4>
+                        <p>The privacy rating is a simple way to assess the
+                            privacy of on an online service. It looks at how
+                            the service collects and shares user data, as well
+                            as on the amount of control users have over
+                            their data and the level of security provided to
+                            protect user’s data.
                         </p>
                         <p>
-                        regulations by protecting the customers' private data.
-                        The company's qprivacy is a solution that allows businesses
-                        that operate within highly regulated environments, such as financial services institutions,
-                        to scrutinize and enforce their own data privacy policy and prevent the flow
-                        of unauthorized communication from customers' devices. 
+                            The Privacy Rating is based on extensive
+                            research into privacy regulation, standards and
+                            guidelines.
                         </p>
+                        <Button  variant="dark">Read our Whitepaper</Button>
                     </div>
                     <div className={styles.text}>
-                        <p>Privacy Rating specializes in helping enterprises comply
-                        with client-side privacy and data leakage
-                        regulations by protecting the customers' private data.
-                        The company's qprivacy is a solution that allows businesses
-                        that operate within highly regulated environments, such as financial services institutions,
-                        to scrutinize and enforce their own data privacy policy and prevent the flow
-                        of unauthorized communication from customers' devices.
-                        Privacy Rating specializes in helping enterprises comply
-                        with client-side privacy and data leakage
-                        regulations by protecting the customers' private data.
+                        <h4>How do I use The Privacy Rating?</h4>
+                        <p>Our website walks you through an interactive
+                            questionnaire about different aspects of data
+                            handling. Based on your answers, it determines
+                            a privacy rating.
                         </p>
                         <p>
-                        The company's qprivacy is a solution that allows businesses
-                        that operate within highly regulated environments, such as financial services institutions,
-                        to scrutinize and enforce their own data privacy policy and prevent the flow
-                        of unauthorized communication from customers' devices. 
+                            We also produce a privacy label which
+                            summarizes these answers. Owners of websites
+                            and apps are encouraged to display the label on
+                            their cookie notification, home-screen, or as
+                            part of their privacy policy.
                         </p>
+                        <Button href="/form" variant="dark">Generate your own label</Button>
                     </div>
                 </Row>
-                
-                <Row  className={styles.backgroundWhite}>
-                    <div className={styles.downloadHandle}>
-                        <div>
-                            <div className={styles.pdfButton} variant="dark" href="form">ToS</div>
-                        </div>
-                        <div>
-                            <p><b>ToS</b></p>
+
+                <Row className={styles.backgroundWhite}>
+
+                        <div className={styles.text}>
+                            <h4>How do I use The Privacy Rating?</h4>
                             <p>
-                            To read more about the this project click here for the ToS and a Whitepaper.
+                                The system rates 12 different aspects of data
+                                handling from good to bad. These are grouped into
+                                four main categories:
                             </p>
-                            <p><a href="#">Download PDF</a></p>
-                        </div>
-                    </div>
-                    <div className={styles.downloadHandle}>
-                        <div>
-                            <div className={styles.pdfButton} variant="dark" href="form">Whitepaper</div>
-                        </div>
-                        <div>
-                            <p><b>Whitepaper</b></p>
+
+                            <Row className={styles.categoryBoxes}>
+                                <div className={styles.categories}>
+                                    <h4>Collection:</h4>
+                                    <p>
+                                        • What kind of user data is collected?
+                                        <br/>
+                                        • For which purpose is user data collected?
+                                        <br/>
+                                        • How long is user data stored?
+                                    </p>
+                                </div>
+                                <div className={styles.categories}>
+                                    <h4>Sharing:</h4>
+                                    <p>
+                                        • What kind of user data is shared?
+                                        <br/>
+                                        • Is any user data sold?
+                                        <br/>
+                                        • Is data disclosed to authorities?
+                                    </p>
+                                </div>
+                            </Row>
+                            <Row className={styles.categoryBoxes}>
+                                <div className={styles.categories}>
+                                    <h4>Control:</h4>
+                                    <p>
+                                        • Can the user decide whether to share the data?
+                                        <br/>
+                                        • Can the user request tthat their data is removed?
+                                        <br/>
+                                        • Can the user amend his/her data?
+                                    </p>
+                                </div>
+                                <div className={styles.categories}>
+                                    <h4>Security:</h4>
+                                    <p>
+                                        • How secure is the service?
+                                        <br/>
+                                        • Does the service provider anonymize data?
+                                        <br/>
+                                        • Is the service provider liable for breaches?
+                                    </p>
+                                </div>
+                            </Row>
                             <p>
-                            To read more about the this project click here for the ToS and a Whitepaper.
+                                Together, the 12 attributes determine the privacy
+                                class (A-to-G) of the online service.
                             </p>
-                            <p><a href="#">Download PDF</a></p>
+                        </div>
+
+
+                    <div className={styles.text}>
+                        <h4>Example labels</h4>
+
+                        <div className={styles.backgroundLabel}>
+                            <div className={styles.label}>
+                                <iframe src="/AAAAAAAAAAAA/google**com" top="0" left="0" width="430pt" height="430pt" border="0" overflow="hidden" margin="0" padding="0" border-radius="8pt" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen/>
+                            </div>
+                            <Image className={styles.labelSmall} src="/resources/privacyRatingSmall/PNG/PrivacyRatingA.png"/>
                         </div>
                     </div>
                 </Row>
-                
+
+                <Row>
+                    <Link className={styles.button} to="/form">
+                        Generate your own label
+                    </Link>
+                </Row>
             <Footer/>
             </Container>
             </div>
