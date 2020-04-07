@@ -61,7 +61,6 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     cancelTimout() {
-        //console.log("cancel timer");
         clearTimeout(this.state.timer);
     }
 
@@ -97,7 +96,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             }
         }
 
-        var icon = `/resources/icons/${this.props.categoryName}-V2.gif`;
+        var icon = `/resources/icons/${this.props.categoryName}-V3.gif`;
 
         return (
             <div className={classNames} 

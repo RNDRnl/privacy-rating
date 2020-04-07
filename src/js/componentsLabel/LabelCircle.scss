@@ -32,5 +32,10 @@
     text-align: center;
     float: right;
     margin-bottom: 4pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
   }
 }
