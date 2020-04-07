@@ -1,5 +1,18 @@
 @import "../main.scss";
 
+
+.holderSmall {
+  color:gray;
+  opacity: 0.75;
+  a:link {
+    color:gray;
+    text-decoration: underline;
+  }
+  a:visited {
+    color:gray;
+  }
+}
+
 .holder {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -23,12 +36,10 @@
         margin-bottom: 10px;
       }
     }
-
     .labelSmall {
       float: right;
       height: 20pt;
     }
-
     .textLicense {
       margin-top: 12pt;
       float: right;

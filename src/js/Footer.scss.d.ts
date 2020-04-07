@@ -5,6 +5,7 @@ interface CssExports {
   'container': string;
   'footerText': string;
   'holder': string;
+  'holderSmall': string;
   'labelSmall': string;
   'textLicense': string;
 }

@@ -1,6 +1,9 @@
 import LabelTag from "../js/componentsLabel/LabelClasses";
 
 import { RatingConfig } from "./RatingConfig"
+import FormConfig from "../js/componentsForm/FormConfig"
+import { Answer } from "../js/componentsForm/FormClasses";
+import Rating from "./Rating";
 
 export class LabelObject {
     score: any;
@@ -10,7 +13,7 @@ export class LabelObject {
     year: 2020;
     calculateRank() {
         this.rank = scoreToRank(this.score);
-        console.log(this.score, this.rank);
+        //console.log(this.score, this.rank);
     }
     constructor(_score:any, _domain:String, _categories:Category[]) {
         this.score = _score;
@@ -27,7 +30,6 @@ class Category {
     sections: Section[] = new Array();
     calculateRank() {
         this.rank = scoreToRank(this.score);
-        // console.log(this.score, this.rank);
     }
     constructor(_score: any, _categoryName: String, _sections:Section[]) {
         this.categoryName = _categoryName;
@@ -42,26 +44,25 @@ const mapRange = (value:any, low1:any, high1:any, low2:any, high2:any) => {
 }
 
 const mapToRank = (value:any) => {
-    if(value == 0.0) {
+    if(value >= 0.0 && value < 1.0) {
         return 'A'
-    } else if (value < 1.0) {
+    } else if (value >= 1.0 && value < 2.0) {
         return 'B'
-    } else if (value < 2.0) {
+    } else if (value >= 2.0 && value < 3.0) {
         return 'C'
-    } else if (value < 3.0) {
+    } else if (value >= 3.0 && value < 4.0) {
         return 'D'
-    } else if (value < 4.0) {
+    } else if (value >= 4.0 && value < 5.0) {
         return 'E'
-    } else if (value < 5.0) {        
+    } else if (value >= 5.0 && value < 6.0) {        
         return 'F'
-    } else if (value == 6.0) {
+    } else if (value >= 6.0 && value < 7.0) {
         return 'G'
     }
 }
 
 const scoreToRank = (score:any) => {
-    var remap = mapRange(score, 0.0, 2.0, 0.0, 6.0);
-    return mapToRank(remap);
+    return mapToRank(score);
 }
 
 export class Section {
@@ -80,16 +81,63 @@ const getMatchingScore = (FormState:any, cat: String, i: Number) => {
     
     var answerA = FormState[questionA];
     var answerB = FormState[questionB];
-                
-    if(answerA == "Yes") {
-        return RatingConfig[`${questionA}_yes`]
-    } else if(answerA == "No" && answerB == "Yes") {
-        return RatingConfig[`${questionB}_yes`]
-    } else if(answerA == "No" && answerB == "No") {
-        return RatingConfig[`${questionB}_no`]
+
+    // console.log('a',answerA);
+    // console.log('b',answerB);
+
+    var result = null
+
+    if(answerA instanceof Rating) {
+        if(answerA.rate != null) {
+            result = answerA
+        } else if(answerB instanceof Rating) {
+            result = answerB
+        }
     }
+
+    // console.log("result", result)
+
+    // var calculate = null
+    // if(result == "C") {
+    //     calculate = 2.0
+    // } else if(result == "B") {
+    //     calculate = 1.0
+    // } else if(result == "A") {
+    //     calculate = 0.0
+    // }
+
+    // console.log("result_c", calculate)
+
+    // if(answerA == "Yes") {
+    //     return RatingConfig[`${questionA}_yes`]
+    // } else if(answerA == "No" && answerB == "Yes") {
+    //     return RatingConfig[`${questionB}_yes`]
+    // } else if(answerA == "No" && answerB == "No") {
+    //     return RatingConfig[`${questionB}_no`]
+    // }
     
-    return null;
+
+    return result;
+}
+
+
+const sumScore = (elements:any) => {
+    var runningScore = 0.0
+    var isInvalid = false
+
+    elements.forEach((element) => {
+        if(element == null) {
+            isInvalid = true
+        } else {
+            runningScore += element.score
+        }
+    });
+
+    if(isInvalid) {
+        return null
+    } else {
+        return runningScore;
+    }
 }
 
 const calculateScore = (elements:any, devide:any) => {
@@ -108,7 +156,7 @@ const calculateScore = (elements:any, devide:any) => {
     if(isInvalid) {
         return null
     } else {
-        return Math.round( ((runningScore / devide) * 1000)/1000 );
+        return (runningScore / devide);
     }
 }
 
@@ -122,16 +170,20 @@ const categoriesToHash = (catagories:any) => {
             if(section == null) {
                 isInvalid = true
             } else {
-                if(section.score == 2.0) {
-                    hash += "C"
-                } else if(section.score == 1.0) {
-                    hash += "B"
-                } else if(section.score == 0.0) {
-                    hash += "A"
-                }
+                // if(section.score == 2.0) {
+                //     hash += "C"
+                // } else if(section.score == 1.0) {
+                //     hash += "B"
+                // } else if(section.score == 0.0) {
+                //     hash += "A"
+                // }
+                hash += section.rate;
             }
         });
     });
+
+    //console.log(hash)
+
     if(isInvalid) {
         // console.log("invalid hash!");
         return null;
@@ -152,7 +204,6 @@ const calculateProcess = (catagories:any, FormState:any) => {
         var text = "20%";
     }
 
-
     if(FormState.declare!=null) {
         var variant = "secondary";
         var value = 30;
@@ -170,8 +221,7 @@ const calculateProcess = (catagories:any, FormState:any) => {
         var value = 40;
         var text = "40%";
     }
-
-
+    
     if(catagories[1].sections[2]!=null) {
         var variant = "secondary";
         var value = 60;
@@ -194,6 +244,7 @@ const calculateProcess = (catagories:any, FormState:any) => {
 const FormStateToHash = (FormState:any) => {
     var categoriesToCheck = ["collection", "sharing", "control", "security"];
     var catagories = [];
+    
     categoriesToCheck.forEach(function(cat) {
         var sections = [];
         for (var i of [0, 1, 2]) {
@@ -204,7 +255,7 @@ const FormStateToHash = (FormState:any) => {
         catagories.push( new Category(score, cat, sections) );
     });
 
-    // console.log(catagories);
+    //console.log(catagories);
     var hashValue = categoriesToHash(catagories);
     var calculatedProgress = calculateProcess(catagories, FormState);
 
@@ -232,16 +283,16 @@ const indexToSection = (index:any) => {
     return index % 3
 }
 
-const charToFinalAnswer = (char:String) => {
-    switch(char) {
-        case 'C':
-            return "a_yes"
-        case 'B':
-            return "b_yes"
-        case "A":
-            return "b_no"
-    }
-}
+// const charToFinalAnswer = (char:String) => {
+//     switch(char) {
+//         case 'C': 
+//             return "a_yes"
+//         case 'B':
+//             return "b_yes"
+//         case "A":
+//             return "b_no"
+//     }
+// }
 
 const covertDomain = (domain:any) => {
     return domain.replace("**", ".")
@@ -250,17 +301,21 @@ const covertDomain = (domain:any) => {
 const HashToLabelState = (labelHash:any) => {
 
     // conversion
-    console.log("the hash i got", labelHash.hash)
+    //console.log("the hash i got", labelHash.hash)
 
     var characters = labelHash.hash.split("")
     var sections = [];
     characters.forEach(function(char, index) {
 
-        var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${charToFinalAnswer(char)}`
+        var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
+        //console.log(targetPath);
         var resultRating = RatingConfig[targetPath];
+        //console.log(resultRating);
         var section = new Section(resultRating.score, resultRating.text);
         sections.push(section);
     })
+
+    //console.log("sections", sections);
 
     var category1 = sections.slice(0, 3);
     var category2 = sections.slice(3, 6);
@@ -268,15 +323,19 @@ const HashToLabelState = (labelHash:any) => {
     var category4 = sections.slice(9, 12);
 
     var categories = [
-        new Category(calculateScore(category1, 3.0), "COLLECTION", category1),
-        new Category(calculateScore(category2, 3.0), "SHARING", category2),
-        new Category(calculateScore(category3, 3.0), "CONTROL", category3),
-        new Category(calculateScore(category4, 3.0), "SECURITY", category4)
+        new Category(sumScore(category1), "COLLECTION", category1),
+        new Category(sumScore(category2), "SHARING", category2),
+        new Category(sumScore(category3), "CONTROL", category3),
+        new Category(sumScore(category4), "SECURITY", category4)
     ]
+
+    //console.log(categories);
     
     var cScore = calculateScore(categories, 4.0);
+    //console.log("score?",cScore);
     var labelObject = new LabelObject(cScore, covertDomain(labelHash.domain), categories);
     //console.log(labelObject);
+
     var labelRender = new LabelTag(labelObject).getTag;
 
     return {
@@ -289,5 +348,3 @@ export  {
     HashToLabelState, 
     FormStateToHash
 }
-// export FormStateToHash
-// module.exports = { FormStateToHash, HashToLabelState }

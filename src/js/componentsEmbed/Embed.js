@@ -29,8 +29,8 @@ class Embed extends  Component {
     }
 
     handleSelect() {
-        console.log("handle select");
-        console.log(this.myRef);
+        //console.log("handle select");
+        //console.log(this.myRef);
         this.myRef.current.select();
         document.execCommand("copy");
         this.setState({

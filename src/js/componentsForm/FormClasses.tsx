@@ -1,5 +1,6 @@
 import * as React from "react";
 import { FormCategory, FormSection, FormQuestion, FormAnser, FormPrompt } from "./FormElements"
+import Rating from "../../state/Rating"
 
 export default class Form { 
     categories: Category[] = new Array();
@@ -13,18 +14,21 @@ export class Category {
     availableIf: String;
     completedIf: String[] = new Array();
     sections: Section[] = new Array();
+    // isDry: true
     getTag = (_index:String) => {
-        //console.log(_index);
-        return (
-            <FormCategory 
-                key={""+this.categoryName} 
-                categoryName={this.categoryName} 
-                eventKey={""+_index}  
-                availableIf={this.availableIf}
-                completedIf={this.completedIf}
-                children={this.getChildren()}
-            />
-        )
+        // if(this.isDry) {
+        //console.log("trigger");
+            return (
+                <FormCategory 
+                    key={""+this.categoryName} 
+                    categoryName={this.categoryName} 
+                    eventKey={""+_index}  
+                    availableIf={this.availableIf}
+                    completedIf={this.completedIf}
+                    children={this.getChildren()}
+                />
+            )
+        // }
     }
     getChildren = () => {
         var result: any = new Array()
@@ -44,6 +48,7 @@ export class Category {
 export class Section {
     sectionName: String;
     questions: Question[] | Prompt[] = new Array();
+    
     getTag = (_index:String) => {
         return(
             <FormSection 
@@ -71,6 +76,8 @@ export class Section {
 
 export class Question {
     question: String;
+    helpTitle?: String;
+    help?: String;
     ansers: Answer[] = new Array();
     getTag = (_index:String, _sectionName:String) => {
         return( 
@@ -78,9 +85,11 @@ export class Question {
                 key={""+_index} 
                 question={this.question} 
                 eventKey={""+_index} 
+                helpTitle={this.helpTitle}
+                help={this.help}
                 sectionName={_sectionName}
                 children={this.getChildren()}
-            />
+        />  
         )
     }
     getChildren = () => {
@@ -94,13 +103,16 @@ export class Question {
         // console.log("hi", _in)
     }
     
-    constructor(_question: String, _ansers: Array<Answer>) { 
+    constructor(_question: String, _ansers: Array<Answer>, _helpTitle?:String,  _help?:String) { 
         this.question = _question; 
+        this.helpTitle = _helpTitle;
+        this.help = _help;
         this.ansers = _ansers; 
     }
 }
 
 export class Prompt {
+    
     formRef: String;
     prompt: String;
     ansers: Answer[] = new Array();
@@ -132,19 +144,16 @@ export class Prompt {
 export class Answer {
     formRef: String;
     targetKey: String;
-    answer: String;
-    score?: Number;
-    text?: String;
+    answer?: Rating;
+
     getTag = (_index:String) => {
         return (
-            <FormAnser key={""+_index} targetKey={this.targetKey} formRef={this.formRef} eventKey={""+_index}  answer={this.answer} />
+            <FormAnser key={""+_index} targetKey={this.targetKey} formRef={this.formRef} eventKey={""+_index} answer={this.answer} />
         )
     }
-    constructor(_formRef: string, _targetKey: string, _answer: String, _score?: Number, _text?: String) { 
+    constructor(_formRef: string, _targetKey: string, _answer?: Rating) { 
         this.formRef = _formRef;
         this.targetKey = _targetKey;
         this.answer = _answer;
-        this.score = _score;
-        this.text = _text;
     }
 }

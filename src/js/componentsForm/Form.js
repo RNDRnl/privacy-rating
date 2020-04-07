@@ -7,8 +7,8 @@ import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
-// import * as Scroll from 'react-scroll';
-import Footer from "../Footer";
+import * as Scroll from 'react-scroll';
+import { FooterSmall } from "../Footer";
 
 class FormView extends Component {
     static contextType = FormContext
@@ -50,14 +50,20 @@ class FormView extends Component {
             domain = Form.domain.replace(".", "**");
         }
 
+        // console.log(FormConfig.categories[2].sections[0].questions[0].ansers[0].answer);
+        
+
         return (
                 <div>
                    
                     <Container className={styles.formContainer}>
                         <Header/>
+                        <FooterSmall />
+                        {/* <Link to="/">Back</Link> */}
                         <Row >
                             { this.getForm(FormConfig) }
                         </Row>
+                        
                     </Container>
 
                     <div className={styles.formFooter}>
@@ -79,14 +85,8 @@ class FormView extends Component {
                                         </Col>
                                     </Row>
                                 }
-
-                                <br/>
-                                {/* <Row >
-                                    <Col>
-                                        <Footer/>
-                                    </Col>
-                                </Row> */}
                         </Container>
+                        
                     </div>
                 </div>
         )
