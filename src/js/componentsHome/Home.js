@@ -99,22 +99,34 @@ const Home= () => {
 
                 <Row className={styles.backgroundCategories1}>
                     <div className={styles.categories}>
-                        <h5>COLLECTION</h5>
-                        <p>
+                        <Image className={styles.icon} src="/resources/icons/collection-V3.gif"/>
+                            <h5>COLLECTION</h5>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             What kind of user data is collected?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             For which purpose is user data collected?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             How long is user data stored?
                         </p>
                     </div>
                     <div className={styles.categories}>
+                        <Image className={styles.icon} src="/resources/icons/sharing-V3.gif"/>
                         <h5>SHARING</h5>
-                        <p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             What kind of user data is shared?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Is any user data sold?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Is data disclosed to authorities?
                         </p>
                     </div>
@@ -122,23 +134,35 @@ const Home= () => {
                 <Row className={styles.backgroundCategories}>
 
                     <div className={styles.categories}>
+                        <Image className={styles.icon} src="/resources/icons/control-V3.gif"/>
                         <h5>CONTROL</h5>
-                        <p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Can the user decide whether to share the data?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Can the user request tthat their data is removed?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Can the user amend his/her data?
                         </p>
                     </div>
 
                     <div className={styles.categories}>
+                        <Image className={styles.icon} src="/resources/icons/security-V3.gif"/>
                         <h5>SECURITY</h5>
-                        <p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             How secure is the service?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Does the service provider anonymize data?
-                            <br/>
+                        </p>
+                        <div className={styles.colouredDots}/>
+                        <p className={styles.description}>
                             Is the service provider liable for breaches?
                         </p>
                     </div>
@@ -151,11 +175,11 @@ const Home= () => {
                             <div className={styles.pdfButton} variant="dark" href="form">ToS</div>
                         </div>
                         <div>
-                            <p><b>ToS</b></p>
+                            <p><b>Terms of Service</b></p>
                             <p>
-                                To read more about the this project click here for the ToS and a Whitepaper.
+                                To read more about the this project click here for the Terms of Service.
                             </p>
-                            <p><a href="#">Download PDF</a></p>
+                            <p><a href="#">Download ToS as a PDF</a></p>
                         </div>
                     </div>
                     <div className={styles.downloadHandle}>
@@ -165,9 +189,9 @@ const Home= () => {
                         <div>
                             <p><b>Whitepaper</b></p>
                             <p>
-                                To read more about the this project click here for the ToS and a Whitepaper.
+                                To read more about the this project click here for Whitepaper.
                             </p>
-                            <p><a href="#">Download PDF</a></p>
+                            <p><a href="#">Download whitepaper as PDF</a></p>
                         </div>
                     </div>
                 </Row>

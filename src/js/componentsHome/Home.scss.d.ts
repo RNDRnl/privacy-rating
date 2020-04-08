@@ -9,8 +9,11 @@ interface CssExports {
   'button': string;
   'categories': string;
   'categoryBoxes': string;
+  'colouredDots': string;
+  'description': string;
   'downloadHandle': string;
   'holder': string;
+  'icon': string;
   'pdfButton': string;
   'spacer': string;
   'text': string;

@@ -124,20 +124,44 @@
   }
 
   .categories {
-    font-size: 13pt;
-    margin-left: 30pt;
-    margin-right: 30pt;
-    padding-top: 20pt;
-    padding-bottom: 10pt;
-    width: 50%;
-    text-align: center;
+    margin-left: 40pt;
+    margin-right: 40pt;
+    padding-top: 10pt;
+    height: 110pt;
     background-color: #dbdbdb;
     border-radius: 8pt;
     border: black 2px solid;
 
     h5 {
+      text-align: center;
       font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
-      font-size: 18pt;
+      font-size: 20pt;
+    }
+
+    .description {
+      text-align: center;
+      font-family: 'cooper_hewittmedium', 'Courier New', Courier, monospace;
+      font-size: 10pt;
+      line-height: 10pt;
+      margin-top: 5pt;
+    }
+
+    .icon {
+      width: 30pt;
+      position: absolute;
+      margin-left: 10pt;
+    }
+
+    .colouredDots {
+      margin-top: 4pt;
+      width: 8pt;
+      height: 8pt;
+      border-radius: 50%;
+      margin-left: 20pt;
+      margin-bottom: 4pt;
+      float: left;
+      border: 1px solid black;
+      position: absolute;
     }
   }
 

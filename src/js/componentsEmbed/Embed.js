@@ -108,11 +108,9 @@ class Embed extends  Component {
 
                                 </div>
                                 <div className={styles.downloadButton}>
-                                    <Image className={styles.privacyRatingSmall} src={png}/>
-                                    <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
                                     <Image className={styles.privacyRatingSmall} src={svg}/>
+                                    <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
                                     <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
-
                                 </div>
 
                             </Row>
