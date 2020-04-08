@@ -333,7 +333,7 @@ var FormConfig = new Form([
                 new Question( "Is user data anoymizied?",
                     [
                         new Answer( "security_1_a", "security", 
-                            new Rating( "Yes", "C")
+                            new Rating( "Yes", "A")
                         ),
                         new Answer( "security_1_a", "security", 
                             new Rating( "No", null)
@@ -348,7 +348,7 @@ var FormConfig = new Form([
                             new Rating( "Yes", "B")
                         ),
                         new Answer( "security_1_b", "security", 
-                            new Rating( "No", "A")
+                            new Rating( "No", "C")
                         )
                     ],
                     "",
