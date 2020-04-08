@@ -337,14 +337,11 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
 
     handleClick(e) {
         const { updateFormMultiple } = this.context;
-
-        console.log(e.pageY);
-
         updateFormMultiple(
             this.props.formRef, this.props.answer,
             `${this.props.targetKey}_open`, "1",
             "scrollTarget", e.pageY
-        )
+        );
     }
 
     render() {
@@ -358,7 +355,6 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
             );
         }
 
-        // check for state
         var classToUse = `${styles.answerButton} ${styles.notSelected}`;
         if( checkForm(this.props.formRef) == this.props.answer ) {
             classToUse = `${styles.answerButton} ${styles.selected}`;

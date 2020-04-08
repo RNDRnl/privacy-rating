@@ -20,7 +20,6 @@ import Contact from './js/componentsContact/Contact'
 import PrivacyPolicy from './js/componentsPrivacyPolicy/PrivacyPolicy'
 import TermsOfUse from './js/componentsTermsOfUse/TermsOfUse'
 
-
 function LabelView() {
   let { id, domain } = useParams();
   return (<App labelId={id} domain={domain} />);
@@ -56,7 +55,13 @@ const routes = (
               <EmbedView />
             </LabelProvider>
         } />
+        <Route path="/embed/:id" children={
+            <LabelProvider>
+              <EmbedView />
+            </LabelProvider>
+        } />
         <Route path="/:id/:domain" children={<LabelView />} />
+        <Route path="/:id" children={<LabelView />} />
         <Route path="*">
           <NotFound />
         </Route>

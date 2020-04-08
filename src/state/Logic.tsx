@@ -13,7 +13,6 @@ export class LabelObject {
     year: 2020;
     calculateRank() {
         this.rank = scoreToRank(this.score);
-        //console.log(this.score, this.rank);
     }
     constructor(_score:any, _domain:String, _categories:Category[]) {
         this.score = _score;
@@ -82,9 +81,6 @@ const getMatchingScore = (FormState:any, cat: String, i: Number) => {
     var answerA = FormState[questionA];
     var answerB = FormState[questionB];
 
-    // console.log('a',answerA);
-    // console.log('b',answerB);
-
     var result = null
 
     if(answerA instanceof Rating) {
@@ -94,28 +90,6 @@ const getMatchingScore = (FormState:any, cat: String, i: Number) => {
             result = answerB
         }
     }
-
-    // console.log("result", result)
-
-    // var calculate = null
-    // if(result == "C") {
-    //     calculate = 2.0
-    // } else if(result == "B") {
-    //     calculate = 1.0
-    // } else if(result == "A") {
-    //     calculate = 0.0
-    // }
-
-    // console.log("result_c", calculate)
-
-    // if(answerA == "Yes") {
-    //     return RatingConfig[`${questionA}_yes`]
-    // } else if(answerA == "No" && answerB == "Yes") {
-    //     return RatingConfig[`${questionB}_yes`]
-    // } else if(answerA == "No" && answerB == "No") {
-    //     return RatingConfig[`${questionB}_no`]
-    // }
-    
 
     return result;
 }
@@ -170,22 +144,12 @@ const categoriesToHash = (catagories:any) => {
             if(section == null) {
                 isInvalid = true
             } else {
-                // if(section.score == 2.0) {
-                //     hash += "C"
-                // } else if(section.score == 1.0) {
-                //     hash += "B"
-                // } else if(section.score == 0.0) {
-                //     hash += "A"
-                // }
                 hash += section.rate;
             }
         });
     });
 
-    //console.log(hash)
-
     if(isInvalid) {
-        // console.log("invalid hash!");
         return null;
     } else {
         return hash;
@@ -255,7 +219,6 @@ const FormStateToHash = (FormState:any) => {
         catagories.push( new Category(score, cat, sections) );
     });
 
-    //console.log(catagories);
     var hashValue = categoriesToHash(catagories);
     var calculatedProgress = calculateProcess(catagories, FormState);
 
@@ -283,39 +246,21 @@ const indexToSection = (index:any) => {
     return index % 3
 }
 
-// const charToFinalAnswer = (char:String) => {
-//     switch(char) {
-//         case 'C': 
-//             return "a_yes"
-//         case 'B':
-//             return "b_yes"
-//         case "A":
-//             return "b_no"
-//     }
-// }
-
 const covertDomain = (domain:any) => {
     return domain.replace("**", ".")
 }
 
 const HashToLabelState = (labelHash:any) => {
 
-    // conversion
-    //console.log("the hash i got", labelHash.hash)
-
     var characters = labelHash.hash.split("")
     var sections = [];
     characters.forEach(function(char, index) {
 
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
-        //console.log(targetPath);
         var resultRating = RatingConfig[targetPath];
-        //console.log(resultRating);
         var section = new Section(resultRating.score, resultRating.text);
         sections.push(section);
     })
-
-    //console.log("sections", sections);
 
     var category1 = sections.slice(0, 3);
     var category2 = sections.slice(3, 6);
@@ -329,13 +274,14 @@ const HashToLabelState = (labelHash:any) => {
         new Category(sumScore(category4), "SECURITY", category4)
     ]
 
-    //console.log(categories);
-    
     var cScore = calculateScore(categories, 4.0);
-    //console.log("score?",cScore);
-    var labelObject = new LabelObject(cScore, covertDomain(labelHash.domain), categories);
-    //console.log(labelObject);
+    
+    var domainValue = null;
+    if(typeof labelHash.domain !== 'undefined') {
+        domainValue = covertDomain(labelHash.domain)
+    }
 
+    var labelObject = new LabelObject(cScore, domainValue, categories);
     var labelRender = new LabelTag(labelObject).getTag;
 
     return {

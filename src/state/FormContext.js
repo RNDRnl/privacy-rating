@@ -63,8 +63,7 @@ class FormProvider extends Component {
             [ref]: value   
         }
       }, function() {
-        that.checkHash()
-        //console.log("state", that.state);
+        that.checkHash();
       });
     }
 
@@ -78,18 +77,16 @@ class FormProvider extends Component {
             [ref3]: value3
         }
       }, function() {
-        that.checkHash()
-        //console.log(that.state);
+        that.checkHash();
       });
     }
 
     checkHash = () => {
       var hashData = FormStateToHash(this.state.Form)
-      //console.log(hashData);
+      console.log(this.state.Form);
       var hash = hashData.value;
       var progress = hashData.progress;
-      //console.log(progress);
-
+      
       this.setState({
         Form: {
           ...this.state.Form,
