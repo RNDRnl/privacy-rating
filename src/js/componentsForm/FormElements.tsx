@@ -331,19 +331,23 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
 
     constructor(props: any) {
         super(props);
+        
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
+    handleClick(e) {
         const { updateFormMultiple } = this.context;
+
+        console.log(e.pageY);
+
         updateFormMultiple(
             this.props.formRef, this.props.answer,
-            `${this.props.targetKey}_open`, "1"
+            `${this.props.targetKey}_open`, "1",
+            "scrollTarget", e.pageY
         )
     }
 
     render() {
-
         const { checkForm } = this.context;
 
         function CustomToggle({ className, answer, eventKey, handleClick }) {

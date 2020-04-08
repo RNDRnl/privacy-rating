@@ -13,6 +13,7 @@ class FormProvider extends Component {
         validUrl: false,
         declare: null,
         
+        scrollTarget: 0,
         
         instruction_open: "1",
         domain_open: "0",
@@ -67,13 +68,14 @@ class FormProvider extends Component {
       });
     }
 
-    updateFormMultiple = (ref1, value1, ref2, value2) => {
+    updateFormMultiple = (ref1, value1, ref2, value2, ref3, value3) => {
       let that = this;
       this.setState({ 
         Form : {
             ...this.state.Form,
             [ref1]: value1,
-            [ref2]: value2
+            [ref2]: value2,
+            [ref3]: value3
         }
       }, function() {
         that.checkHash()

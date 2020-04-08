@@ -36,22 +36,21 @@ class FormView extends Component {
     }
 
     componentDidUpdate() {
-        // var scroll = Scroll.animateScroll;
-        // scroll.scrollToBottom({duration: 1500});
+        const { Form } = this.context
+        var scroll = Scroll.animateScroll;
+        scroll.scrollTo((Form.scrollTarget - Math.round(window.innerHeight/4)), {duration:1000});
     }
     
     render() {
 
-        const { Form } = this.context
+        const { Form } = this.context;
 
         var domain = null;
+
         
         if( Form.generatedHash != null) { 
             domain = Form.domain.replace(".", "**");
         }
-
-        // console.log(FormConfig.categories[2].sections[0].questions[0].ansers[0].answer);
-        
 
         return (
                 <div>
