@@ -76,7 +76,6 @@ class FormView extends Component {
                                 }
                                 { Form.generatedHash != null &&
                                     <Row>
-                                        {`/embed/${Form.generatedHash}${domain}`}
                                         <Col>
                                             <Link to={`/embed/${Form.generatedHash}${domain}`}>
                                                 <ProgressBar variant={"success"} className={classnames(styles.ProgressBar, styles.ProgressBarComplete)} animated now={100} label={"Label completed! Click here to access your label"}  >

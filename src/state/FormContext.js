@@ -83,7 +83,7 @@ class FormProvider extends Component {
 
     checkHash = () => {
       var hashData = FormStateToHash(this.state.Form)
-      console.log(this.state.Form);
+      //console.log(this.state.Form);
       var hash = hashData.value;
       var progress = hashData.progress;
       
