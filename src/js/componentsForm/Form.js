@@ -9,6 +9,7 @@ import Header from "../Header";
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
 import { FooterSmall } from "../Footer";
+import classnames from "classnames";
 
 class FormView extends Component {
     static contextType = FormContext
@@ -54,7 +55,6 @@ class FormView extends Component {
 
         return (
                 <div>
-                   
                     <Container className={styles.formContainer}>
                         <Header/>
                         <FooterSmall />
@@ -78,7 +78,7 @@ class FormView extends Component {
                                     <Row>
                                         <Col>
                                             <Link to={`/embed/${Form.generatedHash}/${domain}`}>
-                                                <ProgressBar variant={"success"} className={styles.ProgressBar} animated now={100} label={"Label completed! Download here your embed code"}  >
+                                                <ProgressBar variant={"success"} className={classnames(styles.ProgressBar, styles.ProgressBarComplete)} animated now={100} label={"Label completed! Click here to access your label"}  >
                                                     </ProgressBar>
                                             </Link>
                                         </Col>
