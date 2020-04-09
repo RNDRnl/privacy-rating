@@ -13,6 +13,7 @@ interface CssExports {
   'justifyContentEnd': string;
   'list-group-item': string;
   'notSelected': string;
+  'popOver': string;
   'question': string;
   'questionText': string;
   'selected': string;

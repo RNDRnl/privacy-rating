@@ -7,8 +7,9 @@ import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
 import { Link } from "react-router-dom";
-// import * as Scroll from 'react-scroll';
-import Footer from "../Footer";
+import * as Scroll from 'react-scroll';
+import { FooterSmall } from "../Footer";
+import classnames from "classnames";
 
 class FormView extends Component {
     static contextType = FormContext
@@ -36,28 +37,32 @@ class FormView extends Component {
     }
 
     componentDidUpdate() {
-        // var scroll = Scroll.animateScroll;
-        // scroll.scrollToBottom({duration: 1500});
+        const { Form } = this.context
+        var scroll = Scroll.animateScroll;
+        scroll.scrollTo((Form.scrollTarget - Math.round(window.innerHeight/4)), {duration:1000});
     }
     
     render() {
 
-        const { Form } = this.context
+        const { Form } = this.context;
 
-        var domain = null;
-        
+        var domain = '';
         if( Form.generatedHash != null) { 
-            domain = Form.domain.replace(".", "**");
+            if(Form.domainSubmit.rate == "show") {
+                domain = `/${Form.domain.replace(".", "**")}`;
+            }
         }
 
         return (
                 <div>
-                   
                     <Container className={styles.formContainer}>
                         <Header/>
+                        <FooterSmall />
+                        {/* <Link to="/">Back</Link> */}
                         <Row >
                             { this.getForm(FormConfig) }
                         </Row>
+                        
                     </Container>
 
                     <div className={styles.formFooter}>
@@ -72,21 +77,15 @@ class FormView extends Component {
                                 { Form.generatedHash != null &&
                                     <Row>
                                         <Col>
-                                            <Link to={`/embed/${Form.generatedHash}/${domain}`}>
-                                                <ProgressBar variant={"success"} className={styles.ProgressBar} animated now={100} label={"Label completed! Download here your embed code"}  >
+                                            <Link to={`/embed/${Form.generatedHash}${domain}`}>
+                                                <ProgressBar variant={"success"} className={classnames(styles.ProgressBar, styles.ProgressBarComplete)} animated now={100} label={"Label completed! Click here to access your label"}  >
                                                     </ProgressBar>
                                             </Link>
                                         </Col>
                                     </Row>
                                 }
-
-                                <br/>
-                                {/* <Row >
-                                    <Col>
-                                        <Footer/>
-                                    </Col>
-                                </Row> */}
                         </Container>
+                        
                     </div>
                 </div>
         )

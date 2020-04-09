@@ -15,6 +15,7 @@ interface CssExports {
   'privacyRatingSmall': string;
   'privacyRatingSmallButton': string;
   'text': string;
+  'textFrame': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

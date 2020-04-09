@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FormStateToHash, HashToLabelState } from "./Logic"
 const FormContext = React.createContext()
+import Rating from "./Rating"
 
 class FormProvider extends Component {
     
@@ -12,8 +13,10 @@ class FormProvider extends Component {
         validUrl: false,
         declare: null,
         
-        domain_open: "1",
-        declare_open: "0",
+        scrollTarget: 0,
+        
+        instruction_open: "1",
+        domain_open: "0",
         collection_open: "0",
         sharing_open: "0",
         control_open: "0",
@@ -60,29 +63,30 @@ class FormProvider extends Component {
             [ref]: value   
         }
       }, function() {
-        that.checkHash()
-        //console.log("state", that.state);
+        that.checkHash();
       });
     }
 
-    updateFormMultiple = (ref1, value1, ref2, value2) => {
+    updateFormMultiple = (ref1, value1, ref2, value2, ref3, value3) => {
       let that = this;
       this.setState({ 
         Form : {
             ...this.state.Form,
             [ref1]: value1,
-            [ref2]: value2
+            [ref2]: value2,
+            [ref3]: value3
         }
       }, function() {
-        that.checkHash()
+        that.checkHash();
       });
     }
 
     checkHash = () => {
       var hashData = FormStateToHash(this.state.Form)
+      //console.log(this.state.Form);
       var hash = hashData.value;
       var progress = hashData.progress;
-      //console.log(progress);
+      
       this.setState({
         Form: {
           ...this.state.Form,
@@ -98,16 +102,21 @@ class FormProvider extends Component {
     checkForm = (ref) => {
       if(Array.isArray(ref)) {
         var boolean = null;
-
         if(ref.length == 1) {
           boolean = this.state.Form[ref[0]]
         } else if(ref.length == 2) {
           if(this.state.Form[ref[0]] == null && this.state.Form[ref[1]] == null) {
             boolean = null;
-          } else if(this.state.Form[ref[0]] == 'Yes' && this.state.Form[ref[1]] == null) {
-            boolean = true;
-          } else if(this.state.Form[ref[0]] == 'No' && this.state.Form[ref[1]] != null) {
-            boolean = true;
+          }
+          if(this.state.Form[ref[0]] instanceof Rating) {
+            if(this.state.Form[ref[0]].rate != null) {
+                boolean = true
+            }
+          }
+          if(this.state.Form[ref[1]] instanceof Rating) {
+            if(this.state.Form[ref[1]].rate != null) {
+                boolean = true
+            }
           }
         }
         return boolean;

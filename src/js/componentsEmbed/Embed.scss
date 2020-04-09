@@ -133,13 +133,19 @@
     display: block;
   }
 
+  .textFrame {
+    max-width: 400px;
+  }
+
   .iframeCodeBox {
     margin-top: 12pt;
     background-color: #F3f3F4;
     border-radius: 8pt;
+    border:2px lightgray solid;
     padding: 12pt;
     width: 100%;
-    height: 80pt;
+    height: 150pt;
+    resize: unset;
     -webkit-user-select: all;
     -moz-user-select: all;
     -ms-user-select: all;
@@ -156,6 +162,7 @@
 
   .downloadButton {
     padding-top: 12pt;
+    width: 50%;
   }
 
   .privacyRatingSmallButton {

@@ -14,6 +14,7 @@ import {
     ListGroup,
     ProgressBar,
     FormCheck,
+    Popover,
     Image,
     Tooltip,
     OverlayTrigger
@@ -23,6 +24,8 @@ const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
 import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import classnames from "classnames";
+import Rating from "../../state/Rating"
+
 // //////////////
 // Category
 // /////////////
@@ -50,7 +53,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                         <div>
                             {/* { checkForm(this.props.availableIf) == null && */}
                                 <Navbar.Text className={styles.headerstyle}>
-                                     { this.props.categoryName != 'Domain' && this.props.categoryName != 'Declaration' &&
+                                     { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
                                         <Image className={styles.headerIconBig} src={`/resources/icons/${this.props.categoryName}-V3.gif`}/>
                                      }
                                      {this.props.categoryName}
@@ -58,7 +61,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                             {/* } */}
 
                             <Navbar.Text className={styles.justifyContentEnd}>
-                                { checkForm (this.props.completedIf) != null &&
+                                { checkForm(this.props.completedIf) != null &&
                                     <div className={classnames(styles.catStatus, styles.check)}>✓</div>
                                 }
                                 { checkForm(this.props.completedIf) == null &&
@@ -97,11 +100,26 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
 
         // check!
         var currentName = this.props.sectionName
+        
         var handle = currentName.substring(0, currentName.length - 2);
         var numberRef = parseInt(this.props.eventKey) - 1;
-        var checkA = checkForm(`${handle}_${numberRef}_a`) == "Yes"
-        var checkB = checkForm(`${handle}_${numberRef}_b`) != null
-        var isValid = checkA || checkB
+        
+        var validA = false
+        var validB = false
+        
+        var checkA = checkForm(`${handle}_${numberRef}_a`) 
+        if(checkA instanceof Rating) {
+            if(checkA.rate != null) {
+                validA = true
+            }
+        }
+
+        var checkB = checkForm(`${handle}_${numberRef}_b`)
+        if(checkB instanceof Rating) {
+            validB = true
+        }
+                
+        var isValid = validA || validB
         
         return (
             <div key={""+this.props.eventKey}>
@@ -111,6 +129,7 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                     </div>
                 }
                 { this.props.eventKey != "0" && isValid && 
+
                     <div>
                         {this.props.children}
                     </div>
@@ -128,20 +147,64 @@ export interface ValidPropsQuestion {
     question: String; 
     sectionName: String; 
     eventKey: string;
+    helpTitle: String;
+    help:String;
     children: any;
 }
 
 export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
     static contextType = FormContext
+    
+    constructor(props) {
+        super(props)
+        // this.pmyRef = React.createRef();
+        // this.refs.overlay.hide();
 
+    }
+
+    
+    
     render() {
-
         const { checkForm } = this.context;
 
         // check!
         var handle = this.props.sectionName
-        var tempCheck = `${handle}_a`
         
+        var tempCheck = `${handle}_a`
+        var showSecondQuestion = false
+        if(checkForm(tempCheck) instanceof Rating) {
+            if(checkForm(tempCheck).rate == null) {
+                showSecondQuestion = true;
+            }
+        }
+        //&& checkForm(tempCheck) == "No"
+        
+        function OverLayTriggerView(help_info) {
+
+            var helpTitle = help_info.help_info[0];
+            var help = help_info.help_info[1];
+            
+            return(
+                <OverlayTrigger             
+                    trigger={"click"} 
+                    key={'bottom'}
+                    placement={'bottom'}
+                    overlay={
+                    <Popover className={styles.popOver}  id={`popover-positioned-bottom`}>
+                        <Popover.Title as="h3">{helpTitle}</Popover.Title>
+                        <Popover.Content  >
+                            {help}
+                        </Popover.Content>
+                    </Popover>
+                    }
+                >
+                    <button className={styles.helpButton} type="button">
+                        Help
+                    </button>
+                </OverlayTrigger>
+            )
+        }
+
         return (
                 <div>
                     { this.props.eventKey == "0" && 
@@ -151,45 +214,23 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 <div className={styles.questionText}>{this.props.question}</div>
                                 <div className={styles.answerContainer}>
                                     {this.props.children}
-
-                                    <OverlayTrigger
-                                        key={'top'}
-                                        placement={'top'}
-                                        overlay={
-                                        <Tooltip id={`tooltip`}>
-                                               Here we will explain to you how to answer this question as quick as possible.
-                                        </Tooltip>
-                                        }
-                                      >
-                                        <button className={styles.helpButton} type="button">
-                                            Help
-                                        </button>
-                                    </OverlayTrigger>
-                                
+                                    {this.props.help != null &&
+                                        <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
+                                    }
                                 </div>
                             </div>
                         </ListGroup.Item>
                     }
-                    { this.props.eventKey != "0" && checkForm(tempCheck) == "No" &&
+                    { this.props.eventKey != "0"  && showSecondQuestion &&
                         <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                             <div className={styles.question}>
                                 {/* <div>{this.props.sectionName}</div> */}
                                 <div className={styles.questionText} >{this.props.question}</div>
                                 <div className={styles.answerContainer}>
                                     {this.props.children}
-                                    <OverlayTrigger
-                                        key={'top'}
-                                        placement={'top'}
-                                        overlay={
-                                        <Tooltip id={`tooltip`}>
-                                               Here we will explain to you how to answer this question as quick as possible.
-                                        </Tooltip>
-                                        }
-                                      >
-                                    <button className={styles.helpButton} type="button">
-                                        Help
-                                    </button>
-                                    </OverlayTrigger>
+                                    {this.props.help != null &&
+                                        <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
+                                    }
                                 </div>
                             </div>
                         </ListGroup.Item>
@@ -280,7 +321,7 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 
 export interface ValidPropsAnswer { 
     formRef : String; 
-    answer: String;
+    answer: Rating;
     targetKey: String;
     eventKey: string;
 }
@@ -290,33 +331,30 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
 
     constructor(props: any) {
         super(props);
+        
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
+    handleClick(e) {
         const { updateFormMultiple } = this.context;
-
         updateFormMultiple(
-            this.props.formRef,
-            this.props.answer,
-            `${this.props.targetKey}_open`,
-            "1"
-        )
+            this.props.formRef, this.props.answer,
+            `${this.props.targetKey}_open`, "1",
+            "scrollTarget", e.pageY
+        );
     }
 
     render() {
-
         const { checkForm } = this.context;
 
         function CustomToggle({ className, answer, eventKey, handleClick }) {
             return (
                 <button className={className} type="button" onClick={handleClick.handleClick} >
-                    {answer}
+                    {answer.label}
                 </button>
             );
         }
 
-        // check for state
         var classToUse = `${styles.answerButton} ${styles.notSelected}`;
         if( checkForm(this.props.formRef) == this.props.answer ) {
             classToUse = `${styles.answerButton} ${styles.selected}`;

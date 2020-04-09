@@ -2,7 +2,9 @@
 // Please do not change this file!
 interface CssExports {
   'ProgressBar': string;
+  'ProgressBarComplete': string;
   'accordionView': string;
+  'animateHeight': string;
   'answerButton': string;
   'formContainer': string;
   'formFooter': string;
