@@ -8,7 +8,6 @@ interface CssExports {
   'backgroundWhite': string;
   'button': string;
   'categories': string;
-  'categoryBoxes': string;
   'colouredDots': string;
   'description': string;
   'downloadHandle': string;

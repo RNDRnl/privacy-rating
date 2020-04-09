@@ -21,10 +21,10 @@
     .element {
       flex: 1;
       padding:0px 8px 0px;
+
       .label {
         width: 100%;
         text-align: center;
-        padding-top: 0px;
         border-radius: 100%;
         align-items: stretch;
         font-size: 70px;
@@ -127,11 +127,11 @@
   }
 
   .circleA { background-color: $color-A;}
-  .circleB { background-color: $color-B;}
-  .circleC { background-color: $color-C;}
-  .circleD { background-color: $color-D;}
+  .circleB { padding-left: 2%; background-color: $color-B;}
+  .circleC { padding-right: 2%; background-color: $color-C;}
+  .circleD { padding-left: 5%; background-color: $color-D;}
   .circleE { background-color: $color-E;}
   .circleF { background-color: $color-F;}
-  .circleG { background-color: $color-G;}
+  .circleG { padding-right: 2%; background-color: $color-G;}
 
 }

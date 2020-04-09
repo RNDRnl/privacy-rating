@@ -100,7 +100,7 @@ const Home= () => {
                 <Row className={styles.backgroundCategories1}>
                     <div className={styles.categories}>
                         <Image className={styles.icon} src="/resources/icons/collection-V3.gif"/>
-                            <h5>COLLECTION</h5>
+                        <h5>COLLECTION</h5>
                         <div className={styles.colouredDots}/>
                         <p className={styles.description}>
                             What kind of user data is collected?
@@ -168,7 +168,6 @@ const Home= () => {
                     </div>
                 </Row>
 
-
                 <Row>
                     <div className={styles.downloadHandle}>
                         <div>
@@ -195,7 +194,6 @@ const Home= () => {
                         </div>
                     </div>
                 </Row>
-
 
             <Footer/>
             </Container>

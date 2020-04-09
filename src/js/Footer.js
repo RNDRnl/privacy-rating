@@ -40,7 +40,7 @@ const Footer= () => {
                         -2020
                     </p>
                     <p>
-                    <Image width={200} src="/resources/privacyRatingSmall/SVG/PrivacyRatingA.svg"/>
+                    <Image src="/resources/privacyRatingSmall/PNG/PrivacyRatingA.png"/>
                     </p>
                 </div>
                 <div className={styles.footerText}>
@@ -54,8 +54,6 @@ const Footer= () => {
                     </Row>
                 </div>
             </div>
-
-
         </div>
     );
 };
