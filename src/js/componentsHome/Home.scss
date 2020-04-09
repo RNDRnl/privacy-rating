@@ -1,5 +1,5 @@
 @import "../../main.scss";
-
+// @import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 .holder {
 
@@ -101,10 +101,6 @@
     }
   }
 
-  .video {
-    width: 100%;
-    height: 100%;
-  }
 
   .pdfButton {
     width: 90pt;

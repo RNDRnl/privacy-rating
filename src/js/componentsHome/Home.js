@@ -4,7 +4,7 @@ import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "rea
 import Header from "../Header";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
-
+import ImageGalleryView from "./ImageGalleryView";
 
 const initialFormState = {
 }
@@ -17,8 +17,10 @@ const Home= () => {
 
                 <Row className={styles.backgroundSlider}>
                     <div className={styles.label}>
-                        <Image className={styles.video} src="/resources/home/exampleLabel.png" ></Image>
-                        </div>
+                        {/* <Image className={styles.video} src="/resources/home/exampleLabel.png" ></Image> */}
+                        <ImageGalleryView />
+                        <br />    
+                    </div>
 
                     <div className={styles.text}>
                         <p>

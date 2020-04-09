@@ -16,7 +16,6 @@ interface CssExports {
   'pdfButton': string;
   'spacer': string;
   'text': string;
-  'video': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
