@@ -2,20 +2,17 @@
 // Please do not change this file!
 interface CssExports {
   'backgroundButton': string;
-  'backgroundGray': string;
-  'backgroundWhite': string;
   'button': string;
   'downloadButton': string;
   'example': string;
   'fadeInOut': string;
   'holder': string;
+  'hr': string;
   'iframeCodeBox': string;
-  'label': string;
   'overlayView': string;
   'privacyRatingSmall': string;
   'privacyRatingSmallButton': string;
   'text': string;
-  'textFrame': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

@@ -13,6 +13,7 @@ import { LabelProvider } from './state/LabelContext';
 
 import App from './js/componentsLabel/App'
 import Home from './js/componentsHome/Home'
+import About from './js/componentsAbout/About'
 import Form from './js/componentsForm/Form'
 import NotFound from './js/NotFound'
 import Embed from './js/componentsEmbed/Embed'
@@ -20,14 +21,40 @@ import Contact from './js/componentsContact/Contact'
 import PrivacyPolicy from './js/componentsPrivacyPolicy/PrivacyPolicy'
 import TermsOfUse from './js/componentsTermsOfUse/TermsOfUse'
 
+function validateId(id) {
+  var boolean = true;
+  if(id.length != 12) {
+    boolean = false;
+  }
+  var charCharValid = true;
+  id.split("").forEach(function(element) {
+    if(element != "A" && element != "B" && element != "C") {
+      charCharValid = false;
+    }
+  });
+  if(!charCharValid) {
+    boolean = false
+  }
+  return boolean;
+}
+
+
 function LabelView() {
   let { id, domain } = useParams();
-  return (<App labelId={id} domain={domain} />);
+  if(validateId(id)) {
+    return (<App labelId={id} domain={domain} />);
+  } else {
+    return (<NotFound />);
+  }
 }
 
 function EmbedView() {
   let { id, domain } = useParams();
-  return (<Embed labelId={id} domain={domain}  />);
+  if(validateId(id)) {
+    return (<Embed labelId={id} domain={domain}  />);
+  } else {
+    return (<NotFound />);
+  }
 }
 
 const routes = (
@@ -41,6 +68,9 @@ const routes = (
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/about" children={
+          <About />
+        } />
         <Route path="/contact" children={
           <Contact />
         } />

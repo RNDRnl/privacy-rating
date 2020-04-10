@@ -1,5 +1,19 @@
 @import "../main.scss";
 
+
+.holderSmall {
+  // color:gray;
+  // text-align: center;
+  opacity: 0.75;
+  a:link {
+    color:gray;
+    text-decoration: underline;
+  }
+  a:visited {
+    color:gray;
+  }
+}
+
 .holder {
   // background-color: #D0D2D3;
   padding: 16px;
@@ -27,7 +41,9 @@
         text-align: center;
         border-radius: 100%;
         align-items: stretch;
+        padding-top: 5px;
         font-size: 70px;
+        height: 101%;
       }
     }
   }

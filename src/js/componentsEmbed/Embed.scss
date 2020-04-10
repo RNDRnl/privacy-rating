@@ -1,5 +1,10 @@
 @import "../../main.scss";
 
+
+.leftCol {
+  // padding:0px;
+
+}
 .holder {
   cursor: default;
   background-color: white;
@@ -7,7 +12,7 @@
   min-height: auto;
   padding-left: 12pt;
   padding-right: 12pt;
-  padding-top: 8pt;
+  // padding-top: 8pt;
 
   .text {
     flex: 1;
@@ -27,49 +32,32 @@
 
   }
 
-  .backgroundGray {
-    text-align: center;
-    display: flex;
-    background-color: #F3f3F4;
-    margin-top: 8pt;
-    padding-top: 15pt;
-    padding-bottom: 15pt;
-    border-radius: 8pt;
 
-    div {
-      flex: 1;
-    }
-  }
-
-  .backgroundWhite {
-    display: flex;
-    margin-top: 8pt;
-    padding-top: 15pt;
-    padding-bottom: 15pt;
-    border-radius: 8pt;
-
-    div {
-      flex: 1;
-    }
+  .hr {
+    width: 100%;
+    border: 1px solid rgba(20, 20, 20, 0.1);
+    margin-top:50px;
+    margin-bottom: 60px;
   }
 
   .overlayView {
     
     overflow: hidden;
-    width: 100%;
+    // width: 100%;
     height: 50px;
+    
     animation-name: example;
     animation-duration: 150ms;
     animation-iteration-count: 1;
     margin-top: 10px;
     span {
       border-radius: 5px;
-      background-color: rgb(84, 91, 98);
+      background-color:  #6c757d;
       padding:12px;
       display: block;
       animation-name: fadeInOut;
       animation-duration: 800ms;
-      animation-iteration-count: 2;
+      animation-iteration-count: 1;
       color:white;
       
     }
@@ -80,7 +68,7 @@
   }
 
   .button {
-    width: 100%;
+    // width: 100%;
     background-color:$button-Color-Hover;
     text-align: center;
     color:white;
@@ -101,13 +89,12 @@
 
   @keyframes fadeInOut {
     0%   { 
-      background-color:rgb(84, 91, 98);
-    }
-    50% { 
       background-color: lightgray;
+      
     }
+
     100%   { 
-      background-color:rgb(84, 91, 98);
+      background-color:  #6c757d;
     }
   }
 
@@ -121,20 +108,20 @@
   }
 
   .backgroundButton {
-    background-color: gray;
+    //background-color: gray;
     padding: 50px;
-    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(240, 240, 240) 100%);
     border-radius: 8pt;
   }
 
   .label {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    // margin-left: auto;
+    // margin-right: auto;
+    // display: block;
   }
 
   .textFrame {
-    max-width: 400px;
+    // max-width: 400px;
   }
 
   .iframeCodeBox {
@@ -156,18 +143,27 @@
     float: left;
     width: 220pt;
     padding-right: 20pt;
-    margin-left: 12pt;
+    // margin-left: 12pt;
     margin-bottom: 12pt;
   }
 
   .downloadButton {
     padding-top: 12pt;
-    width: 50%;
+    // width: 50%;
+    
   }
 
   .privacyRatingSmallButton {
     margin-bottom: 12pt;
-    margin-left: 12pt;
+    margin-right: 10pt;
   }
 
 }
+
+a {
+      color:white;
+    }
+
+    a:link {
+      color:white;
+    }

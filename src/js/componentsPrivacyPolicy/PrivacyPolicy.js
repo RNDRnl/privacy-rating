@@ -50,6 +50,10 @@ class ContactView extends Component {
 
                     <Row className={styles.row}>
                        Privacy Policy
+
+                       <br />
+                       <br />
+                       .....
                     </Row>
                             
                 <Footer/>

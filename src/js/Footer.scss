@@ -2,7 +2,7 @@
 
 
 .holderSmall {
-  color:gray;
+  // color:gray;
   opacity: 0.75;
   a:link {
     color:gray;
@@ -16,10 +16,17 @@
 .holder {
   padding-top: 10px;
   padding-bottom: 10px;
+
+  a:link {
+    color:gray;
+  }
+  a:visited {
+    color:gray;
+  }
   
   .container {
     display: flex;
-    background-color: $color-Background;
+    // background-color: $color-Background;
     border-radius: 8pt;
     font-size: 10pt;
 
@@ -29,6 +36,7 @@
     .footerText {
       flex: 1;
       padding:15px;
+      
   
       .button {
        float: right;

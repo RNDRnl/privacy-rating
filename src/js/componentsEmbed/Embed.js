@@ -60,63 +60,68 @@ class Embed extends  Component {
                         <Container>
                         <Header/>
                             <br />
-                            <Row className={styles.backgroundButton}>
-                                <div className={styles.label}>
-                                    <iframe src={iframeSrc}
-                                            top="0"
-                                            left="0"
-                                            width="430pt"
-                                            height="430pt"
-                                            border="0"
-                                            overflow="hidden"
-                                            margin="0"
-                                            padding="0"
-                                            border-radius="8pt"
-                                            frameBorder="0"
-                                            gesture="media"
-                                            allow="encrypted-media"
-                                            allowFullScreen/>
-                                </div>
-                                <div className={styles.textFrame}>
-                                    <h3>Here is the generated label for your website</h3>
-                                    <div>Use this embed code to implement the label into your website.</div>
-
-                                    <div ref={this.containerRef} className={styles.containerRef} >
-                                        <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="https://privacy-label.com/${iframeSrc}" style="top: 0; left: 0; width: 320pt; height: 320pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen />`} />
-                                        { this.state.show &&
-                                            <div className={styles.overlayView}>
-                                                <span>Embed code has been copied to clipboard</span>
+                            <div className={styles.backgroundButton}>
+                                <Row>
+                                    <Col className={styles.leftCol}>
+                                    <div className={styles.label}>
+                                            <iframe src={iframeSrc}
+                                                    top="0"
+                                                    left="0"
+                                                    width="430pt"
+                                                    height="430pt"
+                                                    border="0"
+                                                    overflow="hidden"
+                                                    margin="0"
+                                                    padding="0"
+                                                    border-radius="8pt"
+                                                    frameBorder="0"
+                                                    gesture="media"
+                                                    allow="encrypted-media"
+                                                    allowFullScreen/>
+                                        </div>
+                                    </Col>
+                                    <Col>
+                                        <div> 
+                                            <h3>Generated label for your website</h3>
+                                            <div>Use this embed code to implement the label into your website.</div>
+                                            <div ref={this.containerRef} className={styles.containerRef} >
+                                                <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="https://privacy-label.com/${iframeSrc}" style="top: 0; left: 0; width: 320pt; height: 320pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen />`} />
+                                                { this.state.show &&
+                                                    <div className={styles.overlayView}>
+                                                        <span>Embed code has been copied</span>
+                                                    </div>
+                                                }
                                             </div>
-                                        }
-                                    </div>
-                                </div>
-                            </Row>
-                            <Row className={styles.backgroundWhite}>
-                                <div className={styles.text}>
-                                    <h3>Download the small label here</h3>
-                                    <p>
-                                        Besides the label that you can implement in to your website you can also download a
-                                        .svg or .png to put into your header of your website.
-                                    </p>
-                                </div>
-                                { rank != null &&
-                                    <div className={styles.downloadButton}>
-                                        <Col>
-                                            <Image className={styles.privacyRatingSmall} src={svg}/>
-                                        </Col>
-                                        <Col>
+                                        </div>
+                                    </Col>
+
+                                </Row>
+                                
+                                <hr className={styles.hr} />
+
+                                <Row>
+                                    <Col className={styles.leftCol}>
+                                        <Image className={styles.privacyRatingSmall} src={svg}/>
+                                    </Col>
+                                    <Col>
+                                        <div>
+                                            <h3>Download the small label here</h3>
+                                            <p>
+                                                Besides the label that you can implement in to your website you can also download a
+                                                .svg or .png to put into your header of your website.
+                                            </p>
+                                        </div>
+                                        { rank != null &&
+                                        <div>
                                             <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
                                             <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
-                                        </Col>
+                                        </div>
+                                        }
+                                    </Col>
+                                </Row>
+                            </div>
 
-                                    </div>
-                                }
-                            </Row>
-                            <Row>
-                                <Link className={styles.button} to="/form">
-                                    Create another label
-                                </Link>
-                            </Row>
+                            <br />
                             <Footer/>
                         </Container>
                 </div>

@@ -27,29 +27,31 @@ const Footer= () => {
                     The Privacy Rating is a project by the <a target="_blank" href="https://www.utwente.nl/">University of
                         Twente</a>,
                         <br/>
-                        supported by <a target="_blank" href="https://www.nwo.nl/">NWO</a> (grant number: 628.001.011),
+                        supported by <a target="_blank" href="https://www.nwo.nl/">NWO </a> 
                         in collaboration with <a target="_blank" href="https://www.tno.nl/nl/">TNO</a>,
-                        <a target="_blank" href="https://wodc.nl/">WODC</a>,
-                        <a target="_blank" href="https://www.centric.eu/">Centric B.V.</a>
+                        <a target="_blank" href="https://wodc.nl/"> WODC</a>,
+                        <a target="_blank" href="https://www.centric.eu/"> Centric B.V.</a>
                     </p>
                     <p>
-                        Design by <a target="_blank" href="https://rndr.studio/">RNDR</a>.
+                        Design and implementation by <a target="_blank" href="https://rndr.studio/">RNDR</a>
+                    </p>
+                    <br/>
+                        
+                    <p>
+                        <Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src="/resources/icons/cc.svg"/><a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">BY-NC-ND</a>
                     </p>
                     <p>
-                        <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND</a>
-                        -2020
-                    </p>
-                    <p>
-                    <Image src="/resources/privacyRatingSmall/PNG/PrivacyRatingA.png"/>
+                        <Image width="150px" src="/resources/privacyRatingSmall/PNG/PrivacyRatingA.png"/>
                     </p>
                 </div>
                 <div className={styles.footerText}>
                     <Row>
                         <Col>
-                        <Link to="/contact"><Button  variant="dark" className={styles.button}>Contact</Button></Link>   
-                            {/* <Link to="/"><Button variant="dark" className={styles.button}>About</Button></Link> */}
-                            <Link to="/terms-of-use"><Button variant="dark" className={styles.button}>Terms of Use</Button></Link>
-                            <Link to="/privacy-policy"><Button variant="dark"  className={styles.button}>Privacy policy</Button></Link>
+                            <Link to="/contact"><Button  variant="white" className={styles.button}>Contact</Button></Link> 
+                            <Link to="/terms-of-use"><Button variant="white" className={styles.button}>Terms of Use</Button></Link>
+                            <Link to="/privacy-policy"><Button variant="white"  className={styles.button}>Privacy policy</Button></Link>
+                            <Link to="/about"><Button variant="white" className={styles.button}>About</Button></Link>
+                            <Link to="/"><Button variant="white" className={styles.button}>Home</Button></Link>
                         </Col>
                     </Row>
                 </div>
@@ -57,6 +59,8 @@ const Footer= () => {
         </div>
     );
 };
+
+
 
 export const FooterSmall = () => {
     return (

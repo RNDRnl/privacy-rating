@@ -4,10 +4,15 @@ interface CssExports {
   'ProgressBar': string;
   'ProgressBarComplete': string;
   'accordionView': string;
+  'action': string;
+  'actionContainer': string;
   'animateHeight': string;
   'answerButton': string;
+  'button': string;
+  'download': string;
   'formContainer': string;
   'formFooter': string;
+  'reset': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

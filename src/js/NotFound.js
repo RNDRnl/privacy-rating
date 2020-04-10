@@ -16,13 +16,17 @@ const NotFound = () => {
             <h2>The Privacy rating you are looking for was not found.</h2>
             <div>Please make sure you have typed in the right URL.</div>
             <br/>
+            <br/>
+            <br/>
+            <br/>
+            
+            
             <ButtonGroup className="mr-2">
-                <Button variant="success" href="/form">Create label</Button>
+                <Button variant="success" href="/" target="_blank">Go to the Privacy rating website</Button>
             </ButtonGroup>
             <ButtonGroup>
-                <Button variant="secondary" href="/">About</Button>
+                <Button variant="secondary" href="/about" target="_blank">About</Button>
             </ButtonGroup>
-            <div className={styles.footer}><Footer/></div>
         </div>
     );
 };

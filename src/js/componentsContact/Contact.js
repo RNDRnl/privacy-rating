@@ -67,8 +67,8 @@ class ContactView extends Component {
 
                                 <Form.Row>
                                     <Form.Group as={Col} controlId="body">
-                                        <Form.Label>Text</Form.Label>
-                                        <Form.Control value={this.state.body} onChange={this.setBody} rows={10} as="textarea" placeholder="Text" />
+                                        <Form.Label>Message</Form.Label>
+                                        <Form.Control value={this.state.body} onChange={this.setBody} rows={10} as="textarea" placeholder="Your message" />
                                     </Form.Group>
                                 </Form.Row>
 

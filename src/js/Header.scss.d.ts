@@ -12,6 +12,7 @@ interface CssExports {
   'flexbox': string;
   'flexboxTitle': string;
   'holder': string;
+  'holderSmall': string;
   'label': string;
   'privacyRatingFont': string;
 }

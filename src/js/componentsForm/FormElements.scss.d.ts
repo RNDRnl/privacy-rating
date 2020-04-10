@@ -17,6 +17,7 @@ interface CssExports {
   'question': string;
   'questionText': string;
   'selected': string;
+  'smallCircle': string;
   'urlInput': string;
 }
 export const cssExports: CssExports;

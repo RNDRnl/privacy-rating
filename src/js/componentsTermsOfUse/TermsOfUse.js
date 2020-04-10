@@ -50,6 +50,10 @@ class ContactView extends Component {
 
                     <Row className={styles.row}>
                         Terms of Use
+
+                        <br />
+                        <br />
+                        .....
                     </Row>
                             
                 <Footer/>
