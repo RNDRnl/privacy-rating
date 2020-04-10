@@ -24,7 +24,7 @@ const Footer= () => {
             <div  className={styles.container} >
                 <div className={styles.footerText}>
                     <p>
-                    The Privacy Rating is a project by the <a target="_blank" href="https://www.utwente.nl/">University of
+                        Privacy Rating is a project by the <a target="_blank" href="https://www.utwente.nl/">University of
                         Twente</a>,
                         <br/>
                         supported by <a target="_blank" href="https://www.nwo.nl/">NWO </a> 
