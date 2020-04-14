@@ -45,8 +45,6 @@ function MyVerticallyCenteredModal(props) {
       </Modal>
     );
   }
-  
-// const [modalShow, setModalShow] = React.useState(false);
 
 class Home extends Component {
 
@@ -79,11 +77,8 @@ class Home extends Component {
                     onHide={() => this.setModalShow(false)}
                  />
 
-                {/* <HeaderSmall /> */}
-
                 <Row className={styles.backgroundSlider}>
                     <div className={styles.label}>
-                        {/* <Image className={styles.video} src="/resources/home/exampleLabel.png" ></Image> */}
                         <ImageGalleryView />
                         <br />    
                     </div>

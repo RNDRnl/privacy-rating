@@ -117,7 +117,7 @@ const About = () => {
 
                     <div className={styles.categoriesContainer}>
                         <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/collection-V3.gif"/>
+                            <Image className={styles.icon} src="/resources/icons/collection.gif"/>
                             <h5>COLLECTION</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
@@ -133,7 +133,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/sharing-V3.gif"/>
+                            <Image className={styles.icon} src="/resources/icons/sharing.gif"/>
                             <h5>SHARING</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
@@ -154,7 +154,7 @@ const About = () => {
                    
                    <div className={styles.categoriesContainer}>
                     <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/control-V3.gif"/>
+                            <Image className={styles.icon} src="/resources/icons/control.gif"/>
                             <h5>CONTROL</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
@@ -171,7 +171,7 @@ const About = () => {
                         </div>
 
                         <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/security-V3.gif"/>
+                            <Image className={styles.icon} src="/resources/icons/security.gif"/>
                             <h5>SECURITY</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>

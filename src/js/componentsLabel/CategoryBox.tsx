@@ -10,7 +10,6 @@ type LabelState = {
 class CategoryBox extends React.Component<{rating:any, categoryName:any, children:any}, LabelState> {
     static contextType = LabelContext
 
-
     constructor(props) {
         super(props);
 
@@ -42,7 +41,6 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     handleMouseEnter( ) {
-       //console.log("set timer");
        const {openCategory, setLabelState} = this.context
        if (openCategory == this.props.categoryName) {
         this.cancelTimout();
@@ -86,7 +84,6 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             default: colorStyle = null
                     break
         }
-
         var classNames = `${styles.container} ${colorStyle} `
         if(openCategory != null) {
             if (openCategory != this.props.categoryName) {
@@ -96,7 +93,8 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             }
         }
 
-        var icon = `/resources/icons/${this.props.categoryName}-V3.gif`;
+        var iconPNG = `/resources/icons/${this.props.categoryName}.png`;
+        var iconGIF = `/resources/icons/${this.props.categoryName}.gif`;
 
         return (
             <div className={classNames} 
@@ -106,7 +104,12 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 >
                 <div className={styles.label}>
                     {this.props.categoryName}
-                    <Image className={styles.icon} src={icon} fluid />
+
+                    <a>
+                        <Image className={styles.icon} src={iconPNG} />
+                        <Image className={styles.icon} src={iconGIF} />
+                    </a>
+
                     <Image className={styles.arrow} src="/resources/icons/arrow.svg" fluid />
                     {this.props.children}
                 </div>

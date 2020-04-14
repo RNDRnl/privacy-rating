@@ -16,9 +16,9 @@
   transition: $duration;
 
   &.colorA { background-color: $color-A;}
-  &.colorB { background-color: $color-B;}
-  &.colorC { background-color: $color-C;}
-  &.colorD { background-color: $color-D;}
+  &.colorB { padding-left: 1pt; background-color: $color-B;}
+  &.colorC { padding-right: 1pt; background-color: $color-C;}
+  &.colorD { padding-left: 3.5pt; background-color: $color-D;}
   &.colorE { background-color: $color-E;}
   &.colorF { background-color: $color-F;}
   &.colorG { background-color: $color-G;}

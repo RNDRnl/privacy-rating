@@ -38,12 +38,14 @@
 
       .label {
         width: 100%;
+        height: 100%;
         text-align: center;
-        border-radius: 100%;
+        border-radius: 50%;
         align-items: stretch;
-        padding-top: 5px;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 3%;
         font-size: 70px;
-        height: 101%;
       }
     }
   }
@@ -74,6 +76,14 @@
         padding:0px 8px 0px;
         .label {
           font-size: 55px;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border-radius: 50%;
+          align-items: stretch;
+          padding-left: 0%;
+          padding-right: 0%;
+          padding-top: 3%;
         }
       }
     }
@@ -92,6 +102,14 @@
         padding:0px 6px 0px;
         .label {
           font-size: 40px;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border-radius: 50%;
+          align-items: stretch;
+          padding-left: 0%;
+          padding-right: 0%;
+          padding-top: 3%;
         }
       }
     }
@@ -111,6 +129,14 @@
         padding:0px 4px 0px;
         .label {
           font-size: 30px;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border-radius: 50%;
+          align-items: stretch;
+          padding-left: 0%;
+          padding-right: 0%;
+          padding-top: 3%;
         }
       }
     }
@@ -130,6 +156,14 @@
         padding:0px 4px 0px;
         .label {
           font-size: 29px;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border-radius: 50%;
+          align-items: stretch;
+          padding-left: 0%;
+          padding-right: 0%;
+          padding-top: 3%;
         }
       }
     }
@@ -148,6 +182,6 @@
   .circleD { padding-left: 5%; background-color: $color-D;}
   .circleE { background-color: $color-E;}
   .circleF { background-color: $color-F;}
-  .circleG { padding-right: 2%; background-color: $color-G;}
+  .circleG { padding-right: 5%; background-color: $color-G;}
 
 }

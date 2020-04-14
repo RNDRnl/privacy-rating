@@ -14,12 +14,15 @@
     float:right;
     width: 11pt;
     height: 11pt;
+    &:hover {
+      background: url("/resources/icons/cc-hover.svg");
+    }
   }
 
   .tooltip {
     float: right;
-    width: 11pt;
-    height: 11pt;
+    width: 13pt;
+    height: 13pt;
     margin-left: 1pt;
     padding-top: 1.5pt;
   }

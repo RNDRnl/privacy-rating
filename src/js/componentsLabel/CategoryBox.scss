@@ -63,7 +63,6 @@
       -o-transition: $duration;
       -ms-transiton: $duration;
       transition: $duration;
-
     }
 
     .arrow {
@@ -102,6 +101,16 @@
     -o-transition: $duration;
     -ms-transiton: $duration;
     transition: $duration;
+  }
+
+  div img:last-child {
+    display: none;
+  }
+  div:hover img:last-child {
+    display: block;
+  }
+  div:hover img:first-child {
+    display: none;
   }
 
   .arrow {
