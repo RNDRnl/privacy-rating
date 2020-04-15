@@ -218,8 +218,20 @@ const About = () => {
                                 </div>
                             </div>
                     </Col>
+            
+                </Row>
+                <hr className={styles.hr} />
+                <Row className={styles.actionsRow}>
+                    
+                    <div className={styles.actions}>
+                        <Link className={styles.button} to="/form">
+                            Generate your own label
+                        </Link>
+                    </div>
                 </Row>
                 </Row>
+
+                
             <br />
             <Footer/>
             </Container>

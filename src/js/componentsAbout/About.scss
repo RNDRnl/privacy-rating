@@ -1,6 +1,25 @@
 @import "../../main.scss";
 // @import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
+.actionsRow {
+  width: 100%;
+  display: flex;
+.actions {
+  width: 100%;
+  margin:0px;
+  padding:0px;
+  a {
+    float:right;
+    max-width: 50%;
+    background-color:  #2EA952;
+    margin:0px;
+  }
+
+
+ 
+}
+}
+
 
 .labelFrame {
   width: 100%;
