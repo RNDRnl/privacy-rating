@@ -35,16 +35,14 @@
       display: flex;
       width: 100%;
       
-      
       div {
         flex:1;
         padding: 0px 5px 0px;
 
         &:nth-child(1) {
           a {
-            background-color: gray;
+            background-color: #68686F;
           }
-          // flex: .5;
         }
 
         &:nth-child(2) {
@@ -53,8 +51,7 @@
           }
           flex: 1.0;
         }
-        
-        
+
         a {
           width: 100% !important;
           display: block;
@@ -74,7 +71,7 @@
     text-align: center;
     color:white;
     padding: 20px;
-    font-size: 22pt;
+    font-size: 16pt;
     margin-top: 12pt;
     border-radius: 8pt;
 

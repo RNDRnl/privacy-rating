@@ -13,6 +13,7 @@ interface CssExports {
   'colouredDots': string;
   'description': string;
   'downloadHandle': string;
+  'h4spaced': string;
   'holder': string;
   'hr': string;
   'icon': string;

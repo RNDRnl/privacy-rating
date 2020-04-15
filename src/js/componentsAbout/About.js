@@ -60,10 +60,17 @@ const About = () => {
                
                     <hr className={styles.hr} />
 
-                    <Row className={styles.labelFrame}>
+                    <Row>
+                    <div className={styles.text}>
+                            <div>
+                                <h4 className={styles.h4spaced}>Example of privacy rating label</h4>
+                            </div>
+                    </div>
                     
-                        <Col>
+                    </Row>
                         
+                    <Row className={styles.labelFrame}>
+                        <Col>
                         <div className={styles.label}>
                                         <iframe src={"/AAAAAAAAAAAA"}
                                                 top="0"
