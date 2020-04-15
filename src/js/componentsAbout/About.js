@@ -58,7 +58,6 @@ const About = () => {
                     </Row>
                     
                
-                    <hr className={styles.hr} />
 
                     <Row>
                     <div className={styles.text}>
@@ -195,10 +194,15 @@ const About = () => {
                         </div>
                     </div>
                    
-                    <hr className={styles.hr} />
+                    {/* <hr className={styles.hr} /> */}
+                    
                     <Row>
+                    
                     <div className={styles.text}>
+                    
                             <div>
+                            <br/>
+                    
                                 <h4 className={styles}>Downloads</h4>
                             </div>
                     </div>
