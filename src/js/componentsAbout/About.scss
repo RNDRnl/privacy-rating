@@ -193,16 +193,18 @@ a:link {
   .categoriesContainer {
     width: 100%;
     display: flex;
+    
   }
 
   .categories {
     flex:1;
     padding:20px;
     border-radius: 8pt;
-    border: black 2px solid;
+    border: lightgray 2px solid;
     // width: 100%;
     margin-bottom: 10px;
     margin:10px;
+    background-color: rgba(255, 255, 255, 0.3);
     h5 {
       text-align: center;
       font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
@@ -240,7 +242,10 @@ a:link {
   
   .downloadHandle {
     display: flex;
+    
     padding:50px;
+    padding-top: 15px;
+    padding-bottom: 25px;
 
     a {
       color: gray;

@@ -197,6 +197,13 @@ const About = () => {
                    
                     <hr className={styles.hr} />
                     <Row>
+                    <div className={styles.text}>
+                            <div>
+                                <h4 className={styles}>Downloads</h4>
+                            </div>
+                    </div>
+                    </Row>
+                    <Row>
                         <Col>
                             <div className={styles.downloadHandle}>
                                 <div>
@@ -228,6 +235,8 @@ const About = () => {
             
                 </Row>
                 <hr className={styles.hr} />
+               
+                    
                 <Row className={styles.actionsRow}>
                     <div className={styles.actions}>
                         <Link className={styles.button} to="/form">
