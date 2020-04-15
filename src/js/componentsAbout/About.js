@@ -229,7 +229,6 @@ const About = () => {
                 </Row>
                 <hr className={styles.hr} />
                 <Row className={styles.actionsRow}>
-                    
                     <div className={styles.actions}>
                         <Link className={styles.button} to="/form">
                             Generate your own label
