@@ -2,18 +2,6 @@
 // @import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 .holder {
-
-  // .backgroundWhite {
-  //   display: flex;
-  //   padding-top: 22pt;
-  //   margin-top: 48pt;
-  //   border-radius: 8pt;
-
-  //   div {
-  //     flex: 1;
-  //   }
-  // }
-
   .backgroundGray {
     display: flex;
     background-color: $color-Background;
@@ -34,7 +22,6 @@
     background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
     border-radius: 8pt;
 
-
     .text {
       display: flex;
       width: 100%;
@@ -45,7 +32,6 @@
     }
 
     .actions {
-      // background-color: red;
       display: flex;
       width: 100%;
       
@@ -63,16 +49,9 @@
 
         &:nth-child(2) {
           a {
-            background-color: gray;
-          }
-          // flex: .5;
-        }
-
-        &:nth-child(3) {
-          a {
             background-color:  #2EA952;
           }
-          flex: 2.0;
+          flex: 1.0;
         }
         
         
