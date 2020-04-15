@@ -51,8 +51,10 @@ class Home extends Component {
                     </div>
                     <div className={styles.actions}>
                         <div>
+                        </div>
+                        <div>
                             <Link className={styles.button} to="/about">
-                            Learn more
+                                Learn more
                             </Link>
                         </div>
                         <div>
