@@ -128,7 +128,8 @@ a:link {
     padding: 50px;
     background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
     border-radius: 8pt;
-
+    padding-bottom: 30px;
+    
 
     .text {
       display: flex;
@@ -186,6 +187,7 @@ a:link {
     color:black;
     background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
     border: lightgray 1px solid;
+    
 
     
   }
