@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import styles from './main.scss';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link,
@@ -56,9 +56,9 @@ function EmbedView() {
     return (<NotFound />);
   }
 }
-// basename={"/privacy-rating"}
+
 const routes = (
-   <Router>
+   <Router basename={"/privacy-rating"}>
      <Switch>
         <Route path="/form">
           <FormProvider>
@@ -92,9 +92,9 @@ const routes = (
         } />
         <Route path="/:id/:domain" children={<LabelView />} />
         <Route path="/:id" children={<LabelView />} />
-        {/* <Route path="*">
+        <Route path="*">
           <NotFound />
-        </Route> */}
+        </Route>
      </Switch>
    </Router>
 )
