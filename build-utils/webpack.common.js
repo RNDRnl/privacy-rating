@@ -2,6 +2,7 @@ const commonPaths = require('./common-paths');
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
 const config = {
   // entry: {
@@ -42,6 +43,9 @@ const config = {
     }
   },
   plugins: [
+    new InterpolateHtmlPlugin({
+      'NODE_ENV': 'development'
+    }),
     new HtmlWebpackPlugin({
       template: `public/index.html`,
       favicon: `public/favicon.ico`,

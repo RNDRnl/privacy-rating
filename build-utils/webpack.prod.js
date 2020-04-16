@@ -9,7 +9,6 @@ const config = {
     app: [`${commonPaths.appEntry}/index.js`],
   },
   output: {
-    path: `${commonPaths.outputPath}/privacy-rating`,
     filename: 'static/[name].[hash].js',
     publicPath: '/privacy-rating'
   },
