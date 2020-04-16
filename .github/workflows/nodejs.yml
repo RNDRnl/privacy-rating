@@ -1,4 +1,4 @@
-# build and deploy 
+# Build and Deploy 
 
 name: Build and Deploy
 on: [push]
