@@ -4,7 +4,7 @@ interface CssExports {
   'domainName': string;
   'footer': string;
   'license': string;
-  'questionMarker': string;
+  'questionMark': string;
   'year': string;
 }
 export const cssExports: CssExports;

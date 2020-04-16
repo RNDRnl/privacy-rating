@@ -1,7 +1,7 @@
-@import "../../main.scss";
+@import "src/main";
 
 .holder {
-  background-color: #f3f3f4;
+  background-color: $color-Background;
   width: 320pt;
   height: 320pt;
   padding-left: 12pt;
@@ -85,7 +85,5 @@
         width: 20pt;
       }
     }
-  
-  
-  }
+}
   

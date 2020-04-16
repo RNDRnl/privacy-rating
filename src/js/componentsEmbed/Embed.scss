@@ -1,10 +1,5 @@
 @import "../../main.scss";
 
-
-.leftCol {
-  // padding:0px;
-
-}
 .holder {
   cursor: default;
   background-color: white;
@@ -12,7 +7,6 @@
   min-height: auto;
   padding-left: 12pt;
   padding-right: 12pt;
-  // padding-top: 8pt;
 
   .text {
     flex: 1;
@@ -43,7 +37,6 @@
   .overlayView {
     
     overflow: hidden;
-    // width: 100%;
     height: 50px;
     
     animation-name: example;
@@ -68,7 +61,6 @@
   }
 
   .button {
-    // width: 100%;
     background-color:$button-Color-Hover;
     text-align: center;
     color:white;
@@ -107,26 +99,15 @@
     }
   }
 
-  .backgroundButton {
-    //background-color: gray;
+  .background {
     padding: 50px;
     background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(240, 240, 240) 100%);
     border-radius: 8pt;
   }
 
-  .label {
-    // margin-left: auto;
-    // margin-right: auto;
-    // display: block;
-  }
-
-  .textFrame {
-    // max-width: 400px;
-  }
-
   .iframeCodeBox {
     margin-top: 12pt;
-    background-color: #F3f3F4;
+    background-color: $color-Background;
     border-radius: 8pt;
     border:2px lightgray solid;
     padding: 12pt;
@@ -143,14 +124,11 @@
     float: left;
     width: 220pt;
     padding-right: 20pt;
-    // margin-left: 12pt;
     margin-bottom: 12pt;
   }
 
   .downloadButton {
     padding-top: 12pt;
-    // width: 50%;
-    
   }
 
   .privacyRatingSmallButton {
@@ -161,9 +139,9 @@
 }
 
 a {
-      color:white;
-    }
+  color:white;
+}
 
-    a:link {
-      color:white;
-    }
+a:link {
+  color:white;
+}

@@ -1,8 +1,6 @@
 import * as React from "react";
 import {LabelObject, Section } from "../../state/Logic" 
 import { LabelElement, LabelCategoryElement, LabelSectionElement } from "./LabelElements"
-import {Image} from "react-bootstrap";
-// const styles = require("./Label.scss");
 
 // /////////
 // LABEL
@@ -71,6 +69,7 @@ export class CategoryTag {
 // /////////
 //  SECTION
 // /////////
+
 export class SectionTag {
     sectionText: String;
     score: any;

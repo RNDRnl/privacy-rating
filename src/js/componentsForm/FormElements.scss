@@ -1,3 +1,4 @@
+@import "../../main.scss";
 
 .justifyContentEnd {
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
@@ -15,8 +16,7 @@
         text-align: center;
 
         .smallCircle {
-            background-color: #2EA952;
-            // margin:2px 2px 2px;
+            background-color: $color-A;
             width:25px;
             height: 25px;
             margin-top: 7px;
@@ -27,8 +27,8 @@
     }
 
     .check {
-        border: #2EA952 2px solid;
-        color: #2EA952;
+        border: $color-A 2px solid;
+        color: $color-A;
         width:43px;
         height:43px;
         opacity: 1.0;
@@ -65,7 +65,6 @@
 
 .urlInput {
     max-width: 500px;
-    
     margin-left: auto;
     margin-right: auto;
 }
@@ -75,18 +74,11 @@
     line-height: 35px;
     text-align: center;
     width: 100px;
-    // height: 40px;
     color:white;
     border-radius: 8pt;
     flex: 1;
-    // margin: 10px auto;
     position: relative;
-    // left: 45%;
     font-size: 18px;
-    // margin-left: 5px;
-
-    
-    // transition: background-color 100ms ease-in-out;
 
     &:hover {
         background-color: black;
@@ -98,27 +90,12 @@
     }
 
     &.selected {
-        background-color: #2EA952;
+        background-color: $color-A;
     }
     
     &:hover {
         background-color: black;
         color: white;
-    }
-}
-
-
-.listGroup {
-    .ListGroupItem {
-        // border:none;
-        // &:nth-child(odd) {
-        //     background-color: #777;
-        //     // padding:0px;
-        // }
-        // &:nth-child(even) {
-        //     background-color: blue;
-        //     // padding:0px;
-        // }
     }
 }
 
@@ -133,12 +110,10 @@
 
 .answerContainer {
     display: flex;
-    // height: 60px;
     overflow: hidden;
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
-    // padding-bottom: 20px;
 }
 
 .question {
@@ -158,17 +133,11 @@
     line-height: 35px;
     text-align: center;
     width: 100px;
-    // height: 40px;
     color:white;
     border-radius: 8pt;
     flex: 1;
-    // margin: 10px auto;
     position: relative;
-    // left: 45%;
     font-size: 18px;
-    // margin-left: 2px;
-    // margin-right: 2px;
-    // transition: background-color 100ms ease-in-out;
 
     &:hover {
         background-color: black;
@@ -180,6 +149,6 @@
     }
 
     &.selected {
-        background-color: #2EA952;
+        background-color: $color-A;
     }
 }

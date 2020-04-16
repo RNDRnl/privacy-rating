@@ -1,28 +1,17 @@
 import * as React from "react";
 import {
-    Button,
-    Container,
     InputGroup,
     Navbar,
-    Jumbotron,
     FormControl,
     Accordion,
-    Col,
-    Row,
     Card,
-    Table,
     ListGroup,
-    ProgressBar,
-    FormCheck,
     Popover,
     Image,
-    Tooltip,
     OverlayTrigger
 } from "react-bootstrap";
-// import * as stylesvalues from './FormElements.scss';
 const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
-import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import classnames from "classnames";
 import Rating from "../../state/Rating"
 
@@ -159,9 +148,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
     
     constructor(props) {
         super(props)
-        // this.pmyRef = React.createRef();
-        // this.refs.overlay.hide();
-
     }
 
     
@@ -274,7 +260,6 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 
     handleChange(event) {
         const { Form, updateFormMultiple } = this.context;
-        //console.log(event.target.value);
         
         updateFormMultiple(
             this.props.formRef,
