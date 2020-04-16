@@ -3,6 +3,7 @@ import {Button, Container, Jumbotron, Accordion, Col, Row, Form, Card, Table, Li
 import styles from './Contact.scss';
 import Header from "../Header";
 import Footer from "../Footer";
+import * as Scroll from 'react-scroll';
 
 class ContactView extends Component {
     
@@ -30,6 +31,11 @@ class ContactView extends Component {
         this.setState({
             body: e.target.value
         })
+    }
+
+    componentDidMount() {
+        var scroll = Scroll.animateScroll;
+        scroll.scrollTo(0, {duration:250});
     }
 
     sendToMailClient(e) {

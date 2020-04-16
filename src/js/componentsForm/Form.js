@@ -39,7 +39,12 @@ class FormView extends Component {
     componentDidUpdate() {
         const { Form } = this.context
         var scroll = Scroll.animateScroll;
-        scroll.scrollTo((Form.scrollTarget - Math.round(window.innerHeight/3)), {duration:1000});
+        scroll.scrollTo((Form.scrollTarget - Math.round(window.innerHeight/3)), {duration:500});
+    }
+
+    componentDidMount() {
+        var scroll = Scroll.animateScroll;
+        scroll.scrollTo(0, {duration:250});
     }
     
     render() {

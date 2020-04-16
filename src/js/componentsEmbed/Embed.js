@@ -5,7 +5,7 @@ import _ from 'underscore'
 import LabelContext from '../../state/LabelContext';
 import Header from "../Header";
 import Footer from "../Footer";
-import {Link} from "react-router-dom";
+import * as Scroll from 'react-scroll';
 
 class Embed extends  Component {
     static contextType = LabelContext;
@@ -26,11 +26,12 @@ class Embed extends  Component {
     componentDidMount() {
         const { pupulateLabel } = this.context;
         pupulateLabel({hash:this.props.labelId, domain:this.props.domain});
+        
+        var scroll = Scroll.animateScroll;
+        scroll.scrollTo(0, {duration:250});
     }
 
     handleSelect() {
-        //console.log("handle select");
-        //console.log(this.myRef);
         this.myRef.current.select();
         document.execCommand("copy");
         this.setState({

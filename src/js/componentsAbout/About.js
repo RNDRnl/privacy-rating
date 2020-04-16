@@ -4,19 +4,20 @@ import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "rea
 import Header from "../Header";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
-// import ImageGalleryView from "./ImageGalleryView";
-//import { HeaderSmall } from "../Footer";
+import * as Scroll from 'react-scroll';
 
 const initialFormState = {
 }
 
 const About = () => {
+
+    var scroll = Scroll.animateScroll;
+    scroll.scrollTo(0, {duration:250});
+
     return (
         <div  className={styles.holder} >
             <Container>
                 <Header/>
-                {/* <HeaderSmall /> */}
-
                 <Row className={styles.backgroundSlider}>
                     <Row>
                     <div className={styles.text}>
@@ -57,15 +58,12 @@ const About = () => {
                     </div>
                     </Row>
                     
-               
-
                     <Row>
-                    <div className={styles.text}>
-                            <div>
-                                <h4 className={styles.h4spaced}>Example of privacy rating label</h4>
-                            </div>
-                    </div>
-                    
+                        <div className={styles.text}>
+                                <div>
+                                    <h4 className={styles.h4spaced}>Example of privacy rating label</h4>
+                                </div>
+                        </div>
                     </Row>
                         
                     <Row className={styles.labelFrame}>
@@ -99,10 +97,7 @@ const About = () => {
                         </Col>
                     </Row>
 
-
-
                     <hr className={styles.hr} />
-
 
                     <Row>
                         <div className={styles.text}>
@@ -117,9 +112,6 @@ const About = () => {
                             </div>
                         </div>
                     </Row>
-
-                    
-          
 
                     <div className={styles.categoriesContainer}>
                         <div className={styles.categories}>
@@ -155,9 +147,7 @@ const About = () => {
                             </p>
                         </div>
                     </div>
-                    
-          
-                   
+
                    <div className={styles.categoriesContainer}>
                     <div className={styles.categories}>
                             <Image className={styles.icon} src="/resources/icons/control.gif"/>
@@ -250,7 +240,6 @@ const About = () => {
                 </Row>
                 </Row>
 
-                
             <br />
             <Footer/>
             </Container>
