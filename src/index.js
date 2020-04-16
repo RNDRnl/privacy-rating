@@ -58,7 +58,7 @@ function EmbedView() {
 }
 
 const routes = (
-   <Router basename={"https://rndrnl.github.io/privacy-rating/"}>
+   <Router basename={"/privacy-rating"}>
      <Switch>
         <Route path="/form">
           <FormProvider>
