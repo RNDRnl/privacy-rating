@@ -44,17 +44,6 @@
 }
 
 
-a {
-  color: gray;
-}
-
-a:visited {
-  color: gray;
-}
-
-a:link {
-  color: gray;
-}
 
 
 .holder {
@@ -97,6 +86,26 @@ a:link {
     padding: 0px 20px 0px;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
     font-size: 12pt;
+
+    a:link {
+      color: gray;
+    }
+    
+    a {
+      color: gray !important;
+    }
+    
+    a:visited {
+      color: gray !important;
+    }
+    
+    a:link {
+      color: gray;
+    }
+    
+    a:hover {
+      color: black !important;
+    }
 
     h4 {
       width: 100%;
@@ -250,16 +259,21 @@ a:link {
     padding-bottom: 25px;
 
     a {
-      color: gray;
+      color: gray !important;
     }
-
-    a:hover {
-      color: gray;
-    }
-
+    
     a:visited {
+      color: gray !important;
+    }
+    
+    a:link {
       color: gray;
     }
+    
+    a:hover {
+      color: black !important;
+    }
+
     
     div {
       flex: 1;
