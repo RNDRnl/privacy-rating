@@ -12,7 +12,7 @@ const config = {
   },
   output: {
     path: commonPaths.outputPath,
-    publicPath: '/privacy-rating'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -44,9 +44,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: `public/index.html`,
-      error: `public/404.html`,
       favicon: `public/favicon.ico`,
-      _redirects: `public/_redirects`
     })
   ]
 };
