@@ -62,7 +62,7 @@ const config = {
   },
   plugins: [
     new InterpolateHtmlPlugin({
-      'NODE_ENV': 'development'
+      'NODE_ENV': ''
     }),
     new webpack.HotModuleReplacementPlugin()
   ],

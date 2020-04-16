@@ -68,7 +68,7 @@ const config = {
       {from:'resources',to:'resources'} 
     ]),
     new InterpolateHtmlPlugin({
-      'NODE_ENV': 'development'
+      'NODE_ENV': 'privacy-rating/'
     })
   ],
 };
