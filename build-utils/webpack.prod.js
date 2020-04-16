@@ -2,6 +2,7 @@ const commonPaths = require('./common-paths');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
 const config = {
   mode: 'production',
@@ -65,7 +66,10 @@ const config = {
     }),
     new CopyWebpackPlugin([
       {from:'resources',to:'resources'} 
-    ]), 
+    ]),
+    new InterpolateHtmlPlugin({
+      'NODE_ENV': 'development'
+    })
   ],
 };
 

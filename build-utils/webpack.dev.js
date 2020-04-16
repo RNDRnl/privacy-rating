@@ -1,6 +1,7 @@
 const commonPaths = require('./common-paths');
 
 const webpack = require('webpack');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
 const port = process.env.PORT || 3000;
 
@@ -59,7 +60,12 @@ const config = {
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new InterpolateHtmlPlugin({
+      'NODE_ENV': 'development'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devServer: {
     host: '0.0.0.0',
     port: port,
