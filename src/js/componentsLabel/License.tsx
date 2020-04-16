@@ -5,9 +5,9 @@ const styles = require("./License.scss");
 function renderTooltip(props) {
     return <Tooltip className={styles.license} {...props}>
         <div className={styles.license}>
-            <Image className={styles.tooltip} src="/resources/icons/by.svg"/>
-            <Image className={styles.tooltip} src="/resources/icons/nc-eu.svg"/>
-            <Image className={styles.tooltip} src="/resources/icons/nd.svg"/>
+            <Image className={styles.tooltip} src={`${process.env.BASE_PATH}/resources/icons/by.svg`}/>
+            <Image className={styles.tooltip} src={`${process.env.BASE_PATH}/resources/icons/nc-eu.svg`}/>
+            <Image className={styles.tooltip} src={`${process.env.BASE_PATH}/resources/icons/nd.svg`}/>
             <div className={styles.licenseText}>3.0</div>
         </div>
     </Tooltip>;

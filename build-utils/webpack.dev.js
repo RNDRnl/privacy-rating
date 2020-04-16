@@ -1,5 +1,4 @@
 const commonPaths = require('./common-paths');
-
 const webpack = require('webpack');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
@@ -46,15 +45,15 @@ const config = {
         },  // to convert SASS to CSS // , options: { prependData: '$env: \'/\';'}
         // NOTE: The first build after adding/removing/renaming CSS classes fails, since the newly generated .d.ts typescript module is picked up only later
     ] }, 
-      {
-        test: /\.(woff2?|ttf|otf|eot|svg)$/,
-        exclude: /node_modules/,
-        loader: 'file-loader',
-        options: {
-            name: '[path][name].[ext]',
+      // {
+      //   test: /\.(woff2?|ttf|otf|eot|svg)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'file-loader',
+      //   options: {
+      //       name: '[path][name].[ext]',
             
-        }
-      },
+      //   }
+      // },
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
@@ -70,7 +69,10 @@ const config = {
     new InterpolateHtmlPlugin({
       'CUSTOM_PATH': ''
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin(
+      { 'process.env.BASE_PATH': JSON.stringify(`${process.env.BASE_PATH}`) }
+    )
   ],
   devServer: {
     host: '0.0.0.0',

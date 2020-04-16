@@ -76,7 +76,10 @@ const config = {
     ]),
     new InterpolateHtmlPlugin({
       'CUSTOM_PATH': 'privacy-rating'
-    })
+    }),
+    new webpack.DefinePlugin(
+      { 'process.env.BASE_PATH': JSON.stringify(`${process.env.BASE_PATH}`) }
+    )
   ],
 };
 

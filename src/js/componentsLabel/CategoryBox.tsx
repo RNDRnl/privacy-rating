@@ -93,7 +93,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             }
         }
 
-        var iconGIF = `/resources/icons/${this.props.categoryName}.gif`;
+        var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName}.gif`;
 
         return (
             <div className={classNames} 
@@ -104,7 +104,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 <div className={styles.label}>
                     {this.props.categoryName}
                     <Image className={styles.icon} src={iconGIF} fluid />
-                    <Image className={styles.arrow} src="/resources/icons/arrow.svg" fluid />
+                    <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
                     {this.props.children}
                 </div>
             </div>

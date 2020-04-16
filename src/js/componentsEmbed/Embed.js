@@ -46,8 +46,8 @@ class Embed extends  Component {
             rank = LabelObject.rank;
         }
 
-        var png = `/resources/privacyRatingSmall/PNG/PrivacyRating${rank}.png`;
-        var svg = `/resources/privacyRatingSmall/SVG/PrivacyRating${rank}.svg`;
+        var png = `${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRating${rank}.png`;
+        var svg = `${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRating${rank}.svg`;
 
         var iframeSrc = `/${this.props.labelId}`;
         if(typeof this.props.domain !== 'undefined') {

@@ -87,13 +87,13 @@ const About = () => {
                         </Col>
 
                         <Col className={styles.smallLabels}>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingA.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingB.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingC.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingD.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingE.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingF.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`/resources/privacyRatingSmall/PNG/PrivacyRatingG.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingA.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingB.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingC.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingD.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingE.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingF.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingG.png`}/>
                         </Col>
                     </Row>
 
@@ -115,7 +115,7 @@ const About = () => {
 
                     <div className={styles.categoriesContainer}>
                         <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/collection.gif"/>
+                            <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/collection.gif`}/>
                             <h5>COLLECTION</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
@@ -131,7 +131,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/sharing.gif"/>
+                            <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/sharing.gif`}/>
                             <h5>SHARING</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
@@ -150,7 +150,7 @@ const About = () => {
 
                    <div className={styles.categoriesContainer}>
                     <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/control.gif"/>
+                            <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/control.gif`}/>
                             <h5>CONTROL</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
@@ -167,7 +167,7 @@ const About = () => {
                         </div>
 
                         <div className={styles.categories}>
-                            <Image className={styles.icon} src="/resources/icons/security.gif"/>
+                            <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/security.gif`}/>
                             <h5>SECURITY</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>

@@ -38,7 +38,6 @@ function validateId(id) {
   return boolean;
 }
 
-
 function LabelView() {
   let { id, domain } = useParams();
   if(validateId(id)) {
@@ -58,6 +57,7 @@ function EmbedView() {
 }
 // basename={"/privacy-rating"}
 const routes = (
+  
    <Router basename={"/"}>
      <Switch>
         <Route path="/form">

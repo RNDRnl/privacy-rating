@@ -5,8 +5,8 @@
   "license": "CC-BY-NC-ND-3.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --env.env=dev",
-    "build": "cross-env NODE_ENV=production webpack -p --env.env=prod"
+    "dev": "cross-env BASE_PATH= webpack-dev-server --env.env=dev",
+    "build": "cross-env NODE_ENV=production BASE_PATH=/privacy-rating webpack -p --env.env=prod"
   },
   "keywords": [],
   "author": "",

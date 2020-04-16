@@ -25,12 +25,12 @@
       margin-left: 286pt;
 
       a {
-        background: url("/resources/icons/question.svg");
+        background: url("#{$env}resources/icons/question.svg");
         float:right;
         width: 10pt;
         height: 10pt;
         &:hover {
-          background: url("/resources/icons/question-hover.svg");
+          background: url("#{$env}resources/icons/question-hover.svg");
         }
       }
     }

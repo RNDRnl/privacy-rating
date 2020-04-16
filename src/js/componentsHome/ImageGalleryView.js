@@ -3,19 +3,19 @@ import ImageGallery from 'react-image-gallery';
 
 const images = [
   {
-    original: '/resources/home/slideshow/1x/slide1.png'
+    original: `${process.env.BASE_PATH}/resources/home/slideshow/1x/slide1.png`
   },
   {
-    original: '/resources/home/slideshow/1x/slide2.png'
+    original: `${process.env.BASE_PATH}/resources/home/slideshow/1x/slide2.png`
   },
   {
-    original: '/resources/home/slideshow/1x/slide3.png'
+    original: `${process.env.BASE_PATH}/resources/home/slideshow/1x/slide3.png`
   },
   {
-    original: '/resources/home/slideshow/1x/slide4.png'
+    original: `${process.env.BASE_PATH}/resources/home/slideshow/1x/slide4.png`
   },
   {
-    original: '/resources/home/slideshow/1x/slide5.png'
+    original: `${process.env.BASE_PATH}/resources/home/slideshow/1x/slide5.png`
   },
 ];
  

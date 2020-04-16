@@ -38,10 +38,10 @@ const Footer= () => {
                     <br/>
                         
                     <p>
-                        <Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src="/resources/icons/cc.svg"/><a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">BY-NC-ND</a>
+                        <Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src={`${process.env.BASE_PATH}/resources/icons/cc.svg`}/><a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">BY-NC-ND</a>
                     </p>
                     <p>
-                        <Image width="150px" src="/resources/privacyRatingSmall/PNG/PrivacyRatingA.png"/>
+                        <Image width="150px" src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingA.png`}/>
                     </p>
                 </div>
                 <div className={styles.footerText}>
