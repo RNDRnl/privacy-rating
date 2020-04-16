@@ -6,7 +6,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 const config = {
   mode: 'production',
   entry: {
-    app: [`${commonPaths.appEntry}/index.js`],
+    app: [`/privacy-rating/${commonPaths.appEntry}/index.js`],
   },
   output: {
     filename: 'static/[name].[hash].js',
