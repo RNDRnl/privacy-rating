@@ -92,9 +92,9 @@ const routes = (
         } />
         <Route path="/:id/:domain" children={<LabelView />} />
         <Route path="/:id" children={<LabelView />} />
-        <Route path="*">
+        {/* <Route path="*">
           <NotFound />
-        </Route>
+        </Route> */}
      </Switch>
    </Router>
 )
