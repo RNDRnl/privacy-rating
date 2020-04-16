@@ -11,7 +11,7 @@ const config = {
     extensions: [".js", ".json", ".ts", ".tsx", ".css", ".scss"],
   },
   output: {
-    path: '/privacy-rating' + commonPaths.outputPath,
+    path: commonPaths.outputPath,
     publicPath: '/privacy-rating'
   },
   module: {
