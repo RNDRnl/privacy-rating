@@ -79,7 +79,6 @@
     }
   }
 
-
   .label {
     flex: 1;
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
@@ -101,16 +100,6 @@
     -o-transition: $duration;
     -ms-transiton: $duration;
     transition: $duration;
-  }
-
-  div img:last-child {
-    display: none;
-  }
-  div:hover img:last-child {
-    display: block;
-  }
-  div:hover img:first-child {
-    display: none;
   }
 
   .arrow {

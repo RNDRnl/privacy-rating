@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import {Button, Container, Jumbotron, Accordion, Col, Row, Card, Table, ListGroup, ProgressBar} from "react-bootstrap";
-import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
+import {Container, Accordion, Col, Row, ProgressBar} from "react-bootstrap";
 import styles from './Form.scss';
-import _ from 'underscore'
 import FormConfig from "./FormConfig"
 import FormContext from '../../state/FormContext'
 import Header from "../Header";
@@ -57,50 +55,42 @@ class FormView extends Component {
                 <div>
                     <Container className={styles.formContainer}>
                         <Header/>
-                        
-                        {/* <Link to="/">Back</Link> */}
+
                         <Row >
                             { this.getForm(FormConfig) }
                         </Row>
 
-                        
-
                         <div>
-                                { Form.generatedHash == null  &&
-                                    <Row>
-                                        <Col>
-                                            <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
-                                        </Col>
-                                    </Row>
-                                }
-                                { Form.generatedHash != null &&
-                                    <Row>
-                                        <Col>
-                                            Your label is complete!
-                                        </Col>
-                                        <Col className={styles.actionContainer}>
-                                                <div className={classnames(styles.action)}>
-                                                    <Link to={`/embed/${Form.generatedHash}${domain}`}>
-                                                        <div className={classnames(styles.button, styles.download)}>
-                                                            Download label
-                                                        </div>
-                                                    </Link>
-                                                </div>
-                                        </Col>
-                                    </Row>
-                                }
+                            { Form.generatedHash == null  &&
+                            <Row>
+                                <Col>
+                                    <ProgressBar variant={Form.progress.variant} className={styles.ProgressBar} animated now={Form.progress.value} label={Form.progress.text} />
+                                </Col>
+                            </Row>
+                            }
+
+                            { Form.generatedHash != null &&
+                            <Row>
+                                <Col>
+                                    Your label is complete!
+                                </Col>
+                                <Col className={styles.actionContainer}>
+                                    <div className={classnames(styles.action)}>
+                                        <Link to={`/embed/${Form.generatedHash}${domain}`}>
+                                            <div className={classnames(styles.button, styles.download)}>
+                                                Download label
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </Col>
+                            </Row>
+                            }
                         </div>
 
-                        <br />
-                        <br />
-                        
+                        <br/><br/>
 
                         <Footer />
                     </Container>
-
-                    {/* <div className={styles.formFooter}>
-                        
-                    </div> */}
                 </div>
         )
     }

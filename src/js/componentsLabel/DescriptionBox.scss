@@ -2,7 +2,7 @@
 
 .holder {
   display: flex;
-  padding-left: 10pt;
+  padding-left: 8pt;
   padding-right: 10pt;
   cursor: default;
 
@@ -21,10 +21,9 @@
     margin-bottom: 4pt;
     width: 13px;
     height: 13px;
-    border-radius: 1000%;
+    border-radius: 100%;
     float: left;
-    border: 1px solid black;
-
+    border: 1.2pt solid black;
 
     &.colorA { background-color: $color-A;}
     &.colorD { background-color: $color-D;}

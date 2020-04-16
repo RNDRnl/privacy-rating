@@ -1,7 +1,9 @@
+@import "src/main";
+
 .footer {
   padding-top: 6pt;
   font-size: 8pt;
-  color: #A6A8AB;
+  color: $color-Grey-Text;
   display: flex;
 
   .domainName {
@@ -17,23 +19,7 @@
     margin-left: 140pt;
   }
 
-  //.reportFlag {
-  //  position: absolute;
-  //  flex:1;
-  //  margin-left: 286pt;
-  //
-  //  a {
-  //    background: url("/resources/icons/reportflag.svg");
-  //    float:right;
-  //    width: 13pt;
-  //    height: 13pt;
-  //    &:hover {
-  //      background: url("/resources/icons/reportflag-hover.svg");
-  //    }
-  //  }
-  //}
-
-  .questionMarker {
+  .questionMark {
       position: absolute;
       flex:1;
       margin-left: 286pt;
@@ -52,6 +38,4 @@
   .license {
     position: absolute;
   }
-
-  
 }

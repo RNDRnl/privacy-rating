@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import {Container, Col, Row, Jumbotron, Image, Button, Overlay, Popover} from "react-bootstrap";
+import {Container, Col, Row, Image, Button} from "react-bootstrap";
 import styles from './Embed.scss';
-import _ from 'underscore'
 import LabelContext from '../../state/LabelContext';
 import Header from "../Header";
 import Footer from "../Footer";
-import {Link} from "react-router-dom";
 
 class Embed extends  Component {
     static contextType = LabelContext;
@@ -29,8 +27,6 @@ class Embed extends  Component {
     }
 
     handleSelect() {
-        //console.log("handle select");
-        //console.log(this.myRef);
         this.myRef.current.select();
         document.execCommand("copy");
         this.setState({
@@ -56,14 +52,13 @@ class Embed extends  Component {
 
         return (
             <div className={styles.holder} >
-
                         <Container>
                         <Header/>
                             <br />
-                            <div className={styles.backgroundButton}>
+                            <div className={styles.background}>
                                 <Row>
-                                    <Col className={styles.leftCol}>
-                                    <div className={styles.label}>
+                                    <Col>
+                                        <div>
                                             <iframe src={iframeSrc}
                                                     top="0"
                                                     left="0"
@@ -80,21 +75,21 @@ class Embed extends  Component {
                                                     allowFullScreen/>
                                         </div>
                                     </Col>
+
                                     <Col>
-                                        <div> 
+                                        <div>
                                             <h3>Generated label for your website</h3>
                                             <div>Use this embed code to implement the label into your website.</div>
                                             <div ref={this.containerRef} className={styles.containerRef} >
-                                                <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="https://privacy-label.com/${iframeSrc}" style="top: 0; left: 0; width: 320pt; height: 320pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameBorder="0" gesture="media" allow="encrypted-media" allowFullScreen />`} />
+                                                <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="https://fervent-bhaskara-165d58.netlify.com${iframeSrc}" style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>`} />
                                                 { this.state.show &&
-                                                    <div className={styles.overlayView}>
-                                                        <span>Embed code has been copied</span>
-                                                    </div>
+                                                <div className={styles.overlayView}>
+                                                    <span>Embed code has been copied</span>
+                                                </div>
                                                 }
                                             </div>
                                         </div>
                                     </Col>
-
                                 </Row>
                                 
                                 <hr className={styles.hr} />
@@ -103,6 +98,7 @@ class Embed extends  Component {
                                     <Col className={styles.leftCol}>
                                         <Image className={styles.privacyRatingSmall} src={svg}/>
                                     </Col>
+
                                     <Col>
                                         <div>
                                             <h3>Download the small label here</h3>
@@ -111,7 +107,9 @@ class Embed extends  Component {
                                                 .svg or .png to put into your header of your website.
                                             </p>
                                         </div>
+
                                         { rank != null &&
+
                                         <div>
                                             <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
                                             <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
@@ -120,11 +118,10 @@ class Embed extends  Component {
                                     </Col>
                                 </Row>
                             </div>
-
-                            <br />
+                            <br/>
                             <Footer/>
                         </Container>
-                </div>
+            </div>
         )
     }
 };

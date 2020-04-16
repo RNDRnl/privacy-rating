@@ -1,4 +1,4 @@
-
+@import "../../main.scss";
 
 .accordionView {
     padding:15px;
@@ -8,7 +8,7 @@
 .ProgressBar {
     height: 50px;
     font-size: 16px;
-    background-color: #F3f3F4;
+    background-color: $color-Background;
     border-radius: 8pt;
 
     &:hover {
@@ -30,7 +30,6 @@ a:hover {
     animation-timing-function: ease-out;
     animation-iteration-count: 1;
     opacity: 1.0;
-    // background-color: red;
     display: flex;
 
     .action {
@@ -44,28 +43,6 @@ a:hover {
             text-align: center;
             padding:20px;
             color:white;
-        
-            align-items: flex-start;
-            text-align: center;
-            border-top-width: 2px;
-            border-right-width: 2px;
-            border-bottom-width: 2px;
-            border-left-width: 2px;
-            border-top-style: outset;
-            border-right-style: outset;
-            border-bottom-style: outset;
-            border-left-style: outset;
-            border-top-color: buttonface;
-            border-right-color: buttonface;
-            border-bottom-color: buttonface;
-            border-left-color: buttonface;
-            border-image-source: initial;
-            border-image-slice: initial;
-            border-image-width: initial;
-            border-image-outset: initial;
-            border-image-repeat: initial;
-            background-color: buttonface;
-            box-sizing: border-box;
         
             &.reset {
                 background-color: gray;
@@ -89,8 +66,6 @@ a:hover {
                 cursor: pointer;
             }
         }
-
-
     }
 
 }

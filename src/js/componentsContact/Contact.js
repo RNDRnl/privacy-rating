@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, Container, Jumbotron, Accordion, Col, Row, Form, Card, Table, ListGroup, ProgressBar} from "react-bootstrap";
+import {Button, Container, Col, Row, Form} from "react-bootstrap";
 import styles from './Contact.scss';
 import Header from "../Header";
 import Footer from "../Footer";
@@ -56,7 +56,7 @@ class ContactView extends Component {
                             <div className={styles.text}>
                                 <p>If you have any questions or want to conctact us please send us an e-mail and we will resopond to you.</p>
                             </div>
-                            <br /><br />
+                            <br/><br/>
                             <Form>
                                 <Form.Row>
                                     <Form.Group as={Col}  controlId="subject">
