@@ -10,6 +10,7 @@ const config = {
   },
   output: {
     filename: 'static/[name].[hash].js',
+    publicPath: '/privacy-rating'
   },
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx", ".css", ".scss"],
