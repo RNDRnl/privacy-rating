@@ -26,16 +26,16 @@ $duration: all .45s ease-in-out;
 
 @font-face {
     font-family: 'cooper_hewittmedium';
-    src: url('$env/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-medium-webfont.woff2') format('woff2'),
-         url('$env/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-medium-webfont.woff') format('woff');
+    src: url('#{$env}resources/fonts/webfontkit-CooperHewitt/cooperhewitt-medium-webfont.woff2') format('woff2'),
+         url('#{$env}resources/fonts/webfontkit-CooperHewitt/cooperhewitt-medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'cooper_hewittsemibold';
-    src: url('$env/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-semibold-webfont.woff2') format('woff2'),
-         url('$env/resources/fonts/webfontkit-CooperHewitt/cooperhewitt-semibold-webfont.woff') format('woff');
+    src: url('#{$env}resources/fonts/webfontkit-CooperHewitt/cooperhewitt-semibold-webfont.woff2') format('woff2'),
+         url('#{$env}resources/fonts/webfontkit-CooperHewitt/cooperhewitt-semibold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
