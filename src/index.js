@@ -57,11 +57,8 @@ function EmbedView() {
   }
 }
 
-console.log("DEBUG");
-console.log(process.env.PUBLIC_URL);
-
 const routes = (
-   <Router basename={process.env.PUBLIC_URL + "/"}>
+   <Router>
      <Switch>
         <Route path="/form">
           <FormProvider>

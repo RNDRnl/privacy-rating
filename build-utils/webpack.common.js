@@ -12,7 +12,7 @@ const config = {
   },
   output: {
     path: commonPaths.outputPath,
-    publicPath: '/'
+    publicPath: '/privacy-rating'
   },
   module: {
     rules: [
