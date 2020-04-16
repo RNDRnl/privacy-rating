@@ -28,7 +28,7 @@ function validateId(id) {
   }
   var charCharValid = true;
   id.split("").forEach(function(element) {
-    if(element != "A" && element != "B" && element != "C") {
+    if(element != "P" && element != "R" && element != "L") {
       charCharValid = false;
     }
   });

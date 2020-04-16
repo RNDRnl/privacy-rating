@@ -71,7 +71,7 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                                        <iframe src={"/AAAAAAAAAAAA"}
+                                        <iframe src={"/PPPPPRPRRLRR"}
                                                 top="0"
                                                 left="0"
                                                 width="430pt"

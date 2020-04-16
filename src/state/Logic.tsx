@@ -134,6 +134,17 @@ const calculateScore = (elements:any, devide:any) => {
     }
 }
 
+const mashupRating = (ratingIn:any) => {
+    switch(ratingIn) {
+        case "C":
+            return "L"
+        case "B":
+            return "R"
+        case "A":
+            return "P"
+    }
+}
+
 const categoriesToHash = (catagories:any) => {
 
     var isInvalid = false
@@ -144,7 +155,7 @@ const categoriesToHash = (catagories:any) => {
             if(section == null) {
                 isInvalid = true
             } else {
-                hash += section.rate;
+                hash += mashupRating(section.rate);
             }
         });
     });
@@ -255,7 +266,6 @@ const HashToLabelState = (labelHash:any) => {
     var characters = labelHash.hash.split("")
     var sections = [];
     characters.forEach(function(char, index) {
-
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
         var resultRating = RatingConfig[targetPath];
         var section = new Section(resultRating.score, resultRating.text);
