@@ -62,13 +62,13 @@ const config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[hash].css',
+      filename: 'privacy-rating/styles/[name].[hash].css',
     }),
     new CopyWebpackPlugin([
       {from:'resources',to:'resources'} 
     ]),
     new InterpolateHtmlPlugin({
-      'NODE_ENV': 'privacy-rating/'
+      'CUSTOM_PATH': 'privacy-rating'
     })
   ],
 };
