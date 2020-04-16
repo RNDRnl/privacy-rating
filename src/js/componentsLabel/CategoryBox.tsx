@@ -93,7 +93,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             }
         }
 
-        var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName}.gif`;
+        var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`;
 
         return (
             <div className={classNames} 
