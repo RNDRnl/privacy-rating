@@ -1,13 +1,13 @@
 ## Version 
 
-|:--|:--|
-| version | 0.0.1 |
-| stage  | pilot |
-| release  | 17-04-2020 |
-
+|   | |
+| ------------- | ------------- |
+| version  | 0.0.1  |
+| stage | Pilot  |
+| release | 17-04-2020  |
 
 ## Privacy Rating
-http://0.0.0.0:3000/resources/home/slideshow/1x/slide1.png
+![preview](https://github.com/RNDRnl/privacy-rating/raw/master/resources/home/slideshow/1x/slide1.png "preview of privacy rating on page")
 [Generate your own label](https://rndrnl.github.io/privacy-rating/#/form)
 
 ## About
@@ -24,14 +24,14 @@ supported by [NWO](https://www.nwo.nl/) in collaboration with [TNO](https://www.
 
 #### Installation requirements
 |  | version |
-|:--|:--|
+| ------------- | ------------- |
 node | >= 10.14.1 |  
 yarn | >= 1.19.1 | 
 
 #### Scripts
 
 | command | action |
-|:--|:--|
+| ------------- | ------------- |
 yarn install | install needed packages|  
 yarn dev | run development mode | 
 yarn build | build package | 
@@ -39,11 +39,11 @@ yarn build | build package |
 #### Configuration environment variables
 
 | variable | description | example
-|:--|:--|
+| ------------- | ------------- |  ------------- 
 BASE_PATH | custom base path | /privacy-rating
 DOMAIN_PATH | flat domain name | https://rndr.github.io
 NODE_ENV | current environment | production
 
 ## Contact
 
-Contact us though our [contact form](https://rndrnl.github.io/privacy-rating/#/contact)
+Contact us through our [contact form](https://rndrnl.github.io/privacy-rating/#/contact)
