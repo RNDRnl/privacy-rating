@@ -71,7 +71,10 @@ const config = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin(
-      { 'process.env.BASE_PATH': JSON.stringify(`${process.env.BASE_PATH}`) }
+      { 
+        'process.env.BASE_PATH': JSON.stringify(`${process.env.BASE_PATH}`),
+        'process.env.DOMAIN_PATH': JSON.stringify(`${process.env.DOMAIN_PATH}`)
+      }
     )
   ],
   devServer: {

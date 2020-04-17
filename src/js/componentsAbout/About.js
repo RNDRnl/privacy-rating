@@ -69,7 +69,7 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                                        <iframe src={"/#/PPPPPRPRRLRR"}
+                                        <iframe src={`${process.env.BASE_PATH}/#/PPPPPRPRRLRR`}
                                                 top="0"
                                                 left="0"
                                                 width="430pt"

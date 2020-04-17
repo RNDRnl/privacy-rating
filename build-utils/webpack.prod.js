@@ -78,7 +78,10 @@ const config = {
       'CUSTOM_PATH': 'privacy-rating'
     }),
     new webpack.DefinePlugin(
-      { 'process.env.BASE_PATH': JSON.stringify(`${process.env.BASE_PATH}`) }
+      { 
+        'process.env.BASE_PATH': JSON.stringify(`${process.env.BASE_PATH}`),
+        'process.env.DOMAIN_PATH': JSON.stringify(`${process.env.DOMAIN_PATH}`)
+      }
     )
   ],
 };
