@@ -46,4 +46,4 @@ NODE_ENV | current environment | production
 
 ## Contact
 
-Contact us through our [contact form](https://rndrnl.github.io/privacy-rating/#/contact)
+Contact us through our [form](https://rndrnl.github.io/privacy-rating/#/contact)
