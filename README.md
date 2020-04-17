@@ -1,8 +1,6 @@
 ## Version 
-
-|   | |
+|  | |
 | ------------- | ------------- |
-| version  | 0.0.1  |
 | stage | Pilot  |
 | release | 17-04-2020  |
 
@@ -37,7 +35,7 @@ yarn install | install needed packages|
 yarn dev | run development mode | 
 yarn build | build package | 
 
-#### Configuration environment variables
+#### Environment variables in package.json
 
 | variable | description | example
 | ------------- | ------------- |  ------------- 
