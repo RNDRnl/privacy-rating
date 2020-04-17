@@ -1,5 +1,4 @@
 @import "../../main.scss";
-// @import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 .holder {
   .backgroundGray {
@@ -34,16 +33,13 @@
 
     .actions {
       display: flex;
-      // margin-top: 20px;
       width: 50%;
       margin-left: auto;
-      // margin-right: auto;
-      // background-color: red;
+      
       div {
         display: flex;
         width: 100%;
         padding: 0px 5px 0px;
-
 
         &:nth-child(1) {
           flex:1;
@@ -83,13 +79,9 @@
     font-size: 14pt;
     margin-top: 12pt;
     border-radius: 8pt;
-
-    
     transition: background-color 200ms ease-in-out;
     margin-left: 0px;
     margin-right: -15px;
-
-    
   }
 
 

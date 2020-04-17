@@ -15,6 +15,9 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+const initialFormState = {
+}
+
 const Footer= () => {
     return (
         <div  className={styles.holder} >
