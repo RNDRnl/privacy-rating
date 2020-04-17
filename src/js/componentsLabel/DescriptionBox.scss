@@ -23,7 +23,11 @@
     height: 13px;
     border-radius: 100%;
     float: left;
-    border: 1.2pt solid black;
+    border: 1px solid black;
+    box-shadow:  0 0 1px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 1px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 1px rgba(0,0,0,0.6);
 
     &.colorA { background-color: $color-A;}
     &.colorD { background-color: $color-D;}

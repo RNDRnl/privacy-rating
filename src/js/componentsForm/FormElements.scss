@@ -6,9 +6,6 @@
     justify-content: flex-end!important;
     float:right;
 
-    
-    
-
     .catStatus {
         border: black 2px solid;
         padding:0px 12px 0px;
@@ -23,7 +20,6 @@
             margin-left: -5px;
             border-radius: 100%;
         }
-       
     }
 
     .check {
@@ -53,8 +49,6 @@
         float: left;
         margin-right: 15px;
     }
-    
-    
 }
 
 .headerstyleNotSelected {
@@ -79,24 +73,14 @@
     flex: 1;
     position: relative;
     font-size: 18px;
+    border:none;
+    margin: 5px;
 
-    &:hover {
-        background-color: black;
-        color: black;
-    }
-
-    &.notSelected {
-        background-color: gray;
-    }
-
-    &.selected {
-        background-color: $color-A;
-    }
-    
-    &:hover {
-        background-color: black;
-        color: white;
-    }
+    &:focus {outline:0;}
+    &:hover {background-color: black; color: black;}
+    &.notSelected {background-color: gray;}
+    &.selected {background-color: $color-A;}
+    &:hover {background-color: black; color: white;}
 }
 
 .list-group-item {
@@ -106,7 +90,6 @@
 .popOver {
     max-width:400px;
 }
-
 
 .answerContainer {
     display: flex;
@@ -138,17 +121,11 @@
     flex: 1;
     position: relative;
     font-size: 18px;
+    border:none;
+    margin: 5px;
 
-    &:hover {
-        background-color: black;
-        color: black;
-    }
-
-    &.notSelected {
-        background-color: gray;
-    }
-
-    &.selected {
-        background-color: $color-A;
-    }
+    &:focus {outline:0;}
+    &:hover {background-color: black; color: black;}
+    &.notSelected {background-color: gray;}
+    &.selected {background-color: $color-A;}
 }
