@@ -25,7 +25,7 @@ const About = () => {
                             <h4>What is the privacy rating?</h4>
                             <p>
                                 The privacy rating is a simple way to assess the
-                                privacy of on an online service. It looks at how
+                                privacy of an online service. It looks at how
                                 the service collects and shares user data, as well
                                 as on the amount of control users have over
                                 their data and the level of security provided to
