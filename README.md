@@ -3,6 +3,7 @@
 | ------------- | ------------- |
 | stage | Pilot  |
 | release | 17-04-2020  |
+| license | [MIT](https://github.com/RNDRnl/privacy-rating/blob/master/LICENSE) |
 
 ## Privacy Rating
 ![preview](https://github.com/RNDRnl/privacy-rating/raw/master/resources/home/slideshow/1x/slide1.png "preview of privacy rating on page")
