@@ -51,7 +51,7 @@ class Embed extends  Component {
 
         var iframeSrc = `${process.env.DOMAIN_PATH}${process.env.BASE_PATH}/#/${this.props.labelId}`;
         if(typeof this.props.domain !== 'undefined') {
-            iframeSrc = `${process.env.DOMAIN_PATH}${process.env.BASE_PATH}#/${this.props.labelId}/${this.props.domain}`
+            iframeSrc = `${process.env.DOMAIN_PATH}${process.env.BASE_PATH}/#/${this.props.labelId}/${this.props.domain}`
         }
 
         return (
