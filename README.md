@@ -11,7 +11,7 @@
 
 ## About
 
-The privacy rating is a simple way to assess the privacy of on an online service. It looks at how the service collects and shares user data, as well as on the amount of control users have over their data and the level of security provided to protect user’s data.
+The privacy rating is a simple way to assess the privacy of an online service. It looks at how the service collects and shares user data, as well as on the amount of control users have over their data and the level of security provided to protect user’s data.
 
 The Privacy Rating is based on extensive research into privacy regulation, standards and guidelines.
 
