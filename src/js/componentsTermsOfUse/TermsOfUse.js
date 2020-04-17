@@ -9,7 +9,6 @@ class PageView extends Component {
     
     constructor() {
         super();
-
     }
 
     componentDidMount() {
@@ -25,10 +24,9 @@ class PageView extends Component {
 
                     <Row className={styles.row}>
                         Terms of Use
-
                         <br />
                         <br />
-                        Content will follow soon
+                        Content will follow
                     </Row>
                             
                 <Footer/>

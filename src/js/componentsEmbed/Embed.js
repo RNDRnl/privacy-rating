@@ -112,11 +112,10 @@ class Embed extends  Component {
                                         </div>
 
                                         { rank != null &&
-
-                                        <div>
-                                            <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
-                                            <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
-                                        </div>
+                                            <div>
+                                                <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
+                                                <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
+                                            </div>
                                         }
                                     </Col>
                                 </Row>

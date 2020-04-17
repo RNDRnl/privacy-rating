@@ -9,7 +9,6 @@ class PageView extends Component {
     
     constructor() {
         super();
-
     }
 
     componentDidMount() {
@@ -22,13 +21,11 @@ class PageView extends Component {
         return (
             <Container className={styles.formContainer}>
                 <Header/>
-
                     <Row className={styles.row}>
                         Privacy Policy
-
                         <br />
                         <br />
-                        Content will follow soon
+                        Content will follow 
                     </Row>
                             
                 <Footer/>

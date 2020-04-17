@@ -15,9 +15,6 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const initialFormState = {
-}
-
 const Footer= () => {
     return (
         <div  className={styles.holder} >
@@ -56,19 +53,6 @@ const Footer= () => {
                         </Col>
                     </Row>
                 </div>
-            </div>
-        </div>
-    );
-};
-
-
-
-export const FooterSmall = () => {
-    return (
-        <div  className={styles.holderSmall} >
-            <div className={styles.footerText}>
-                Project by the <a target="_blank" href="https://www.utwente.nl/">University of Twente</a> supported by <a target="_blank" href="https://www.nwo.nl/">NWO</a> in collaboration with <a target="_blank" href="https://www.tno.nl/nl/">TNO</a>, <a target="_blank" href="https://wodc.nl/">WODC</a>, <a target="_blank" href="https://www.centric.eu/">Centric B.V.</a>
-                <Link style={{'float':'right'}} to="/">About</Link>   
             </div>
         </div>
     );

@@ -40,15 +40,13 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
             <Card key={""+this.props.categoryName}>
                 <Card.Header>
                         <div>
-                            {/* { checkForm(this.props.availableIf) == null && */}
-                                <Navbar.Text className={styles.headerstyle}>
-                                     { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
-                                        <Image className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
-                                     }
-                                     {this.props.categoryName}
-                                </Navbar.Text>
-                            {/* } */}
-
+                            <Navbar.Text className={styles.headerstyle}>
+                                    { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
+                                    <Image className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
+                                    }
+                                    {this.props.categoryName}
+                            </Navbar.Text>
+                          
                             <Navbar.Text className={styles.justifyContentEnd}>
                                 { checkForm(this.props.completedIf) != null &&
                                     <div className={classnames(styles.catStatus, styles.check)}>
@@ -149,8 +147,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
     constructor(props) {
         super(props)
     }
-
-    
     
     render() {
         const { checkForm } = this.context;
@@ -165,7 +161,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                 showSecondQuestion = true;
             }
         }
-        //&& checkForm(tempCheck) == "No"
         
         function OverLayTriggerView(help_info) {
 
@@ -198,7 +193,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                     { this.props.eventKey == "0" && 
                         <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                             <div className={styles.question}>
-                                {/* <div>{this.props.sectionName}</div> */}
                                 <div className={styles.questionText}>{this.props.question}</div>
                                 <div className={styles.answerContainer}>
                                     {this.props.children}
@@ -212,7 +206,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                     { this.props.eventKey != "0"  && showSecondQuestion &&
                         <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                             <div className={styles.question}>
-                                {/* <div>{this.props.sectionName}</div> */}
                                 <div className={styles.questionText} >{this.props.question}</div>
                                 <div className={styles.answerContainer}>
                                     {this.props.children}
@@ -249,12 +242,12 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
     }
 
     validURL(str) {
-        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-          '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-          '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-          '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ 
+          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+          '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+          '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
+          '(\\#[-a-z\\d_]*)?$','i'); 
         return !!pattern.test(str);
       }
 

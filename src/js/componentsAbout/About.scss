@@ -33,7 +33,6 @@
 
 
 .smallLabels {
-  // background-color: red;
   margin:0px;
   padding:0px;
   img {
@@ -43,23 +42,7 @@
   }
 }
 
-
-
-
 .holder {
-
-  // .backgroundWhite {
-  //   display: flex;
-  //   padding-top: 22pt;
-  //   margin-top: 48pt;
-  //   border-radius: 8pt;
-
-  //   div {
-  //     flex: 1;
-  //   }
-  // }
-
-
   .backgroundCategories {
     display: flex;
     
@@ -109,11 +92,8 @@
 
     h4 {
       width: 100%;
-      // padding: 20pt;
-      // margin-top: 12pt;
       margin-bottom: 22pt;
-      // border-radius: 8pt;
-      // //text-align: center;
+
     }
 
     .spacer {
@@ -138,8 +118,6 @@
     background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
     border-radius: 8pt;
     padding-bottom: 30px;
-    
-
     .text {
       display: flex;
       width: 100%;
@@ -148,8 +126,6 @@
         padding: 0px 20px 0px;
       }
     }
-
-    
 
   }
 
@@ -173,8 +149,6 @@
     font-size: 14pt;
     margin-top: 12pt;
     border-radius: 8pt;
-
-    
     transition: background-color 200ms ease-in-out;
     margin-left: 0px;
     margin-right: -15px;
@@ -196,9 +170,6 @@
     color:black;
     background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, #ffffff 35%, rgb(230, 230, 230) 100%);
     border: lightgray 1px solid;
-    
-
-    
   }
 
   .categoriesContainer {
@@ -212,7 +183,6 @@
     padding:20px;
     border-radius: 8pt;
     border: lightgray 2px solid;
-    // width: 100%;
     margin-bottom: 10px;
     margin:10px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -226,7 +196,6 @@
     .description {
       text-align: center;
       font-family: 'cooper_hewittmedium', 'Courier New', Courier, monospace;
-      // font-size: 10pt;
       line-height: 20pt;
       margin-top: 5pt;
     }
@@ -285,8 +254,5 @@
     div:nth-child(2) {
       max-width: 250pt;
     }
-
   }
-
-
 }

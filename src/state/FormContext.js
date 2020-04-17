@@ -95,9 +95,6 @@ class FormProvider extends Component {
       })
     }
 
-    componentDidUpdate() {
-    }
-
     checkForm = (ref) => {
       if(Array.isArray(ref)) {
         var boolean = null;

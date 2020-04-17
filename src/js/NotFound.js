@@ -19,8 +19,6 @@ const NotFound = () => {
             <br/>
             <br/>
             <br/>
-            
-            
             <ButtonGroup className="mr-2">
                 <Button variant="success" href="/" target="_blank">Go to the Privacy rating website</Button>
             </ButtonGroup>
