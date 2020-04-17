@@ -6,7 +6,6 @@ function renderTooltip(props) {
     return <Tooltip className={styles.license} {...props}>
         <div className={styles.license}>
             <Image className={styles.tooltip} src={`${process.env.BASE_PATH}/resources/icons/by.svg`}/>
-            <Image className={styles.tooltip} src={`${process.env.BASE_PATH}/resources/icons/nc-eu.svg`}/>
             <Image className={styles.tooltip} src={`${process.env.BASE_PATH}/resources/icons/nd.svg`}/>
             <div className={styles.licenseText}>3.0</div>
         </div>
@@ -20,7 +19,7 @@ const CreativeCommons = () => (
         overlay={renderTooltip}
     >
         <div className={styles.explain}>
-            <a href={"https://creativecommons.org/licenses/by-nc-nd/3.0/ "} target="_blank" title="Creative Commons"/>
+            <a href={"https://creativecommons.org/licenses/by-nd/3.0/"} target="_blank" title="Creative Commons"/>
         </div>
     </OverlayTrigger>
 );

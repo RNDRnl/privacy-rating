@@ -38,7 +38,8 @@ const Footer= () => {
                     <br/>
                         
                     <p>
-                        <Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src={`${process.env.BASE_PATH}/resources/icons/cc.svg`}/><a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">BY-NC-ND</a>
+                        <span><Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src={`${process.env.BASE_PATH}/resources/icons/law.svg`}/><a target="_blank" href="https://github.com/RNDRnl/privacy-rating/blob/master/LICENSE">MIT License</a></span>
+                        <span><Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src={`${process.env.BASE_PATH}/resources/icons/github.svg`}/><a target="_blank" href="https://github.com/RNDRnl/privacy-rating">Github</a></span>
                     </p>
                     <p>
                         <Image width="150px" src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingA.png`}/>

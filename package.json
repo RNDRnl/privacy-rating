@@ -2,7 +2,7 @@
   "name": "privacy-label-webapp",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "CC-BY-NC-ND-3.0",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env BASE_PATH= DOMAIN_PATH=http://localhost:3000/ webpack-dev-server --env.env=dev",

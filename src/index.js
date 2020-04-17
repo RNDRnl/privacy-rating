@@ -55,9 +55,7 @@ function EmbedView() {
     return (<NotFound />);
   }
 }
-// basename={"/privacy-rating"}
 const routes = (
-  
    <Router basename={"/"}>
      <Switch>
         <Route path="/form">

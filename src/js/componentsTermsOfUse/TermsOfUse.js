@@ -28,7 +28,7 @@ class PageView extends Component {
 
                         <br />
                         <br />
-                        .....
+                        Content will follow soon
                     </Row>
                             
                 <Footer/>
