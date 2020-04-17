@@ -16,9 +16,10 @@ The privacy rating is a simple way to assess the privacy of on an online service
 
 The Privacy Rating is based on extensive research into privacy regulation, standards and guidelines.
 
-### Initiative
 Privacy Rating is a project by the [University of Twente](https://www.utwente.nl/),
 supported by [NWO](https://www.nwo.nl/) in collaboration with [TNO](https://www.tno.nl/nl/), [WODC](https://wodc.nl/), [Centric B.V.](https://www.centric.eu/)
+
+Design and implementation by [RNDR](https://rndr.studio)
 
 ## Development
 
