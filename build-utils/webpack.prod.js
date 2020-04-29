@@ -40,7 +40,7 @@ const config = {
         { loader: "css-loader", options: { modules: true } },  // to convert the resulting CSS to Javascript to be bundled (modules:true to rename CSS classes in output to cryptic identifiers, except if wrapped in a :global(...) pseudo class)
         { loader: "sass-loader",
           options: {
-            prependData: '$env: \'' + process.env.BASE_PATH.substring(1) + '/\';',
+            prependData: `$env: '${process.env.BASE_PATH.substring(1)}/';`,
             webpackImporter: false
           },
         },  // to convert SASS to CSS // options: { prependData: '$env: \'privacy-rating/\';'}
