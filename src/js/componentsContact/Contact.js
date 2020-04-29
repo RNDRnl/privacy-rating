@@ -41,7 +41,7 @@ class ContactView extends Component {
     sendToMailClient(e) {
         e.preventDefault();
 
-        var email = "privacyrating@somemail.com";
+        var email = "";
         var subject = this.state.subject.replace(" ", "%20");
         var body = this.state.body.replace(" ", "%20");
 
@@ -53,12 +53,9 @@ class ContactView extends Component {
         return (
             <Container className={styles.formContainer}>
                 <Header/>
-
                     <Row className={styles.row}>
-                       
                         <Col className={styles.contactField}>
                             <h1>Contact</h1>
-
                             <div className={styles.text}>
                                 <p>If you have any questions or want to conctact us please send us an e-mail and we will resopond to you.</p>
                             </div>
@@ -70,22 +67,18 @@ class ContactView extends Component {
                                         <Form.Control value={this.state.subject} onChange={this.setSubject} placeholder="Subject" />
                                     </Form.Group>
                                 </Form.Row>
-
                                 <Form.Row>
                                     <Form.Group as={Col} controlId="body">
                                         <Form.Label>Message</Form.Label>
                                         <Form.Control value={this.state.body} onChange={this.setBody} rows={10} as="textarea" placeholder="Your message" />
                                     </Form.Group>
                                 </Form.Row>
-
                                 <Button variant="dark" type="submit" onClick={this.sendToMailClient}>
                                     Open mail client
                                 </Button>
                             </Form>
-
                         </Col>
                     </Row>
-                            
                 <Footer/>
             </Container>
         )

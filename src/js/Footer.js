@@ -49,8 +49,7 @@ const Footer= () => {
                     <Row>
                         <Col>
                             <Link to="/contact"><Button  variant="white" className={styles.button}>Contact</Button></Link> 
-                            <Link to="/terms-of-use"><Button variant="white" className={styles.button}>Terms of Use</Button></Link>
-                            <Link to="/privacy-policy"><Button variant="white"  className={styles.button}>Privacy policy</Button></Link>
+                            <Link to="/privacy-policy"><Button variant="white"  className={styles.button}>Privacy Policy</Button></Link>
                             <Link to="/about"><Button variant="white" className={styles.button}>About</Button></Link>
                             <Link to="/"><Button variant="white" className={styles.button}>Home</Button></Link>
                         </Col>

@@ -40,7 +40,7 @@ class Embed extends  Component {
 
     render() {
         const { LabelObject } = this.context;
-
+        
         var rank = null;
         if(LabelObject!=null) {
             rank = LabelObject.rank;
@@ -98,9 +98,12 @@ class Embed extends  Component {
                                 <hr className={styles.hr} />
 
                                 <Row>
-                                    <Col className={styles.leftCol}>
-                                        <Image className={styles.privacyRatingSmall} src={svg}/>
-                                    </Col>
+
+                                    { rank != null &&
+                                        <Col className={styles.leftCol}>
+                                            <Image className={styles.privacyRatingSmall} src={svg}/>
+                                        </Col>
+                                    }
 
                                     <Col>
                                         <div>

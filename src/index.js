@@ -72,9 +72,6 @@ const routes = (
         <Route path="/contact" children={
           <Contact />
         } />
-        <Route path="/terms-of-use" children={
-          <TermsOfUse />
-        } />
         <Route path="/privacy-policy" children={
           <PrivacyPolicy />
         } />

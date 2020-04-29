@@ -75,7 +75,7 @@ const config = {
       {from:'resources',to:'resources'} 
     ]),
     new InterpolateHtmlPlugin({
-      'CUSTOM_PATH': 'privacy-rating'
+      'CUSTOM_PATH': JSON.stringify(`${process.env.BASE_PATH}`)
     }),
     new webpack.DefinePlugin(
       { 

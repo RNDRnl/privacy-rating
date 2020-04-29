@@ -201,14 +201,14 @@ const About = () => {
                         <Col>
                             <div className={styles.downloadHandle}>
                                 <div>
-                                    <div className={styles.pdfButton} variant="dark" href="form">ToS</div>
+                                    <div className={styles.pdfButton} variant="dark" href="form">ToU</div>
                                 </div>
                                 <div>
-                                    <p><b>Terms of Service</b></p>
+                                    <p><b>Terms of Use</b></p>
                                     <p>
-                                        To read more about the this project click here for the Terms of Service.
+                                        To read more about the this project click here for the Terms of Use.
                                     </p>
-                                    <p><a href="#">Download ToS as a PDF</a></p>
+                                    <p><a href={`${process.env.BASE_PATH}/resources/pdf/Terms_Of_Use.pdf`}>Download ToU as a PDF</a></p>
                                 </div>
                             </div>
                         </Col>
@@ -222,7 +222,7 @@ const About = () => {
                                     <p>
                                         To read more about the this project click here for Whitepaper.
                                     </p>
-                                    <p><a href="#">Download whitepaper as PDF</a></p>
+                                    <p><a href={`${process.env.BASE_PATH}/resources/pdf/Whitepaper.pdf`}>Download whitepaper as PDF</a></p>
                                 </div>
                             </div>
                     </Col>
