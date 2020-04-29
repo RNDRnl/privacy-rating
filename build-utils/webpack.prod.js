@@ -11,7 +11,7 @@ const config = {
   },
   output: {
     filename: 'static/[name].[hash].js',
-    publicPath: process.env.BASE_PATH.substring(1)
+    publicPath: process.env.BASE_PATH
   },
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx", ".css", ".scss"],
