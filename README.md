@@ -44,6 +44,10 @@ BASE_PATH | custom base path | /privacy-rating
 DOMAIN_PATH | flat domain name | https://rndr.github.io
 NODE_ENV | current environment | production
 
+#### Deployment
+
+After build the static html files can be found in the `dist` directory
+
 ## Contact
 
 Contact us through our [form](https://rndrnl.github.io/privacy-rating/#/contact)

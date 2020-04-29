@@ -75,7 +75,7 @@ const config = {
       {from:'resources',to:'resources'} 
     ]),
     new InterpolateHtmlPlugin({
-      'CUSTOM_PATH': JSON.stringify(`${process.env.BASE_PATH}`).substring(1)
+      'CUSTOM_PATH': process.env.BASE_PATH.substring(1)
     }),
     new webpack.DefinePlugin(
       { 
