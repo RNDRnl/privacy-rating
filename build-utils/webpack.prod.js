@@ -11,7 +11,7 @@ const config = {
   },
   output: {
     filename: 'static/[name].[hash].js',
-    publicPath: '/privacy-rating'
+    publicPath: process.env.BASE_PATH.substring(1)
   },
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx", ".css", ".scss"],
