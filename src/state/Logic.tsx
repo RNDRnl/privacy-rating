@@ -45,17 +45,17 @@ const mapRange = (value:any, low1:any, high1:any, low2:any, high2:any) => {
 const mapToRank = (value:any) => {
     if(value >= 0.0 && value <= 0.25) {
         return 'A'
-    } else if (value > 0.25 && value <= 1.5) {
+    } else if (value >= 0.5 && value <= 1.25) {
         return 'B'
-    } else if (value > 1.5 && value <= 2.5) {
+    } else if (value >= 1.5 && value <= 2.25) {
         return 'C'
-    } else if (value > 2.5 && value <= 3.5) {
+    } else if (value >= 2.5 && value <= 3.25) {
         return 'D'
-    } else if (value > 3.5 && value <= 4.5) {
+    } else if (value >= 3.5 && value <= 4.25) {
         return 'E'
-    } else if (value > 4.5 && value <= 5.5) {        
+    } else if (value >= 4.5 && value <= 5.25) {        
         return 'F'
-    } else if (value > 5.5 && value <= 6.0) {
+    } else if (value >= 5.5 && value <= 6.0) {
         return 'G'
     }
 }
