@@ -46,7 +46,7 @@ const RatingConfig = {
     security_0_P: new RatingLabel(0.0,"Industry standard security"),  
     
     security_1_L: new RatingLabel(2.0,"No anomymisation"), 
-    security_1_R: new RatingLabel(1.0,"Partly anomymisation"),
+    security_1_R: new RatingLabel(1.0,"Partial anomymisation"),
     security_1_P: new RatingLabel(0.0,"Anonymisation"),
     
     security_2_L: new RatingLabel(2.0,"Not legally accountable"),
