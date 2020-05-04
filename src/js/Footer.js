@@ -42,7 +42,7 @@ const Footer= () => {
                         <span><Image width="15px" style={{marginRight:'10px', marginTop:'-4px'}} src={`${process.env.BASE_PATH}/resources/icons/github.svg`}/><a target="_blank" href="https://github.com/RNDRnl/privacy-rating">Github</a></span>
                     </p>
                     <p>
-                        <Image width="150px" src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingA.png`}/>
+                        <Image width="150px" src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingC.png`}/>
                     </p>
                 </div>
                 <div className={styles.footerText}>
