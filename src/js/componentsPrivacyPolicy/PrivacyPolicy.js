@@ -23,7 +23,9 @@ class PageView extends Component {
                 <Header />
                 <Row>
                     <div className={styles.iframe}>
-                        <iframe src="https://privacyrating.info/#/RPPPPLLPPLRR/privacyrating**info" style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>
+                        <div>
+                            <iframe src="https://privacyrating.info/#/RPPPPLLPPLRR/privacyrating**info" width="430" height="430" border-radius="8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>
+                        </div>
                     </div>
                 </Row>
                 <Row>
