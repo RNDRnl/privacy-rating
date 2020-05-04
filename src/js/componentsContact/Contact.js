@@ -41,7 +41,7 @@ class ContactView extends Component {
     sendToMailClient(e) {
         e.preventDefault();
 
-        var email = "";
+        var email = "contact@privacyrating.info";
         var subject = this.state.subject.replace(" ", "%20");
         var body = this.state.body.replace(" ", "%20");
 
