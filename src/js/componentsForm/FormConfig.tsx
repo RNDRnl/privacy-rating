@@ -7,7 +7,7 @@ var FormConfig = new Form([
     new Category( "Instruction", "loaded", ["declare"],
         [ new Section( "start_0",
                 [
-                    new Question( "Please answer the following questions regarding the handling of user data of the online service.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
+                    new Question( "Please answer the following questions about how the online service handles data collected from users of their website.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
                         [ 
                             new Answer( "declare", "domain", 
                                 new Rating("OK", null)
