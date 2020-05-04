@@ -22,6 +22,9 @@ class PageView extends Component {
             <Container className={styles.formContainer}>
                 <Header />
                 <Row>
+                <iframe src="https://privacyrating.info/#/RPPPPLLPPLRR/privacyrating**info" style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>
+                </Row>
+                <Row>
                     <div className={styles.text}>
                         <div>
                             <h3>Privacy Policy</h3>
