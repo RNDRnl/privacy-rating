@@ -7,7 +7,7 @@ const RatingConfig = {
     collection_0_P: new RatingLabel(0.0,"Collects anonymous data"),
     
     collection_1_L: new RatingLabel(2.0,"Data used for profiling"),  
-    collection_1_R: new RatingLabel(1.0,"Data used for contomation"),
+    collection_1_R: new RatingLabel(1.0,"Data used for customization"),
     collection_1_P: new RatingLabel(0.0,"Data used for functionality"),
     
     collection_2_L: new RatingLabel(2.0,"Data stored indefinitely"),
