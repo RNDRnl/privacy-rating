@@ -60,7 +60,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>WHAT INFORMATION DO WE COLLECT?</h4>
+                            <h4>What information do we collect?</h4>
                             <h5>Personal information you disclose to us</h5>
                             <p>
                                 <em>In short: <i>We only collect personal information you fill into the contact form.  </i></em><br />
@@ -70,12 +70,12 @@ class PageView extends Component {
                                     <li><b>Name and Contact Data.</b> We collect your first and last name, email address, postal address, phone number, and other similar contact data.</li>
                                 </ul>
                             </p>
-                            <h5> Information automatically collected </h5>
+                            <h5>Information automatically collected </h5>
                             <p>
                                 <em>In short: <i> Some information – such as IP address and/or browser and device characteristics – is collected automatically when you visit our Sites.  </i></em>
                                 We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our and other technical information. This information is primarily needed to maintain the security and operation of our Site, and for our internal analytics and reporting purposes.
                             </p>
-                            <h5> Information collected from other sources </h5>
+                            <h5>Information collected from other sources </h5>
                             <p>
                                 <em> In short: <i> Some information – such as IP address and/or browser and device characteristics – is collected automatically when you visit our Sites.  </i></em>
                             </p>
@@ -85,7 +85,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>WILL YOUR INFORMATION BE SHARED WITH ANYONE?</h4>
+                            <h4>Will your information be shared with anyone?</h4>
                             <p>
                                 <em>In short: <i>We only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.    </i></em><br />
                                 We may process or share data based on the following legal basis:
@@ -108,7 +108,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h4>
+                            <h4>Do we use coockies and other tracking technologies?</h4>
                             <p>
                                 <em>In short: <i>We only use essential functional cookies. </i></em><br />
                                 We do not use tracking technologies (like web beacons and pixels) to access or store information. We only use cookies required to provide the basic functionality of our website and maintain a secure session.
@@ -119,7 +119,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?</h4>
+                            <h4>Is your information transferred internationally?</h4>
                             <p>
                                 <em>In short: <i>We may transfer, store, and process your information in countries other than your own.   </i></em><br />
                                 Our servers are located in The Netherlands. If you are accessing our from outside The Netherlands, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "WILL YOUR INFORMATION BE SHARED WITH ANYONE?" above), in and other countries. <br />
@@ -131,7 +131,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>HOW LONG DO WE KEEP YOUR INFORMATION?</h4>
+                            <h4>How long do we keep your information?</h4>
                             <p>
                                 <em>In short: <i>We do not store any information.   </i></em><br />
                                 We do not store any information related to a user beyond the scope of the current session or interaction. Our Site does not have a database.
@@ -142,7 +142,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>DO WE COLLECT INFORMATION FROM MINORS?</h4>
+                            <h4>Do we collect information from minors?</h4>
                             <p>
                                 <em>In short: <i> We do not knowingly collect data from or market to children under 18 years of age.  </i></em><br />
                                 We do not knowingly solicit data from or market to children under 18 years of age. By using the Site, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Site . If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#46;&#105;&#111;&#110;&#105;&#116;&#97;&#64;&#117;&#116;&#119;&#101;&#110;&#116;&#101;&#46;&#110;&#108;">&#68;&#97;&#110;&#32;&#73;&#111;&#110;&#105;&#116;&#97;&#32;&#40;&#85;&#110;&#105;&#118;&#101;&#114;&#115;&#105;&#116;&#121;&#32;&#111;&#102;&#32;&#84;&#119;&#101;&#110;&#116;&#101;&#41;</a>.
@@ -153,7 +153,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>WHAT ARE YOUR PRIVACY RIGHTS?</h4>
+                            <h4>What are your privacy rights?</h4>
                             <p>
                                 <em>In short: <i> In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.   </i></em><br />
                                 In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws. <br />
@@ -166,7 +166,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>CONTROLS FOR DO-NOT-TRACK FEATURES</h4>
+                            <h4>Controls for Do-Not-Track features</h4>
                             <p>
                                 Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Policy.
                             </p>
@@ -176,7 +176,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>DO WE MAKE UPDATES TO THIS POLICY?</h4>
+                            <h4>Do we make updates to this policy?</h4>
                             <p>
                                 <em>In short: <i> Yes, we will update this policy as necessary to stay compliant with relevant laws.</i></em><br />
                                 We may update this privacy policy from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
@@ -187,7 +187,7 @@ class PageView extends Component {
                 <Row>
                     <div className={styles.text}>
                         <div>
-                            <h4>HOW CAN YOU CONTACT US ABOUT THIS POLICY?</h4>
+                            <h4>How can you contact us about this policy?</h4>
                             <p>
                                 If you have questions or comments about this policy, you may email us at  or by post to:<br />
                             Universiteit Twente<br />
