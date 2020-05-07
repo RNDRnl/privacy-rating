@@ -21,12 +21,25 @@ class PageView extends Component {
         return (
             <Container className={styles.formContainer}>
                 <Header />
-                <Row>
-                    <div className={styles.iframe}>
-                        <div>
-                            <iframe src="https://privacyrating.info/#/RPPPPLLPPLRR/privacyrating**info"  style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>
-                        </div>
+                <Row className={styles.labelFrame}>
+                    
+                    <div className={styles.label}>
+                        <iframe src={`${process.env.BASE_PATH}/#/RPPPPLLPPLRR/privacyrating**info`}
+                                                top="0"
+                                                left="0"
+                                                width="430pt"
+                                                height="430pt"
+                                                border="0"
+                                                overflow="hidden"
+                                                margin="0"
+                                                padding="0"
+                                                border-radius="8pt"
+                                                frameBorder="0"
+                                                gesture="media"
+                                                allow="encrypted-media"
+                                                allowFullScreen/>
                     </div>
+                    
                 </Row>
                 <Row>
                     <div className={styles.text}>

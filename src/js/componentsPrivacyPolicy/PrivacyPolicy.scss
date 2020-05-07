@@ -4,3 +4,54 @@
     padding:20px;
     border-radius: 8pt;
 }
+
+.labelFrame {
+  width: 100%;
+  
+  padding:100px;
+  
+  .label {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.text {
+    flex: 1;
+    padding: 0px 20px 0px;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 12pt;
+    padding-bottom: 30px;
+
+    a:link {
+      color: gray;
+    }
+    
+    a {
+      color: gray !important;
+    }
+    
+    a:visited {
+      color: gray !important;
+    }
+    
+    a:link {
+      color: gray;
+    }
+    
+    a:hover {
+      color: black !important;
+    }
+
+    h4 {
+      width: 100%;
+      margin-bottom: 22pt;
+
+    }
+
+    .spacer {
+      margin: 15%;
+    }
+  }
+
+  
