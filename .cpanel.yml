@@ -1,6 +1,8 @@
 ---
-    deployment:
-      tasks:
-        - export DEPLOYPATH=/home/$USER/public_html/
-        - yarn build
-        - /bin/cp -r dist/* $DEPLOYPATH
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/$USER/public_html/        
+    - export DOMAINPATH="https://privacyrating.info"
+    - export BASEPATH=""
+    - yarn build
+    - /bin/cp -R dist $DEPLOYPATH
