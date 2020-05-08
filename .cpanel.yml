@@ -1,0 +1,6 @@
+---
+    deployment:
+      tasks:
+        - export DEPLOYPATH=/home/$USER/public_html/
+        - yarn build
+        - /bin/cp -r dist/* $DEPLOYPATH
