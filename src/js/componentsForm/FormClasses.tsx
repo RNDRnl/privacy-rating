@@ -81,7 +81,7 @@ export class Question {
                 question={this.question} 
                 eventKey={""+_index} 
                 helpTitle={this.helpTitle}
-                help={this.help}
+                help={this.help}                
                 sectionName={_sectionName}
                 children={this.getChildren()}
         />  
@@ -144,9 +144,9 @@ export class Answer {
             <FormAnser key={""+_index} targetKey={this.targetKey} formRef={this.formRef} eventKey={""+_index} answer={this.answer} />
         )
     }
-    constructor(_formRef: string, _targetKey: string, _answer?: Rating) { 
+    constructor(_formRef: string, _answer?: Rating) { 
         this.formRef = _formRef;
-        this.targetKey = _targetKey;
+        //this.targetKey = _targetKey;_targetKey: string, 
         this.answer = _answer;
     }
 }

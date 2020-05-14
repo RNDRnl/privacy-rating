@@ -92,6 +92,13 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
         
         var handle = currentName.substring(0, currentName.length - 2);
         var numberRef = parseInt(this.props.eventKey) - 1;
+
+        var checkPrefilled = checkForm(`${handle}_${numberRef}_a`);
+        if(checkPrefilled != null) {
+            if(checkPrefilled.prefilled) {
+                numberRef = numberRef -1;
+            }
+        }
         
         var validA = false
         var validB = false
@@ -118,7 +125,6 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                     </div>
                 }
                 { this.props.eventKey != "0" && isValid && 
-
                     <div>
                         {this.props.children}
                     </div>
@@ -156,9 +162,14 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         
         var tempCheck = `${handle}_a`
         var showSecondQuestion = false
+        var isPrefilled = false;
         if(checkForm(tempCheck) instanceof Rating) {
             if(checkForm(tempCheck).rate == null) {
                 showSecondQuestion = true;
+            }
+            console.log(checkForm(tempCheck))
+            if(checkForm(tempCheck).prefilled == true) {
+                isPrefilled = true;
             }
         }
         
@@ -190,31 +201,35 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
 
         return (
                 <div>
-                    { this.props.eventKey == "0" && 
-                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
-                            <div className={styles.question}>
-                                <div className={styles.questionText}>{this.props.question}</div>
-                                <div className={styles.answerContainer}>
-                                    {this.props.children}
-                                    {this.props.help != null &&
-                                        <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
-                                    }
+                    { isPrefilled == false &&
+                    <div>
+                        { this.props.eventKey == "0" && 
+                            <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                                <div className={styles.question}>
+                                    <div className={styles.questionText}>{this.props.question}</div>
+                                    <div className={styles.answerContainer}>
+                                        {this.props.children}
+                                        {this.props.help != null &&
+                                            <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        </ListGroup.Item>
-                    }
-                    { this.props.eventKey != "0"  && showSecondQuestion &&
-                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
-                            <div className={styles.question}>
-                                <div className={styles.questionText} >{this.props.question}</div>
-                                <div className={styles.answerContainer}>
-                                    {this.props.children}
-                                    {this.props.help != null &&
-                                        <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
-                                    }
+                            </ListGroup.Item>
+                        }
+                        { this.props.eventKey != "0" && showSecondQuestion &&
+                            <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                                <div className={styles.question}>
+                                    <div className={styles.questionText} >{this.props.question}</div>
+                                    <div className={styles.answerContainer}>
+                                        {this.props.children}
+                                        {this.props.help != null &&
+                                            <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        </ListGroup.Item>
+                            </ListGroup.Item>
+                        }
+                        </div>
                     }
             </div>
         );
@@ -311,7 +326,6 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
 
     constructor(props: any) {
         super(props);
-        
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -336,12 +350,15 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
         }
 
         var classToUse = `${styles.answerButton} ${styles.notSelected}`;
-        if( checkForm(this.props.formRef) == this.props.answer ) {
-            classToUse = `${styles.answerButton} ${styles.selected}`;
+        
+        if(checkForm(this.props.formRef) != null) {           
+            if( checkForm(this.props.formRef).rate == this.props.answer.rate ) {
+                classToUse = `${styles.answerButton} ${styles.selected}`;
+            }
         }
 
         return (
-           <CustomToggle className={classToUse} answer={this.props.answer} eventKey={this.props.targetKey} handleClick={this}  />
+            <CustomToggle className={classToUse} answer={this.props.answer} eventKey={this.props.targetKey} handleClick={this} />           
         );
     }
 }

@@ -16,11 +16,29 @@ class FormProvider extends Component {
         scrollTarget: 0,
         
         instruction_open: "1",
+        checklist_open: "0",
         domain_open: "0",
         collection_open: "0",
         sharing_open: "0",
         control_open: "0",
         security_open: "0",
+
+        form_order: [
+          "instruction",
+          "checklist",
+          "domain",
+          "collection",
+          "sharing",
+          "control",
+          "security"              
+        ],
+
+        sections: [
+          "collection",
+          "sharing",
+          "control",
+          "security"
+        ],
         
         collection_0_a:null,
         collection_0_b:null,
@@ -54,8 +72,62 @@ class FormProvider extends Component {
         progress:{ variant:"primary", value:0, text:""}
       }      
     }
+
+    checkMenuState = () => {
+        console.log("check ", this.state.Form)
+        console.log(this.state.Form.form_order);
+        var that = this;
+        var count = 0
+
+        // check if complete
+        var runningSection = ""
+        this.state.Form.form_order.forEach(function(val) {
+            if(that.checkForm(`${val}_open`) == "1") {
+              runningSection = val;
+              count++ 
+            }
+        });
+
+        console.log(runningSection);
+        var openTarget = this.state.Form.form_order[count]
+        console.log("hmm", openTarget);        
+        if(this.state.Form.sections.includes(openTarget)) {       
+          if(openTarget == this.state.Form.sections[0] && this.state.Form.domainSubmit) {
+            this.completeStep(openTarget)
+          } else {
+            var invalid = false
+            for (let i in [0, 1, 2]) {
+                    if(
+                      (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_a`).rate != null) ||
+                      (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_b`) != null)                     
+                    ) {
+                    } else {
+                        invalid = true
+                    }
+                  }
+              
+                  if(!invalid) {
+                    this.completeStep(openTarget)
+                  }     
+          }
+        } else {
+          console.log("ended here", runningSection , count)
+           this.completeStep(openTarget)
+        }
+    }
+
+    completeStep = (openTarget) => {
+          console.log("open this", openTarget)
+          this.setState({ 
+            Form : {
+                ...this.state.Form,
+                [`${openTarget}_open`]: "1"   
+            }
+          });
+    }
     
     updateForm = (ref, value) => {
+      // console.log("update form", ref, value)
       let that = this;
       this.setState({ 
         Form : {
@@ -69,12 +141,29 @@ class FormProvider extends Component {
 
     updateFormMultiple = (ref1, value1, ref2, value2, ref3, value3) => {
       let that = this;
+      
+      // exceptions ( max 2 )
+      var ref4 = null
+      var value4 = null
+      var ref5 = null
+      var value5 = null
+      if(typeof value1.exceptions !== 'undefined') {
+        ref4 = value1.exceptions[0].label
+        value4 = value1.exceptions[0].rating
+        if(value1.exceptions.length > 1) {
+          ref5 = value1.exceptions[1].label
+          value5 = value1.exceptions[1].rating
+        }
+      }
+    
       this.setState({ 
         Form : {
             ...this.state.Form,
             [ref1]: value1,
             [ref2]: value2,
-            [ref3]: value3
+            [ref3]: value3,
+            [ref4]: value4,
+            [ref5]: value5
         }
       }, function() {
         that.checkHash();
@@ -85,13 +174,15 @@ class FormProvider extends Component {
       var hashData = FormStateToHash(this.state.Form)
       var hash = hashData.value;
       var progress = hashData.progress;
-      
+      var that = this;
       this.setState({
         Form: {
           ...this.state.Form,
           generatedHash: hash,
           progress: progress
         }
+      }, function(params) {
+        that.checkMenuState();
       })
     }
 

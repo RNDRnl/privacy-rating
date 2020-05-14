@@ -38,7 +38,7 @@ const RatingConfig = {
     
     control_2_L: new RatingLabel(2.0,"Data cannot be amended"),
     control_2_R: new RatingLabel(1.0,"Some data can be amended"),
-    control_2_P: new RatingLabel(0.0,"All data can be ammended"),  
+    control_2_P: new RatingLabel(0.0,"All data can be amended"),  
     
     // security
     security_0_L: new RatingLabel(2.0,"Poor security"),
