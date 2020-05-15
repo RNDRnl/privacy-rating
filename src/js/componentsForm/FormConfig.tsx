@@ -5,7 +5,7 @@ var FormConfig = new Form([
     new Category( "Instruction", "loaded",
         [ new Section( "start_0",
                 [
-                    new Question( "Please answer the following questions about how the online service handles data collected from users of their website.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
+                    new Question( "Please answer the following questions regarding the handling of user data by the online service.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
                         [ 
                             new Answer( "declare",
                                 new Rating("OK", null)
@@ -53,7 +53,7 @@ var FormConfig = new Form([
     new Category( "Collection", "declare",
         [ new Section( "collection_0",
                 [ 
-                    new Question( "Does the service collect sensitive personal data from its users?",
+                    new Question( "Does the service collect or store sensitive personal data from its users?",
                         [
                             new Answer( "collection_0_a", 
                                 new Rating( "Yes", "C")
@@ -65,7 +65,7 @@ var FormConfig = new Form([
                         "According to Article 9 of the GDPR", 
                         "Sensitive personal data is information about racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data, data concerning health or data concerning a natural person's sex life or sexual orientation."
                     ),
-                    new Question( "Does the service collect personal data from its users?",
+                    new Question( "Does the service collect or store personal data from its users?",
                         [
                             new Answer( "collection_0_b", 
                                 new Rating( "Yes", "B", [
@@ -80,8 +80,7 @@ var FormConfig = new Form([
                                 )
                             )
                         ],
-                        "According to Article 4 of the GDPR", 
-                        "Personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data, and Internet Protocol (IP) address."
+                        "According to Article 4 of the GDPR, personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data. An IP address is considered personal data if you have the means to trace it back to an individual."
                     )
                 ]
             ),
@@ -240,7 +239,7 @@ var FormConfig = new Form([
     new Category( "Control", "declare",
         [ new Section( "control_0",
             [
-                new Question( "Can users opt-out of data collection?",
+                new Question( "Must users opt‐in before data is collected?",
                     [
                         new Answer( "control_0_a", 
                             new Rating( "Yes", null)
@@ -250,9 +249,9 @@ var FormConfig = new Form([
                         )
                     ],
                     "",
-                    "Can the user choose to opt‐out of data collection as stated in the previous answers?"
+                    "Does the user need to explicitly opt‐in before data is collected as described in the previous answers?"
                 ),
-                new Question( "Must users opt-in before data is collected?",
+                new Question( "Can users opt‐out of data collection?",
                     [
                         new Answer( "control_0_b", 
                             new Rating( "Yes", "A")
@@ -262,7 +261,7 @@ var FormConfig = new Form([
                         )
                     ],
                     "",
-                    "Does the user need to explicitly opt‐in before data is collected as stated in the previous answers?"
+                    "Can the user choose to opt‐out of data collection as described in the previous answers?"
                 )
             ]
         ),

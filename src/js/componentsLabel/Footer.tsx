@@ -16,7 +16,7 @@ class Footer extends React.Component<{domain:any, year:any}, {}> {
                     <License/>
                 </div>
                 <div className={styles.questionMark}>
-                    <a href={`${process.env.DOMAIN_PATH}`} title="What is the privacy rating?" target="_blank" />
+                    <a href={`${process.env.DOMAIN_PATH}${process.env.BASE_PATH}`} title="What is the privacy rating?" target="_blank" />
                 </div>
             </div>
         );
