@@ -229,7 +229,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                         }
                         </div>
                     }
-                    { this.props.eventKey == "0" && isPrefilled == true &&
+                    {/* { this.props.eventKey == "0" && isPrefilled == true &&
                         <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                              <div className={classnames(styles.question, styles.prefilled)}>
                                  <div className={styles.questionText}>{this.props.question}</div>
@@ -238,7 +238,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                  </div>
                              </div>
                          </ListGroup.Item>
-                    }
+                    } */}
             </div>
         );
     }
