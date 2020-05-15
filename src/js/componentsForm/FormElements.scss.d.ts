@@ -14,6 +14,7 @@ interface CssExports {
   'list-group-item': string;
   'notSelected': string;
   'popOver': string;
+  'prefilled': string;
   'question': string;
   'questionText': string;
   'selected': string;

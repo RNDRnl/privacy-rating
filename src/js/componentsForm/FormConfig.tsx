@@ -2,7 +2,7 @@ import Form, { Category, Section, Question, Prompt, Answer} from "./FormClasses"
 import Rating, { Exception } from "../../state/Rating";
 
 var FormConfig = new Form([
-    new Category( "Instruction", "loaded", ["declare"],
+    new Category( "Instruction", "loaded",
         [ new Section( "start_0",
                 [
                     new Question( "Please answer the following questions about how the online service handles data collected from users of their website.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
@@ -17,7 +17,7 @@ var FormConfig = new Form([
         ]
     ),
 
-    new Category( "Checklist", "declare", ["continue"],
+    new Category( "Checklist", "declare",
         [ new Section( "checklist_0",
                 [ 
                     new Question( "To fill in this form, you must have knowledge of the following: \n ✓ What kind of user data is collected and for what purpose. \n ✓ Where user data is stored and for how long. \n ✓ What kind of user data is shared or sold. \n ✓ Whether users can opt‐out of data collection. \n ✓ Whether users can change or remove their data. \n ✓ Which security standards and guidelines are followed.", 
@@ -32,7 +32,7 @@ var FormConfig = new Form([
         ]
     ),
 
-    new Category( "Domain", "continueChecklist", ["domainSubmit"],
+    new Category( "Domain", "continueChecklist",
         [ new Section( "domain_0",
                 [ 
                     new Prompt( "domain", "Please fill in a valid domain name",
@@ -50,7 +50,7 @@ var FormConfig = new Form([
         ]
     ),
     
-    new Category( "Collection", "declare", ["collection_2_a", "collection_2_b"],
+    new Category( "Collection", "declare",
         [ new Section( "collection_0",
                 [ 
                     new Question( "Does the service collect sensitive personal data from its users?",
@@ -68,7 +68,10 @@ var FormConfig = new Form([
                     new Question( "Does the service collect personal data from its users?",
                         [
                             new Answer( "collection_0_b", 
-                                new Rating( "Yes", "B")
+                                new Rating( "Yes", "B", [
+                                        new Exception("security_1_a", null) 
+                                    ]
+                                )
                             ),
                             new Answer( "collection_0_b", 
                                 new Rating( "No", "A", [
@@ -144,7 +147,7 @@ var FormConfig = new Form([
     ),
 
     
-    new Category( "Sharing", "declare", ["sharing_2_a", "sharing_2_b"],
+    new Category( "Sharing", "declare",
         [ new Section( "sharing_0",
             [
                 new Question( "Does any personal user data ever leave the ownership of the service provider?",
@@ -234,7 +237,7 @@ var FormConfig = new Form([
         ]
     ),
 
-    new Category( "Control", "declare", ["control_2_a", "control_2_b"],
+    new Category( "Control", "declare",
         [ new Section( "control_0",
             [
                 new Question( "Can users opt-out of data collection?",
@@ -321,7 +324,7 @@ var FormConfig = new Form([
             ),
         ]
     ),
-    new Category( "Security", "declare", ["security_2_a", "security_2_b"],
+    new Category( "Security", "declare",
     [ new Section( "security_0",
             [ 
                 new Question( "Is the service provider certified to be compliant with the latest version of either ISO 27001 or NIST 800-53?",

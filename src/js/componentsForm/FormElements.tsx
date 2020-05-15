@@ -24,7 +24,6 @@ export interface ValidPropsCategory {
     eventKey: string;
     children: any;
     availableIf: String;
-    completedIf: String[];
 }
 
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
@@ -48,12 +47,12 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                             </Navbar.Text>
                           
                             <Navbar.Text className={styles.justifyContentEnd}>
-                                { checkForm(this.props.completedIf) != null &&
+                                { openState == "1" &&
                                     <div className={classnames(styles.catStatus, styles.check)}>
                                         <div className={styles.smallCircle}></div>
                                     </div>
                                 }
-                                { checkForm(this.props.completedIf) == null &&
+                                { openState == "0" &&
                                     <div className={classnames(styles.catStatus, styles.cross)} ></div>
                                 }
                             </Navbar.Text>
@@ -167,7 +166,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
             if(checkForm(tempCheck).rate == null) {
                 showSecondQuestion = true;
             }
-            console.log(checkForm(tempCheck))
             if(checkForm(tempCheck).prefilled == true) {
                 isPrefilled = true;
             }
@@ -230,6 +228,16 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                             </ListGroup.Item>
                         }
                         </div>
+                    }
+                    { this.props.eventKey == "0" && isPrefilled == true &&
+                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                             <div className={classnames(styles.question, styles.prefilled)}>
+                                 <div className={styles.questionText}>{this.props.question}</div>
+                                 <div className={styles.answerContainer}>
+                                     {this.props.children}
+                                 </div>
+                             </div>
+                         </ListGroup.Item>
                     }
             </div>
         );

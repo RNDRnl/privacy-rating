@@ -32,5 +32,4 @@ export default class Rating {
         this.label = _label;
         this.exceptions = _exceptions;
     }
-    
 }

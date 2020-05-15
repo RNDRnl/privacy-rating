@@ -12,7 +12,7 @@ export default class Form {
 export class Category {
     categoryName: String;
     availableIf: String;
-    completedIf: String[] = new Array();
+   
     sections: Section[] = new Array();
     getTag = (_index:String) => {
             return (
@@ -21,7 +21,6 @@ export class Category {
                     categoryName={this.categoryName} 
                     eventKey={""+_index}  
                     availableIf={this.availableIf}
-                    completedIf={this.completedIf}
                     children={this.getChildren()}
                 />
             )
@@ -33,10 +32,9 @@ export class Category {
         })
         return result
     }
-    constructor(_categoryName: String, _availableIf: String, _completedIf: String[], _sections: Array<Section>) { 
+    constructor(_categoryName: String, _availableIf: String, _sections: Array<Section>) { 
         this.categoryName = _categoryName; 
         this.availableIf= _availableIf;
-        this.completedIf = _completedIf;
         this.sections = _sections; 
     }
 }

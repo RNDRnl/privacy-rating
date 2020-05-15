@@ -17,7 +17,6 @@ class PageView extends Component {
     }
 
     render() {
-
         return (
             <Container className={styles.formContainer}>
                 <Header />

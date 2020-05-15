@@ -74,8 +74,6 @@ class FormProvider extends Component {
     }
 
     checkMenuState = () => {
-        console.log("check ", this.state.Form)
-        console.log(this.state.Form.form_order);
         var that = this;
         var count = 0
 
@@ -88,36 +86,32 @@ class FormProvider extends Component {
             }
         });
 
-        console.log(runningSection);
         var openTarget = this.state.Form.form_order[count]
-        console.log("hmm", openTarget);        
         if(this.state.Form.sections.includes(openTarget)) {       
           if(openTarget == this.state.Form.sections[0] && this.state.Form.domainSubmit) {
             this.completeStep(openTarget)
           } else {
             var invalid = false
             for (let i in [0, 1, 2]) {
-                    if(
-                      (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_a`).rate != null) ||
-                      (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_b`) != null)                     
-                    ) {
-                    } else {
-                        invalid = true
-                    }
-                  }
+                if(
+                  (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_a`).rate != null) ||
+                  (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_b`) != null)                     
+                ) {
+                } else {
+                    invalid = true
+                }
+            }
               
                   if(!invalid) {
                     this.completeStep(openTarget)
                   }     
           }
         } else {
-          console.log("ended here", runningSection , count)
-           this.completeStep(openTarget)
+          this.completeStep(openTarget)
         }
     }
 
     completeStep = (openTarget) => {
-          console.log("open this", openTarget)
           this.setState({ 
             Form : {
                 ...this.state.Form,
@@ -127,7 +121,6 @@ class FormProvider extends Component {
     }
     
     updateForm = (ref, value) => {
-      // console.log("update form", ref, value)
       let that = this;
       this.setState({ 
         Form : {

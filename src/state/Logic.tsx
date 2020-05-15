@@ -167,47 +167,63 @@ const categoriesToHash = (catagories:any) => {
     }
 }
 
+const checkForInvalidCategory = (category:any, formState:any) => {
+    var invalid = false
+        for (let i in [0, 1, 2]) {
+            if(
+                (formState[`${category}_${i}_a`] != null) && (formState[`${category}_${i}_a`].rate != null) ||
+                (formState[`${category}_${i}_a`] != null) && (formState[`${category}_${i}_b`] != null)                     
+            ) {
+
+            } else {
+                invalid = true
+            }
+    }
+    return invalid
+}
+
 const calculateProcess = (catagories:any, FormState:any) => {
 
     var variant = "secondary";
     var value = 0;
     var text = "";
 
-    if(FormState.domainSubmit!=null) {
+    if(FormState.instruction_open!="0") {
         var variant = "secondary";
         var value = 20;
         var text = "20%";
     }
 
-    if(FormState.declare!=null) {
+    if(FormState.checklist_open!="0") {
         var variant = "secondary";
         var value = 30;
         var text = "30%";
     }
     
-    if(catagories[0].sections[2]!=null) {
+    if(FormState.domainSubmit!=null) {
         var variant = "secondary";
         var value = 40;
         var text = "40%";
     }
 
-    if(catagories[0].sections[2]!=null) {
-        var variant = "secondary";
-        var value = 40;
-        var text = "40%";
-    }
-    
-    if(catagories[1].sections[2]!=null) {
+    if(!checkForInvalidCategory("collection", FormState)) {
         var variant = "secondary";
         var value = 60;
         var text = "60%";
     }
-    if(catagories[2].sections[2]!=null) {
+    
+    if(!checkForInvalidCategory("sharing", FormState)) {
         var variant = "secondary";
         var value = 80;
         var text = "80%";
     }
-    if(catagories[3].sections[2]!=null) {
+    if(!checkForInvalidCategory("control", FormState)) {
+        var variant = "secondary";
+        var value = 90;
+        var text = "90%";
+    }
+    
+    if(!checkForInvalidCategory("security", FormState)) {
         var variant = "success";
         var value = 100;
         var text = "100%";
