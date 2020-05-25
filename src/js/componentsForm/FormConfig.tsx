@@ -5,7 +5,7 @@ var FormConfig = new Form([
     new Category( "Instruction", "loaded",
         [ new Section( "start_0",
                 [
-                    new Question( "Please answer the following questions regarding the handling of user data by the online service.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
+                    new Question( "Please answer the following questions regarding the handling of user data by the website.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
                         [ 
                             new Answer( "declare",
                                 new Rating("Start", null)
@@ -35,7 +35,7 @@ var FormConfig = new Form([
     new Category( "Domain", "continueChecklist",
         [ new Section( "domain_0",
                 [ 
-                    new Prompt( "domain", "Please fill in the domain of the online service and choose whether to display it on the generated label.",
+                    new Prompt( "domain", "Please fill in the URL of the website and choose whether to display it on the generated label.",
                         [ 
                             new Answer( "domainSubmit", 
                                 new Rating("Show domain", "show")
@@ -53,7 +53,7 @@ var FormConfig = new Form([
     new Category( "Collection", "declare",
         [ new Section( "collection_0",
                 [ 
-                    new Question( "Does the service collect or store sensitive personal data from its users?",
+                    new Question( "Does the website collect or store sensitive personal data from its users?",
                         [
                             new Answer( "collection_0_a", 
                                 new Rating( "Yes", "C")
@@ -65,7 +65,7 @@ var FormConfig = new Form([
                         "According to Article 9 of the GDPR", 
                         "Sensitive personal data is information about racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data, data concerning health or data concerning a natural person's sex life or sexual orientation."
                     ),
-                    new Question( "Does the service collect or store personal data from its users?",
+                    new Question( "Does the website collect or store personal data from its users?",
                         [
                             new Answer( "collection_0_b", 
                                 new Rating( "Yes", "B", [
@@ -87,7 +87,7 @@ var FormConfig = new Form([
             ),
             new Section( "collection_1",
                 [
-                    new Question( "Does the service automatically perform profiling based on user data?",
+                    new Question( "Does the wesbite automatically perform profiling based on user data?",
                         [
                             new Answer( "collection_1_a", 
                                 new Rating( "Yes", "C")
@@ -99,7 +99,7 @@ var FormConfig = new Form([
                         "According to Recital 71 of the GDRP", 
                         "profiling is the automatic processing of user data to evaluate personal aspects relating to a natural person, in particular to analyse or predict aspects concerning the data subject’s performance at work, economic situation, health, personal preferences or interests, reliability or behaviour, location or movements, where it produces legal effects concerning him or her or similarly significantly affects him or her. A common example are targeting, profiling, or tracking cookies and cookies from advertisers."
                     ),
-                    new Question( "Does the service provide personalized content based on user data?",
+                    new Question( "Does the website provide personalized content based on user data?",
                         [
                             new Answer( "collection_1_b", 
                                 new Rating( "Yes", "B")
@@ -150,7 +150,7 @@ var FormConfig = new Form([
     new Category( "Sharing", "declare",
         [ new Section( "sharing_0",
             [
-                new Question( "Does any personal user data ever leave the ownership of the service provider?",
+                new Question( "Is any personal user data shared with third-parties?",
                     [
                         new Answer( "sharing_0_a", 
                             new Rating( "Yes", "C")
@@ -162,7 +162,7 @@ var FormConfig = new Form([
                     "According to Article 4 of the GDPR",
                     "Personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data, and Internet Protocol (IP) address."
                 ),
-                new Question( "Does any anonymous user data leave the ownership of the service provider?",
+                new Question( "Is any anonymous user data shared with third-parties?",
                     [
                         new Answer( "sharing_0_b", 
                             new Rating( "Yes", "B")
@@ -180,7 +180,7 @@ var FormConfig = new Form([
         
             new Section( "sharing_1",
                 [
-                    new Question( "Is any personal user data ever sold by the service provider?",
+                    new Question( "Is personal user data ever sold?",
                         [
                             new Answer( "sharing_1_a", 
                                 new Rating( "Yes", "C")
@@ -192,7 +192,7 @@ var FormConfig = new Form([
                         "According to Article 4 of the GDPR",
                         "Personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data, and Internet Protocol (IP) address."
                     ),
-                    new Question( "Is any anonymized user data ever sold by the service provider?",
+                    new Question( "Is anonymized user data ever sold?",
                         [
                             new Answer( "sharing_1_b", 
                                 new Rating( "Yes", "B")
@@ -208,7 +208,7 @@ var FormConfig = new Form([
             ),
             new Section( "sharing_2",
                 [
-                    new Question( "Is the service provider subject to disclosure requests from government agencies outside the jurisdiction of the end‐user?",
+                    new Question( "Is the website subject to disclosure requests from government agencies outside the jurisdiction of its users?",
                         [
                             new Answer( "sharing_2_a", 
                                 new Rating( "Yes", "C")
@@ -220,7 +220,7 @@ var FormConfig = new Form([
                         "",
                         "If user data ever leaves the jurisdiction of the user, is this data ever subject to disclosure requests by law enforcement agencies or governments other than those in the same jurisdiction as the user?"
                     ),
-                    new Question( "Does the service provider ONLY disclose user data to government agencies when legally required?",
+                    new Question( "Does the website ONLY disclose user data to government agencies when legally required?",
                         [
                             new Answer( "sharing_2_b", 
                                 new Rating( "Yes", "A")
