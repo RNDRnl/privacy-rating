@@ -8,7 +8,7 @@ var FormConfig = new Form([
                     new Question( "Please answer the following questions regarding the handling of user data by the online service.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
                         [ 
                             new Answer( "declare",
-                                new Rating("OK", null)
+                                new Rating("Start", null)
                             )
                         ]
                     )
@@ -35,7 +35,7 @@ var FormConfig = new Form([
     new Category( "Domain", "continueChecklist",
         [ new Section( "domain_0",
                 [ 
-                    new Prompt( "domain", "Please fill in a valid domain name",
+                    new Prompt( "domain", "Please fill in the domain of the online service and choose whether to display it on the generated label.",
                         [ 
                             new Answer( "domainSubmit", 
                                 new Rating("Show domain", "show")
@@ -80,7 +80,8 @@ var FormConfig = new Form([
                                 )
                             )
                         ],
-                        "According to Article 4 of the GDPR, personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data. An IP address is considered personal data if you have the means to trace it back to an individual."
+                        "According to Article 4 of the GDPR",
+                        "personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data. An IP address is considered personal data if you have the means to trace it back to an individual."
                     )
                 ]
             ),
