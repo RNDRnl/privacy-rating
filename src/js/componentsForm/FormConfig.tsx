@@ -243,10 +243,10 @@ var FormConfig = new Form([
                 new Question( "Must users opt‐in before data is collected?",
                     [
                         new Answer( "control_0_a", 
-                            new Rating( "Yes", null)
+                            new Rating( "Yes",  "A")
                         ),
                         new Answer( "control_0_a", 
-                            new Rating( "No", "C")
+                            new Rating( "No", null)
                         )
                     ],
                     "",
@@ -255,10 +255,10 @@ var FormConfig = new Form([
                 new Question( "Can users opt‐out of data collection?",
                     [
                         new Answer( "control_0_b", 
-                            new Rating( "Yes", "A")
+                            new Rating( "Yes", "B")
                         ),
                         new Answer( "control_0_b", 
-                            new Rating( "No", "B")
+                            new Rating( "No", "C")
                         )
                     ],
                     "",
