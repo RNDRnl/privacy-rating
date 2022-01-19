@@ -281,9 +281,8 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
             this.props.formRef,
             event.target.value,
             'validUrl',
-            this.validURL(event.target.value)    
+            this.validURL(event.target.value)
         )
-
     }
 
     handleClick() {
@@ -308,11 +307,11 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
                         </InputGroup.Prepend>
                         <FormControl onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
                     </InputGroup>
-                    { Form.validUrl &&
+                    {/* { Form.validUrl && */}
                         <div className={styles.answerContainer}>
                             {this.props.children}
                         </div>
-                    }
+                    {/* } */}
             </ListGroup.Item>
         );
     }

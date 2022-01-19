@@ -28,22 +28,22 @@ const RatingConfig = {
     sharing_2_P: new RatingLabel(0.0,"Legally required disclosure to local law enforcement"), 
    
     // control
-    control_0_L: new RatingLabel(2.0,"No opt-out"),
-    control_0_R: new RatingLabel(1.0,"Opt-out"),
-    control_0_P: new RatingLabel(0.0,"Opt-in"),
+    control_0_L: new RatingLabel(2.0,"Cannot opt-out of personal data collection"),
+    control_0_R: new RatingLabel(1.0,"Can opt-out of personal data collection"),
+    control_0_P: new RatingLabel(0.0,"Must opt-in for collection of personal data"),
     
-    control_1_L: new RatingLabel(2.0,"Data cannot be removed"),  
-    control_1_R: new RatingLabel(1.0,"Data hidden upon request"),
-    control_1_P: new RatingLabel(0.0,"Data removed upon request"),
+    control_1_L: new RatingLabel(2.0,"Personal data cannot be removed"),  
+    control_1_R: new RatingLabel(1.0,"Personal data hidden upon request"),
+    control_1_P: new RatingLabel(0.0,"Personal data removed upon request"),
     
-    control_2_L: new RatingLabel(2.0,"Data cannot be amended"),
-    control_2_R: new RatingLabel(1.0,"Some data can be amended"),
-    control_2_P: new RatingLabel(0.0,"All data can be amended"),  
+    control_2_L: new RatingLabel(2.0,"personal data cannot be corrected"),
+    control_2_R: new RatingLabel(1.0,"Some personal data can be corrected"),
+    control_2_P: new RatingLabel(0.0,"All personal data can be corrected"),  
     
     // security
-    security_0_L: new RatingLabel(2.0,"Poor security"),
-    security_0_R: new RatingLabel(1.0,"Basic security"),
-    security_0_P: new RatingLabel(0.0,"Industry standard security"),  
+    security_0_L: new RatingLabel(2.0,"No security certification or beste practire"),
+    security_0_R: new RatingLabel(1.0,"Follows security best practices"),
+    security_0_P: new RatingLabel(0.0,"Certified security"),  
     
     security_1_L: new RatingLabel(2.0,"No anonymization"), 
     security_1_R: new RatingLabel(1.0,"Partial anonymization"),

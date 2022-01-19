@@ -15,18 +15,18 @@ class FormProvider extends Component {
         
         scrollTarget: 0,
         
-        instruction_open: "1",
-        checklist_open: "0",
+        checklist_open: "1",
         domain_open: "0",
+        instruction_open: "0",
         collection_open: "0",
         sharing_open: "0",
         control_open: "0",
         security_open: "0",
 
         form_order: [
-          "instruction",
           "checklist",
           "domain",
+          "instruction",          
           "collection",
           "sharing",
           "control",
