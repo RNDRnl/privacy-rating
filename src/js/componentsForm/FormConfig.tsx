@@ -25,14 +25,11 @@ var FormConfig = new Form([
                     new Prompt( "domain", "Please fill in the URL of the online service (Optional)",
                         [ 
                             new Answer( "domainSubmit", 
+                                new Rating("Skip", null)
+                            ),
+                            new Answer( "domainSubmit", 
                                 new Rating("Continue", null)
                             )
-                            // new Answer( "domainSubmit", 
-                            //     new Rating("Show domain", "show")
-                            // ),
-                            // new Answer( "domainSubmit", 
-                            //     new Rating("Hide domain", "hide")
-                            // )
                         ]
                     ),
                 ]
@@ -40,8 +37,7 @@ var FormConfig = new Form([
         ]
     ),
     
-    
-    new Category( "Instruction", "",
+    new Category( "Instruction", "declare",
         [ new Section( "start_0",
                 [
                     new Question( "Please answer the following questions regarding the handling of user data by the online service.\nThe questions relate to data handling in general, and do not measure compiance with any specific privacy law.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 

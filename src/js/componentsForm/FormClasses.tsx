@@ -125,7 +125,8 @@ export class Prompt {
         })
         return result
     }
-        constructor(_formRef: string, _prompt: String, _ansers: Array<Answer>) { 
+    
+    constructor(_formRef: string, _prompt: String, _ansers: Array<Answer>) { 
         this.formRef = _formRef;
         this.prompt = _prompt; 
         this.ansers = _ansers; 

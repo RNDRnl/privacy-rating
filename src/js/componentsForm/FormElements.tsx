@@ -34,6 +34,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
         const { checkForm } = this.context;
 
         var openState = checkForm( `${this.props.categoryName.toLowerCase()}_open` )
+        // console.log(this.props.categoryName.toLowerCase(), openState)
 
         return (
             <Card key={""+this.props.categoryName}>
@@ -272,11 +273,11 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
           '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
           '(\\#[-a-z\\d_]*)?$','i'); 
         return !!pattern.test(str);
-      }
+    }
 
     handleChange(event) {
         const { Form, updateFormMultiple } = this.context;
-        
+                
         updateFormMultiple(
             this.props.formRef,
             event.target.value,
@@ -291,6 +292,7 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
     render() {
 
         const { Form } = this.context;
+        const buttonIndex = (!Form.validUrl) ? (0) : 1
 
         return (
             <ListGroup.Item key={""+this.props.eventKey}>
@@ -307,11 +309,9 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
                         </InputGroup.Prepend>
                         <FormControl onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
                     </InputGroup>
-                    {/* { Form.validUrl && */}
                         <div className={styles.answerContainer}>
-                            {this.props.children}
+                            {this.props.children[buttonIndex]}
                         </div>
-                    {/* } */}
             </ListGroup.Item>
         );
     }

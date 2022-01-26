@@ -188,19 +188,19 @@ const calculateProcess = (catagories:any, FormState:any) => {
     var value = 0;
     var text = "";
 
-    if(FormState.instruction_open!="0") {
+    if(FormState.checklist_open!="0") {
         var variant = "secondary";
         var value = 20;
         var text = "20%";
     }
-
-    if(FormState.checklist_open!="0") {
+    
+    if(FormState.domainSubmit!=null) {
         var variant = "secondary";
         var value = 30;
         var text = "30%";
     }
-    
-    if(FormState.domainSubmit!=null) {
+
+    if(FormState.instruction_open!="0") {
         var variant = "secondary";
         var value = 40;
         var text = "40%";

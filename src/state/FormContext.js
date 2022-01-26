@@ -159,7 +159,9 @@ class FormProvider extends Component {
             [ref5]: value5
         }
       }, function() {
-        that.checkHash();
+        if(ref1!="domain") { // todo: prompt should not checkHash()
+          that.checkHash();
+        }
       });
     }
 
