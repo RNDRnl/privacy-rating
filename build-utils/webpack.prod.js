@@ -46,6 +46,13 @@ const config = {
         },  // to convert SASS to CSS // options: { prependData: '$env: \'privacy-rating/\';'}
         // NOTE: The first build after adding/removing/renaming CSS classes fails, since the newly generated .d.ts typescript module is picked up only later
     ] }, 
+    {
+      test: /\.css$/i,
+      use: [
+        { loader: "style-loader" },
+        { loader: "css-loader"}
+      ]
+    },
       // {
       //   test: /\.(woff2?|ttf|otf|eot|svg)$/,
       //   exclude: /node_modules/,

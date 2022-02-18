@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+
 import styles from './main.scss';
+import cssBootstrap from './css/bootstrap.min.css';
+import cssImagegellery from './css/imagegellery.css';
+
 import {
   HashRouter as Router,
   Switch,
@@ -94,7 +98,26 @@ const routes = (
    </Router>
 )
 
-ReactDOM.render(
-  routes,
-  document.getElementById("container")
-);
+const selector = document.querySelectorAll('.privacy-rating')
+
+switch (selector.length) {
+  case 1:
+    // /////////
+    // WIDGET MODE
+    // /////////
+    const widgetDiv = selector[0];
+    ReactDOM.render(
+      <App labelId={widgetDiv.dataset.id} domain={widgetDiv.dataset.domain} />,
+      widgetDiv
+    );        
+    break
+  default:
+    // /////////
+    // FRONTAGE MODE
+    // /////////      
+    ReactDOM.render(
+      routes,
+      document.getElementById("container")
+    );
+}
+

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env BASE_PATH= DOMAIN_PATH=http://localhost:3000/ webpack-dev-server --env.env=dev",
+    "dev": "cross-env BASE_PATH='http://localhost:3000' DOMAIN_PATH=http://localhost:3000/ webpack-dev-server --env.env=dev",
     "build": "cross-env NODE_ENV=production BASE_PATH=$BASEPATH DOMAIN_PATH=$DOMAINPATH webpack -p --env.env=prod"
   },
   "keywords": [],
