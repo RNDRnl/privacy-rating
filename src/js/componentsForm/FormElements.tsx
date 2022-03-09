@@ -282,7 +282,10 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
             this.props.formRef,
             event.target.value,
             'validUrl',
-            this.validURL(event.target.value)
+            this.validURL(event.target.value), 
+            "",
+            "",
+            false
         )
     }
 
@@ -322,9 +325,9 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 // /////////////
 
 export interface ValidPropsAnswer { 
-    formRef : String; 
+    formRef : String;
+    senderRef: String; 
     answer: Rating;
-    targetKey: String;
     eventKey: string;
 }
 
@@ -339,16 +342,19 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
     handleClick(e) {
         const { updateFormMultiple } = this.context;
         updateFormMultiple(
-            this.props.formRef, this.props.answer,
-            `${this.props.targetKey}_open`, "1",
-            "scrollTarget", e.pageY
+            this.props.formRef, 
+            this.props.answer,
+            'lastSender',
+            this.props.senderRef,
+            "scrollTarget", 
+            e.pageY
         );
     }
 
     render() {
         const { checkForm } = this.context;
 
-        function CustomToggle({ className, answer, eventKey, handleClick }) {
+        function CustomToggle({ className, answer, handleClick }) {
             return (
                 <button className={className} type="button" onClick={handleClick.handleClick} >
                     {answer.label}
@@ -365,7 +371,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
         }
 
         return (
-            <CustomToggle className={classToUse} answer={this.props.answer} eventKey={this.props.targetKey} handleClick={this} />           
+            <CustomToggle className={classToUse} answer={this.props.answer}  handleClick={this} />           
         );
     }
 }

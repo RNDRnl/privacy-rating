@@ -9,8 +9,8 @@ var FormConfig = new Form([
                 [ 
                     new Question( "To fill in this form, you must have knowledge of the following: \n ✓ What kind of user data is collected and for what purpose. \n ✓ Where user data is stored and for how long. \n ✓ What kind of user data is shared or sold. \n ✓ Whether users can opt‐out of data collection. \n ✓ Whether users can change or remove their data. \n ✓ Which security standards and guidelines are followed.", 
                         [ 
-                            new Answer( "continue", 
-                                new Rating("Continue", null)
+                            new Answer( "checklist", "checklist", 
+                                new Rating("Continue", null),
                             )
                         ]
                     )
@@ -24,10 +24,10 @@ var FormConfig = new Form([
                 [ 
                     new Prompt( "domain", "Please fill in the URL of the online service (Optional)",
                         [ 
-                            new Answer( "domainSubmit", 
+                            new Answer( "domainSubmit", "domain", 
                                 new Rating("Skip", null)
                             ),
-                            new Answer( "domainSubmit", 
+                            new Answer( "domainSubmit", "domain", 
                                 new Rating("Continue", null)
                             )
                         ]
@@ -42,7 +42,7 @@ var FormConfig = new Form([
                 [
                     new Question( "Please answer the following questions regarding the handling of user data by the online service.\nThe questions relate to data handling in general, and do not measure compiance with any specific privacy law.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
                         [ 
-                            new Answer( "declare",
+                            new Answer( "declare", "instruction", 
                                 new Rating("Start", null)
                             )
                         ]
@@ -59,10 +59,10 @@ var FormConfig = new Form([
                 [ 
                     new Question( "Does the online service collect or store sensitive personal data from its users?",
                         [
-                            new Answer( "collection_0_a", 
+                            new Answer( "collection_0_a", "collection",
                                 new Rating( "Yes", "C")
                             ),
-                            new Answer( "collection_0_a", 
+                            new Answer( "collection_0_a", "collection",
                                 new Rating( "No", null)
                             )
                         ],
@@ -71,13 +71,13 @@ var FormConfig = new Form([
                     ),
                     new Question( "Does the online service collect or store personal data from its users?",
                         [
-                            new Answer( "collection_0_b", 
+                            new Answer( "collection_0_b", "collection",
                                 new Rating( "Yes", "B", [
                                         new Exception("security_1_a", null) 
                                     ]
                                 )
                             ),
-                            new Answer( "collection_0_b", 
+                            new Answer( "collection_0_b", "collection",
                                 new Rating( "No", "A", [
                                         new Exception("security_1_a", new Rating("Yes", "A").makePrefilled())                                                               
                                     ]
@@ -93,10 +93,10 @@ var FormConfig = new Form([
                 [
                     new Question( "Does the service perform automated profiling based on user data?",
                         [
-                            new Answer( "collection_1_a", 
+                            new Answer( "collection_1_a", "collection",
                                 new Rating( "Yes", "C")
                             ),
-                            new Answer( "collection_1_a", 
+                            new Answer( "collection_1_a", "collection",
                                 new Rating( "No", null)
                             )
                         ],
@@ -105,10 +105,10 @@ var FormConfig = new Form([
                     ),
                     new Question( "Does the online service provide personalized content based on user data?",
                         [
-                            new Answer( "collection_1_b", 
+                            new Answer( "collection_1_b", "collection",
                                 new Rating( "Yes", "B")
                             ),
-                            new Answer( "collection_1_b", 
+                            new Answer( "collection_1_b", "collection",
                                 new Rating( "No", "A")
                             )
                         ],
@@ -121,10 +121,10 @@ var FormConfig = new Form([
                 [
                     new Question( "Is user data deleted after a pre‐ determined amount of time?",
                         [
-                            new Answer( "collection_2_a", 
+                            new Answer( "collection_2_a", "collection",
                                 new Rating( "Yes", null)
                             ),
-                            new Answer( "collection_2_a", 
+                            new Answer( "collection_2_a", "collection",
                                 new Rating( "No", "C")
                             )
                         ],
@@ -133,13 +133,13 @@ var FormConfig = new Form([
                     ),
                     new Question( "Is user data deleted after completion of each session?",
                         [
-                            new Answer( "collection_2_b", 
+                            new Answer( "collection_2_b", "collection",
                                 new Rating( "Yes", "A", [
                                     new Exception("control_1_a", new Rating("Yes", "A").makePrefilled()),
                                     new Exception("control_2_a", new Rating("Yes", "A").makePrefilled())                                
                                 ])
                             ),
-                            new Answer( "collection_2_b",
+                            new Answer( "collection_2_b", "collection",
                                 new Rating( "No", "B", [
                                     new Exception("control_1_a",null),
                                     new Exception("control_2_a",null)                                
@@ -161,10 +161,10 @@ var FormConfig = new Form([
                 [
                     new Question( "Does any personal user data ever leave the ownership of the service provider?",
                         [
-                            new Answer( "sharing_0_a", 
+                            new Answer( "sharing_0_a", "sharing",
                                 new Rating( "Yes", "C")
                             ),
-                            new Answer( "sharing_0_a", 
+                            new Answer( "sharing_0_a", "sharing",
                                 new Rating( "No", null)
                             )
                         ],
@@ -173,10 +173,10 @@ var FormConfig = new Form([
                     ),
                     new Question( "Does any anonymous user data leave the ownership of the service provider?",
                         [
-                            new Answer( "sharing_0_b", 
+                            new Answer( "sharing_0_b", "sharing",
                                 new Rating( "Yes", "B")
                             ),
-                            new Answer( "sharing_0_b", 
+                            new Answer( "sharing_0_b", "sharing",
                                 new Rating( "No", "A")
                             ),
                         ],
@@ -185,14 +185,14 @@ var FormConfig = new Form([
                     )
                 ]
             ),        
-            new Section( "sharing_1",
+            new Section( "sharing_1", 
                 [
                     new Question( "Is any personal user data ever sold by the service provider?",
                         [
-                            new Answer( "sharing_1_a", 
+                            new Answer( "sharing_1_a", "sharing",
                                 new Rating( "Yes", "C")
                             ),
-                            new Answer( "sharing_1_a", 
+                            new Answer( "sharing_1_a",  "sharing",
                                 new Rating( "No", null)
                             )
                         ],
@@ -201,10 +201,10 @@ var FormConfig = new Form([
                     ),
                     new Question( "Is any anonymized user data ever sold by the service provider?",
                         [
-                            new Answer( "sharing_1_b", 
+                            new Answer( "sharing_1_b", "sharing",
                                 new Rating( "Yes", "B")
                             ),
-                            new Answer( "sharing_1_b", 
+                            new Answer( "sharing_1_b", "sharing",
                                 new Rating( "No", "A")
                             )
                         ],
@@ -217,10 +217,10 @@ var FormConfig = new Form([
                 [
                     new Question( "Does user data ever leave the jurisdiction of the user?",
                         [
-                            new Answer( "sharing_2_a", 
+                            new Answer( "sharing_2_a", "sharing",
                                 new Rating( "Yes", "C")
                             ),
-                            new Answer( "sharing_2_a", 
+                            new Answer( "sharing_2_a", "sharing",
                                 new Rating( "No", null)
                             )
                         ],
@@ -229,10 +229,10 @@ var FormConfig = new Form([
                     ),
                     new Question( "Does the service provider ONLY disclose user data to government agencies when mandatory?",
                         [
-                            new Answer( "sharing_2_b", 
+                            new Answer( "sharing_2_b", "sharing",
                                 new Rating( "Yes", "A")
                             ),
-                            new Answer( "sharing_2_b", 
+                            new Answer( "sharing_2_b", "sharing",
                                 new Rating( "No", "B")
                             )
                         ],
@@ -251,10 +251,10 @@ var FormConfig = new Form([
             [
                 new Question( "Must users opt‐in before personal data is collected?",
                     [
-                        new Answer( "control_0_a", 
+                        new Answer( "control_0_a", "control",
                             new Rating( "Yes",  "A")
                         ),
-                        new Answer( "control_0_a", 
+                        new Answer( "control_0_a", "control",
                             new Rating( "No", null)
                         )
                     ],
@@ -263,10 +263,10 @@ var FormConfig = new Form([
                 ),
                 new Question( "Can users opt‐out of personal data collection?",
                     [
-                        new Answer( "control_0_b", 
+                        new Answer( "control_0_b", "control",
                             new Rating( "Yes", "B")
                         ),
-                        new Answer( "control_0_b", 
+                        new Answer( "control_0_b", "control",
                             new Rating( "No", "C")
                         )
                     ],
@@ -279,10 +279,10 @@ var FormConfig = new Form([
                 [
                     new Question( "Can personal data related to a user be completely removed upon request?",
                         [
-                            new Answer( "control_1_a", 
+                            new Answer( "control_1_a", "control",
                                 new Rating( "Yes", "A")
                             ),
-                            new Answer( "control_1_a", 
+                            new Answer( "control_1_a", "control",
                                 new Rating( "No", null)
                             )
                         ],
@@ -291,10 +291,10 @@ var FormConfig = new Form([
                     ),
                     new Question( "Can personal data related to a user be hidden upon request",
                         [
-                            new Answer( "control_1_b", 
+                            new Answer( "control_1_b", "control",
                                 new Rating( "Yes", "B")
                             ),
-                            new Answer( "control_1_b", 
+                            new Answer( "control_1_b", "control",
                                 new Rating( "No", "C")
                             )
                         ],
@@ -307,10 +307,10 @@ var FormConfig = new Form([
                 [
                     new Question( "Can users correct all of the personal data collected from them?",
                         [
-                            new Answer( "control_2_a", 
+                            new Answer( "control_2_a", "control",
                                 new Rating( "Yes", "A")
                             ),
-                            new Answer( "control_2_a", 
+                            new Answer( "control_2_a", "control",
                             new Rating( "No", null)
                             )
                         ],
@@ -319,10 +319,10 @@ var FormConfig = new Form([
                     ),
                     new Question( "Can users correct any of the personal data collected from them?",
                         [
-                            new Answer( "control_2_b", 
+                            new Answer( "control_2_b", "control",
                                 new Rating( "Yes", "B")
                             ),
-                            new Answer( "control_2_b", 
+                            new Answer( "control_2_b", "control",
                                 new Rating( "No", "C")
                             )
                         ],
@@ -338,10 +338,10 @@ var FormConfig = new Form([
             [ 
                 new Question( "Is the service provider certified to be compliant with a relevant information security standard, such as ISO 27001 or NIST800-53?",
                     [
-                        new Answer( "security_0_a", 
+                        new Answer( "security_0_a", "security",
                             new Rating( "Yes", "A")
                         ),
-                        new Answer( "security_0_a", 
+                        new Answer( "security_0_a",  "security",
                             new Rating( "No", null)
                         )
                     ],
@@ -350,10 +350,10 @@ var FormConfig = new Form([
                 ),
                 new Question( "Was the service developed and tested in compliance with recognized and relevant standarts and the OWASP Security Testing Guide?",
                     [
-                        new Answer( "security_0_b", 
+                        new Answer( "security_0_b",  "security",
                             new Rating( "Yes", "B")
                         ),
-                        new Answer( "security_0_b", 
+                        new Answer( "security_0_b",  "security",
                             new Rating( "No", "C")
                         )
                     ],
@@ -366,10 +366,10 @@ var FormConfig = new Form([
             [
                 new Question( "Is user data anonymized?",
                     [
-                        new Answer( "security_1_a", 
+                        new Answer( "security_1_a",  "security",
                             new Rating( "Yes", "A")
                         ),
-                        new Answer( "security_1_a", 
+                        new Answer( "security_1_a",  "security",
                             new Rating( "No", null)
                         )
                     ],
@@ -378,10 +378,10 @@ var FormConfig = new Form([
                 ),
                 new Question( "Is user data pseudonymized?",
                     [
-                        new Answer( "security_1_b", 
+                        new Answer( "security_1_b",  "security",
                             new Rating( "Yes", "B")
                         ),
-                        new Answer( "security_1_b", 
+                        new Answer( "security_1_b",  "security",
                             new Rating( "No", "C")
                         )
                     ],
@@ -394,10 +394,10 @@ var FormConfig = new Form([
             [
                 new Question( "Is the service provider legally accountable for privacy violations?",
                     [
-                        new Answer( "security_2_a", 
+                        new Answer( "security_2_a",  "security",
                             new Rating( "Yes", "A")
                         ),
-                        new Answer( "security_2_a", 
+                        new Answer( "security_2_a",  "security",
                             new Rating( "No", null)
                         )
                     ],
@@ -406,10 +406,10 @@ var FormConfig = new Form([
                 ),
                 new Question( "Is the privacy policy legally binding?",
                     [
-                        new Answer( "security_2_b", 
+                        new Answer( "security_2_b",  "security",
                             new Rating( "Yes", "B")
                         ),
-                        new Answer( "security_2_b", 
+                        new Answer( "security_2_b",  "security",
                             new Rating( "No", "C")
                         )
                     ],

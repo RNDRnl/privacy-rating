@@ -118,6 +118,7 @@ export class Prompt {
             />
         )
     }
+    
     getChildren = () => {
         var result: any = new Array()
         this.ansers.forEach(function(element, index) {
@@ -135,17 +136,18 @@ export class Prompt {
 
 export class Answer {
     formRef: String;
-    targetKey: String;
     answer?: Rating;
+    senderRef: String;
+    checkHash: Boolean;
 
     getTag = (_index:String) => {
         return (
-            <FormAnser key={""+_index} targetKey={this.targetKey} formRef={this.formRef} eventKey={""+_index} answer={this.answer} />
+            <FormAnser key={""+_index} formRef={this.formRef} senderRef={this.senderRef} eventKey={""+_index} answer={this.answer} />
         )
     }
-    constructor(_formRef: string, _answer?: Rating) { 
+    constructor(_formRef: string, _senderRef:String,  _answer?: Rating) { 
         this.formRef = _formRef;
-        //this.targetKey = _targetKey;_targetKey: string, 
+        this.senderRef = _senderRef;
         this.answer = _answer;
     }
 }

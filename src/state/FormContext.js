@@ -69,12 +69,16 @@ class FormProvider extends Component {
         security_2_b:null,
         
         generatedHash:null,
-        progress:{ variant:"primary", value:0, text:""}
+        progress:{ variant:"primary", value:0, text:""},
+
+        lastSender: null
       }      
     }
 
     checkMenuState = () => {
         var that = this;
+        
+        var lastSenderIndex = this.state.Form.form_order.indexOf(this.state.Form.lastSender)
         var count = 0
 
         // check if complete
@@ -86,32 +90,40 @@ class FormProvider extends Component {
             }
         });
 
-        var openTarget = this.state.Form.form_order[count]
-        if(this.state.Form.sections.includes(openTarget)) {       
-          if(openTarget == this.state.Form.sections[0] && this.state.Form.domainSubmit) {
-            this.completeStep(openTarget)
-          } else {
-            var invalid = false
-            for (let i in [0, 1, 2]) {
-                if(
-                  (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_a`).rate != null) ||
-                  (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_b`) != null)                     
-                ) {
-                } else {
-                    invalid = true
-                }
-            }
+        var diff = count - lastSenderIndex
+
+        if(diff == 1) {  // prevents leaking activations
+            var openTarget = this.state.Form.form_order[count]        
+            if(this.state.Form.sections.includes(openTarget)) {               
+              if(openTarget == this.state.Form.sections[0] && this.state.Form.domainSubmit) {
+                this.completeStep(openTarget)
               
-                  if(!invalid) {
-                    this.completeStep(openTarget)
-                  }     
-          }
-        } else {
-          this.completeStep(openTarget)
-        }
+              } else {
+                var invalid = false
+                for (let i in [0, 1, 2]) {
+                    if(
+                      (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_a`).rate != null) ||
+                      (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_b`) != null)                     
+                    ) {
+                    } else {
+                        invalid = true
+                    }
+                }
+                  
+                      if(!invalid) {
+                        this.completeStep(openTarget)
+                      }     
+              }
+
+            } else {                        
+                  this.completeStep(openTarget)                
+            }
+      }
+      
     }
 
     completeStep = (openTarget) => {
+          console.log(`${openTarget}_open will be 1`)
           this.setState({ 
             Form : {
                 ...this.state.Form,
@@ -121,6 +133,8 @@ class FormProvider extends Component {
     }
     
     updateForm = (ref, value) => {
+      console.log("update one");
+      
       let that = this;
       this.setState({ 
         Form : {
@@ -132,7 +146,8 @@ class FormProvider extends Component {
       });
     }
 
-    updateFormMultiple = (ref1, value1, ref2, value2, ref3, value3) => {
+    updateFormMultiple = (ref1, value1, ref2, value2, ref3, value3, checkHash = true) => {
+      console.log("update multiple", ref1, value1, ref2, value2, ref3, value3, checkHash);
       let that = this;
       
       // exceptions ( max 2 )
@@ -140,7 +155,7 @@ class FormProvider extends Component {
       var value4 = null
       var ref5 = null
       var value5 = null
-      if(typeof value1.exceptions !== 'undefined') {
+      if(typeof value1.exceptions !== 'undefined') { // ?
         ref4 = value1.exceptions[0].label
         value4 = value1.exceptions[0].rating
         if(value1.exceptions.length > 1) {
@@ -159,9 +174,9 @@ class FormProvider extends Component {
             [ref5]: value5
         }
       }, function() {
-        if(ref1!="domain") { // todo: prompt should not checkHash()
-          that.checkHash();
-        }
+          if(checkHash) {
+            that.checkHash();
+          }
       });
     }
 
