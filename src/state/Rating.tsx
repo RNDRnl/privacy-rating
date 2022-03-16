@@ -33,3 +33,11 @@ export default class Rating {
         this.exceptions = _exceptions;
     }
 }
+
+export class NameRule {
+    
+    constructor(handle: String, value: String) {
+        console.log(String, value)
+    }
+    
+}

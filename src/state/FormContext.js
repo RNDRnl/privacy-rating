@@ -71,7 +71,9 @@ class FormProvider extends Component {
         generatedHash:null,
         progress:{ variant:"primary", value:0, text:""},
 
-        lastSender: null
+        lastSender: null,
+        
+        dataTypeNaming: "not set"
       }      
     }
 
@@ -119,7 +121,7 @@ class FormProvider extends Component {
                   this.completeStep(openTarget)                
             }
       }
-      
+
     }
 
     completeStep = (openTarget) => {

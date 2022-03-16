@@ -182,6 +182,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                     trigger={"click"} 
                     key={'bottom'}
                     placement={'bottom'}
+                    rootClose
                     overlay={
                     <Popover className={styles.popOver}  id={`popover-positioned-bottom`}>
                         <Popover.Title as="h3">{helpTitle}</Popover.Title>
@@ -198,6 +199,16 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
             )
         }
 
+        function RenderQuestionText(value) {
+
+            var filledString = value.question.replace("##dataTypeNaming##", "<u>chicken house</u>")
+
+            return(
+                <span>{filledString}</span>
+            )
+
+        }
+
         return (
                 <div>
                     { isPrefilled == false &&
@@ -205,7 +216,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                         { this.props.eventKey == "0" && 
                             <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
-                                    <div className={styles.questionText}>{this.props.question}</div>
+                                    <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
                                         {this.props.children}
                                         {this.props.help != null &&
@@ -218,7 +229,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                         { this.props.eventKey != "0" && showSecondQuestion &&
                             <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
-                                    <div className={styles.questionText} >{this.props.question}</div>
+                                    <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
                                         {this.props.children}
                                         {this.props.help != null &&

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { FormCategory, FormSection, FormQuestion, FormAnser, FormPrompt } from "./FormElements"
-import Rating from "../../state/Rating"
+import Rating, { NameRule } from "../../state/Rating"
 
 export default class Form { 
     categories: Category[] = new Array();
@@ -137,17 +137,20 @@ export class Prompt {
 export class Answer {
     formRef: String;
     answer?: Rating;
+    nameRule?: NameRule;
     senderRef: String;
     checkHash: Boolean;
+
 
     getTag = (_index:String) => {
         return (
             <FormAnser key={""+_index} formRef={this.formRef} senderRef={this.senderRef} eventKey={""+_index} answer={this.answer} />
         )
     }
-    constructor(_formRef: string, _senderRef:String,  _answer?: Rating) { 
+    constructor(_formRef: string, _senderRef:String, _answer?: Rating, _nameRule?: NameRule) { 
         this.formRef = _formRef;
         this.senderRef = _senderRef;
         this.answer = _answer;
+        this.nameRule = _nameRule;
     }
 }

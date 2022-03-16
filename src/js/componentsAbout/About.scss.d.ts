@@ -7,6 +7,7 @@ interface CssExports {
   'backgroundCategories1': string;
   'backgroundGray': string;
   'backgroundSlider': string;
+  'bullet': string;
   'button': string;
   'categories': string;
   'categoriesContainer': string;
@@ -20,6 +21,8 @@ interface CssExports {
   'label': string;
   'labelFrame': string;
   'pdfButton': string;
+  'popOver': string;
+  'score': string;
   'smallLabels': string;
   'spacer': string;
   'text': string;

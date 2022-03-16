@@ -1,5 +1,5 @@
 import Form, { Category, Section, Question, Prompt, Answer} from "./FormClasses"
-import Rating, { Exception } from "../../state/Rating";
+import Rating, { Exception, NameRule } from "../../state/Rating";
 
 var FormConfig = new Form([
     
@@ -60,7 +60,8 @@ var FormConfig = new Form([
                     new Question( "Does the online service collect or store sensitive personal data from its users?",
                         [
                             new Answer( "collection_0_a", "collection",
-                                new Rating( "Yes", "C")
+                                new Rating( "Yes", "C"),
+                                new NameRule("dataTypeNaming", "sensitive")
                             ),
                             new Answer( "collection_0_a", "collection",
                                 new Rating( "No", null)
@@ -75,13 +76,15 @@ var FormConfig = new Form([
                                 new Rating( "Yes", "B", [
                                         new Exception("security_1_a", null) 
                                     ]
-                                )
+                                ),
+                                new NameRule("dataTypeNaming", "personal")
                             ),
                             new Answer( "collection_0_b", "collection",
                                 new Rating( "No", "A", [
                                         new Exception("security_1_a", new Rating("Yes", "A").makePrefilled())                                                               
                                     ]
-                                )
+                                ),
+                                new NameRule("dataTypeNaming", "anonymous")
                             )
                         ],
                         "According to Article 4 of the GDPR",
@@ -249,7 +252,7 @@ var FormConfig = new Form([
     new Category( "Control", "declare",
         [ new Section( "control_0",
             [
-                new Question( "Must users opt‐in before personal data is collected?",
+                new Question( "Must users opt‐in before ##dataTypeNaming## data is collected?",
                     [
                         new Answer( "control_0_a", "control",
                             new Rating( "Yes",  "A")
@@ -261,7 +264,7 @@ var FormConfig = new Form([
                     "",
                     "Does the user need to explicitly opt‐in before data is collected as described in the previous answers?"
                 ),
-                new Question( "Can users opt‐out of personal data collection?",
+                new Question( "Can users opt‐out of ##dataTypeNaming## data collection?",
                     [
                         new Answer( "control_0_b", "control",
                             new Rating( "Yes", "B")
@@ -277,7 +280,7 @@ var FormConfig = new Form([
         ),
             new Section( "control_1",
                 [
-                    new Question( "Can personal data related to a user be completely removed upon request?",
+                    new Question( "Can ##dataTypeNaming## data related to a user be completely removed upon request?",
                         [
                             new Answer( "control_1_a", "control",
                                 new Rating( "Yes", "A")
@@ -289,7 +292,7 @@ var FormConfig = new Form([
                         "",
                         "Complete removal implies deletion of all data elements relating to the user from all data stores, as opposed to making the data unavailable by flagging it or hiding it."
                     ),
-                    new Question( "Can personal data related to a user be hidden upon request",
+                    new Question( "Can ##dataTypeNaming## data related to a user be hidden upon request",
                         [
                             new Answer( "control_1_b", "control",
                                 new Rating( "Yes", "B")
@@ -305,7 +308,7 @@ var FormConfig = new Form([
             ),
             new Section( "control_2",
                 [
-                    new Question( "Can users correct all of the personal data collected from them?",
+                    new Question( "Can users correct all of the ##dataTypeNaming## data collected from them?",
                         [
                             new Answer( "control_2_a", "control",
                                 new Rating( "Yes", "A")
@@ -317,7 +320,7 @@ var FormConfig = new Form([
                         "",
                         "Is the user able to change, update, or correct ALL personal or sensitive data the provider may have gathered or generated based on their preferences or activity?"
                     ),
-                    new Question( "Can users correct any of the personal data collected from them?",
+                    new Question( "Can users correct any of the ##dataTypeNaming## data collected from them?",
                         [
                             new Answer( "control_2_b", "control",
                                 new Rating( "Yes", "B")

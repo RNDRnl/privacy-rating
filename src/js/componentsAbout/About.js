@@ -1,18 +1,78 @@
 import React, { Component } from "react";
 import styles from './About.scss';
-import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck} from "react-bootstrap";
+import {Button, Container, Row, Jumbotron, Image, Col, Card, CardDeck, Popover, OverlayTrigger} from "react-bootstrap";
 import Header from "../Header";
 import Footer from "../Footer";
+import { AboutDisc } from "./AboutDisc";
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
+
 
 const initialFormState = {
 }
 
+// const Overlay = () => {   
+//     const popover = (
+//         <Popover id="popover-basic">
+//             <div className="hi">hi</div>
+//         </Popover>
+//    );
+//    return popover;
+// };
+
 const About = () => {
+
 
     var scroll = Scroll.animateScroll;
     scroll.scrollTo(0, {duration:250});
+
+    console.log(AboutDisc['c_01']);
+    function OverLayTriggerView(content) {
+
+        var helpTitle = content.content[0];
+        var disc = content.content[1];
+        var placement = content.content[2];
+
+        
+        return(
+            <OverlayTrigger             
+                trigger={"click"} 
+                placement={placement}
+                rootClose
+                overlay={
+                    <Popover className={styles.popOver}  id={`popover-positioned-bottom`}>
+                        <Popover.Title as="h3">{disc.title}</Popover.Title>
+                        <Popover.Content>
+                                { disc.bullets.map((item, index) => {
+                                        return (
+                                        <div className={styles.bullet}key={index}>
+                                            { item.scored  
+                                                ? <span className={styles.score} data-score={item.score} >
+                                                    {item.score} 
+                                                    { item.score == "0"
+                                                     ? <span> point</span>
+                                                     : <span> point</span>
+                                                    }
+                                                  </span> 
+                                                : <span className={styles.score} data-score={item.score} >{item.score}</span> 
+                                            }
+                                            <span><b> {item.title}</b></span> 
+                                            <span> {item.desc}</span>
+                                        </div>)
+                                  }) 
+                                }
+                        </Popover.Content>
+                    </Popover>
+                }
+            >                
+                <button className={styles.helpButton} type="button">
+                    {helpTitle}
+                </button>
+            </OverlayTrigger>
+        )
+    }
+
+   
 
     return (
         <div  className={styles.holder} >
@@ -29,7 +89,7 @@ const About = () => {
                                 the service collects and shares user data, as well
                                 as on the amount of control users have over
                                 their data and the level of security provided to
-                                protect user’s data.
+                                protect user's data.
                             </p>
                             <p>
                                 The Privacy Rating is based on extensive
@@ -117,33 +177,33 @@ const About = () => {
                         <div className={styles.categories}>
                             <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/collection.gif`}/>
                             <h5>COLLECTION</h5>
-                            <div className={styles.colouredDots}/>
+                            <div className={styles.colouredDots}/>                                
                             <p className={styles.description}>
-                                What kind of user data is collected?
+                                <OverLayTriggerView  content={["What kind of user data is collected?", AboutDisc['collection_01'], "right"]} />
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                For which purpose is user data collected?
+                                <OverLayTriggerView  content={["For which purpose is user data collected?", AboutDisc['collection_02'], "right"]} />
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                How long is user data stored?
+                                <OverLayTriggerView  content={["How long is user data stored?", AboutDisc['collection_03'], "right"]} />                               
                             </p>
                         </div>
                         <div className={styles.categories}>
                             <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/sharing.gif`}/>
                             <h5>SHARING</h5>
                             <div className={styles.colouredDots}/>
-                            <p className={styles.description}>
-                                What kind of user data is shared?
+                            <p className={styles.description}>                               
+                                <OverLayTriggerView  content={["What kind of user data is shared?", AboutDisc['sharing_01'], "left"]} />
+                            </p>
+                            <div className={styles.colouredDots}/>
+                            <p className={styles.description}>                                
+                                <OverLayTriggerView  content={["Is any user data sold?", AboutDisc['sharing_02'], "left"]} />
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                Is any user data sold?
-                            </p>
-                            <div className={styles.colouredDots}/>
-                            <p className={styles.description}>
-                                Is data disclosed to authorities?
+                                <OverLayTriggerView  content={[" Is data disclosed to authorities?", AboutDisc['sharing_03'], "left"]} />                               
                             </p>
                         </div>
                     </div>
@@ -154,15 +214,15 @@ const About = () => {
                             <h5>CONTROL</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                Can the user decide whether to share the data?
+                                <OverLayTriggerView  content={["Can the user decide whether to share the data?", AboutDisc['control_01'], "right"]} />                                      
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                Can the user request tthat their data is removed?
+                                <OverLayTriggerView  content={["Can the user request that their data is removed?", AboutDisc['control_02'], "right"]} />                                      
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                Can the user amend his/her data?
+                                <OverLayTriggerView  content={["Can the user amend his/her data?", AboutDisc['control_03'], "right"]} />                                      
                             </p>
                         </div>
 
@@ -171,15 +231,15 @@ const About = () => {
                             <h5>SECURITY</h5>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                How secure is the service?
+                                <OverLayTriggerView  content={["How secure is the service?", AboutDisc['security_01'], "left"]} /> 
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                Does the service provider anonymize data?
+                                <OverLayTriggerView  content={["Does the service provider anonymize data?", AboutDisc['security_02'], "left"]} /> 
                             </p>
                             <div className={styles.colouredDots}/>
                             <p className={styles.description}>
-                                Is the service provider liable for breaches?
+                                <OverLayTriggerView  content={["Is the service provider liable for breaches?", AboutDisc['security_03'], "left"]} /> 
                             </p>
                         </div>
                     </div>
