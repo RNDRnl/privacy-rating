@@ -71,9 +71,7 @@ const About = () => {
             </OverlayTrigger>
         )
     }
-
-   
-
+    
     return (
         <div  className={styles.holder} >
             <Container>
