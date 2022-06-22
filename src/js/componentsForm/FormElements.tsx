@@ -201,7 +201,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
 
         function RenderQuestionText(value) {
 
-            var filledString = value.question.replace("##dataTypeNaming##", "<u>chicken house</u>")
+            var filledString = value.question.replace("##dataTypeNaming##", "<u>relevant word</u>")
 
             return(
                 <span>{filledString}</span>

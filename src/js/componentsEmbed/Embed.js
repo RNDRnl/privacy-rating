@@ -96,6 +96,22 @@ class Embed extends  Component {
                                         </div>
                                     </Col>
                                 </Row>
+
+                                <hr className={styles.hr} />
+
+                                <Row>
+                                    <Col>
+                                            <div>
+                                                <h3>How to improve your score</h3>
+                                                <div>Below we will point out some recommendations for you.</div>
+
+                                                
+
+
+
+                                            </div>
+                                    </Col>
+                                </Row>
                                 
                                 <hr className={styles.hr} />
 
