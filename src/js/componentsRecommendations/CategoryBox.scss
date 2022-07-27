@@ -1,0 +1,117 @@
+@import "src/main";
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
+  border-radius: 8pt;
+  margin-top: 4pt;
+  cursor: pointer;
+  height: 34pt;
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -o-transition: $duration;
+  -ms-transiton: $duration;
+  transition: $duration;
+  overflow: hidden;
+
+  &.colorA { background-color: $color-A;}
+  &.colorB { background-color: $color-B;}
+  &.colorC { background-color: $color-C;}
+  &.colorD { background-color: $color-D;}
+  &.colorE { background-color: $color-E;}
+  &.colorF { background-color: $color-F;}
+  &.colorG { background-color: $color-G;}
+
+  &.selected {
+    height: 127pt;
+    text-align: center;
+
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  
+  &.notSelected {
+    background-color: $color-Inactive;
+    height: 26pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+
+    .label {
+      font-size: 16pt;
+      color: $color-Grey-Text;
+      text-align: center;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
+    }
+
+    .icon {
+      float: left;
+      height: 20pt;
+      margin-right: 10pt;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
+    }
+
+    .arrow {
+      float: right;
+      height: 15pt;
+      width: 15pt;
+      margin-left: 10pt;
+      padding-top: 5pt;
+      -webkit-transition: $duration;
+      -moz-transition: $duration;
+      -o-transition: $duration;
+      -ms-transiton: $duration;
+      transition: $duration;
+    }
+  }
+
+  .label {
+    flex: 1;
+    font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
+    font-size: 22pt;
+    padding-top: 3pt;
+    text-align: center;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+  }
+
+  .icon {
+    float: left;
+    height: 30pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+  }
+
+  .arrow {
+    float: right;
+    padding-top: 8pt;
+    height: 20pt;
+    width: 20pt;
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -o-transition: $duration;
+    -ms-transiton: $duration;
+    transition: $duration;
+  }
+}

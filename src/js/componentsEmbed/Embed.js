@@ -5,8 +5,9 @@ import LabelContext from '../../state/LabelContext';
 import Header from "../Header";
 import Footer from "../Footer";
 import * as Scroll from 'react-scroll';
+import Recommendations from "./Recommendations";
 
-class Embed extends  Component {
+class Embed extends Component {
     static contextType = LabelContext;
 
     constructor() {
@@ -104,11 +105,24 @@ class Embed extends  Component {
                                             <div>
                                                 <h3>How to improve your score</h3>
                                                 <div>Below we will point out some recommendations for you.</div>
+                                                <div>
+                                                    <Button className={styles.privacyRatingSmallButton} variant="secondary" download>Download Report PDF</Button>
+                                                </div>
                                             </div>
+                                            
+                                            {/* receive label results */}
+
+
+                                            
+
+                                            {/* store recomendations */}
+
+                                            <Recommendations />
+
                                     </Col>
                                 </Row>
                                 
-                                <hr className={styles.hr} />
+                                {/* <hr className={styles.hr} />
 
                                 <Row>
 
@@ -134,7 +148,10 @@ class Embed extends  Component {
                                             </div>
                                         }
                                     </Col>
-                                </Row>
+                                </Row> */}
+
+
+                                
                             </div>
                             <br/>
                             <Footer/>

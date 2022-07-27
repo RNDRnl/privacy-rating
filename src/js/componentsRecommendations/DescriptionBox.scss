@@ -1,0 +1,41 @@
+@import "src/main";
+
+.holder {
+  display: flex;
+  padding-left: 8pt;
+  padding-right: 10pt;
+  cursor: default;
+
+  .label {
+    flex: 1;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 11pt;
+    border-radius: 10pt;
+    margin: 2pt;
+    padding-top: 4pt;
+    height: 25pt;
+  }
+
+  .colouredDots {
+    margin-top: 1pt;
+    margin-bottom: 1pt;
+    width: 19px;
+    height: 19px;
+    border-radius: 100%;
+    float: left;
+    
+    &.colorA { 
+      background-image: url("/resources/icons/happy.svg");
+      background-size: 19px 19px;
+    }
+    &.colorD { 
+      background-image: url("/resources/icons/neutral.svg");
+      background-size: 19px 19px;
+    }
+    &.colorG { 
+      background-image: url("/resources/icons/sad.svg");
+      background-size: 19px 19px;
+    }
+  }
+}
+

@@ -4,6 +4,7 @@ import { RatingConfig } from "./RatingConfig"
 import FormConfig from "../js/componentsForm/FormConfig"
 import { Answer } from "../js/componentsForm/FormClasses";
 import Rating from "./Rating";
+import RecommendationPanel from "../js/componentsRecommendations/RecommendationsClasses";
 
 export class LabelObject {
     score: any;
@@ -278,7 +279,7 @@ const covertDomain = (domain:any) => {
 }
 
 const HashToLabelState = (labelHash:any) => {
-
+    
     var characters = labelHash.hash.split("")
     var sections = [];
     characters.forEach(function(char, index) {
@@ -309,10 +310,12 @@ const HashToLabelState = (labelHash:any) => {
 
     var labelObject = new LabelObject(cScore, domainValue, categories);
     var labelRender = new LabelTag(labelObject).getTag;
+    var labelRecommenendations = new RecommendationPanel(labelObject).getTag;
 
     return {
         labelRender: labelRender, 
-        labelObject: labelObject
+        labelObject: labelObject,
+        labelRecommenendations: labelRecommenendations
     };
 }
 
