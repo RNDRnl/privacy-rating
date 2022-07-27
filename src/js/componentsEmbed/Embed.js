@@ -104,11 +104,6 @@ class Embed extends  Component {
                                             <div>
                                                 <h3>How to improve your score</h3>
                                                 <div>Below we will point out some recommendations for you.</div>
-
-                                                
-
-
-
                                             </div>
                                     </Col>
                                 </Row>
