@@ -9,23 +9,19 @@ class Recommendations extends Component {
 
     constructor() {
         super();
-
         
     }
 
     componentDidMount() {
-        // var labelData = HashToLabelState({hash: "LLLLRLRPPRPR", domain: undefined});
-        // console.log("labelDATA!", labelData);
-
     }
 
     render() {
-        const { LabelObject, LabelRecommendations, Label } = this.context;               
+        const { LabelObject, LabelRecommendations, Label } = this.context;     
+        console.log('Label', LabelObject)          
         console.log('LabelRecommendations', LabelRecommendations);
 
         return (
             <div className={styles.holder} >
-                <div>Ola i'm here</div>
                 {Label != null &&
                     <LabelRecommendations />
                 }

@@ -2,17 +2,9 @@
 // Please do not change this file!
 interface CssExports {
   'arrow': string;
-  'colorA': string;
-  'colorB': string;
-  'colorC': string;
-  'colorD': string;
-  'colorE': string;
-  'colorF': string;
-  'colorG': string;
   'container': string;
   'icon': string;
   'label': string;
-  'notSelected': string;
   'selected': string;
 }
 export const cssExports: CssExports;

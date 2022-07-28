@@ -4,7 +4,14 @@
   display: flex;
   padding-left: 8pt;
   padding-right: 10pt;
+  padding-bottom: 8pt;
   cursor: default;
+  
+  &.withHover {
+    :hover {
+      cursor: pointer;
+    }
+  }
 
   .label {
     flex: 1;
@@ -13,7 +20,31 @@
     border-radius: 10pt;
     margin: 2pt;
     padding-top: 4pt;
-    height: 25pt;
+    display: flex;
+  }
+
+  .label__column {
+    &:nth-child(2) {
+      flex:1;
+      :first-child {
+        font-size: 16pt;
+        line-height: 18pt;
+      }
+      .recommendationText {
+        max-height: 0px;
+        overflow: hidden;
+      }
+    }
+    &:nth-child(3) {
+      flex:0.2;
+      text-align: right;
+    }
+  }
+
+  .arrow {
+    height: 12pt;
+    width: 20pt;
+    margin-left: 5px;
   }
 
   .colouredDots {
@@ -23,18 +54,36 @@
     height: 19px;
     border-radius: 100%;
     float: left;
+    margin-right: 15pt;
     
     &.colorA { 
-      background-image: url("/resources/icons/happy.svg");
+      background-image: url("/resources/icons/happy_t.svg");
+      background-color: $color-A;
       background-size: 19px 19px;
     }
     &.colorD { 
-      background-image: url("/resources/icons/neutral.svg");
+      background-image: url("/resources/icons/neutral_t.svg");
       background-size: 19px 19px;
+      background-color: $color-D;
     }
     &.colorG { 
-      background-image: url("/resources/icons/sad.svg");
+      background-image: url("/resources/icons/sad_t.svg");
       background-size: 19px 19px;
+      background-color: $color-G;
+    }
+  }
+
+  &.unfolded {
+    .arrow {
+      transform: rotate(90deg);
+    }
+    
+    .label__column {
+      &:nth-child(2) {
+        .recommendationText {
+          max-height: 400px;
+        }
+      }
     }
   }
 }

@@ -12,55 +12,11 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
 
     constructor(props) {
         super(props);
-
-        this.handleClick = this.handleClick.bind(this);
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
-        this.toggleCheck = this.toggleCheck.bind(this);
-        this.cancelTimout = this.cancelTimout.bind(this);
     }
 
     handleClick( ) {
-        this.toggleCheck()
     }
 
-    setCategoryOpen() {
-        const {openCategory, setLabelState} = this.context
-        setLabelState(this.props.categoryName)
-    }
-
-    toggleCheck() {
-        const {openCategory, setLabelState} = this.context
-        this.cancelTimout();
-
-        if (openCategory == this.props.categoryName) {
-            setLabelState(null)
-        } else {
-            setLabelState(this.props.categoryName)
-        }
-    }
-
-    handleMouseEnter( ) {
-       const {openCategory, setLabelState} = this.context
-       if (openCategory == this.props.categoryName) {
-        this.cancelTimout();
-       }
-       
-       this.setState({
-            timer: setTimeout(() => { 
-                // console.log("execute");
-                this.setCategoryOpen() 
-            }, 600)
-        });
-    }
-
-    handleMouseLeave( ) {
-        this.cancelTimout();
-    }
-
-    cancelTimout() {
-        clearTimeout(this.state.timer);
-    }
 
     render() {
         const { openCategory } = this.context
@@ -93,19 +49,13 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
             }
         }
 
-        var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`;
-
         return (
             <div className={classNames} 
-                onClick={() => this.handleClick()}  
-                onMouseEnter={() => this.handleMouseEnter()}
-                onMouseLeave={() => this.handleMouseLeave()}
                 >
                 <div className={styles.label}>
-                    {this.props.categoryName}
-                    <Image className={styles.icon} src={iconGIF} fluid />
-                    <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
-                    {this.props.children}
+                    <div>{this.props.categoryName}</div>
+                    {/* <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid /> */}
+                    <div>{this.props.children}</div>
                 </div>
             </div>
         );
