@@ -55,6 +55,12 @@
     border-radius: 100%;
     float: left;
     margin-right: 15pt;
+
+    &.none {
+      background-image: url("/resources/icons/none.svg");
+      background-color: $color-Grey-Text;
+      background-size: 19px 19px;
+    }
     
     &.colorA { 
       background-image: url("/resources/icons/happy_t.svg");

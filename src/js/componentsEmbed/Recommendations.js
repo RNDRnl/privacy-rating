@@ -18,13 +18,16 @@ class Recommendations extends Component {
     render() {
         const { LabelObject, LabelRecommendations, Label } = this.context;     
         console.log('Label', LabelObject)          
-        console.log('LabelRecommendations', LabelRecommendations);
 
         return (
             <div className={styles.holder} >
                 {Label != null &&
                     <LabelRecommendations />
                 }
+                <hr className={styles.hr} />
+
+                <div>Privacy Rating Score </div>
+
             </div>
         )
     }

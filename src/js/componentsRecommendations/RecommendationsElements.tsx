@@ -49,11 +49,13 @@ export class LabelCategoryElement extends React.Component<ValidPropsCategory, {}
 export interface ValidPropsSection { 
     sectionText: String;
     score: any;
+    ranked: Boolean;
+    recommendationText: String;
 }
 export class LabelSectionElement extends React.Component<ValidPropsSection, {}> {
     render() {
         return (
-            <DescriptionBox sectionText={this.props.sectionText} score={this.props.score} />
+            <DescriptionBox sectionText={this.props.sectionText} score={this.props.score} ranked={this.props.ranked} recommendationText={this.props.recommendationText} />
         );
     }
 }

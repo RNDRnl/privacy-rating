@@ -3,6 +3,8 @@
 interface CssExports {
   'background': string;
   'button': string;
+  'buttonBox': string;
+  'colHeader': string;
   'downloadButton': string;
   'example': string;
   'fadeInOut': string;

@@ -8,7 +8,7 @@ type BoxState = {
 }
 
 
-class DescriptionBox extends React.Component<{sectionText:any, score:any}, BoxState> {
+class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked:Boolean, recommendationText:any}, BoxState> {
     
     constructor(props) {
         super(props);
@@ -59,6 +59,10 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any}, BoxSt
             break
         }
 
+        if(!this.props.ranked) {
+            colorStyle = styles.none;
+        }
+
         classDots += `${colorStyle} `
 
         switch (this.state.unfolded) {
@@ -75,18 +79,23 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any}, BoxSt
                     <div className={styles.label__column}>
                         <div className={classDots}/>
                     </div>
-                    <div className={styles.label__column}>
+
+                    <div className={styles.label__column}>                               
                         <div>{this.props.sectionText}
                             {foldable &&
-                                <Image  className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
+                                <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
                             }
                         </div>
                         {foldable &&                       
-                            <div className={styles.recommendationText}>Although collecting sensitive data doesn’t directly impact your Privacy Rating, it does introduce additional requirements needed to obtain a good rating.</div>
+                            <div className={styles.recommendationText}>{this.props.recommendationText}</div>
                         }
                     </div>
                     <div className={styles.label__column}>
-                        <div>{this.props.score} Point</div>
+                        {this.props.ranked ? (
+                            <div>{this.props.score} Point</div>
+                        ) : (
+                            <div>Not scored</div>
+                        )}
                     </div>                    
                 </div>
             </div>

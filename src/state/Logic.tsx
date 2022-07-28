@@ -1,6 +1,8 @@
 import LabelTag from "../js/componentsLabel/LabelClasses";
 
 import { RatingConfig } from "./RatingConfig"
+import { RecommendationsConfig } from "./RecommendationsConfig"
+
 import FormConfig from "../js/componentsForm/FormConfig"
 import { Answer } from "../js/componentsForm/FormClasses";
 import Rating from "./Rating";
@@ -68,9 +70,13 @@ const scoreToRank = (score:any) => {
 export class Section {
     score: any;
     text: String;
-    constructor(_score: Number, _text: String) {
+    ranked: Boolean;
+    recommendation: String;
+    constructor(_score: Number, _text: String, _ranked: Boolean, _recommendation: String) {
         this.score = _score;
         this.text = _text;
+        this.ranked = _ranked;
+        this.recommendation = _recommendation
     }
 }
 
@@ -285,7 +291,8 @@ const HashToLabelState = (labelHash:any) => {
     characters.forEach(function(char, index) {
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
         var resultRating = RatingConfig[targetPath];
-        var section = new Section(resultRating.score, resultRating.text);
+        var resultRecommendation = RecommendationsConfig[targetPath];
+        var section = new Section(resultRating.score, resultRating.text, resultRating.ranked, resultRecommendation.text);
         sections.push(section);
     })
 

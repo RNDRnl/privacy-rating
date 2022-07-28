@@ -34,6 +34,18 @@
     margin-bottom: 60px;
   }
 
+  .colHeader {
+    padding-bottom: 30pt;
+    display: flex;
+    div {
+      flex: 1;
+    }
+  }
+
+  .buttonBox {
+    float: right;
+  }
+
   .overlayView {
     
     overflow: hidden;
@@ -66,13 +78,13 @@
     color:white;
     padding: 20px;
     font-size: 22pt;
-    margin-top: 12pt;
+    // margin-top: 12pt;
     border-radius: 8pt;
 
 
     transition: background-color 200ms ease-in-out;
-    margin-left: 0px;
-    margin-right: -15px;
+    // margin-left: 0px;
+    // margin-right: -15px;
 
     &:hover {
       background-color: black;
@@ -133,7 +145,7 @@
 
   .privacyRatingSmallButton {
     margin-bottom: 12pt;
-    margin-right: 10pt;
+    //margin-right: 10pt;
   }
 
 }

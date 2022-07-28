@@ -9,6 +9,7 @@ interface CssExports {
   'holder': string;
   'label': string;
   'label__column': string;
+  'none': string;
   'recommendationText': string;
   'unfolded': string;
   'withHover': string;

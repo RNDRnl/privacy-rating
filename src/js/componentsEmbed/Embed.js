@@ -102,11 +102,16 @@ class Embed extends Component {
 
                                 <Row>
                                     <Col>
-                                            <div>
-                                                <h3>How to improve your score</h3>
-                                                <div>Below we will point out some recommendations for you.</div>
+                                            <div className={styles.colHeader}>
                                                 <div>
-                                                    <Button className={styles.privacyRatingSmallButton} variant="secondary" download>Download Report PDF</Button>
+                                                    <h3>How to improve your score</h3>
+                                                    <div>Below we will point out some recommendations for you.</div>
+                                                    
+                                                </div>
+                                                <div>
+                                                    <div className={styles.buttonBox}>
+                                                        <Button className={styles.privacyRatingSmallButton} variant="secondary" download>Download Report PDF</Button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             

@@ -2,8 +2,17 @@
 export class RatingLabel {
     score: Number
     text: String
-    constructor(_score: Number, _text: String) {
+    ranked: Boolean
+    constructor(_score: Number, _text: String, _ranked: Boolean) {
         this.score = _score;
+        this.text = _text;
+        this.ranked = _ranked;
+    }
+}
+
+export class RatingRecommendation {
+    text: String
+    constructor(_text: String) {
         this.text = _text;
     }
 }
