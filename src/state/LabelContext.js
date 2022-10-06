@@ -8,6 +8,7 @@ class LabelProvider extends Component {
       Label: null,
       LabelObject : null,
       LabelRecommendations: null,
+      LabelScoreDrawer: null,
       openCategory: null
     }
     
@@ -23,13 +24,14 @@ class LabelProvider extends Component {
       this.setState({
         Label: labelData.labelRender,
         LabelObject: labelData.labelObject,
-        LabelRecommendations: labelData.labelRecommenendations
+        LabelRecommendations: labelData.labelRecommenendations,
+        LabelScoreDrawer: labelData.labelScoreDrawer
       });
     }
   
     render() {
       const { children } = this.props
-      const { Label, LabelObject, LabelRecommendations, openCategory } = this.state
+      const { Label, LabelObject, LabelRecommendations, LabelScoreDrawer, openCategory } = this.state
       const { setLabelState, pupulateLabel } = this
       
       return (
@@ -38,6 +40,7 @@ class LabelProvider extends Component {
             Label,
             LabelObject,
             LabelRecommendations,
+            LabelScoreDrawer,
             openCategory,
             setLabelState,
             pupulateLabel

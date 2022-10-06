@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import {Container, Col, Row, Image, Button} from "react-bootstrap";
 import styles from './Recommendations.scss';
 import LabelContext from '../../state/LabelContext';
-import { HashToLabelState } from "../../state/Logic";
 
 class Recommendations extends Component {
     static contextType = LabelContext;
@@ -16,18 +14,19 @@ class Recommendations extends Component {
     }
 
     render() {
-        const { LabelObject, LabelRecommendations, Label } = this.context;     
+        const { LabelObject, LabelRecommendations, LabelScoreDrawer, Label } = this.context;     
         console.log('Label', LabelObject)          
+        console.log(this.context);
 
         return (
             <div className={styles.holder} >
                 {Label != null &&
+                <>
                     <LabelRecommendations />
+                    <hr className={styles.hr} />
+                    <LabelScoreDrawer />
+                </>
                 }
-                <hr className={styles.hr} />
-
-                <div>Privacy Rating Score </div>
-
             </div>
         )
     }

@@ -7,6 +7,7 @@ import FormConfig from "../js/componentsForm/FormConfig"
 import { Answer } from "../js/componentsForm/FormClasses";
 import Rating from "./Rating";
 import RecommendationPanel from "../js/componentsRecommendations/RecommendationsClasses";
+import ScoreDrawer from "../js/componentsScoreDrawer/ScoreDrawer"
 
 export class LabelObject {
     score: any;
@@ -46,19 +47,19 @@ const mapRange = (value:any, low1:any, high1:any, low2:any, high2:any) => {
 }
 
 const mapToRank = (value:any) => {
-    if(value >= 0.0 && value <= 0.25) {
+    if(value >= 8.0 && value <= 11.0) {
         return 'A'
-    } else if (value >= 0.5 && value <= 1.25) {
+    } else if (value >= 5.0 && value <= 7.0) {
         return 'B'
-    } else if (value >= 1.5 && value <= 2.25) {
+    } else if (value >= 2.0 && value <= 4.0) {
         return 'C'
-    } else if (value >= 2.5 && value <= 3.25) {
+    } else if (value >= -1.0 && value <= 1.0) {
         return 'D'
-    } else if (value >= 3.5 && value <= 4.25) {
+    } else if (value >= -4.0 && value <= -2.0) {
         return 'E'
-    } else if (value >= 4.5 && value <= 5.25) {        
+    } else if (value >= -7.0 && value <= -5.0) {        
         return 'F'
-    } else if (value >= 5.5 && value <= 6.0) {
+    } else if (value >= -11.0 && value <= -8.0) {
         return 'G'
     }
 }
@@ -110,7 +111,9 @@ const sumScore = (elements:any) => {
         if(element == null) {
             isInvalid = true
         } else {
-            runningScore += element.score
+            if(element.ranked) { // exclude non ranked
+                runningScore += element.score
+            }
         }
     });
 
@@ -121,7 +124,7 @@ const sumScore = (elements:any) => {
     }
 }
 
-const calculateScore = (elements:any, devide:any) => {
+const calculateScore = (elements:any) => {
 
     var runningScore = 0.0
     var isInvalid = false
@@ -130,6 +133,7 @@ const calculateScore = (elements:any, devide:any) => {
         if(element == null) {
             isInvalid = true
         } else {
+            console.log(element.score)
             runningScore += element.score
         }
     });
@@ -137,7 +141,7 @@ const calculateScore = (elements:any, devide:any) => {
     if(isInvalid) {
         return null
     } else {
-        return (runningScore / devide);
+        return (runningScore); // no devide needed
     }
 }
 
@@ -249,7 +253,7 @@ const FormStateToHash = (FormState:any) => {
             sections.push(getMatchingScore( FormState, cat, i));
         }
 
-        var score = calculateScore(sections, 3.0)
+        var score = calculateScore(sections)
         catagories.push( new Category(score, cat, sections) );
     });
 
@@ -308,7 +312,7 @@ const HashToLabelState = (labelHash:any) => {
         new Category(sumScore(category4), "SECURITY", category4)
     ]
 
-    var cScore = calculateScore(categories, 4.0);
+    var cScore = calculateScore(categories);
     
     var domainValue = null;
     if(typeof labelHash.domain !== 'undefined') {
@@ -318,11 +322,13 @@ const HashToLabelState = (labelHash:any) => {
     var labelObject = new LabelObject(cScore, domainValue, categories);
     var labelRender = new LabelTag(labelObject).getTag;
     var labelRecommenendations = new RecommendationPanel(labelObject).getTag;
-
+    var LabelScoreDrawer = new ScoreDrawer(labelObject).getTag;
+    
     return {
         labelRender: labelRender, 
         labelObject: labelObject,
-        labelRecommenendations: labelRecommenendations
+        labelRecommenendations: labelRecommenendations,
+        labelScoreDrawer: LabelScoreDrawer
     };
 }
 

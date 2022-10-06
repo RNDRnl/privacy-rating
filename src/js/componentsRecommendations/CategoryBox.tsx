@@ -1,7 +1,6 @@
 import * as React from "react";
 const styles = require("./CategoryBox.scss");
 import LabelContext from "../../state/LabelContext";
-import {Image} from "react-bootstrap";
 
 type LabelState = {
     timer: NodeJS.Timeout
@@ -16,7 +15,6 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
 
     handleClick( ) {
     }
-
 
     render() {
         const { openCategory } = this.context
@@ -54,7 +52,6 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 >
                 <div className={styles.label}>
                     <div>{this.props.categoryName}</div>
-                    {/* <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid /> */}
                     <div>{this.props.children}</div>
                 </div>
             </div>

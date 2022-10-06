@@ -7,7 +7,6 @@ type BoxState = {
     unfolded?: boolean 
 }
 
-
 class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked:Boolean, recommendationText:any}, BoxState> {
     
     constructor(props) {
@@ -40,18 +39,18 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
         var text = ""
         var foldable = false
         switch (this.props.score) {
-        case 0.0: 
+        case 1.0: 
             colorStyle = styles.colorA
             text ="A"
             foldable = false
             break
-        case 1.0: 
+        case 0.0: 
             colorStyle = styles.colorD
             text ="B"
             foldable = true
             classBox += `${styles.withHover} `
             break
-        case 2.0: 
+        case -1.0: 
             colorStyle = styles.colorG
             text ="C"
             foldable = true

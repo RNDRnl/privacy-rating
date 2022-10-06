@@ -4,7 +4,7 @@ import {LabelObject, Section } from "../../state/Logic";
 import { LabelElement, LabelCategoryElement, LabelSectionElement } from "./RecommendationsElements";
 
 // /////////
-// RECOMMENDATION PANEL
+// [Recom] RECOMMENDATION PANEL
 // /////////
 
 export default class RecommendationPanel { 
@@ -35,9 +35,8 @@ export default class RecommendationPanel {
     }
 }
 
-
 // /////////
-//  CATEGORY
+// [Recom] CATEGORY
 // /////////
 
 export class RecommendationCategoryTag {
@@ -69,7 +68,7 @@ export class RecommendationCategoryTag {
 }
 
 // /////////
-//  SECTION
+// [Recom] SECTION
 // /////////
 
 export class RecommendationSectionTag {

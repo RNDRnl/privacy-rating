@@ -1,13 +1,9 @@
 import * as React from "react";
 import CategoryBox from "./CategoryBox";
 import DescriptionBox from "./DescriptionBox";
-// const styles = require("./RecommendationsClasses.scss");
-
-
-// import LabelContext from '../../state/LabelContext';
 
 // //////////////
-// Category
+// [Recom] Category
 // /////////////
 
 export interface ValidPropsLabel { 
@@ -17,7 +13,6 @@ export interface ValidPropsLabel {
     year: any;
 }
 export class LabelElement extends React.Component<ValidPropsLabel, {}> {
-    // static contextType = LabelContext styles.holder
 
     render() {
         return (
@@ -26,12 +21,9 @@ export class LabelElement extends React.Component<ValidPropsLabel, {}> {
                     {this.props.children}
                 </div>
             </div>
-
-
         );
     }
 }
-//className={styles.categoryBoxes}
 
 export interface ValidPropsCategory { 
     categoryName: any;

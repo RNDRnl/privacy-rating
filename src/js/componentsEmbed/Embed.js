@@ -6,6 +6,8 @@ import Header from "../Header";
 import Footer from "../Footer";
 import * as Scroll from 'react-scroll';
 import Recommendations from "./Recommendations";
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import classNames from "classnames";
 
 class Embed extends Component {
     static contextType = LabelContext;
@@ -46,6 +48,37 @@ class Embed extends Component {
         if(LabelObject!=null) {
             rank = LabelObject.rank;
         }
+
+        const stylesPDF = StyleSheet.create({
+            page: {
+              flexDirection: 'row',
+              backgroundColor: '#E4E4E4'
+            },
+            section: {
+              margin: 10,
+              padding: 10,
+              flexGrow: 1,
+              backgroundColor: '#B0B0B0'
+            },
+            smallType: {
+                fontSize: 20
+            }
+          });
+
+        const MyDoc = () => (
+            <Document>
+                <Page size="A4" style={stylesPDF.page}>
+                    <View style={stylesPDF.section}>
+                        <Text>Privacy Rating Report</Text>
+                    </View>
+                    <View style={stylesPDF.section}>
+                        <Text style={stylesPDF.smallType}>Generated at https://www.privacyrating.info/</Text>
+                    </View>
+                </Page>
+                <Page size="A4" style={stylesPDF.page}>
+                </Page>
+            </Document>
+        )
 
         var png = `${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRating${rank}.png`;
         var svg = `${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRating${rank}.svg`;
@@ -106,24 +139,20 @@ class Embed extends Component {
                                                 <div>
                                                     <h3>How to improve your score</h3>
                                                     <div>Below we will point out some recommendations for you.</div>
-                                                    
                                                 </div>
                                                 <div>
                                                     <div className={styles.buttonBox}>
-                                                        <Button className={styles.privacyRatingSmallButton} variant="secondary" download>Download Report PDF</Button>
+                                                        <PDFDownloadLink className={classNames(styles.button, styles.privacyRatingSmallButton)} document={<MyDoc />} fileName="PrivacyRatingReport.pdf">
+                                                            {({ blob, url, loading, error }) =>
+                                                                loading ? 'Loading document...' : 'Download Report PDF'
+                                                            }
+                                                        </PDFDownloadLink>
+
                                                     </div>
                                                 </div>
                                             </div>
                                             
-                                            {/* receive label results */}
-
-
-                                            
-
-                                            {/* store recomendations */}
-
                                             <Recommendations />
-
                                     </Col>
                                 </Row>
                                 

@@ -76,16 +76,12 @@
     background-color:$button-Color-Hover;
     text-align: center;
     color:white;
-    padding: 20px;
-    font-size: 22pt;
-    // margin-top: 12pt;
+    padding: 10px;
+    font-size: 16pt;
+    margin-top: 0pt;
     border-radius: 8pt;
-
-
     transition: background-color 200ms ease-in-out;
-    // margin-left: 0px;
-    // margin-right: -15px;
-
+    
     &:hover {
       background-color: black;
     }
@@ -141,6 +137,8 @@
 
   .downloadButton {
     padding-top: 12pt;
+
+
   }
 
   .privacyRatingSmallButton {
