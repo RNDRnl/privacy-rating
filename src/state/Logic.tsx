@@ -7,7 +7,8 @@ import FormConfig from "../js/componentsForm/FormConfig"
 import { Answer } from "../js/componentsForm/FormClasses";
 import Rating from "./Rating";
 import RecommendationPanel from "../js/componentsRecommendations/RecommendationsClasses";
-import ScoreDrawer from "../js/componentsScoreDrawer/ScoreDrawer"
+import ScoreDrawer from "../js/componentsScoreDrawer/ScoreDrawer";
+import ReportPDF from "../js/componentsReportPDF/ReportPDF";
 
 export class LabelObject {
     score: any;
@@ -322,13 +323,15 @@ const HashToLabelState = (labelHash:any) => {
     var labelObject = new LabelObject(cScore, domainValue, categories);
     var labelRender = new LabelTag(labelObject).getTag;
     var labelRecommenendations = new RecommendationPanel(labelObject).getTag;
-    var LabelScoreDrawer = new ScoreDrawer(labelObject).getTag;
+    var labelScoreDrawer = new ScoreDrawer(labelObject).getTag;
+    var reportPdf = new ReportPDF(labelObject).getTag;
     
     return {
         labelRender: labelRender, 
         labelObject: labelObject,
         labelRecommenendations: labelRecommenendations,
-        labelScoreDrawer: LabelScoreDrawer
+        labelScoreDrawer: labelScoreDrawer,
+        reportPdf: reportPdf
     };
 }
 

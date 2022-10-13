@@ -25,12 +25,12 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     setCategoryOpen() {
-        const {openCategory, setLabelState} = this.context
+        const {openCategory, setLabelState} = this.context  as any
         setLabelState(this.props.categoryName)
     }
 
     toggleCheck() {
-        const {openCategory, setLabelState} = this.context
+        const {openCategory, setLabelState} = this.context  as any
         this.cancelTimout();
 
         if (openCategory == this.props.categoryName) {
@@ -41,7 +41,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     handleMouseEnter( ) {
-       const {openCategory, setLabelState} = this.context
+       const {openCategory, setLabelState} = this.context  as any
        if (openCategory == this.props.categoryName) {
         this.cancelTimout();
        }
@@ -63,7 +63,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     render() {
-        const { openCategory } = this.context
+        const { openCategory } = this.context as any
 
         var colorStyle = null
         switch (this.props.rating) {

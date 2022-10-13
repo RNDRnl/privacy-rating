@@ -10,7 +10,7 @@ class LabelCircle extends React.Component<{rating:any}, {}> {
         }
 
         render() {
-                const { openCategory } = this.context
+                const { openCategory } = this.context as any
 
                 var classNames = `${styles.holder} `
 

@@ -12,6 +12,7 @@ interface CssExports {
   'hr': string;
   'iframeCodeBox': string;
   'overlayView': string;
+  'pdfViewer': string;
   'privacyRatingSmall': string;
   'privacyRatingSmallButton': string;
   'text': string;

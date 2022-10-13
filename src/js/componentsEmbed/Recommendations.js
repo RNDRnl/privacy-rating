@@ -21,11 +21,11 @@ class Recommendations extends Component {
         return (
             <div className={styles.holder} >
                 {Label != null &&
-                <>
-                    <LabelRecommendations />
-                    <hr className={styles.hr} />
-                    <LabelScoreDrawer />
-                </>
+                    <>
+                        <LabelRecommendations />
+                        <hr className={styles.hr} />
+                        <LabelScoreDrawer />
+                    </>
                 }
             </div>
         )

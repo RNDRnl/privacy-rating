@@ -31,7 +31,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
     
     render() {
 
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any as any;
 
         var openState = checkForm( `${this.props.categoryName.toLowerCase()}_open` )
         // console.log(this.props.categoryName.toLowerCase(), openState)
@@ -85,7 +85,7 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
     static contextType = FormContext
 
     render() {
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any;
 
         // check!
         var currentName = this.props.sectionName
@@ -155,7 +155,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
     }
     
     render() {
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any;
 
         // check!
         var handle = this.props.sectionName
@@ -287,7 +287,7 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
     }
 
     handleChange(event) {
-        const { Form, updateFormMultiple } = this.context;
+        const { Form, updateFormMultiple } = this.context as any;
                 
         updateFormMultiple(
             this.props.formRef,
@@ -305,7 +305,7 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 
     render() {
 
-        const { Form } = this.context;
+        const { Form } = this.context as any;
         const buttonIndex = (!Form.validUrl) ? (0) : 1
 
         return (
@@ -351,7 +351,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
     }
 
     handleClick(e) {
-        const { updateFormMultiple } = this.context;
+        const { updateFormMultiple } = this.context as any;
         updateFormMultiple(
             this.props.formRef, 
             this.props.answer,
@@ -363,7 +363,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
     }
 
     render() {
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any;
 
         function CustomToggle({ className, answer, handleClick }) {
             return (

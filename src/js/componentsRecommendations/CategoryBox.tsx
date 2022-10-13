@@ -17,7 +17,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     render() {
-        const { openCategory } = this.context
+        const openCategory = this.context
 
         var colorStyle = null
         switch (this.props.rating) {

@@ -6,7 +6,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import * as Scroll from 'react-scroll';
 import Recommendations from "./Recommendations";
-import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer'; // Page, Text, View, Document, StyleSheet
 import classNames from "classnames";
 
 class Embed extends Component {
@@ -42,43 +42,12 @@ class Embed extends Component {
     }
 
     render() {
-        const { LabelObject } = this.context;
+        const { LabelObject, ReportPDF } = this.context; 
         
         var rank = null;
         if(LabelObject!=null) {
             rank = LabelObject.rank;
         }
-
-        const stylesPDF = StyleSheet.create({
-            page: {
-              flexDirection: 'row',
-              backgroundColor: '#E4E4E4'
-            },
-            section: {
-              margin: 10,
-              padding: 10,
-              flexGrow: 1,
-              backgroundColor: '#B0B0B0'
-            },
-            smallType: {
-                fontSize: 20
-            }
-          });
-
-        const MyDoc = () => (
-            <Document>
-                <Page size="A4" style={stylesPDF.page}>
-                    <View style={stylesPDF.section}>
-                        <Text>Privacy Rating Report</Text>
-                    </View>
-                    <View style={stylesPDF.section}>
-                        <Text style={stylesPDF.smallType}>Generated at https://www.privacyrating.info/</Text>
-                    </View>
-                </Page>
-                <Page size="A4" style={stylesPDF.page}>
-                </Page>
-            </Document>
-        )
 
         var png = `${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRating${rank}.png`;
         var svg = `${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRating${rank}.svg`;
@@ -90,6 +59,11 @@ class Embed extends Component {
 
         return (
             <div className={styles.holder} >
+                        { ReportPDF != null &&
+                            <PDFViewer className={styles.pdfViewer}>
+                                <ReportPDF />
+                            </PDFViewer> 
+                        }
                         <Container>
                         <Header/>
                             <div className={styles.background}>
@@ -142,12 +116,13 @@ class Embed extends Component {
                                                 </div>
                                                 <div>
                                                     <div className={styles.buttonBox}>
-                                                        <PDFDownloadLink className={classNames(styles.button, styles.privacyRatingSmallButton)} document={<MyDoc />} fileName="PrivacyRatingReport.pdf">
-                                                            {({ blob, url, loading, error }) =>
-                                                                loading ? 'Loading document...' : 'Download Report PDF'
-                                                            }
-                                                        </PDFDownloadLink>
-
+                                                        { ReportPDF != null &&
+                                                            <PDFDownloadLink className={classNames(styles.button, styles.privacyRatingSmallButton)} document={<ReportPDF />} fileName="PrivacyRatingReport.pdf">
+                                                                {({ blob, url, loading, error }) =>
+                                                                    loading ? 'Loading document...' : 'Download Report PDF'
+                                                                }
+                                                            </PDFDownloadLink> 
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>

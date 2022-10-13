@@ -10,8 +10,6 @@ import classnames from "classnames";
 
 const ranks = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
-
-
 export default class ScoreDrawer { 
     rank : any;
     labelObject: LabelObject
