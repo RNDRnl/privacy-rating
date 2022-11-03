@@ -10,15 +10,15 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any}, {}> {
         var colorStyle = null
         var text = ""
         switch (this.props.score) {
-        case 0.0: 
+        case 1.0: 
             colorStyle = styles.colorA
             text ="A"
             break
-        case 1.0: 
+        case 0.0: 
             colorStyle = styles.colorD
             text ="B"
             break
-        case 2.0: 
+        case -1.0: 
             colorStyle = styles.colorG
             text ="C"
             break

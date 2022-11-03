@@ -59,11 +59,11 @@ class Embed extends Component {
 
         return (
             <div className={styles.holder} >
-                        { ReportPDF != null &&
+                        {/* { ReportPDF != null &&
                             <PDFViewer className={styles.pdfViewer}>
                                 <ReportPDF />
                             </PDFViewer> 
-                        }
+                        } */}
                         <Container>
                         <Header/>
                             <div className={styles.background}>
@@ -115,7 +115,7 @@ class Embed extends Component {
                                                     <div>Below we will point out some recommendations for you.</div>
                                                 </div>
                                                 <div>
-                                                    <div className={styles.buttonBox}>
+                                                    {/* <div className={styles.buttonBox}>
                                                         { ReportPDF != null &&
                                                             <PDFDownloadLink className={classNames(styles.button, styles.privacyRatingSmallButton)} document={<ReportPDF />} fileName="PrivacyRatingReport.pdf">
                                                                 {({ blob, url, loading, error }) =>
@@ -123,7 +123,7 @@ class Embed extends Component {
                                                                 }
                                                             </PDFDownloadLink> 
                                                         }
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                             
