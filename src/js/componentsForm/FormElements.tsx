@@ -27,6 +27,9 @@ export interface ValidPropsCategory {
 }
 
 const CardRef : any = Card;
+const NavbarRef : any = Navbar;
+const AccordionRef : any = Accordion;
+const ListGroupRef : any = ListGroup;
 
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
     static contextType = FormContext
@@ -42,14 +45,14 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
             <CardRef key={""+this.props.categoryName}>
                 <CardRef.Header>
                         <div>
-                            <Navbar.Text className={styles.headerstyle}>
+                            <NavbarRef.Text className={styles.headerstyle}>
                                     { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
                                     <Image className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
                                     }
                                     {this.props.categoryName}
-                            </Navbar.Text>
+                            </NavbarRef.Text>
                           
-                            <Navbar.Text className={styles.justifyContentEnd}>
+                            <NavbarRef.Text className={styles.justifyContentEnd}>
                                 { openState == "1" &&
                                     <div className={classnames(styles.catStatus, styles.check)}>
                                         <div className={styles.smallCircle}></div>
@@ -58,16 +61,16 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                                 { openState == "0" &&
                                     <div className={classnames(styles.catStatus, styles.cross)} ></div>
                                 }
-                            </Navbar.Text>
+                            </NavbarRef.Text>
                         </div>
                 </CardRef.Header>
-                <Accordion.Collapse eventKey={openState}>
+                <AccordionRef.Collapse eventKey={openState}>
                     <CardRef.Body>
-                        <ListGroup className={styles.listGroup} variant="flush">
+                        <ListGroupRef className={styles.listGroup} variant="flush">
                             {this.props.children}
-                        </ListGroup>
+                        </ListGroupRef>
                     </CardRef.Body>
-                </Accordion.Collapse>
+                </AccordionRef.Collapse>
             </CardRef>
         );
     }
