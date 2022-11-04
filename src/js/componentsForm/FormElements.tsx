@@ -30,6 +30,11 @@ const CardRef : any = Card;
 const NavbarRef : any = Navbar;
 const AccordionRef : any = Accordion;
 const ListGroupRef : any = ListGroup;
+const ImageRef : any = Image;
+const OverlayTriggerRef : any = OverlayTrigger;
+const PopoverRef : any = Popover;
+const InputGroupRef : any = InputGroup;
+const FormControlRef : any = FormControl;
 
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
     static contextType = FormContext
@@ -47,7 +52,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                         <div>
                             <NavbarRef.Text className={styles.headerstyle}>
                                     { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
-                                    <Image className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
+                                    <ImageRef className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
                                     }
                                     {this.props.categoryName}
                             </NavbarRef.Text>
@@ -183,24 +188,24 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
             var help = help_info.help_info[1];
             
             return(
-                <OverlayTrigger             
+                <OverlayTriggerRef             
                     trigger={"click"} 
                     key={'bottom'}
                     placement={'bottom'}
                     rootClose
                     overlay={
-                    <Popover className={styles.popOver}  id={`popover-positioned-bottom`}>
-                        <Popover.Title as="h3">{helpTitle}</Popover.Title>
-                        <Popover.Content  >
+                    <PopoverRef className={styles.popOver}  id={`popover-positioned-bottom`}>
+                        <PopoverRef.Title as="h3">{helpTitle}</PopoverRef.Title>
+                        <PopoverRef.Content  >
                             {help}
-                        </Popover.Content>
-                    </Popover>
+                        </PopoverRef.Content>
+                    </PopoverRef>
                     }
                 >
                     <button className={styles.helpButton} type="button">
                         Help
                     </button>
-                </OverlayTrigger>
+                </OverlayTriggerRef>
             )
         }
 
@@ -219,7 +224,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                     { isPrefilled == false &&
                     <div>
                         { this.props.eventKey == "0" && 
-                            <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                            <ListGroupRef.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
                                     <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
@@ -229,10 +234,10 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                         }
                                     </div>
                                 </div>
-                            </ListGroup.Item>
+                            </ListGroupRef.Item>
                         }
                         { this.props.eventKey != "0" && showSecondQuestion &&
-                            <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                            <ListGroupRef.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
                                     <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
@@ -242,19 +247,19 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                         }
                                     </div>
                                 </div>
-                            </ListGroup.Item>
+                            </ListGroupRef.Item>
                         }
                         </div>
                     }
                     {/* { this.props.eventKey == "0" && isPrefilled == true &&
-                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                        <ListGroupRef.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
                              <div className={classnames(styles.question, styles.prefilled)}>
                                  <div className={styles.questionText}>{this.props.question}</div>
                                  <div className={styles.answerContainer}>
                                      {this.props.children}
                                  </div>
                              </div>
-                         </ListGroup.Item>
+                         </ListGroupRef.Item>
                     } */}
             </div>
         );
@@ -314,24 +319,24 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
         const buttonIndex = (!Form.validUrl) ? (0) : 1
 
         return (
-            <ListGroup.Item key={""+this.props.eventKey}>
+            <ListGroupRef.Item key={""+this.props.eventKey}>
                     <div className={styles.question}>
                         <div className={styles.questionText} >
                             {this.props.prompt}
                         </div>
                     </div>
-                    <InputGroup className={classnames(styles.urlInput, "mb-3")} >
-                        <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon3">
+                    <InputGroupRef className={classnames(styles.urlInput, "mb-3")} >
+                        <InputGroupRef.Prepend>
+                        <InputGroupRef.Text id="basic-addon3">
                             https://
-                        </InputGroup.Text>
-                        </InputGroup.Prepend>
-                        <FormControl onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
-                    </InputGroup>
+                        </InputGroupRef.Text>
+                        </InputGroupRef.Prepend>
+                        <FormControlRef onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
+                    </InputGroupRef>
                         <div className={styles.answerContainer}>
                             {this.props.children[buttonIndex]}
                         </div>
-            </ListGroup.Item>
+            </ListGroupRef.Item>
         );
     }
 }
