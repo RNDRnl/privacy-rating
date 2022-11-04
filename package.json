@@ -19,7 +19,7 @@
     "@react-pdf/renderer": "^3.0.0",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.1",
-    "@types/react": "17",
+    "@types/react": "18.0.25",
     "@types/react-bootstrap": "^0.32.31",
     "@types/react-dom": "^16.9.5",
     "@types/react-pdf": "^5.7.2",
