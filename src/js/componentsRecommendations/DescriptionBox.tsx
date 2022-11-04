@@ -1,7 +1,7 @@
 import * as React from "react";
 const styles = require("./DescriptionBox.scss");
 import {Image} from "react-bootstrap";
-
+const ImageRef : any = Image;
 
 type BoxState = {
     unfolded?: boolean 
@@ -82,7 +82,7 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
                     <div className={styles.label__column}>                               
                         <div>{this.props.sectionText}
                             {foldable &&
-                                <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
+                                <ImageRef className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
                             }
                         </div>
                         {foldable &&                       

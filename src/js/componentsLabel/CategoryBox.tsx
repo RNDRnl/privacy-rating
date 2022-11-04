@@ -7,6 +7,8 @@ type LabelState = {
     timer: NodeJS.Timeout
 }
 
+const ImageRef : any = Image;
+
 class CategoryBox extends React.Component<{rating:any, categoryName:any, children:any}, LabelState> {
     static contextType = LabelContext
 
@@ -103,8 +105,8 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 >
                 <div className={styles.label}>
                     {this.props.categoryName}
-                    <Image className={styles.icon} src={iconGIF} fluid />
-                    <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
+                    <ImageRef className={styles.icon} src={iconGIF} fluid />
+                    <ImageRef className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
                     {this.props.children}
                 </div>
             </div>
