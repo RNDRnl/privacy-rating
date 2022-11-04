@@ -26,6 +26,8 @@ export interface ValidPropsCategory {
     availableIf: String;
 }
 
+const CardRef : any = Card;
+
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
     static contextType = FormContext
     
@@ -37,8 +39,8 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
         // console.log(this.props.categoryName.toLowerCase(), openState)
 
         return (
-            <Card key={""+this.props.categoryName}>
-                <Card.Header>
+            <CardRef key={""+this.props.categoryName}>
+                <CardRef.Header>
                         <div>
                             <Navbar.Text className={styles.headerstyle}>
                                     { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
@@ -58,15 +60,15 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                                 }
                             </Navbar.Text>
                         </div>
-                </Card.Header>
+                </CardRef.Header>
                 <Accordion.Collapse eventKey={openState}>
-                    <Card.Body>
+                    <CardRef.Body>
                         <ListGroup className={styles.listGroup} variant="flush">
                             {this.props.children}
                         </ListGroup>
-                    </Card.Body>
+                    </CardRef.Body>
                 </Accordion.Collapse>
-            </Card>
+            </CardRef>
         );
     }
 }
