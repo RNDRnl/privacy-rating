@@ -1,7 +1,6 @@
 import * as React from "react";
 import {LabelObject, Section } from "../../state/Logic";
 const styles = require("./ReportPDF.scss");
-import classnames from "classnames";
 import { PDFViewer, PDFDownloadLink, Page, Text, View, Document, StyleSheet, Svg, Image, Path, G } from '@react-pdf/renderer';
 
 // /////////
