@@ -13,7 +13,7 @@ import {
 const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
 import classnames from "classnames";
-import Rating from "../../state/Rating"
+import Rating, { NameRule } from "../../state/Rating"
 
 // //////////////
 // Category
@@ -165,10 +165,11 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
     }
     
     render() {
-        const { checkForm } = this.context as any;
+        const { checkForm, getDataTypeNaming } = this.context as any;
 
         // check!
         var handle = this.props.sectionName
+        var dataTypeNaming = getDataTypeNaming()
         
         var tempCheck = `${handle}_a`
         var showSecondQuestion = false
@@ -210,13 +211,11 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         }
 
         function RenderQuestionText(value) {
-
-            var filledString = value.question.replace("##dataTypeNaming##", "<u>relevant word</u>")
+            var filledString = value.question.replace("##dataTypeNaming##", `${dataTypeNaming}`)
 
             return(
                 <span>{filledString}</span>
             )
-
         }
 
         return (
@@ -298,16 +297,14 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 
     handleChange(event) {
         const { Form, updateFormMultiple } = this.context as any;
-                
-        updateFormMultiple(
-            this.props.formRef,
-            event.target.value,
-            'validUrl',
-            this.validURL(event.target.value), 
-            "",
-            "",
-            false
-        )
+        
+        const obj = {}
+        obj[`${this.props.formRef}`] = event.target.value
+        obj[`validUrl`] = this.validURL(event.target.value)
+        obj[``] = ``
+        obj[`checkHash`] = false
+
+        updateFormMultiple(obj)
     }
 
     handleClick() {
@@ -349,10 +346,11 @@ export interface ValidPropsAnswer {
     formRef : String;
     senderRef: String; 
     answer: Rating;
+    nameRule: NameRule;
     eventKey: string;
 }
 
-export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
+export class FormAnswer extends React.Component<ValidPropsAnswer, {}> {
     static contextType = FormContext
 
     constructor(props: any) {
@@ -362,23 +360,28 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
 
     handleClick(e) {
         const { updateFormMultiple } = this.context as any;
-        updateFormMultiple(
-            this.props.formRef, 
-            this.props.answer,
-            'lastSender',
-            this.props.senderRef,
-            "scrollTarget", 
-            e.pageY
-        );
+
+        const obj = {}
+        obj[`${this.props.formRef}`] = this.props.answer
+        obj[`lastSender`] = this.props.senderRef
+        obj[`scrollTarget`] = e.pageY
+        if(this.props.nameRule != undefined) {
+            obj[`${this.props.nameRule.handle}`] = this.props.nameRule.value
+        }
+        
+        updateFormMultiple(obj)
     }
 
     render() {
         const { checkForm } = this.context as any;
 
-        function CustomToggle({ className, answer, handleClick }) {
+        function CustomToggle({ className, answer, nameRule, handleClick }) {
             return (
                 <button className={className} type="button" onClick={handleClick.handleClick} >
                     {answer.label}
+                    {/* {nameRule != null &&
+                        <div>{nameRule.value}</div>
+                    } */}
                 </button>
             );
         }
@@ -392,7 +395,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
         }
 
         return (
-            <CustomToggle className={classToUse} answer={this.props.answer}  handleClick={this} />           
+            <CustomToggle className={classToUse} answer={this.props.answer} nameRule={this.props.nameRule} handleClick={this} />           
         );
     }
 }

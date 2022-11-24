@@ -44,9 +44,12 @@ export default class Rating {
 }
 
 export class NameRule {
+    handle: String
+    value: String
     
-    constructor(handle: String, value: String) {
-        console.log(String, value)
+    constructor(_handle: String, _value: String) {
+        this.handle = _handle;
+        this.value = _value;
     }
     
 }

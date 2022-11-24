@@ -73,12 +73,33 @@ class FormProvider extends Component {
 
         lastSender: null,
         
-        dataTypeNaming: "not set"
+        dataTypeNaming: "not set",
+
+        // onlyCollectsAnonymousData: false, on hold
+        // dataStored: false
       }      
     }
 
+    // checkIfOnlyCollectsAnonymousData = () => { // on hold
+    //   console.log(this.state.Form.collection_0_a);
+    //   if(this.state.Form.collection_0_a != null && this.state.Form.collection_0_b != null) {
+    //   let onlyCollectsAnonymousDataStatus = this.state.Form.collection_0_a.label == "No" && this.state.Form.collection_0_b.label == "No"
+    //     this.setState({ 
+    //       Form : {
+    //           ...this.state.Form,
+    //           onlyCollectsAnonymousData: onlyCollectsAnonymousDataStatus
+    //       }
+    //     });
+    //   }
+    // }
+
+    // checkIfDataStored = () => {
+
+    // }
+
     checkMenuState = () => {
         var that = this;
+        console.log("checkMenuState")
         
         var lastSenderIndex = this.state.Form.form_order.indexOf(this.state.Form.lastSender)
         var count = 0
@@ -122,6 +143,11 @@ class FormProvider extends Component {
             }
       }
 
+       // exceptions
+      //  this.checkIfOnlyCollectsAnonymousData(); // on hold  
+      //  this.checkIfDataStored(); 
+
+
     }
 
     completeStep = (openTarget) => {
@@ -148,38 +174,23 @@ class FormProvider extends Component {
       });
     }
 
-    updateFormMultiple = (ref1, value1, ref2, value2, ref3, value3, checkHash = true) => {
-      console.log("update multiple", ref1, value1, ref2, value2, ref3, value3, checkHash);
-      let that = this;
-      
-      // exceptions ( max 2 )
-      var ref4 = null
-      var value4 = null
-      var ref5 = null
-      var value5 = null
-      if(typeof value1.exceptions !== 'undefined') { // ?
-        ref4 = value1.exceptions[0].label
-        value4 = value1.exceptions[0].rating
-        if(value1.exceptions.length > 1) {
-          ref5 = value1.exceptions[1].label
-          value5 = value1.exceptions[1].rating
+    updateFormMultiple = (...props) => {
+        var obj = {
+            ...props[0]
         }
-      }
-    
-      this.setState({ 
-        Form : {
-            ...this.state.Form,
-            [ref1]: value1,
-            [ref2]: value2,
-            [ref3]: value3,
-            [ref4]: value4,
-            [ref5]: value5
-        }
-      }, function() {
-          if(checkHash) {
-            that.checkHash();
-          }
-      });
+
+        var checkHash = !('checkHash' in obj && obj.checkHash == false)
+           
+        this.setState({
+            Form: {
+                ...this.state.Form, 
+                ...obj
+            }
+        }, () => {
+            if(checkHash) {
+              this.checkHash();
+            }
+        });
     }
 
     checkHash = () => {
@@ -196,6 +207,10 @@ class FormProvider extends Component {
       }, function(params) {
         that.checkMenuState();
       })
+    }
+
+    getDataTypeNaming = () => {
+      return this.state.Form.dataTypeNaming;
     }
 
     checkForm = (ref) => {
@@ -227,13 +242,14 @@ class FormProvider extends Component {
     render() {
       const { children } = this.props
       const { Form } = this.state
-      const { updateForm, checkForm, updateFormMultiple } = this
+      const { updateForm, getDataTypeNaming, checkForm, updateFormMultiple } = this
   
       return (
         <FormContext.Provider
           value={{
             Form,
             updateForm,
+            getDataTypeNaming,
             checkForm,
             updateFormMultiple
           }}

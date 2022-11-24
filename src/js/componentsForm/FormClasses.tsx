@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormCategory, FormSection, FormQuestion, FormAnser, FormPrompt } from "./FormElements"
+import { FormCategory, FormSection, FormQuestion, FormAnswer, FormPrompt } from "./FormElements"
 import Rating, { NameRule } from "../../state/Rating"
 
 export default class Form { 
@@ -144,7 +144,7 @@ export class Answer {
 
     getTag = (_index:String) => {
         return (
-            <FormAnser key={""+_index} formRef={this.formRef} senderRef={this.senderRef} eventKey={""+_index} answer={this.answer} />
+            <FormAnswer key={""+_index} formRef={this.formRef} senderRef={this.senderRef} eventKey={""+_index} answer={this.answer} nameRule={this.nameRule} />
         )
     }
     constructor(_formRef: string, _senderRef:String, _answer?: Rating, _nameRule?: NameRule) { 
