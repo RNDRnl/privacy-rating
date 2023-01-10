@@ -39,6 +39,13 @@
     }
 }
 
+.prefilled {
+    background-color: grey;
+    border-radius: 5px !important;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .headerstyle {
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     font-size: 22pt;

@@ -103,12 +103,12 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
         var handle = currentName.substring(0, currentName.length - 2);
         var numberRef = parseInt(this.props.eventKey) - 1;
 
-        var checkPrefilled = checkForm(`${handle}_${numberRef}_a`);
-        if(checkPrefilled != null) {
-            if(checkPrefilled.prefilled) {
-                numberRef = numberRef -1;
-            }
-        }
+        // var checkPrefilled = checkForm(`${handle}_${numberRef}_a`);
+        // if(checkPrefilled != null) {
+        //     if(checkPrefilled.prefilled) {
+        //         numberRef = numberRef - 1;
+        //     }
+        // }
         
         var validA = false
         var validB = false
@@ -134,9 +134,12 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                         {this.props.children}
                     </div>
                 }
-                { this.props.eventKey != "0" && isValid && 
+                { this.props.eventKey != "0" && isValid &&
                     <div>
-                        {this.props.children}
+                        {/* <div>xx {handle} eventKey:{this.props.eventKey} numberRef:{numberRef}</div> */}
+                        <div>
+                            {this.props.children}
+                        </div>
                     </div>
                 }
             </div>
@@ -171,15 +174,33 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         var handle = this.props.sectionName
         var dataTypeNaming = getDataTypeNaming()
         
-        var tempCheck = `${handle}_a`
+        var tempCheckA = `${handle}_a`
+        var tempCheckB = `${handle}_b`
         var showSecondQuestion = false
-        var isPrefilled = false;
-        if(checkForm(tempCheck) instanceof Rating) {
-            if(checkForm(tempCheck).rate == null) {
-                showSecondQuestion = true;
+        
+        
+        var isPrefilled_a = false;
+        var isPrefilled_b = false;
+        
+        
+        // check if A prefilled
+        if(checkForm(tempCheckA) instanceof Rating) {
+            if(checkForm(tempCheckA).prefilled == true) {
+                isPrefilled_a = true;
             }
-            if(checkForm(tempCheck).prefilled == true) {
-                isPrefilled = true;
+        }
+
+        // check if B prefilled
+        if(checkForm(tempCheckB) instanceof Rating) {
+            if(checkForm(tempCheckB).prefilled == true) {
+                isPrefilled_b = true;
+            }
+        }
+
+        // check if show second question
+        if(checkForm(tempCheckA) instanceof Rating) {
+            if(checkForm(tempCheckA).rate == null) {
+                showSecondQuestion = true;
             }
         }
         
@@ -211,7 +232,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         }
 
         function RenderQuestionText(value) {
-            var filledString = value.question.replace("##dataTypeNaming##", `___${dataTypeNaming}___`)
+            var filledString = value.question.replace("##dataTypeNaming##", `${dataTypeNaming}`)
 
             return(
                 <span>{filledString}</span>
@@ -220,10 +241,9 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
 
         return (
                 <div>
-                    { isPrefilled == false &&
-                    <div>
-                        { this.props.eventKey == "0" && 
-                            <ListGroupRef.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                    <div>                        
+                        { this.props.eventKey == "0" && !isPrefilled_a &&
+                            <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_a ? styles.prefilled : null)} key={""+this.props.question}>
                                 <div className={styles.question}>
                                     <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
@@ -235,8 +255,8 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
-                        { this.props.eventKey != "0" && showSecondQuestion &&
-                            <ListGroupRef.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                        { this.props.eventKey != "0" && showSecondQuestion && !isPrefilled_b &&
+                            <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_b ? styles.prefilled : null)} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
                                     <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
@@ -248,18 +268,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
-                        </div>
-                    }
-                    {/* { this.props.eventKey == "0" && isPrefilled == true &&
-                        <ListGroupRef.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
-                             <div className={classnames(styles.question, styles.prefilled)}>
-                                 <div className={styles.questionText}>{this.props.question}</div>
-                                 <div className={styles.answerContainer}>
-                                     {this.props.children}
-                                 </div>
-                             </div>
-                         </ListGroupRef.Item>
-                    } */}
+                    </div>
             </div>
         );
     }
@@ -368,6 +377,15 @@ export class FormAnswer extends React.Component<ValidPropsAnswer, {}> {
         if(this.props.nameRule != undefined) {
             obj[`${this.props.nameRule.handle}`] = this.props.nameRule.value
         }
+        if( this.props.answer.preFills != undefined ) {
+            for (const [key, value] of Object.entries(this.props.answer.preFills)) {
+                console.log(key, value);
+                obj[`${value.label}`] = value.rating                
+            }
+        }
+        
+
+        console.log('answer', this.props.answer)
         
         updateFormMultiple(obj)
     }

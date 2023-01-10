@@ -130,7 +130,6 @@ const calculateScore = (elements:any) => {
         if(element == null) {
             isInvalid = true
         } else {
-            console.log(element.score)
             runningScore += element.score
         }
     });

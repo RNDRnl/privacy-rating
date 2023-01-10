@@ -99,7 +99,6 @@ class FormProvider extends Component {
 
     checkMenuState = () => {
         var that = this;
-        console.log("checkMenuState")
         
         var lastSenderIndex = this.state.Form.form_order.indexOf(this.state.Form.lastSender)
         var count = 0
@@ -147,6 +146,7 @@ class FormProvider extends Component {
       //  this.checkIfOnlyCollectsAnonymousData(); // on hold  
       //  this.checkIfDataStored(); 
 
+      console.log(this.state.Form)
 
     }
 

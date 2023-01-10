@@ -1,5 +1,5 @@
 import Form, { Category, Section, Question, Prompt, Answer} from "./FormClasses"
-import Rating, { Exception, NameRule } from "../../state/Rating";
+import Rating, { preFill, NameRule } from "../../state/Rating";
 
 var FormConfig = new Form([
     
@@ -74,14 +74,32 @@ var FormConfig = new Form([
                         [
                             new Answer( "collection_0_b", "collection",
                                 new Rating( "Yes", "B", [
-                                        new Exception("security_1_a", null) 
+                                        new preFill("collection_1_a", null),
+                                        new preFill("collection_1_b", null),                                        
+                                        new preFill("collection_2_a", null),
+                                        new preFill("collection_2_b", null),
+                                        new preFill("sharing_0_a", null),
+                                        new preFill("sharing_1_a", null),
+                                        new preFill("control_1_a", null),
+                                        new preFill("control_2_a", null),      
+                                        new preFill("security_1_a", null),                                                                               
                                     ]
                                 ),
                                 new NameRule("dataTypeNaming", "personal")
                             ),
                             new Answer( "collection_0_b", "collection",
                                 new Rating( "No", "A", [
-                                        new Exception("security_1_a", new Rating("Yes", "A").makePrefilled())                                                               
+                                        new preFill("collection_1_a", new Rating("No", null).makePrefilled()),
+                                        new preFill("collection_1_b", new Rating("No", "A").makePrefilled()),                                        
+                                        new preFill("collection_2_a", new Rating("Yes", null).makePrefilled()),
+                                        new preFill("collection_2_b", new Rating("Yes", "A").makePrefilled()),
+                                        new preFill("sharing_0_a", new Rating("No", null).makePrefilled()),
+                                        new preFill("sharing_1_a", new Rating("No", null).makePrefilled()),
+                                        new preFill("control_1_a", new Rating( "Yes", "A").makePrefilled()),
+                                        new preFill("control_2_a", new Rating( "Yes", "A").makePrefilled()),    
+                                        new preFill("security_1_a", new Rating( "Yes", "A").makePrefilled()),    
+                                        
+                                        
                                     ]
                                 ),
                                 new NameRule("dataTypeNaming", "anonymous")
@@ -138,14 +156,14 @@ var FormConfig = new Form([
                         [
                             new Answer( "collection_2_b", "collection",
                                 new Rating( "Yes", "A", [
-                                    new Exception("control_1_a", new Rating("Yes", "A").makePrefilled()),
-                                    new Exception("control_2_a", new Rating("Yes", "A").makePrefilled())                                
+                                    new preFill("control_1_a", new Rating( "Yes", "A").makePrefilled()),
+                                    new preFill("control_2_a", new Rating( "Yes", "A").makePrefilled()),
                                 ])
                             ),
                             new Answer( "collection_2_b", "collection",
-                                new Rating( "No", "B", [
-                                    new Exception("control_1_a",null),
-                                    new Exception("control_2_a",null)                                
+                                new Rating( "No", "B", [    
+                                    new preFill("control_1_a", null),
+                                    new preFill("control_2_a", null),            
                                 ])
                             )
                         ],
@@ -314,7 +332,7 @@ var FormConfig = new Form([
                                 new Rating( "Yes", "A")
                             ),
                             new Answer( "control_2_a", "control",
-                            new Rating( "No", null)
+                                new Rating( "No", null)
                             )
                         ],
                         "",
