@@ -79,25 +79,25 @@ const AboutDisc = {
     control_01: new ToolTipDescription(
         "Level of control over data collection (skipped and +1 point if only anonymous data is collected)",
         [
-            new Bullet("-1", true, "Must opt-in for collection of personal data", ""),
-            new Bullet("0", true, "Can opt-out of personal data collection", ""),
-            new Bullet("+1", true, "Cannot opt-out of personal data collection", "")
+            new Bullet("-1", true, "Must opt-in for collection of ##dataTypeNaming## data", ""),
+            new Bullet("0", true, "Can opt-out of ##dataTypeNaming## data collection", ""),
+            new Bullet("+1", true, "Cannot opt-out of ##dataTypeNaming## data collection", "")
         ]
     ),
     control_02: new ToolTipDescription(
         "Right to be forgotten (skipped and +1 point if only anonymous data is collected or if data is not stored)",
         [
-            new Bullet("-1", true, "Personal data cannot be removed", ""),
-            new Bullet("0", true, "Personal data hidden upon request", ""),
-            new Bullet("+1", true, "Personal data removed upon request", "")
+            new Bullet("-1", true, "##dataTypeNaming## data cannot be removed", ""),
+            new Bullet("0", true, "##dataTypeNaming## data hidden upon request", ""),
+            new Bullet("+1", true, "##dataTypeNaming## data removed upon request", "")
         ]
     ),
     control_03: new ToolTipDescription(
         "Correctness of user data (skipped and +1 point if only anonymous data is collected or if data is not stored)",
         [
-            new Bullet("-1", true, "Personal data cannot be corrected", ""),
-            new Bullet("0", true, "Some personal data can be corrected", ""),
-            new Bullet("+1", true, "All personal can be corrected", "")
+            new Bullet("-1", true, "##dataTypeNaming## data cannot be corrected", ""),
+            new Bullet("0", true, "Some ##dataTypeNaming## data can be corrected", ""),
+            new Bullet("+1", true, "All ##dataTypeNaming## can be corrected", "")
         ]
     ),
 

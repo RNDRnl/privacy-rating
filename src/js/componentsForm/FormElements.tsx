@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
-import classnames from "classnames";
+const classnames = require("classnames");
 import Rating, { NameRule } from "../../state/Rating"
 
 // //////////////
@@ -211,7 +211,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         }
 
         function RenderQuestionText(value) {
-            var filledString = value.question.replace("##dataTypeNaming##", `${dataTypeNaming}`)
+            var filledString = value.question.replace("##dataTypeNaming##", `___${dataTypeNaming}___`)
 
             return(
                 <span>{filledString}</span>

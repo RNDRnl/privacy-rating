@@ -15,7 +15,7 @@ export class LabelObject {
     rank: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
     categories: Category[] = new Array();
     domain: String;
-    year: 2020;
+    year: Number = new Date().getFullYear();
     calculateRank() {
         this.rank = scoreToRank(this.score);
     }
@@ -41,10 +41,6 @@ class Category {
         this.sections = _sections;
         this.calculateRank();
     }
-}
-
-const mapRange = (value:any, low1:any, high1:any, low2:any, high2:any) => {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 }
 
 const mapToRank = (value:any) => {
@@ -289,15 +285,35 @@ const covertDomain = (domain:any) => {
     return domain.replace("**", ".")
 }
 
+const replaceDataType = (text:any, dataType:any) => {
+    return capatalize(text.replace("##dataTypeNaming##", `${dataType}`))
+}
+
+const getDataType = (firstHashChar:any) => {
+    switch(firstHashChar) {
+        case "L":
+            return "sensitive" // C
+        case "R":
+            return "personal" // B
+        case "P":
+            return "anonymous" // A
+    }
+}
+
+const capatalize = (text:any) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 const HashToLabelState = (labelHash:any) => {
     
     var characters = labelHash.hash.split("")
     var sections = [];
+    var dataType = getDataType(characters[0]);
     characters.forEach(function(char, index) {
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
         var resultRating = RatingConfig[targetPath];
         var resultRecommendation = RecommendationsConfig[targetPath];
-        var section = new Section(resultRating.score, resultRating.text, resultRating.ranked, resultRecommendation.text);
+        var section = new Section(resultRating.score, replaceDataType(resultRating.text, dataType), resultRating.ranked, resultRecommendation.text);
         sections.push(section);
     })
 

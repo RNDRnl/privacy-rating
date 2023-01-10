@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from './Label.scss';
 import LabelContext from '../../state/LabelContext'
-import { LabelTag } from "./LabelClasses";
 
 class Frame extends Component {  
   static contextType = LabelContext

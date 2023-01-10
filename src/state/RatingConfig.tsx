@@ -28,17 +28,17 @@ const RatingConfig = {
     sharing_2_P: new RatingLabel(1.0,"Legally required disclosure to local law enforcement", true), 
    
     // control
-    control_0_L: new RatingLabel(-1.0,"Cannot opt-out of personal data collection", true),
-    control_0_R: new RatingLabel(0.0,"Can opt-out of personal data collection", true),
-    control_0_P: new RatingLabel(1.0,"Must opt-in for collection of personal data", true),
+    control_0_L: new RatingLabel(-1.0,"Cannot opt-out of ##dataTypeNaming## data collection", true),
+    control_0_R: new RatingLabel(0.0,"Can opt-out of ##dataTypeNaming## data collection", true),
+    control_0_P: new RatingLabel(1.0,"Must opt-in for collection of ##dataTypeNaming## data", true),
     
-    control_1_L: new RatingLabel(-1.0,"Personal data cannot be removed", true),  
-    control_1_R: new RatingLabel(0.0,"Personal data hidden upon request", true),
-    control_1_P: new RatingLabel(1.0,"Personal data removed upon request", true),
+    control_1_L: new RatingLabel(-1.0,"##dataTypeNaming## data cannot be removed", true),  
+    control_1_R: new RatingLabel(0.0,"##dataTypeNaming## data hidden upon request", true),
+    control_1_P: new RatingLabel(1.0,"##dataTypeNaming## data removed upon request", true),
     
-    control_2_L: new RatingLabel(-1.0,"personal data cannot be corrected", true),
-    control_2_R: new RatingLabel(0.0,"Some personal data can be corrected", true),
-    control_2_P: new RatingLabel(1.0,"All personal data can be corrected", true),  
+    control_2_L: new RatingLabel(-1.0,"##dataTypeNaming## data cannot be corrected", true),
+    control_2_R: new RatingLabel(0.0,"Some ##dataTypeNaming## data can be corrected", true),
+    control_2_P: new RatingLabel(1.0,"All ##dataTypeNaming## data can be corrected", true),  
     
     // security
     security_0_L: new RatingLabel(-1.0,"No security certification or beste practire", true),

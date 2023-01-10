@@ -202,7 +202,7 @@ var FormConfig = new Form([
                         "According to Article 4 of the GDPR",
                         "Personal data is information related or relating to an identified or identifiable natural person. This includes: name and surname, home address, email address, identification card number, location data, and Internet Protocol (IP) address. Sale includes exchanging data for money, compensation, or assets."
                     ),
-                    new Question( "Is any anonymized user data ever sold by the service provider?",
+                    new Question( "Is any ##dataTypeNaming## user data ever sold by the service provider?",
                         [
                             new Answer( "sharing_1_b", "sharing",
                                 new Rating( "Yes", "B")
@@ -351,7 +351,7 @@ var FormConfig = new Form([
                     "",
                     "The service provider must be able to provide a valid certification by a recognized auditor."
                 ),
-                new Question( "Was the service developed and tested in compliance with recognized and relevant standarts and the OWASP Security Testing Guide?",
+                new Question( "Was the service developed and tested in compliance with recognized and relevant standards, such as the OWASP Top 10 standard and the OWASP Security Testing Guide?",
                     [
                         new Answer( "security_0_b",  "security",
                             new Rating( "Yes", "B")

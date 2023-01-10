@@ -10,7 +10,7 @@ class Footer extends React.Component<{domain:any, year:any}, {}> {
                     <a >{this.props.domain}</a>
                 </div>
                 <div className={styles.year}>
-                    <a >2020</a>
+                    <a >{this.props.year}</a>
                 </div>
                 <div className={styles.license}>
                     <License/>

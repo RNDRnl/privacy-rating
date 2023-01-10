@@ -56,6 +56,8 @@ export class LabelCategoryElement extends React.Component<ValidPropsCategory, {}
         }
 }
 
+
+
 export interface ValidPropsSection { 
     sectionText: String;
     score: any;

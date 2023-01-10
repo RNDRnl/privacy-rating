@@ -2,7 +2,7 @@
 import * as React from "react";
 import {LabelObject, Section } from "../../state/Logic";
 const styles = require("./ScoreDrawer.scss");
-import classnames from "classnames";
+const classnames = require("classnames");
 
 // /////////
 // Score Renderer
