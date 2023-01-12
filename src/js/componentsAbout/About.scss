@@ -22,12 +22,12 @@
     border:solid 1px rgba(gray, 0.2);
     display: inline-block;
     text-align: center;
-    &[data-score="-1"] {
-      background-color:  rgba(red, 0.2);
-    }
-    &[data-score="+1"] {
-      background-color:  rgba(#2EA952, 0.2);
-    }
+    // &[data-score="-1"] {
+    //   background-color:  rgba(red, 0.2);
+    // }
+    // &[data-score="+1"] {
+    //   background-color:  rgba(#2EA952, 0.2);
+    // }
   }
 }
 

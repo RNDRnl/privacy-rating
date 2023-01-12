@@ -13,7 +13,6 @@ interface CssExports {
   'rank': string;
   'rankContainer': string;
   'result': string;
-  'resultBox': string;
   'resultBoxHeader': string;
   'selected': string;
   'title': string;

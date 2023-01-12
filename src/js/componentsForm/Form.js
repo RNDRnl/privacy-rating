@@ -51,10 +51,11 @@ class FormView extends Component {
 
         var domain = '';
         if( Form.generatedHash != null) { 
-            if(Form.domainSubmit.rate == "show") {
+            if(Form.validUrl) {
                 domain = `/${Form.domain.replace(".", "**")}`;
             }
         }
+
 
         return (
                 <div>

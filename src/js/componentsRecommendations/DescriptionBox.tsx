@@ -75,12 +75,23 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
         return (
             <div className={classBox} onClick={() => this.handleClick()}>
                 <div className={styles.label}>
+
+                    <div className={styles.label__column}>
+                        {this.props.ranked ? (
+                            <div>{this.props.score} Point</div>
+                        ) : (
+                            <div>Not scored</div>
+                        )}
+                    </div> 
+
+
                     <div className={styles.label__column}>
                         <div className={classDots}/>
                     </div>
 
                     <div className={styles.label__column}>                               
-                        <div>{this.props.sectionText}
+                        <div>
+                            {this.props.sectionText}
                             {foldable &&
                                 <ImageRef className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
                             }
@@ -89,13 +100,7 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
                             <div className={styles.recommendationText}>{this.props.recommendationText}</div>
                         }
                     </div>
-                    <div className={styles.label__column}>
-                        {this.props.ranked ? (
-                            <div>{this.props.score} Point</div>
-                        ) : (
-                            <div>Not scored</div>
-                        )}
-                    </div>                    
+                                       
                 </div>
             </div>
         );

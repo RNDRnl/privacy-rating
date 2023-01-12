@@ -32,7 +32,7 @@ export default class ScoreDrawer {
                 
                 <div className={styles.resultBoxHeader}>
                     <div className={styles.title}>Privacy rating score {this.rank}</div>
-                    <div className={styles.result}>{this.labelObject.score} Points</div>
+                    <div className={styles.result}>{this.labelObject.score} { (this.labelObject.score == 1 || this.labelObject.score == -1) ? `Point` : `Points` }</div>
                 </div>
 
                 <div className={styles.rankContainer}>

@@ -7,7 +7,7 @@ var FormConfig = new Form([
     new Category( "Checklist", "loaded",
         [ new Section( "checklist_0",
                 [ 
-                    new Question( "To fill in this form, you must have knowledge of the following: \n ✓ What kind of user data is collected and for what purpose. \n ✓ Where user data is stored and for how long. \n ✓ What kind of user data is shared or sold. \n ✓ Whether users can opt‐out of data collection. \n ✓ Whether users can change or remove their data. \n ✓ Which security standards and guidelines are followed.", 
+                    new Question( "To fill in this  <a href='#'>form</a>, you must have knowledge of the following: \n ✓ What kind of user data is collected and for what purpose. \n ✓ Where user data is stored and for how long. \n ✓ What kind of user data is shared or sold. \n ✓ Whether users can opt‐out of data collection. \n ✓ Whether users can change or remove their data. \n ✓ Which security standards and guidelines are followed.", 
                         [ 
                             new Answer( "checklist", "checklist", 
                                 new Rating("Continue", null),

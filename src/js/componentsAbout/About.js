@@ -6,6 +6,9 @@ import Footer from "../Footer";
 import { AboutDisc } from "./AboutDisc";
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
+import Label from '../componentsLabel/Label';
+import ScoreDrawer from '../componentsScoreDrawer/ScoreDrawer';
+import { LabelProvider } from '../../state/LabelContext'
 
 
 const initialFormState = {
@@ -33,6 +36,12 @@ const About = () => {
         var disc = content.content[1];
         var placement = content.content[2];
 
+ 
+        
+
+
+
+
         
         return(
             <OverlayTrigger             
@@ -50,7 +59,7 @@ const About = () => {
                                                 ? <span className={styles.score} data-score={item.score} >
                                                     {item.score} 
                                                     { item.score == "0"
-                                                     ? <span> point</span>
+                                                     ? <span> points</span>
                                                      : <span> point</span>
                                                     }
                                                   </span> 
@@ -127,7 +136,7 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                                        <iframe src={`${process.env.BASE_PATH}/#/PPPPPRPRRLRR`}
+                                        <iframe src={`${process.env.BASE_PATH}/#/PPPPPRPRRLRR/privacyrating**info`}
                                                 top="0"
                                                 left="0"
                                                 width="430pt"
@@ -161,12 +170,15 @@ const About = () => {
                         <div className={styles.text}>
                             <div>
                                 <h4>How does it work?</h4>
+                                
+                                <p>The privacy rating is based on an assessment of 12 different aspects of data handling, spanning four areas: Collection, Sharing, Control and Security. These attributes are scored on a three-point scale: Good (+1 point), Neutral (0 points), or Poor (-1 point).</p>
+{/*                                 
                                 <p>
                                 The system rates 12 different aspects of data
                                 handling from good to bad. These are grouped into
                                 four main categories: <br/>
                                 Together, the attributes determine the privacy class (A-to-G) of the online service.
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     </Row>
@@ -175,15 +187,15 @@ const About = () => {
                         <div className={styles.categories}>
                             <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/collection.gif`}/>
                             <h5>COLLECTION</h5>
-                            <div className={styles.colouredDots}/>                                
+                            {/* <div className={styles.colouredDots}/>                                 */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["What kind of user data is collected?", AboutDisc['collection_01'], "right"]} />
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["For which purpose is user data collected?", AboutDisc['collection_02'], "right"]} />
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["How long is user data stored?", AboutDisc['collection_03'], "right"]} />                               
                             </p>
@@ -191,15 +203,15 @@ const About = () => {
                         <div className={styles.categories}>
                             <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/sharing.gif`}/>
                             <h5>SHARING</h5>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>                               
                                 <OverLayTriggerView  content={["What kind of user data is shared?", AboutDisc['sharing_01'], "left"]} />
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>                                
                                 <OverLayTriggerView  content={["Is any user data sold?", AboutDisc['sharing_02'], "left"]} />
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={[" Is data disclosed to authorities?", AboutDisc['sharing_03'], "left"]} />                               
                             </p>
@@ -210,15 +222,15 @@ const About = () => {
                     <div className={styles.categories}>
                             <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/control.gif`}/>
                             <h5>CONTROL</h5>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["Can the user decide whether to share the data?", AboutDisc['control_01'], "right"]} />                                      
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["Can the user request that their data is removed?", AboutDisc['control_02'], "right"]} />                                      
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["Can the user amend his/her data?", AboutDisc['control_03'], "right"]} />                                      
                             </p>
@@ -227,30 +239,48 @@ const About = () => {
                         <div className={styles.categories}>
                             <Image className={styles.icon} src={`${process.env.BASE_PATH}/resources/icons/security.gif`}/>
                             <h5>SECURITY</h5>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["How secure is the service?", AboutDisc['security_01'], "left"]} /> 
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["Does the service provider anonymize data?", AboutDisc['security_02'], "left"]} /> 
                             </p>
-                            <div className={styles.colouredDots}/>
+                            {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
                                 <OverLayTriggerView  content={["Is the service provider liable for breaches?", AboutDisc['security_03'], "left"]} /> 
                             </p>
                         </div>
                     </div>
+
+
+                    <Row>
+                        <div className={styles.text}>
+                            <div>
+                                <br />
+
+                                <p>The total score determines the privacy class (A-to-G) of the online service:</p>
+                            </div>
+                        </div>
+                    </Row>
+
+
+                    {/* <div className={styles.categoriesContainer}>                   
+                        <LabelProvider>
+                            <Label labelId={"PPPPPRPRRLRR"} domain={"privacyrating**info"} />
+                            <ScoreDrawer  />
+                        </LabelProvider>
+                    </div> */}
+
                    
-                    {/* <hr className={styles.hr} /> */}
+                    <hr className={styles.hr} />
                     
                     <Row>
                     
-                    <div className={styles.text}>
-                    
+                    <div className={styles.text}>                    
                             <div>
                             <br/>
-                    
                                 <h4 className={styles}>Downloads</h4>
                             </div>
                     </div>
@@ -259,28 +289,28 @@ const About = () => {
                         <Col>
                             <div className={styles.downloadHandle}>
                                 <div>
-                                    <div className={styles.pdfButton} variant="dark" href="form">ToU</div>
+                                    <div className={styles.pdfButton} variant="dark" href="form">Terms<br/>of use</div>
                                 </div>
                                 <div>
-                                    <p><b>Terms of Use</b></p>
+                                    <p><b>Terms of use</b></p>
                                     <p>
-                                        To read more about the this project click here for the Terms of Use.
+                                        By using this website you agree to our terms of use.
                                     </p>
-                                    <p><a href={`${process.env.BASE_PATH}/resources/pdf/Terms_Of_Use.pdf`}>Download ToU as a PDF</a></p>
+                                    <p><a href={`${process.env.BASE_PATH}/resources/pdf/Terms_Of_Use.pdf`}>Download</a></p>
                                 </div>
                             </div>
                         </Col>
                         <Col>
                             <div className={styles.downloadHandle}>
                                 <div>
-                                    <div className={styles.pdfButton} variant="dark" href="form">Whitepaper</div>
+                                    <div className={styles.pdfButton} variant="dark" href="form">Research <br/>  paper</div>
                                 </div>
                                 <div>
-                                    <p><b>Whitepaper</b></p>
+                                    <p><b>Research paper</b></p>
                                     <p>
-                                        To read more about the this project click here for Whitepaper.
+                                        Privacy rating is based on extensive research into privacy visualisations.
                                     </p>
-                                    <p><a href={`${process.env.BASE_PATH}/resources/pdf/Whitepaper.pdf`}>Download whitepaper as PDF</a></p>
+                                    <p><a target={'_blank'} href={`https://doi.org/10.1109/TPC.2021.3110617`}>Download article on IEEE</a></p>
                                 </div>
                             </div>
                     </Col>

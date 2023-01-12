@@ -79,25 +79,25 @@ const AboutDisc = {
     control_01: new ToolTipDescription(
         "Level of control over data collection (skipped and +1 point if only anonymous data is collected)",
         [
-            new Bullet("-1", true, "Must opt-in for collection of ##dataTypeNaming## data", ""),
-            new Bullet("0", true, "Can opt-out of ##dataTypeNaming## data collection", ""),
-            new Bullet("+1", true, "Cannot opt-out of ##dataTypeNaming## data collection", "")
+            new Bullet("-1", true, "Must opt-in for collection of data", ""), // ##dataTypeNaming##
+            new Bullet("0", true, "Can opt-out of data collection", ""), // ##dataTypeNaming##
+            new Bullet("+1", true, "Cannot opt-out of data collection", "") // ##dataTypeNaming##
         ]
     ),
     control_02: new ToolTipDescription(
         "Right to be forgotten (skipped and +1 point if only anonymous data is collected or if data is not stored)",
         [
-            new Bullet("-1", true, "##dataTypeNaming## data cannot be removed", ""),
-            new Bullet("0", true, "##dataTypeNaming## data hidden upon request", ""),
-            new Bullet("+1", true, "##dataTypeNaming## data removed upon request", "")
+            new Bullet("-1", true, "Data cannot be removed", ""), // ##dataTypeNaming##
+            new Bullet("0", true, "Data hidden upon request", ""), // ##dataTypeNaming##
+            new Bullet("+1", true, "Data removed upon request", "") // ##dataTypeNaming##
         ]
     ),
     control_03: new ToolTipDescription(
         "Correctness of user data (skipped and +1 point if only anonymous data is collected or if data is not stored)",
         [
-            new Bullet("-1", true, "##dataTypeNaming## data cannot be corrected", ""),
-            new Bullet("0", true, "Some ##dataTypeNaming## data can be corrected", ""),
-            new Bullet("+1", true, "All ##dataTypeNaming## can be corrected", "")
+            new Bullet("-1", true, "Data cannot be corrected", ""), // ##dataTypeNaming##
+            new Bullet("0", true, "Some data can be corrected", ""), // ##dataTypeNaming##
+            new Bullet("+1", true, "All data can be corrected", "") // ##dataTypeNaming##
         ]
     ),
 

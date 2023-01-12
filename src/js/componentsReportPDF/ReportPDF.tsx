@@ -28,6 +28,12 @@ const stylesPDF = StyleSheet.create({
       flexGrow: 1,
       backgroundColor: '#FFFFFF'
     },
+    sectionZero: {
+        margin: 0,
+        padding: 0,
+        flexGrow: 1,
+        backgroundColor: '#FFFFFF'
+    },
     sectionSmall: {
         margin: 1,
         padding: 10,
@@ -186,39 +192,39 @@ export default class ReportPDF {
 
                     <View style={stylesPDF.section}>
                         <View style={stylesPDF.pageRow}>
-                            <Text style={stylesPDF.sectionFlex1}></Text>
+                            {/* <Text style={stylesPDF.sectionFlex1}></Text> */}
                             <Text style={stylesPDF.sectionFlex1}>Privacy rating score {this.labelObject.rank}</Text>
-                            <Text style={[stylesPDF.sectionFlex1, stylesPDF.alightRight]}>{this.labelObject.score} Points</Text>
+                            <Text style={[stylesPDF.sectionFlex1, stylesPDF.alightRight]}>{this.labelObject.score} { (this.labelObject.score == 1 || this.labelObject.score == -1) ? `Point` : `Points` }</Text>
                         </View>
 
                         <View style={stylesPDF.pageRow}>
                             <Text style={stylesPDF.sectionFlex1}></Text>
                         </View>
 
-                        <View style={stylesPDF.sectionSmall}>
+                        <View style={stylesPDF.sectionZero}>
 
-                        <View style={stylesPDF.pageRow}>
-                            {ranks.map((x, i) =>
-                                <View style={[     
-                                    (x != 'A' && x != 'G') ? stylesPDF.sectionFlex1 : stylesPDF.sectionFlex13,
-                                    stylesPDF.border,   
-                                    stylesPDF.padding,          
-                                    (x == this.rank) ? stylesPDF[`color${this.labelObject.rank}Bg`] : null,
-                                    
-                                ]
-                                    } key={i}>
-                                    <Text style={stylesPDF.tinyType}>{x}</Text>
-                                </View>
-                            )}    
-                        </View>
-
-                        <View style={stylesPDF.pageRow}>
-                        {[...Array(23)].map((x, i) =>
-                            <View key={i} style={[stylesPDF.sectionFlex01, stylesPDF.border, ((11-i) == this.labelObject.score) ? stylesPDF.selected : null]} >
-                                <Text style={[stylesPDF.tinyType]}>{11-i}</Text>
+                            <View style={stylesPDF.pageRow}>
+                                {ranks.map((x, i) =>
+                                    <View style={[     
+                                        (x != 'A' && x != 'G') ? stylesPDF.sectionFlex1 : stylesPDF.sectionFlex13,
+                                        stylesPDF.border,   
+                                        stylesPDF.padding,          
+                                        (x == this.rank) ? stylesPDF[`color${this.labelObject.rank}Bg`] : null,
+                                        
+                                    ]
+                                        } key={i}>
+                                        <Text style={stylesPDF.tinyType}>{x}</Text>
+                                    </View>
+                                )}    
                             </View>
-                        )}
-                        </View>
+
+                            <View style={stylesPDF.pageRow}>
+                            {[...Array(23)].map((x, i) =>
+                                <View key={i} style={[stylesPDF.sectionFlex01, stylesPDF.border, ((11-i) == this.labelObject.score) ? stylesPDF.selected : null]} >
+                                    <Text style={[stylesPDF.tinyType]}>{11-i}</Text>
+                                </View>
+                            )}
+                            </View>
 
                         </View>
                     </View>
