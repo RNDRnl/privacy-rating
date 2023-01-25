@@ -14,7 +14,6 @@ class FormView extends Component {
     
     constructor() {
         super();
-
         this.state = {
             currentHandle: null,
             currentCategory: 0,
@@ -54,8 +53,7 @@ class FormView extends Component {
             if(Form.validUrl) {
                 domain = `/${Form.domain.replace(".", "**")}`;
             }
-        }
-
+        } 
 
         return (
                 <div>

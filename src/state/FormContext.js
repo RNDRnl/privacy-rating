@@ -112,6 +112,8 @@ class FormProvider extends Component {
             }
         });
 
+        console.log("check menu state");
+
         var diff = count - lastSenderIndex
 
         if(diff == 1) {  // prevents leaking activations
@@ -119,7 +121,6 @@ class FormProvider extends Component {
             if(this.state.Form.sections.includes(openTarget)) {               
               if(openTarget == this.state.Form.sections[0] && this.state.Form.domainSubmit) {
                 this.completeStep(openTarget)
-              
               } else {
                 var invalid = false
                 for (let i in [0, 1, 2]) {
@@ -127,14 +128,15 @@ class FormProvider extends Component {
                       (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_a`).rate != null) ||
                       (that.checkForm(`${runningSection}_${i}_a`) != null) && (that.checkForm(`${runningSection}_${i}_b`) != null)                     
                     ) {
+                    
                     } else {
                         invalid = true
                     }
                 }
                   
-                      if(!invalid) {
-                        this.completeStep(openTarget)
-                      }     
+                if(!invalid) {
+                  this.completeStep(openTarget)
+                }     
               }
 
             } else {                        
@@ -158,6 +160,35 @@ class FormProvider extends Component {
                 [`${openTarget}_open`]: "1"   
             }
           });
+          
+          // check if catagory is complete and open next
+          this.openNextStepCurrentPreFilled(openTarget)
+    }
+
+    openNextStepCurrentPreFilled = (openTarget) => {
+
+          var check_0 = this.checkForm(`${openTarget}_0_a`) != null || this.checkForm(`${openTarget}_0_b`) != null
+          var check_1 = this.checkForm(`${openTarget}_1_a`) != null || this.checkForm(`${openTarget}_1_b`) != null
+          var check_2 = this.checkForm(`${openTarget}_2_a`) != null || this.checkForm(`${openTarget}_2_b`) != null
+
+          var lastSenderIndex = this.state.Form.form_order.indexOf(openTarget)
+          var nextTarget = this.state.Form.form_order[lastSenderIndex+1]
+
+          if(nextTarget != null) {
+            console.log(`open next target ${nextTarget}`)
+
+            if(check_0 && check_1 && check_2) {
+                this.setState({ 
+                  Form : {
+                      ...this.state.Form,
+                      [`${openTarget}_open`]: "1",
+                      [`${nextTarget}_open`]: "1"   
+                  }
+                });
+            }
+          }
+
+
     }
     
     updateForm = (ref, value) => {

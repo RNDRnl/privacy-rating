@@ -83,7 +83,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
 
 // //////////////
 // Section
-// /////////////
+// //////////////
 
 export interface ValidPropsSection { 
     sectionName: String; 
@@ -247,6 +247,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 <div className={styles.question}>
                                     <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
+                                        {/* <div>{this.props.sectionName}</div> */}
                                         {this.props.children}
                                         {this.props.help != null &&
                                             <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
@@ -260,6 +261,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 <div className={styles.question}>
                                     <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
+                                        {/* <div>{this.props.sectionName}</div> */}
                                         {this.props.children}
                                         {this.props.help != null &&
                                             <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
@@ -268,6 +270,11 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
+
+                        {/* { (isPrefilled_a || isPrefilled_b) && 
+                            <div>prefilled</div>
+                        } */}
+
                     </div>
             </div>
         );
