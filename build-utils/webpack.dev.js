@@ -89,7 +89,7 @@ const config = {
     )
   ],
   devServer: {
-    host: 'localhost',
+    host: '127.0.0.1', // localhost
     port: port,
     historyApiFallback: true,
     hot: true,

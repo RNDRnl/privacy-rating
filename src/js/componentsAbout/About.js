@@ -36,13 +36,6 @@ const About = () => {
         var disc = content.content[1];
         var placement = content.content[2];
 
- 
-        
-
-
-
-
-        
         return(
             <OverlayTrigger             
                 trigger={"click"} 
@@ -136,7 +129,7 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                                        <iframe src={`${process.env.BASE_PATH}/#/PPPPPRPRRLRR/privacyrating**info`}
+                                        {/* <iframe src={`${process.env.BASE_PATH}/#/PPPPPRPRRLRR/privacyrating**info`}
                                                 top="0"
                                                 left="0"
                                                 width="430pt"
@@ -149,7 +142,7 @@ const About = () => {
                                                 frameBorder="0"
                                                 gesture="media"
                                                 allow="encrypted-media"
-                                                allowFullScreen/>
+                                                allowFullScreen/> */}
                         </div>
                         </Col>
 

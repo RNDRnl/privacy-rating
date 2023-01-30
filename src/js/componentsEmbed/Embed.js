@@ -8,6 +8,7 @@ import * as Scroll from 'react-scroll';
 import Recommendations from "./Recommendations";
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer'; // Page, Text, View, Document, StyleSheet
 import classNames from "classnames";
+import { LabelProvider } from '../../state/LabelContext'
 
 class Embed extends Component {
     static contextType = LabelContext;
@@ -42,7 +43,7 @@ class Embed extends Component {
     }
 
     render() {
-        const { LabelObject, ReportPDF } = this.context; 
+        const { Label, LabelObject, ReportPDF } = this.context; 
         
         var rank = null;
         if(LabelObject!=null) {
@@ -69,8 +70,8 @@ class Embed extends Component {
                             <div className={styles.background}>
                                 <Row>
                                     <Col>
-                                        <div>
-                                            <iframe src={iframeSrc}
+                                        <div style={{width:'430px', height:'420px', overflow:'hidden'}}>
+                                            {/* <iframe src={iframeSrc}
                                                     top="0"
                                                     left="0"
                                                     width="430pt"
@@ -83,7 +84,10 @@ class Embed extends Component {
                                                     frameBorder="0"
                                                     gesture="media"
                                                     allow="encrypted-media"
-                                                    allowFullScreen/>
+                                                    allowFullScreen/> */}
+                                                    { Label != null &&
+                                                        <Label labelId={this.props.labelId} domain={this.props.domain}  />
+                                                    }
                                         </div>
                                     </Col>
 
