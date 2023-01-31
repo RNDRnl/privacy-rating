@@ -14,6 +14,7 @@ class Frame extends Component {
 
   handleExit( ) {
       const { openCategory, setLabelState } = this.context
+      console.log("handleExit");
       setLabelState(null);
   }
 
@@ -26,7 +27,7 @@ class Frame extends Component {
     const { Label } = this.context
     
     return (
-      <div  className={styles.holder} onMouseLeave={() => this.handleExit()} >
+      <div className={styles.holder} onMouseLeave={() => this.handleExit()} >
           {Label != null &&
             <Label />
           }

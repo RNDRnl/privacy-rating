@@ -4,15 +4,16 @@ interface CssExports {
   'background': string;
   'button': string;
   'buttonBox': string;
+  'codeBox': string;
   'colHeader': string;
   'downloadButton': string;
   'example': string;
   'fadeInOut': string;
   'holder': string;
   'hr': string;
-  'iframeCodeBox': string;
   'overlayView': string;
   'pdfViewer': string;
+  'privacyRating': string;
   'privacyRatingSmall': string;
   'privacyRatingSmallButton': string;
   'text': string;

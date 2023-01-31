@@ -121,7 +121,7 @@
     border-radius: 8pt;
   }
 
-  .iframeCodeBox {
+  .codeBox {
     margin-top: 12pt;
     background-color: $color-Background;
     border-radius: 8pt;
@@ -134,6 +134,16 @@
     -moz-user-select: all;
     -ms-user-select: all;
     user-select: all;
+  }
+
+  .privacyRating { 
+    background-color: $color-Background;
+    width: 320pt;
+    height: 320pt;
+    padding-left: 12pt;
+    padding-right: 12pt;
+    padding-top: 8pt;
+    border-radius: 8pt;
   }
 
   .privacyRatingSmall {

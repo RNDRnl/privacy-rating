@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import {Container, Col, Row, Image, Button} from "react-bootstrap";
 import styles from './Embed.scss';
 import LabelContext from '../../state/LabelContext';
+import App from '../componentsLabel/App';
 import Header from "../Header";
 import Footer from "../Footer";
 import * as Scroll from 'react-scroll';
 import Recommendations from "./Recommendations";
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer'; // Page, Text, View, Document, StyleSheet
 import classNames from "classnames";
-import { LabelProvider } from '../../state/LabelContext'
 
 class Embed extends Component {
     static contextType = LabelContext;
@@ -70,27 +70,8 @@ class Embed extends Component {
                             <div className={styles.background}>
                                 <Row>
                                     <Col>
-                                        <div style={{width:'430px', height:'420px', overflow:'hidden'}}>
-                                            {/* <iframe src={iframeSrc}
-                                                    top="0"
-                                                    left="0"
-                                                    width="430pt"
-                                                    height="430pt"
-                                                    border="0"
-                                                    overflow="hidden"
-                                                    margin="0"
-                                                    padding="0"
-                                                    border-radius="8pt"
-                                                    frameBorder="0"
-                                                    gesture="media"
-                                                    allow="encrypted-media"
-                                                    allowFullScreen/> */}
-                                                    { Label != null &&
-                                                        <Label labelId={this.props.labelId} domain={this.props.domain}  />
-                                                    }
-                                        </div>
+                                        <App labelId={this.props.labelId} domain={this.props.domain} />
                                     </Col>
-
                                     <Col>
                                         <div>
                                             <h3>Embed the label</h3>
@@ -98,7 +79,7 @@ class Embed extends Component {
                                             <div ref={this.containerRef} className={styles.containerRef} >
                                                 {/* <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="${iframeSrc}
                                                 " style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>`} /> */}
-                                                <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<div class="privacy-rating" data-id="${this.props.labelId}" data-domain="${this.props.domain}"></div>\n<script src="${process.env.DOMAIN_PATH}/privacy.rating.js"></script>`} />
+                                                <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.codeBox} value={`<div class="privacy-rating" data-id="${this.props.labelId}" data-domain="${this.props.domain}"></div>\n<script src="${process.env.DOMAIN_PATH}/privacy.rating.js"></script>`} />
                                                 { this.state.show &&
                                                 <div className={styles.overlayView}>
                                                     <span>Embed code has been copied</span>

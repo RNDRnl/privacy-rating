@@ -9,7 +9,7 @@ import * as Scroll from 'react-scroll';
 import Label from '../componentsLabel/Label';
 import ScoreDrawer from '../componentsScoreDrawer/ScoreDrawer';
 import { LabelProvider } from '../../state/LabelContext'
-
+import App from '../componentsLabel/App';
 
 const initialFormState = {
 }
@@ -129,20 +129,7 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                                        {/* <iframe src={`${process.env.BASE_PATH}/#/PPPPPRPRRLRR/privacyrating**info`}
-                                                top="0"
-                                                left="0"
-                                                width="430pt"
-                                                height="430pt"
-                                                border="0"
-                                                overflow="hidden"
-                                                margin="0"
-                                                padding="0"
-                                                border-radius="8pt"
-                                                frameBorder="0"
-                                                gesture="media"
-                                                allow="encrypted-media"
-                                                allowFullScreen/> */}
+                            <App labelId="PPPPPRPRRLRR" domain={"privacyrating**info"} />
                         </div>
                         </Col>
 
