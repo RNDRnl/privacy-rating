@@ -53,7 +53,7 @@ class Embed extends Component {
     }
 
     render() {
-        const { Label, LabelObject, ReportPDF } = this.context; 
+        const { LabelObject, ReportPDF } = this.context; 
         
         var rank = null;
         if(LabelObject!=null) {
@@ -66,11 +66,11 @@ class Embed extends Component {
 
         return (
             <div className={styles.holder} >
-                        { ReportPDF != null &&
+                        {/* { ReportPDF != null &&
                             <PDFViewer className={styles.pdfViewer}>
                                 <ReportPDF />
                             </PDFViewer> 
-                        }
+                        } */}
                         <Container>
                         <Header/>
                             <div className={styles.background}>
@@ -99,7 +99,16 @@ class Embed extends Component {
                                                     <div ref={this.containerRef} className={styles.containerRef} >
                                                         {/* <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="${iframeSrc}
                                                         " style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>`} /> */}
-                                                        <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.codeBox} value={`<div class="privacy-rating" data-id="${this.props.labelId}" data-domain="${this.props.domain}"></div>\n<script src="${process.env.DOMAIN_PATH}/privacy.rating.js"></script>`} />
+                                                        { this.props.domain != undefined ?
+                                                            <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.codeBox} 
+                                                                value={`<div class="privacy-rating" data-id="${this.props.labelId}" data-domain="${this.props.domain}"></div>\n<script src="${process.env.DOMAIN_PATH}privacy.rating.js"></script>`} 
+                                                            />
+                                                            :
+                                                            <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.codeBox} 
+                                                                value={`<div class="privacy-rating" data-id="${this.props.labelId}"></div>\n<script src="${process.env.DOMAIN_PATH}privacy.rating.js"></script>`} 
+                                                            />
+                                                        }
+
                                                         { this.state.show &&
                                                         <div className={styles.overlayView}>
                                                             <span>Embed code has been copied</span>
@@ -147,38 +156,7 @@ class Embed extends Component {
                                             
                                             <Recommendations />
                                     </Col>
-                                </Row>
-                                
-                                {/* <hr className={styles.hr} />
-
-                                <Row>
-
-                                    { rank != null &&
-                                        <Col className={styles.leftCol}>
-                                            <Image className={styles.privacyRatingSmall} src={svg}/>
-                                        </Col>
-                                    }
-
-                                    <Col>
-                                        <div>
-                                            <h3>Download the small label here</h3>
-                                            <p>
-                                                Besides the label that you can implement in to your website you can also download a
-                                                .svg or .png to put into your header of your website.
-                                            </p>
-                                        </div>
-
-                                        { rank != null &&
-                                            <div>
-                                                <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
-                                                <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
-                                            </div>
-                                        }
-                                    </Col>
-                                </Row> */}
-
-
-                                
+                                </Row>                                
                             </div>
                             <br/>
                             <Footer/>
