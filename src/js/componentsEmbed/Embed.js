@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Container, Col, Row, Image, Button} from "react-bootstrap";
+import {Container, Col, Row, Image, Button, Nav } from "react-bootstrap";
 import styles from './Embed.scss';
 import LabelContext from '../../state/LabelContext';
 import App from '../componentsLabel/App';
@@ -17,7 +17,8 @@ class Embed extends Component {
         super();
 
         this.state = {
-            show: false
+            show: false,
+            key: 'full'
         }
 
         this.myRef = React.createRef();
@@ -38,7 +39,16 @@ class Embed extends Component {
         this.myRef.current.select();
         document.execCommand("copy");
         this.setState({
+            ...this.state,
             show: true
+        });
+    }
+    
+    handleTabSelect = (key) => {
+        console.log(key);
+        this.setState({
+            ...this.state,
+            key: key
         });
     }
 
@@ -53,10 +63,6 @@ class Embed extends Component {
         var png = `${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRating${rank}.png`;
         var svg = `${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRating${rank}.svg`;
 
-        var iframeSrc = `${process.env.DOMAIN_PATH}${process.env.BASE_PATH}/#/${this.props.labelId}`;
-        if(typeof this.props.domain !== 'undefined') {
-            iframeSrc = `${process.env.DOMAIN_PATH}${process.env.BASE_PATH}/#/${this.props.labelId}/${this.props.domain}`
-        }
 
         return (
             <div className={styles.holder} >
@@ -70,22 +76,49 @@ class Embed extends Component {
                             <div className={styles.background}>
                                 <Row>
                                     <Col>
-                                        <App labelId={this.props.labelId} domain={this.props.domain} />
+                                        { this.state.key == "full" ?
+                                            <App labelId={this.props.labelId} domain={this.props.domain} />
+                                            :
+                                            <Image className={styles.privacyRatingSmall} src={svg}/>                                             
+                                        }
                                     </Col>
                                     <Col>
-                                        <div>
-                                            <h3>Embed the label</h3>
-                                            <div>Use this embed code to implement the label into your website.</div>
-                                            <div ref={this.containerRef} className={styles.containerRef} >
-                                                {/* <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="${iframeSrc}
-                                                " style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>`} /> */}
-                                                <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.codeBox} value={`<div class="privacy-rating" data-id="${this.props.labelId}" data-domain="${this.props.domain}"></div>\n<script src="${process.env.DOMAIN_PATH}/privacy.rating.js"></script>`} />
-                                                { this.state.show &&
-                                                <div className={styles.overlayView}>
-                                                    <span>Embed code has been copied</span>
-                                                </div>
-                                                }
-                                            </div>
+                                        <Nav variant="tabs" defaultActiveKey="full" onSelect={this.handleTabSelect}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="full">Full interactive label</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="small">Small label</Nav.Link>
+                                            </Nav.Item>
+                                        </Nav>
+                                        <div>           
+                                            <br />
+                                            { this.state.key == "full" ?                              
+                                                <>
+                                                    <div>Use this embed code to implement the label into your website.</div>
+                                                    <div ref={this.containerRef} className={styles.containerRef} >
+                                                        {/* <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.iframeCodeBox} value={`<iframe src="${iframeSrc}
+                                                        " style="top: 0; left: 0; width: 430pt; height: 430pt; border: 0; overflow: hidden; margin: 0; padding: 0; border-radius: 8pt;" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ></iframe>`} /> */}
+                                                        <textarea ref={this.myRef} onFocus={this.handleSelect} onChange={this.handleSelect} className={styles.codeBox} value={`<div class="privacy-rating" data-id="${this.props.labelId}" data-domain="${this.props.domain}"></div>\n<script src="${process.env.DOMAIN_PATH}/privacy.rating.js"></script>`} />
+                                                        { this.state.show &&
+                                                        <div className={styles.overlayView}>
+                                                            <span>Embed code has been copied</span>
+                                                        </div>
+                                                        }
+                                                    </div>
+                                                </> 
+                                                :
+                                                <>
+                                                    <div>Download a PNG or SVG to put into your website.</div>
+                                                    <br />
+                                                    { rank != null &&
+                                                        <div>
+                                                            <Button className={styles.privacyRatingSmallButton} variant="secondary" href={png} download>Download PNG</Button>
+                                                            <Button className={styles.privacyRatingSmallButton} variant="secondary" href={svg} download>Download SVG</Button>
+                                                        </div>
+                                                    }
+                                                </>
+                                            }
                                         </div>
                                     </Col>
                                 </Row>
@@ -102,7 +135,7 @@ class Embed extends Component {
                                                 <div>
                                                     <div className={styles.buttonBox}>
                                                         { ReportPDF != null &&
-                                                            <PDFDownloadLink className={classNames(styles.button, styles.privacyRatingSmallButton)} document={<ReportPDF />} fileName="PrivacyRatingReport.pdf">
+                                                            <PDFDownloadLink className={classNames(styles.button, styles.pdfButton)} document={<ReportPDF />} fileName="PrivacyRatingReport.pdf">
                                                                 {({ blob, url, loading, error }) =>
                                                                     loading ? 'Loading document...' : 'Download Report PDF'
                                                                 }
