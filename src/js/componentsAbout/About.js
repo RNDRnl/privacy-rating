@@ -29,8 +29,7 @@ const About = () => {
     var scroll = Scroll.animateScroll;
     scroll.scrollTo(0, {duration:250});
 
-    var tempLabel = HashToLabelState({hash:"PPPPPRPRRLRR"});
-    console.log('ji', tempLabel);
+    var tempLabel = HashToLabelState({hash:"PPPPPRPRRLRR", plain: true});
     const ScoreDrawer = tempLabel.labelScoreDrawer;
     
     function OverLayTriggerView(content) {

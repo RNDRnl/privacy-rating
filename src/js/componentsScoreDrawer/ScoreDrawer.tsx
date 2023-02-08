@@ -13,6 +13,8 @@ const ranks = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 export default class ScoreDrawer { 
     rank : any;
     labelObject: LabelObject
+    plain : Boolean = false
+
     getColorClass = () => {
         var colorStyle = null
         switch (this.rank) {
@@ -30,19 +32,21 @@ export default class ScoreDrawer {
        return (
            <div className={styles.resultBox}>
                 
-                <div className={styles.resultBoxHeader}>
-                    <div className={styles.title}>Privacy rating score {this.rank}</div>
-                    <div className={styles.result}>{this.labelObject.score} { (this.labelObject.score == 1 || this.labelObject.score == -1) ? `Point` : `Points` }</div>
-                </div>
+                { !this.plain &&
+                    <div className={styles.resultBoxHeader}>
+                        <div className={styles.title}>Privacy rating score {this.rank}</div>
+                        <div className={styles.result}>{this.labelObject.score} { (this.labelObject.score == 1 || this.labelObject.score == -1) ? `Point` : `Points` }</div>
+                    </div>
+                }
 
                 <div className={styles.rankContainer}>
                 {ranks.map((x, i) =>
-                    <div className={classnames(styles.rank, (x == this.rank) ? this.getColorClass() : null)} key={i}>{x}</div>
+                    <div className={classnames(styles.rank, (x == this.rank && !this.plain) ? this.getColorClass() : null)} key={i}>{x}</div>
                 )}    
                 </div>
                 <div className={styles.chipContainer}>
                 {[...Array(23)].map((x, i) =>
-                    <div className={classnames(styles.chip, ((11-i) == this.labelObject.score) ? styles.selected : null)} key={i}>{11-i}</div>
+                    <div className={classnames(styles.chip, ((11-i) == this.labelObject.score && !this.plain) ? styles.selected : null)} key={i}>{11-i}</div>
                 )}
                 </div>
            </div>
@@ -52,8 +56,9 @@ export default class ScoreDrawer {
         var result: any = new Array()
         return result
     }
-    constructor(_labelObject:LabelObject) { 
+    constructor(_labelObject:LabelObject, _plain: Boolean=false) { 
         this.labelObject = _labelObject
         this.rank = this.labelObject.rank
+        this.plain = _plain
     }
 }
