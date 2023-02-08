@@ -34,7 +34,6 @@ class Category {
     categoryName: String;
     sections: Section[] = new Array();
     calculateRank() {
-        console.log(this.categoryName);
         this.rank = scoreToCatagoryRank(this.score);
     }
     constructor(_score: any, _categoryName: String, _sections:Section[]) {
@@ -64,7 +63,6 @@ const mapToRank = (value:any) => {
 }
 
 const mapToCatagoryRank = (value:any) => {
-    console.log(value);
     if(value == 3) {
         return 'A'
     } else if (value == 2) {
