@@ -37,4 +37,23 @@
       background-size: 19px 19px;
     }
   }
+
+  .questionMark {
+    // position: absolute;
+    flex:1;
+    float:right;
+    margin-top:2pt;
+
+    span {
+      background: url("#{$env}resources/icons/question.svg");
+      width: 10pt;
+      height: 10pt;
+      display: block;
+    
+      &:hover {
+        cursor: pointer;
+        background: url("#{$env}resources/icons/question-hover.svg");
+      }
+    }
+  }
 }

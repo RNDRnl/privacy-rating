@@ -7,6 +7,7 @@ interface CssExports {
   'colouredDots': string;
   'holder': string;
   'label': string;
+  'questionMark': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

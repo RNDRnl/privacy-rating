@@ -215,6 +215,19 @@
     
   }
 
+  .scoreDrawContainer {
+    width: 100%;
+    display: flex;
+    border-radius: 8pt;
+    border: lightgray 2px solid;
+    padding: 20px;
+    margin:10px;
+
+    > div {
+      flex: 1;
+    }
+  }
+
   .categories {
     flex:1;
     padding:20px;

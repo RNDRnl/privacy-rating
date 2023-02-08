@@ -2,6 +2,7 @@ import LabelTag from "../js/componentsLabel/LabelClasses";
 
 import { RatingConfig } from "./RatingConfig"
 import { RecommendationsConfig } from "./RecommendationsConfig"
+import { AboutDisc } from "../js/componentsAbout/AboutDisc";
 
 import FormConfig from "../js/componentsForm/FormConfig"
 import { Answer } from "../js/componentsForm/FormClasses";
@@ -70,11 +71,13 @@ export class Section {
     text: String;
     ranked: Boolean;
     recommendation: String;
-    constructor(_score: Number, _text: String, _ranked: Boolean, _recommendation: String) {
+    resultDesc: String;
+    constructor(_score: Number, _text: String, _ranked: Boolean, _recommendation: String, _resultDesc: String) {
         this.score = _score;
         this.text = _text;
         this.ranked = _ranked;
         this.recommendation = _recommendation
+        this.resultDesc = _resultDesc
     }
 }
 
@@ -299,12 +302,22 @@ const getDataType = (firstHashChar:any) => {
     }
 }
 
+const charToIndex = (firstHashChar:any) => {
+    switch(firstHashChar) {
+        case "L":
+            return 0 // C
+        case "R":
+            return 1 // B
+        case "P":
+            return 2 // A
+    }
+}
+
 const capatalize = (text:any) => {
     return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 const HashToLabelState = (labelHash:any) => {
-    
     var characters = labelHash.hash.split("")
     var sections = [];
     var dataType = getDataType(characters[0]);
@@ -312,7 +325,13 @@ const HashToLabelState = (labelHash:any) => {
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
         var resultRating = RatingConfig[targetPath];
         var resultRecommendation = RecommendationsConfig[targetPath];
-        var section = new Section(resultRating.score, replaceDataType(resultRating.text, dataType), resultRating.ranked, resultRecommendation.text);
+        
+        var discHandle = `${indexToCategory(index)}_${indexToSection(index)}`
+        var resultDescBullets = AboutDisc[discHandle].bullets
+        var bullet = resultDescBullets[charToIndex(char)]
+        var resultDesc = bullet.desc
+
+        var section = new Section(resultRating.score, replaceDataType(resultRating.text, dataType), resultRating.ranked, resultRecommendation.text, resultDesc);
         sections.push(section);
     })
 

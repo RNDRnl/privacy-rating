@@ -23,6 +23,7 @@ interface CssExports {
   'pdfButton': string;
   'popOver': string;
   'score': string;
+  'scoreDrawContainer': string;
   'smallLabels': string;
   'spacer': string;
   'text': string;

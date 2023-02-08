@@ -60,12 +60,13 @@ export class LabelCategoryElement extends React.Component<ValidPropsCategory, {}
 
 export interface ValidPropsSection { 
     sectionText: String;
+    sectionDesc: String;
     score: any;
 }
 export class LabelSectionElement extends React.Component<ValidPropsSection, {}> {
     render() {
         return (
-            <DescriptionBox sectionText={this.props.sectionText} score={this.props.score} />
+            <DescriptionBox sectionText={this.props.sectionText} sectionDesc={this.props.sectionDesc} score={this.props.score} />
         );
     }
 }

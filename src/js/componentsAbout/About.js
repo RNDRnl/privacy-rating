@@ -7,9 +7,9 @@ import { AboutDisc } from "./AboutDisc";
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
 import Label from '../componentsLabel/Label';
-import ScoreDrawer from '../componentsScoreDrawer/ScoreDrawer';
 import { LabelProvider } from '../../state/LabelContext'
 import App from '../componentsLabel/App';
+import { HashToLabelState } from '../../state/Logic.tsx';
 
 const initialFormState = {
 }
@@ -29,7 +29,10 @@ const About = () => {
     var scroll = Scroll.animateScroll;
     scroll.scrollTo(0, {duration:250});
 
-    console.log(AboutDisc['c_01']);
+    var tempLabel = HashToLabelState({hash:"PPPPPRPRRLRR"});
+    console.log('ji', tempLabel);
+    const ScoreDrawer = tempLabel.labelScoreDrawer;
+    
     function OverLayTriggerView(content) {
 
         var helpTitle = content.content[0];
@@ -169,15 +172,15 @@ const About = () => {
                             <h5>COLLECTION</h5>
                             {/* <div className={styles.colouredDots}/>                                 */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["What kind of user data is collected?", AboutDisc['collection_01'], "right"]} />
+                                <OverLayTriggerView  content={["What kind of user data is collected?", AboutDisc['collection_0'], "right"]} />
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["For which purpose is user data collected?", AboutDisc['collection_02'], "right"]} />
+                                <OverLayTriggerView  content={["For which purpose is user data collected?", AboutDisc['collection_1'], "right"]} />
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["How long is user data stored?", AboutDisc['collection_03'], "right"]} />                               
+                                <OverLayTriggerView  content={["How long is user data stored?", AboutDisc['collection_2'], "right"]} />                               
                             </p>
                         </div>
                         <div className={styles.categories}>
@@ -185,15 +188,15 @@ const About = () => {
                             <h5>SHARING</h5>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>                               
-                                <OverLayTriggerView  content={["What kind of user data is shared?", AboutDisc['sharing_01'], "left"]} />
+                                <OverLayTriggerView  content={["What kind of user data is shared?", AboutDisc['sharing_0'], "left"]} />
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>                                
-                                <OverLayTriggerView  content={["Is any user data sold?", AboutDisc['sharing_02'], "left"]} />
+                                <OverLayTriggerView  content={["Is any user data sold?", AboutDisc['sharing_1'], "left"]} />
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={[" Is data disclosed to authorities?", AboutDisc['sharing_03'], "left"]} />                               
+                                <OverLayTriggerView  content={[" Is data disclosed to authorities?", AboutDisc['sharing_2'], "left"]} />                               
                             </p>
                         </div>
                     </div>
@@ -204,15 +207,15 @@ const About = () => {
                             <h5>CONTROL</h5>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["Can the user decide whether to share the data?", AboutDisc['control_01'], "right"]} />                                      
+                                <OverLayTriggerView  content={["Can the user decide whether to share the data?", AboutDisc['control_0'], "right"]} />                                      
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["Can the user request that their data is removed?", AboutDisc['control_02'], "right"]} />                                      
+                                <OverLayTriggerView  content={["Can the user request that their data is removed?", AboutDisc['control_1'], "right"]} />                                      
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["Can the user amend his/her data?", AboutDisc['control_03'], "right"]} />                                      
+                                <OverLayTriggerView  content={["Can the user amend his/her data?", AboutDisc['control_2'], "right"]} />                                      
                             </p>
                         </div>
 
@@ -221,15 +224,15 @@ const About = () => {
                             <h5>SECURITY</h5>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["How secure is the service?", AboutDisc['security_01'], "left"]} /> 
+                                <OverLayTriggerView  content={["How secure is the service?", AboutDisc['security_0'], "left"]} /> 
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["Does the service provider anonymize data?", AboutDisc['security_02'], "left"]} /> 
+                                <OverLayTriggerView  content={["Does the service provider anonymize data?", AboutDisc['security_1'], "left"]} /> 
                             </p>
                             {/* <div className={styles.colouredDots}/> */}
                             <p className={styles.description}>
-                                <OverLayTriggerView  content={["Is the service provider liable for breaches?", AboutDisc['security_03'], "left"]} /> 
+                                <OverLayTriggerView  content={["Is the service provider liable for breaches?", AboutDisc['security_2'], "left"]} /> 
                             </p>
                         </div>
                     </div>
@@ -246,12 +249,9 @@ const About = () => {
                     </Row>
 
 
-                    {/* <div className={styles.categoriesContainer}>                   
-                        <LabelProvider>
-                            <Label labelId={"PPPPPRPRRLRR"} domain={"privacyrating**info"} />
-                            <ScoreDrawer  />
-                        </LabelProvider>
-                    </div> */}
+                    <div className={styles.scoreDrawContainer}>                   
+                       <ScoreDrawer />
+                    </div>
 
                    
                     <hr className={styles.hr} />
