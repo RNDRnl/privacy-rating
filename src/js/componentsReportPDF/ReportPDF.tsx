@@ -145,6 +145,8 @@ const stylesPDF = StyleSheet.create({
 export default class ReportPDF { 
     rank;
     labelObject;
+    labelHash;
+    labelDomain;
     timeElapsed = Date.now();
     today = new Date(this.timeElapsed);
 
@@ -227,13 +229,11 @@ export default class ReportPDF {
                             </View>
 
                         </View>
-                    </View>
-
-                   
+                    </View>                   
 
                     <View style={stylesPDF.pageRow}>
                         <View style={stylesPDF.section}>
-                            <Text style={stylesPDF.tinyType}>Generated {this.today.toDateString()} at https://www.privacyrating.info/</Text>
+                            <Text style={stylesPDF.tinyType}>Generated {this.today.toDateString()} at {`${process.env.BASE_PATH}/#/embed/${this.labelHash}/${this.labelDomain}`}</Text>
                         </View>
                     </View>
             </Page>
@@ -244,11 +244,11 @@ export default class ReportPDF {
         var result = new Array()
         return result
     }
-    constructor(_labelObject) { 
+    constructor(_labelObject:any, labelHash:any) { 
         this.labelObject = _labelObject
         this.rank = this.labelObject.rank
-        console.log(this.labelObject)
-    
+        this.labelHash = labelHash.hash
+        this.labelDomain = labelHash.domain        
     }
 }
 

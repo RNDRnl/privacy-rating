@@ -66,11 +66,11 @@ class Embed extends Component {
 
         return (
             <div className={styles.holder} >
-                        {/* { ReportPDF != null &&
+                        { ReportPDF != null &&
                             <PDFViewer className={styles.pdfViewer}>
                                 <ReportPDF />
                             </PDFViewer> 
-                        } */}
+                        }
                         <Container>
                         <Header/>
                             <div className={styles.background}>
@@ -109,7 +109,7 @@ class Embed extends Component {
                                                 </> 
                                                 :
                                                 <>
-                                                    <div>Download a PNG or SVG to put into your website.</div>
+                                                    <div>Download a PNG or SVG to put onto your website.</div>
                                                     <br />
                                                     { rank != null &&
                                                         <div>

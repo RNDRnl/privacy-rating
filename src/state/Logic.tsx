@@ -358,7 +358,7 @@ const HashToLabelState = (labelHash:any) => {
     var labelRender = new LabelTag(labelObject).getTag;
     var labelRecommenendations = new RecommendationPanel(labelObject).getTag;
     var labelScoreDrawer = new ScoreDrawer(labelObject).getTag;
-    var reportPdf = new ReportPDF(labelObject).getTag;
+    var reportPdf = new ReportPDF(labelObject, labelHash).getTag;
     
     return {
         labelRender: labelRender, 
