@@ -178,10 +178,8 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         var tempCheckB = `${handle}_b`
         var showSecondQuestion = false
         
-        
         var isPrefilled_a = false;
-        var isPrefilled_b = false;
-        
+        var isPrefilled_b = false;        
         
         // check if A prefilled
         if(checkForm(tempCheckA) instanceof Rating) {
@@ -235,7 +233,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
             var filledString = value.question.replace("##dataTypeNaming##", `${dataTypeNaming}`)
 
             return(
-                <span>{filledString}</span>
+                <span dangerouslySetInnerHTML={{ __html: filledString}}></span>
             )
         }
 
@@ -247,7 +245,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 <div className={styles.question}>
                                     <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
-                                        {/* <div>{this.props.sectionName}</div> */}
                                         {this.props.children}
                                         {this.props.help != null &&
                                             <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />
@@ -261,7 +258,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 <div className={styles.question}>
                                     <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
-                                        {/* <div>{this.props.sectionName}</div> */}
                                         {this.props.children}
                                         {this.props.help != null &&
                                             <OverLayTriggerView help_info={[this.props.helpTitle, this.props.help]} />

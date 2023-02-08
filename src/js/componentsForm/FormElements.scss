@@ -120,6 +120,31 @@
         pointer-events: none;
         opacity: 0.5;
     }
+
+    /* unvisited link */
+    a:link {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* visited link */
+    a:visited {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* selected link */
+    a:active {
+        color: black;
+        text-decoration: underline;
+    }
+
 }
 
 .answerButton {

@@ -7,7 +7,7 @@ var FormConfig = new Form([
     new Category( "Checklist", "loaded",
         [ new Section( "checklist_0",
                 [ 
-                    new Question( "To fill in this  <a href='#'>form</a>, you must have knowledge of the following: \n ✓ What kind of user data is collected and for what purpose. \n ✓ Where user data is stored and for how long. \n ✓ What kind of user data is shared or sold. \n ✓ Whether users can opt‐out of data collection. \n ✓ Whether users can change or remove their data. \n ✓ Which security standards and guidelines are followed.", 
+                    new Question( "To fill in this form, you must have knowledge of the following: \n ✓ What kind of user data is collected and for what purpose. \n ✓ Where user data is stored and for how long. \n ✓ What kind of user data is shared or sold. \n ✓ Whether users can opt‐out of data collection. \n ✓ Whether users can change or remove their data. \n ✓ Which security standards and guidelines are followed.", 
                         [ 
                             new Answer( "checklist", "checklist", 
                                 new Rating("Continue", null),
@@ -50,9 +50,7 @@ var FormConfig = new Form([
                 ]
             ),
         ]
-    ),
-
-    
+    ),    
     
     new Category( "Collection", "declare",
         [ new Section( "collection_0",
@@ -382,7 +380,7 @@ var FormConfig = new Form([
     new Category( "Security", "declare",
     [ new Section( "security_0",
             [ 
-                new Question( "Is the service provider certified to be compliant with a relevant information security standard, such as ISO 27001 or NIST800-53?",
+                new Question( "Is the service provider certified to be compliant with a relevant information security standard, such as <a href='https://www.iso.org/isoiec-27001-information-security.html' target='_blank'>ISO 27001</a> or <a href='https://www.nist.gov/privacy-framework/nist-sp-800-53' target='_blank'>NIST800-53</a>?",
                     [
                         new Answer( "security_0_a", "security",
                             new Rating( "Yes", "A")
