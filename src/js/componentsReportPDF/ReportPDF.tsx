@@ -64,7 +64,7 @@ const stylesPDF = StyleSheet.create({
         paddingBottom: 5,
         flex: 0.1,
         backgroundColor: '#FFFFFF',
-        textAlign: 'right'
+        textAlign: 'left'
     },
     image: {
         color: 'orange',
@@ -168,7 +168,18 @@ export default class ReportPDF {
 
                     <View style={stylesPDF.pageRow}>
                         <View style={stylesPDF.section}>
-                            <Text style={stylesPDF.smallType}>Recommendations {this.labelObject.domain ? `for ${this.labelObject.domain}` : '' }</Text>
+                            <Text style={stylesPDF.smallType}>{this.labelObject.domain ? `Recommendations for ${this.labelObject.domain}` : '' }</Text>
+                        </View>
+                    </View>
+
+                    <View  style={stylesPDF.pageRow}>
+                        <View style={stylesPDF.section}>                                
+                            <View style={stylesPDF.pageRow} >
+                                <View style={stylesPDF.sectionFlex05}><Text style={stylesPDF.tinyType}>Rating category</Text></View>
+                                <View style={stylesPDF.sectionFlex01}></View>
+                                <View style={stylesPDF.sectionFlex01}><Text style={stylesPDF.tinyType}>Score</Text></View>
+                                <View style={stylesPDF.sectionFlex1}><Text style={stylesPDF.tinyType}>What can I do in order to improve my score?</Text></View>                                       
+                            </View>                             
                         </View>
                     </View>
                
@@ -180,11 +191,11 @@ export default class ReportPDF {
                                     <View key={`${index_s}_row`} style={stylesPDF.pageRow} >
                                         <View style={stylesPDF.sectionFlex05}><Text style={stylesPDF.tinyType}>{s.text}</Text></View>
                                         <View style={stylesPDF.sectionFlex01}>
-                                        {/* <Emoticon score={s.score} /> */}
-                                            
+                                        {/* <Emoticon score={s.score} /> */}                                            
                                         </View>
-                                        <View style={stylesPDF.sectionFlex1}><Text style={stylesPDF.tinyType}>{s.recommendation || "No recommendation"}</Text></View>
                                         <View style={stylesPDF.sectionFlex01}><Text style={stylesPDF.tinyType}>{s.score}</Text></View>
+                                        <View style={stylesPDF.sectionFlex1}><Text style={stylesPDF.tinyType}>{s.recommendation || "N.a."}</Text></View>
+                                       
                                     </View>
                                 )}
                             </View>
