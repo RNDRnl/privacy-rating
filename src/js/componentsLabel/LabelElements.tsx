@@ -36,8 +36,6 @@ export class LabelElement extends React.Component<ValidPropsLabel, {}> {
                     {this.props.children}
                 </div>
             </div>
-
-
         );
     }
 }
@@ -55,8 +53,6 @@ export class LabelCategoryElement extends React.Component<ValidPropsCategory, {}
             );
         }
 }
-
-
 
 export interface ValidPropsSection { 
     sectionText: String;

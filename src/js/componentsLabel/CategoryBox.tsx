@@ -87,21 +87,26 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                     break
         }
         var classNames = `${styles.container} ${colorStyle} `
+        if (this.props.rating != "A") {
+            classNames += `${styles.hoverable} `
+        } else {
+            classNames += `${styles.nonHoverable} `
+        }
         if(openCategory != null) {
             if (openCategory != this.props.categoryName) {
                 classNames += `${styles.notSelected} `
             } else {
                 classNames += `${styles.selected} `
-            }
+            }            
         }
 
         var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`;
 
         return (
             <div className={classNames} 
-                onClick={() => this.handleClick()}  
-                onMouseEnter={() => this.handleMouseEnter()}
-                onMouseLeave={() => this.handleMouseLeave()}
+                onClick={() => this.props.rating != "A" ? this.handleClick() : null}  
+                onMouseEnter={() => this.props.rating != "A" ? this.handleMouseEnter() : null}
+                onMouseLeave={() => this.props.rating != "A" ? this.handleMouseLeave() : null}
                 >
                 <div className={styles.label}>
                     {this.props.categoryName}

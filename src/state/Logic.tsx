@@ -34,7 +34,8 @@ class Category {
     categoryName: String;
     sections: Section[] = new Array();
     calculateRank() {
-        this.rank = scoreToRank(this.score);
+        console.log(this.categoryName);
+        this.rank = scoreToCatagoryRank(this.score);
     }
     constructor(_score: any, _categoryName: String, _sections:Section[]) {
         this.categoryName = _categoryName;
@@ -62,8 +63,31 @@ const mapToRank = (value:any) => {
     }
 }
 
+const mapToCatagoryRank = (value:any) => {
+    console.log(value);
+    if(value == 3) {
+        return 'A'
+    } else if (value == 2) {
+        return 'B'
+    } else if (value == 1) {
+        return 'C'
+    } else if (value == 0) {
+        return 'D'
+    } else if (value == -1) {
+        return 'E'
+    } else if (value == -2) {        
+        return 'F'
+    } else if (value == -3) {
+        return 'G'
+    }
+}
+
 const scoreToRank = (score:any) => {
     return mapToRank(score);
+}
+
+const scoreToCatagoryRank = (score:any) => {
+    return mapToCatagoryRank(score);
 }
 
 export class Section {
@@ -111,8 +135,10 @@ const sumScore = (elements:any) => {
         if(element == null) {
             isInvalid = true
         } else {
-            if(element.ranked) { // exclude non ranked
+            if(element.ranked) { 
                 runningScore += element.score
+            } else {
+                runningScore += 1 // non ranked is 1
             }
         }
     });
