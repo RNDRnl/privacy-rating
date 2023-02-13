@@ -11,6 +11,7 @@ interface CssExports {
   'fadeInOut': string;
   'holder': string;
   'hr': string;
+  'nav': string;
   'overlayView': string;
   'pdfButton': string;
   'pdfViewer': string;

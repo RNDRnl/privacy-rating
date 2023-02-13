@@ -136,13 +136,13 @@ const About = () => {
                         </Col>
 
                         <Col className={styles.smallLabels}>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingA.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingB.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingC.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingD.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingE.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingF.png`}/>
-                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/PNG/PrivacyRatingG.png`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingA.svg`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingB.svg`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingC.svg`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingD.svg`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingE.svg`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingF.svg`}/>
+                        <Image className={styles.privacyRatingSmall} src={`${process.env.BASE_PATH}/resources/privacyRatingSmall/SVG/PrivacyRatingG.svg`}/>
                         </Col>
                     </Row>
 

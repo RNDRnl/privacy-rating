@@ -70,7 +70,7 @@ class Embed extends Component {
                             <PDFViewer className={styles.pdfViewer}>
                                 <ReportPDF />
                             </PDFViewer> 
-                        } */}
+                        }  */}
                         <Container>
                         <Header/>
                             <div className={styles.background}>
@@ -83,7 +83,7 @@ class Embed extends Component {
                                         }
                                     </Col>
                                     <Col>
-                                        <Nav variant="tabs" defaultActiveKey="full" onSelect={this.handleTabSelect}>
+                                        <Nav className={styles.nav} variant="tabs" defaultActiveKey="full" onSelect={this.handleTabSelect}>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="full">Full interactive label</Nav.Link>
                                             </Nav.Item>

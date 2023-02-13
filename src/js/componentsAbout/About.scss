@@ -61,12 +61,17 @@
     float: right;
     margin-right: 20px;
   }
+
+
 }
 
 
 .smallLabels {
   margin:0px;
   padding:0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
   img {
     margin:0px;
     margin-bottom: 27px;

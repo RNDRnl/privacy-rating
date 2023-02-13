@@ -10,10 +10,10 @@
 
 // .nav {
 //   background-color: red !important;
-// .nav-item {
+.nav {
   /* unvisited link */
   a:link {
-    color: black;
+    color: black !important;
   }
 
   /* visited link */
@@ -30,7 +30,7 @@
   a:active {
     color: black;
   }
-// }
+}
 // }
 
 .holder {
@@ -188,6 +188,15 @@
   .privacyRatingSmallButton {
     margin-bottom: 12pt;
     margin-right: 10pt;
+
+    a {
+      color:white;
+    }
+    
+    a:link {
+      color:white;
+    }
+    
   }
 
   .pdfButton {
@@ -196,10 +205,3 @@
 
 }
 
-a {
-  color:white;
-}
-
-a:link {
-  color:white;
-}

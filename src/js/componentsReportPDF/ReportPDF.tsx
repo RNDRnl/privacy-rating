@@ -45,6 +45,7 @@ const stylesPDF = StyleSheet.create({
         margin: 0,
         paddingBottom: 5,
         flex: 1,
+        overflow: 'hidden',
         backgroundColor: '#FFFFFF'
     },
     sectionFlex13: {
