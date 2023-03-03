@@ -102,8 +102,8 @@ const About = () => {
                         <div>
                             <h4>How do I use the privacy rating?</h4>
                             <p>
-                                Our website walks you through an <a target="_blank" href="/form">interactive
-                                questionnaire</a> about different aspects of data
+                                Our website walks you through an <Link to="/form">interactive
+                                questionnaire</Link> about different aspects of data
                                 handling. Based on your answers, it determines
                                 a privacy rating.
                             </p>
@@ -131,8 +131,8 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                            <App labelId="PPPPPRPRRLRR" domain={"privacyrating**info"} />
-                        </div>
+                            <App labelId="RPPPPLPPPLLR" domain={"privacyrating**info"} />
+                        </div>                
                         </Col>
 
                         <Col className={styles.smallLabels}>
