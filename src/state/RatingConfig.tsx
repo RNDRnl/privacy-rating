@@ -41,7 +41,7 @@ const RatingConfig = {
     control_2_P: new RatingLabel(1.0,"All ##dataTypeNaming## data can be corrected", true),  
     
     // security
-    security_0_L: new RatingLabel(-1.0,"No security certification or beste practire", true),
+    security_0_L: new RatingLabel(-1.0,"No security certification or best practice", true),
     security_0_R: new RatingLabel(0.0,"Follows security best practices", true),
     security_0_P: new RatingLabel(1.0,"Certified security", true),  
     
