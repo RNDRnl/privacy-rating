@@ -82,7 +82,7 @@ export class Question {
                 help={this.help}                
                 sectionName={_sectionName}
                 children={this.getChildren()}
-        />  
+        />
         )
     }
     getChildren = () => {

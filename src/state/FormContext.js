@@ -23,6 +23,14 @@ class FormProvider extends Component {
         control_open: "0",
         security_open: "0",
 
+        checklist_fully_prefilled: "0",
+        domain_fully_prefilled: "0",
+        instruction_fully_prefilled: "0",
+        collection_fully_prefilled: "0",
+        sharing_fully_prefilled: "0",
+        control_fully_prefilled: "0",
+        security_fully_prefilled: "0",
+
         form_order: [
           "checklist",
           "domain",
@@ -174,21 +182,21 @@ class FormProvider extends Component {
           var lastSenderIndex = this.state.Form.form_order.indexOf(openTarget)
           var nextTarget = this.state.Form.form_order[lastSenderIndex+1]
 
-          if(nextTarget != null) {
-            console.log(`open next target ${nextTarget}`)
+          if(nextTarget != null) {           
 
             if(check_0 && check_1 && check_2) {
+                console.log(`open next target ${nextTarget}`)
+
                 this.setState({ 
                   Form : {
                       ...this.state.Form,
                       [`${openTarget}_open`]: "1",
-                      [`${nextTarget}_open`]: "1"   
+                      [`${openTarget}_fully_prefilled`]: "1",
+                      [`${nextTarget}_open`]: "1"                        
                   }
                 });
             }
           }
-
-
     }
     
     updateForm = (ref, value) => {

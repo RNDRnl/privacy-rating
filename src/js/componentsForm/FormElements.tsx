@@ -44,6 +44,7 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
         const { checkForm } = this.context as any as any;
 
         var openState = checkForm( `${this.props.categoryName.toLowerCase()}_open` )
+        var fullyPrefilledState = checkForm( `${this.props.categoryName.toLowerCase()}_fully_prefilled` )
         // console.log(this.props.categoryName.toLowerCase(), openState)
 
         return (
@@ -72,6 +73,9 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                 <AccordionRef.Collapse eventKey={openState}>
                     <CardRef.Body>
                         <ListGroupRef className={styles.listGroup} variant="flush">
+                            { fullyPrefilledState == "1" && (this.props.categoryName == 'Control') &&
+                                <div>Not applicable because no personal data is collected.</div>
+                            }
                             {this.props.children}
                         </ListGroupRef>
                     </CardRef.Body>
@@ -110,6 +114,8 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
         //     }
         // }
         
+        // can this be integrated in logic?
+
         var validA = false
         var validB = false
         
@@ -126,9 +132,14 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
         }
                 
         var isValid = validA || validB
+
+        // 
+
+
         
         return (
             <div key={""+this.props.eventKey}>
+                {/* <div>Section start</div> */}
                 { this.props.eventKey == "0" && 
                     <div>
                         {this.props.children}
@@ -142,6 +153,10 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                         </div>
                     </div>
                 }
+                {/* { !isValid &&
+                    <div>not valid</div>
+                } */}
+                {/* <div>Section end</div> */}
             </div>
         );
     }
@@ -177,6 +192,8 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         var tempCheckA = `${handle}_a`
         var tempCheckB = `${handle}_b`
         var showSecondQuestion = false
+
+        // can this be integrated in logic?
         
         var isPrefilled_a = false;
         var isPrefilled_b = false;        
@@ -194,6 +211,8 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                 isPrefilled_b = true;
             }
         }
+
+        // 
 
         // check if show second question
         if(checkForm(tempCheckA) instanceof Rating) {
@@ -216,7 +235,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                     overlay={
                     <PopoverRef className={styles.popOver}  id={`popover-positioned-bottom`}>
                         <PopoverRef.Title as="h3">{helpTitle}</PopoverRef.Title>
-                        <PopoverRef.Content  >
+                        <PopoverRef.Content>
                             {help}
                         </PopoverRef.Content>
                     </PopoverRef>
@@ -239,7 +258,8 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
 
         return (
                 <div>
-                    <div>                        
+                    <div> 
+                        {/* <div>slot A, prefilled {isPrefilled_a ? "true" : "false"}</div>                        */}
                         { this.props.eventKey == "0" && !isPrefilled_a &&
                             <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_a ? styles.prefilled : null)} key={""+this.props.question}>
                                 <div className={styles.question}>
@@ -253,6 +273,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
+                        {/* <div>slot B, prefilled {isPrefilled_b ? "true" : "false"}</div>                                                                  */}
                         { this.props.eventKey != "0" && showSecondQuestion && !isPrefilled_b &&
                             <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_b ? styles.prefilled : null)} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
@@ -268,9 +289,8 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                         }
 
                         {/* { (isPrefilled_a || isPrefilled_b) && 
-                            <div>prefilled</div>
+                            <div>prefilled ------------------------------------------------------ </div>
                         } */}
-
                     </div>
             </div>
         );
