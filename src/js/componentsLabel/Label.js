@@ -14,7 +14,6 @@ class Frame extends Component {
 
   handleExit( ) {
       const { openCategory, setLabelState } = this.context
-      console.log("handleExit");
       setLabelState(null);
   }
 

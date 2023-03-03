@@ -4,6 +4,7 @@ interface CssExports {
   'colorA': string;
   'colorD': string;
   'colorG': string;
+  'colorNone': string;
   'colouredDots': string;
   'holder': string;
   'label': string;

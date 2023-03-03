@@ -87,11 +87,18 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                     break
         }
         var classNames = `${styles.container} ${colorStyle} `
-        if (this.props.rating != "A") {
+
+        // check if has non scored child
+        var containsNonScored = this.props.children.some((child) => { return child.props.ranked == false })
+
+        var interactive = this.props.rating != "A" || containsNonScored;
+        
+        if (interactive) {
             classNames += `${styles.hoverable} `
         } else {
             classNames += `${styles.nonHoverable} `
         }
+
         if(openCategory != null) {
             if (openCategory != this.props.categoryName) {
                 classNames += `${styles.notSelected} `
@@ -99,14 +106,15 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                 classNames += `${styles.selected} `
             }            
         }
+        
 
         var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`;
 
         return (
             <div className={classNames} 
-                onClick={() => this.props.rating != "A" ? this.handleClick() : null}  
-                onMouseEnter={() => this.props.rating != "A" ? this.handleMouseEnter() : null}
-                onMouseLeave={() => this.props.rating != "A" ? this.handleMouseLeave() : null}
+                onClick={() => interactive ? this.handleClick() : null}  
+                onMouseEnter={() => interactive ? this.handleMouseEnter() : null}
+                onMouseLeave={() => interactive ? this.handleMouseLeave() : null}
                 >
                 <div className={styles.label}>
                     {this.props.categoryName}

@@ -23,6 +23,11 @@
     height: 19px;
     border-radius: 100%;
     float: left;
+
+    &.colorNone { 
+      background-image: none;
+      background-size: 19px 19px;
+    }
     
     &.colorA { 
       background-image: url("/resources/icons/happy.svg");
