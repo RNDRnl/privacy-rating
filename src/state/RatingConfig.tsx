@@ -25,7 +25,7 @@ const RatingConfig = {
     
     sharing_2_L: new RatingLabel(-1.0,"Disclosure to foreign law enforcement", true), 
     sharing_2_R: new RatingLabel(0.0,"Disclosure to local law enforcement", true),
-    sharing_2_P: new RatingLabel(1.0,"Legally required disclosure to local law enforcement", true), 
+    sharing_2_P: new RatingLabel(1.0,"Only mandatory disclosure to local law enforcement", true), 
    
     // control
     control_0_L: new RatingLabel(-1.0,"Cannot opt-out of ##dataTypeNaming## data collection", true),

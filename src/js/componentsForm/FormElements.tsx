@@ -101,47 +101,52 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
     render() {
         const { checkForm } = this.context as any;
 
-        // check!
         var currentName = this.props.sectionName
         
         var handle = currentName.substring(0, currentName.length - 2);
         var numberRef = parseInt(this.props.eventKey) - 1;
+        var numberRef2B = parseInt(this.props.eventKey) - 2; // 2B stands for two rows back
 
-        // var checkPrefilled = checkForm(`${handle}_${numberRef}_a`);
-        // if(checkPrefilled != null) {
-        //     if(checkPrefilled.prefilled) {
-        //         numberRef = numberRef - 1;
-        //     }
-        // }
-        
-        // can this be integrated in logic?
+        var validA = false  
+        var validB = false               
 
-        var validA = false
-        var validB = false
-        
-        var checkA = checkForm(`${handle}_${numberRef}_a`) 
-        if(checkA instanceof Rating) {
-            if(checkA.rate != null) {
-                validA = true
+        if(numberRef>=0) {
+            var checkA = checkForm(`${handle}_${numberRef}_a`) 
+            if(checkA instanceof Rating) {
+                validA = checkA.rate != null                
             }
+
+            var checkB = checkForm(`${handle}_${numberRef}_b`)
+            validB = checkB instanceof Rating            
         }
 
-        var checkB = checkForm(`${handle}_${numberRef}_b`)
-        if(checkB instanceof Rating) {
-            validB = true
+        var validA2B = true 
+        var validB2B = true
+        
+        if(numberRef2B>=0) {
+            validA2B = false
+            validB2B = false
+
+            var checkA2B = checkForm(`${handle}_${numberRef2B}_a`)             
+            if(checkA2B instanceof Rating) {
+                validA2B = checkA2B.rate != null                
+            }
+            
+            var checkB2B = checkForm(`${handle}_${numberRef2B}_b`)
+            validB2B = checkB2B instanceof Rating
         }
                 
-        var isValid = validA || validB
+        var isValid = (validA || validB) && (validA2B || validB2B)
 
-        // 
-
-
+        console.log(`conclususion:`, isValid ? "valid" : "not valid")            
         
         return (
             <div key={""+this.props.eventKey}>
                 {/* <div>Section start</div> */}
+                
                 { this.props.eventKey == "0" && 
                     <div>
+                        {/* <div>can pass</div> */}
                         {this.props.children}
                     </div>
                 }
@@ -149,12 +154,13 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                     <div>
                         {/* <div>xx {handle} eventKey:{this.props.eventKey} numberRef:{numberRef}</div> */}
                         <div>
+                            {/* <div>keyevent not 0, but is valid</div> */}
                             {this.props.children}
                         </div>
                     </div>
                 }
                 {/* { !isValid &&
-                    <div>not valid</div>
+                    <div>Sorry, will not be shown! I'm not valid</div>
                 } */}
                 {/* <div>Section end</div> */}
             </div>
@@ -259,9 +265,11 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
         return (
                 <div>
                     <div> 
-                        {/* <div>slot A, prefilled {isPrefilled_a ? "true" : "false"}</div>                        */}
+                                              
                         { this.props.eventKey == "0" && !isPrefilled_a &&
+                        
                             <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_a ? styles.prefilled : null)} key={""+this.props.question}>
+                                {/* <div>show slot A, prefilled {isPrefilled_a ? "true" : "false"}</div>  */}
                                 <div className={styles.question}>
                                     <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
@@ -273,10 +281,11 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
-                        {/* <div>slot B, prefilled {isPrefilled_b ? "true" : "false"}</div>                                                                  */}
+                                                                                       
                         { this.props.eventKey != "0" && showSecondQuestion && !isPrefilled_b &&
                             <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_b ? styles.prefilled : null)} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
+                                {/* <div>show slot B, prefilled {isPrefilled_b ? "true" : "false"}</div>   */}
                                     <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
                                         {this.props.children}
@@ -287,10 +296,6 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
-
-                        {/* { (isPrefilled_a || isPrefilled_b) && 
-                            <div>prefilled ------------------------------------------------------ </div>
-                        } */}
                     </div>
             </div>
         );
