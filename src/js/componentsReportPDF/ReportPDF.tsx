@@ -245,7 +245,12 @@ export default class ReportPDF {
 
                     <View style={stylesPDF.pageRow}>
                         <View style={stylesPDF.section}>
-                            <Text style={stylesPDF.tinyType}>Generated {this.today.toDateString()} at {`${process.env.BASE_PATH}/#/embed/${this.labelHash}/${this.labelDomain}`}</Text>
+                            { this.labelDomain != undefined &&
+                                <Text style={stylesPDF.tinyType}>Generated {this.today.toDateString()} at {`${process.env.BASE_PATH}/#/embed/${this.labelHash}/${this.labelDomain}`}</Text>
+                            }
+                            { this.labelDomain == undefined &&
+                                <Text style={stylesPDF.tinyType}>Generated {this.today.toDateString()} at {`${process.env.BASE_PATH}/#/embed/${this.labelHash}`}</Text>
+                            }                            
                         </View>
                     </View>
             </Page>
