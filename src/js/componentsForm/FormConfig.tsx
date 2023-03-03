@@ -61,8 +61,8 @@ var FormConfig = new Form([
                                 new Rating( "Yes", "C", [
                                     new preFill("collection_1_a", null),
                                     new preFill("collection_1_b", null),                                        
-                                    new preFill("collection_2_a", null),
-                                    new preFill("collection_2_b", null),
+                                    // new preFill("collection_2_a", null),
+                                    // new preFill("collection_2_b", null),
                                     new preFill("sharing_0_a", null),
                                     new preFill("sharing_1_a", null),
                                     new preFill("control_0_a", null),
@@ -76,8 +76,8 @@ var FormConfig = new Form([
                                 new Rating( "No", null, [
                                     new preFill("collection_1_a", null),
                                     new preFill("collection_1_b", null),                                        
-                                    new preFill("collection_2_a", null),
-                                    new preFill("collection_2_b", null),
+                                    // new preFill("collection_2_a", null),
+                                    // new preFill("collection_2_b", null),
                                     new preFill("sharing_0_a", null),
                                     new preFill("sharing_1_a", null),
                                     new preFill("control_0_a", null),
@@ -96,8 +96,8 @@ var FormConfig = new Form([
                                 new Rating( "Yes", "B", [
                                         new preFill("collection_1_a", null),
                                         new preFill("collection_1_b", null),                                        
-                                        new preFill("collection_2_a", null),
-                                        new preFill("collection_2_b", null),
+                                        // new preFill("collection_2_a", null),
+                                        // new preFill("collection_2_b", null),
                                         new preFill("sharing_0_a", null),
                                         new preFill("sharing_1_a", null),
                                         new preFill("control_0_a", null),
@@ -112,8 +112,8 @@ var FormConfig = new Form([
                                 new Rating( "No", "A", [
                                         new preFill("collection_1_a", new Rating("No", null).makePrefilled()),
                                         new preFill("collection_1_b", new Rating("No", "A").makePrefilled()),                                        
-                                        new preFill("collection_2_a", new Rating("Yes", null).makePrefilled()),
-                                        new preFill("collection_2_b", new Rating("Yes", "A").makePrefilled()),
+                                        // new preFill("collection_2_a", new Rating("Yes", null).makePrefilled()),
+                                        // new preFill("collection_2_b", new Rating("Yes", "A").makePrefilled()),
                                         
                                         new preFill("sharing_0_a", new Rating("No", null).makePrefilled()),
                                         new preFill("sharing_1_a", new Rating("No", null).makePrefilled()),
@@ -163,28 +163,18 @@ var FormConfig = new Form([
             ),
             new Section( "collection_2",
                 [
-                    new Question( "Is user data deleted after a pre‐ determined amount of time?",
-                        [
-                            new Answer( "collection_2_a", "collection",
-                                new Rating( "Yes", null)
-                            ),
-                            new Answer( "collection_2_a", "collection",
-                                new Rating( "No", "C")
-                            )
-                        ],
-                        "",
-                        "User data includes any sensitive, personal, or anonymous data collected from users of the online service. It does not include technical data required for the service to function."
-                    ),
+                    
+                    
                     new Question( "Is user data deleted after completion of each session?",
                         [
-                            new Answer( "collection_2_b", "collection",
+                            new Answer( "collection_2_a", "collection",
                                 new Rating( "Yes", "A", [
                                     new preFill("control_1_a", new Rating( "Yes", "A").makePrefilled()),
                                     new preFill("control_2_a", new Rating( "Yes", "A").makePrefilled()),
                                 ])
                             ),
-                            new Answer( "collection_2_b", "collection",
-                                new Rating( "No", "B", [    
+                            new Answer( "collection_2_a", "collection",
+                                new Rating( "No", null, [    
                                     new preFill("control_1_a", null), // this overreides the previous prefill :(
                                     new preFill("control_2_a", null), // this overreides the previous prefill :(           
                                 ])
@@ -192,7 +182,25 @@ var FormConfig = new Form([
                         ],
                         "",
                         "User data includes any sensitive, personal, or anonymous data collected from users of the online service. It does not include technical data required for the service to function."
+                    ),
+
+
+                    new Question( "Is user data deleted after a pre‐ determined amount of time?",
+                        [
+                            new Answer( "collection_2_b", "collection",
+                                new Rating( "Yes", "B")
+                            ),
+                            new Answer( "collection_2_b", "collection",
+                                new Rating( "No", "C")
+                            )
+                        ],
+                        "",
+                        "User data includes any sensitive, personal, or anonymous data collected from users of the online service. It does not include technical data required for the service to function."
                     )
+
+
+
+                    
                 ]
             ),
         ]
