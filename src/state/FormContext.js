@@ -23,13 +23,13 @@ class FormProvider extends Component {
         control_open: "0",
         security_open: "0",
 
-        checklist_fully_prefilled: "0",
-        domain_fully_prefilled: "0",
-        instruction_fully_prefilled: "0",
-        collection_fully_prefilled: "0",
-        sharing_fully_prefilled: "0",
-        control_fully_prefilled: "0",
-        security_fully_prefilled: "0",
+        // checklist_fully_prefilled: "0",
+        // domain_fully_prefilled: "0",
+        // instruction_fully_prefilled: "0",
+        // collection_fully_prefilled: "0",
+        // sharing_fully_prefilled: "0",
+        // control_fully_prefilled: "0",
+        // security_fully_prefilled: "0",
 
         form_order: [
           "checklist",
@@ -157,6 +157,7 @@ class FormProvider extends Component {
       //  this.checkIfDataStored(); 
 
       console.log(this.state.Form)
+      this.validateForm();
 
     }
 
@@ -170,33 +171,42 @@ class FormProvider extends Component {
           });
           
           // check if catagory is complete and open next
-          this.openNextStepCurrentPreFilled(openTarget)
+          // this.openNextStepCurrentPreFilled(openTarget)
     }
 
-    openNextStepCurrentPreFilled = (openTarget) => {
+    // openNextStepCurrentPreFilled = (openTarget) => {
 
-          var check_0 = this.checkForm(`${openTarget}_0_a`) != null || this.checkForm(`${openTarget}_0_b`) != null
-          var check_1 = this.checkForm(`${openTarget}_1_a`) != null || this.checkForm(`${openTarget}_1_b`) != null
-          var check_2 = this.checkForm(`${openTarget}_2_a`) != null || this.checkForm(`${openTarget}_2_b`) != null
+    //       var check_0 = this.checkForm(`${openTarget}_0_a`) != null || this.checkForm(`${openTarget}_0_b`) != null
+    //       var check_1 = this.checkForm(`${openTarget}_1_a`) != null || this.checkForm(`${openTarget}_1_b`) != null
+    //       var check_2 = this.checkForm(`${openTarget}_2_a`) != null || this.checkForm(`${openTarget}_2_b`) != null
 
-          var lastSenderIndex = this.state.Form.form_order.indexOf(openTarget)
-          var nextTarget = this.state.Form.form_order[lastSenderIndex+1]
+    //       var lastSenderIndex = this.state.Form.form_order.indexOf(openTarget)
+    //       var nextTarget = this.state.Form.form_order[lastSenderIndex+1]
 
-          if(nextTarget != null) {           
+    //       if(nextTarget != null) {           
 
-            if(check_0 && check_1 && check_2) {
-                console.log(`open next target ${nextTarget}`)
+    //         if(check_0 && check_1 && check_2) {
+    //             console.log(`open next target ${nextTarget}`)
 
-                this.setState({ 
-                  Form : {
-                      ...this.state.Form,
-                      [`${openTarget}_open`]: "1",
-                      [`${openTarget}_fully_prefilled`]: "1",
-                      [`${nextTarget}_open`]: "1"                        
-                  }
-                });
-            }
-          }
+    //             this.setState({ 
+    //               Form : {
+    //                   ...this.state.Form,
+    //                   [`${openTarget}_open`]: "1",
+    //                   [`${openTarget}_fully_prefilled`]: "1",
+    //                   [`${nextTarget}_open`]: "1"                        
+    //               }
+    //             });
+    //         }
+    //       }
+    // }
+
+    validateForm = () => {
+      console.log("validate form");
+
+      
+
+
+
     }
     
     updateForm = (ref, value) => {

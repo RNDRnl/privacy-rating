@@ -76,14 +76,13 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
             <div className={classBox} onClick={() => this.handleClick()}>
                 <div className={styles.label}>
 
-                    <div className={styles.label__column}>
+                    <div className={styles.label__column}>                        
                         {this.props.ranked ? (
                             <div>{this.props.score} Point</div>
                         ) : (
                             <div>Not scored</div>
                         )}
-                    </div> 
-
+                    </div>
 
                     <div className={styles.label__column}>
                         <div className={classDots}/>

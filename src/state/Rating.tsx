@@ -37,10 +37,11 @@ export default class Rating {
         return this
     }
     
-    constructor(_label: String, _rate: String, _preFills?: preFill[]) {
+    constructor(_label: String, _rate: String) {
+        //_preFills?: preFill[]
         this.rate = _rate;
         this.label = _label;
-        this.preFills = _preFills;
+        // this.preFills = _preFills;
     }
 }
 

@@ -71,7 +71,7 @@ const AboutDisc = {
         [
             new Bullet("-1", true, "Disclosure to foreign law enforcement", "User data leaves the jurisdiction of the user and is subject to disclosure requests by law enforcement agencies or governments other than those in the same jurisdiction as the user. Note: The EU is considered a single jurisdiction because it falls under the auspices of the GDPR."),
             new Bullet("0", true, "Disclosure to local law enforcement", "User data may disclose user data to law enforcement agencies within the user's jurisdiction."),
-            new Bullet("+1", true, "Only mandatory disclosure to local law enforcement", "User data does not leave the jurisdiction of the user and the service provider requires law enforcement agencies to comply, at a minimum, with the legal process provided by the law handing over user data.")
+            new Bullet("+1", true, "Statutory disclosure to local law enforcement", "User data does not leave the jurisdiction of the user and the service provider requires law enforcement agencies to comply, at a minimum, with the legal process provided by the law handing over user data.")
         ]
     ),
 

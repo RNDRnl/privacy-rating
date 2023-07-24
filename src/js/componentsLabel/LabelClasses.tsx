@@ -54,18 +54,18 @@ export class CategoryTag {
     }
     getChildren = () => {
         var result: any = new Array()
-        var allAreRanked = this.sections.every((element) => { return element.ranked == true })
-        if(allAreRanked) {
+        // var allAreRanked = this.sections.every((element) => { return element.ranked == true })
+        // if(allAreRanked) {
+        //     this.sections.forEach(function(element, index) {
+        //         result.push( new SectionTag(element.text, element.resultDesc, element.score, element.ranked).getTag(index) ) ;
+        //     })
+        // } else {
             this.sections.forEach(function(element, index) {
-                result.push( new SectionTag(element.text, element.resultDesc, element.score, element.ranked).getTag(index) ) ;
+                // if(!element.ranked) {
+                    result.push( new SectionTag(element.text, element.resultDesc, element.score, element.ranked).getTag(index) ) ;
+                // }
             })
-        } else {
-            this.sections.forEach(function(element, index) {
-                if(!element.ranked) {
-                result.push( new SectionTag(element.text, element.resultDesc, element.score, element.ranked).getTag(index) ) ;
-                }
-            })
-        }
+        // }
         return result
     }
     constructor(_categoryName: String, _rating: any, _sections: Array<Section>) { 

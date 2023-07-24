@@ -58,33 +58,11 @@ var FormConfig = new Form([
                     new Question( "Does the online service collect or store sensitive personal data from its users?",
                         [
                             new Answer( "collection_0_a", "collection",
-                                new Rating( "Yes", "C", [
-                                    new preFill("collection_1_a", null),
-                                    new preFill("collection_1_b", null),                                        
-                                    // new preFill("collection_2_a", null),
-                                    // new preFill("collection_2_b", null),
-                                    new preFill("sharing_0_a", null),
-                                    new preFill("sharing_1_a", null),
-                                    new preFill("control_0_a", null),
-                                    new preFill("control_1_a", null),
-                                    new preFill("control_2_a", null),      
-                                    new preFill("security_1_a", null),  
-                                ]),
+                                new Rating( "Yes", "C"),
                                 new NameRule("dataTypeNaming", "sensitive")
                             ),
                             new Answer( "collection_0_a", "collection",
-                                new Rating( "No", null, [
-                                    new preFill("collection_1_a", null),
-                                    new preFill("collection_1_b", null),                                        
-                                    // new preFill("collection_2_a", null),
-                                    // new preFill("collection_2_b", null),
-                                    new preFill("sharing_0_a", null),
-                                    new preFill("sharing_1_a", null),
-                                    new preFill("control_0_a", null),
-                                    new preFill("control_1_a", null),
-                                    new preFill("control_2_a", null),      
-                                    new preFill("security_1_a", null),  
-                                ])
+                                new Rating( "No", null)
                             )
                         ],
                         "According to Article 9 of the GDPR", 
@@ -93,38 +71,11 @@ var FormConfig = new Form([
                     new Question( "Does the online service collect or store personal data from its users?",
                         [
                             new Answer( "collection_0_b", "collection",
-                                new Rating( "Yes", "B", [
-                                        new preFill("collection_1_a", null),
-                                        new preFill("collection_1_b", null),                                        
-                                        // new preFill("collection_2_a", null),
-                                        // new preFill("collection_2_b", null),
-                                        new preFill("sharing_0_a", null),
-                                        new preFill("sharing_1_a", null),
-                                        new preFill("control_0_a", null),
-                                        new preFill("control_1_a", null),
-                                        new preFill("control_2_a", null),      
-                                        new preFill("security_1_a", null),                                                                               
-                                    ]
-                                ),
+                                new Rating( "Yes", "B"),
                                 new NameRule("dataTypeNaming", "personal")
                             ),
                             new Answer( "collection_0_b", "collection",
-                                new Rating( "No", "A", [
-                                        new preFill("collection_1_a", new Rating("No", null).makePrefilled()),
-                                        new preFill("collection_1_b", new Rating("No", "A").makePrefilled()),                                        
-                                        // new preFill("collection_2_a", new Rating("Yes", null).makePrefilled()),
-                                        // new preFill("collection_2_b", new Rating("Yes", "A").makePrefilled()),
-                                        
-                                        new preFill("sharing_0_a", new Rating("No", null).makePrefilled()),
-                                        new preFill("sharing_1_a", new Rating("No", null).makePrefilled()),
-                                        
-                                        new preFill("control_0_a", new Rating( "Yes", "A").makePrefilled()),
-                                        new preFill("control_1_a", new Rating( "Yes", "A").makePrefilled()),
-                                        new preFill("control_2_a", new Rating( "Yes", "A").makePrefilled()),    
-
-                                        new preFill("security_1_a", new Rating( "Yes", "A").makePrefilled())
-                                    ]
-                                ),
+                                new Rating( "No", "A"),
                                 new NameRule("dataTypeNaming", "anonymous")
                             )
                         ],
@@ -168,16 +119,10 @@ var FormConfig = new Form([
                     new Question( "Is user data deleted after completion of each session?",
                         [
                             new Answer( "collection_2_a", "collection",
-                                new Rating( "Yes", "A", [
-                                    new preFill("control_1_a", new Rating( "Yes", "A").makePrefilled()),
-                                    new preFill("control_2_a", new Rating( "Yes", "A").makePrefilled()),
-                                ])
+                                new Rating( "Yes", "A")
                             ),
                             new Answer( "collection_2_a", "collection",
-                                new Rating( "No", null, [    
-                                    new preFill("control_1_a", null), // this overreides the previous prefill :(
-                                    new preFill("control_2_a", null), // this overreides the previous prefill :(           
-                                ])
+                                new Rating( "No", null)
                             )
                         ],
                         "",
