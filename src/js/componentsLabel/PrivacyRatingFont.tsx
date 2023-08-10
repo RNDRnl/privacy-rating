@@ -10,7 +10,7 @@ class PrivacyRatingFont extends React.Component {
     }
 
     render() {
-        const { openCategory } = this.context
+        const { openCategory } = this.context  as any
 
         var classNames = `${styles.holder} `
         if(openCategory != null) {

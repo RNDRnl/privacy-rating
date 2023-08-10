@@ -4,9 +4,11 @@ interface CssExports {
   'colorA': string;
   'colorD': string;
   'colorG': string;
+  'colorNone': string;
   'colouredDots': string;
   'holder': string;
   'label': string;
+  'questionMark': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

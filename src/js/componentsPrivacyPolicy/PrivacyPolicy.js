@@ -4,6 +4,7 @@ import styles from './PrivacyPolicy.scss';
 import Header from "../Header";
 import Footer from "../Footer";
 import * as Scroll from 'react-scroll';
+import App from '../componentsLabel/App';
 
 class PageView extends Component {
 
@@ -23,20 +24,7 @@ class PageView extends Component {
                 <Row className={styles.labelFrame}>
                     
                     <div className={styles.label}>
-                        <iframe src={`${process.env.BASE_PATH}/#/RPPPPLLPPLRR/privacyrating**info`}
-                                                top="0"
-                                                left="0"
-                                                width="430pt"
-                                                height="430pt"
-                                                border="0"
-                                                overflow="hidden"
-                                                margin="0"
-                                                padding="0"
-                                                border-radius="8pt"
-                                                frameBorder="0"
-                                                gesture="media"
-                                                allow="encrypted-media"
-                                                allowFullScreen/>
+                        <App labelId="PPPPPRPRRLRR" domain={"privacyrating**info"} />
                     </div>
                     
                 </Row>

@@ -5,7 +5,7 @@
   padding-left: 8pt;
   padding-right: 10pt;
   cursor: default;
-
+    
   .label {
     flex: 1;
     font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
@@ -17,20 +17,48 @@
   }
 
   .colouredDots {
-    margin-top: 4pt;
-    margin-bottom: 4pt;
-    width: 13px;
-    height: 13px;
+    margin-top: 1pt;
+    margin-bottom: 1pt;
+    width: 19px;
+    height: 19px;
     border-radius: 100%;
     float: left;
-    border: 1px solid black;
-    box-shadow:  0 0 1px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0 0 1px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.6);
-    -o-box-shadow: 0 0 1px rgba(0,0,0,0.6);
 
-    &.colorA { background-color: $color-A;}
-    &.colorD { background-color: $color-D;}
-    &.colorG { background-color: $color-G;}
+    &.colorNone { 
+      background-image: none;
+      background-size: 19px 19px;
+    }
+    
+    &.colorA { 
+      background-image: url("/resources/icons/happy.svg");
+      background-size: 19px 19px;
+    }
+    &.colorD { 
+      background-image: url("/resources/icons/neutral.svg");
+      background-size: 19px 19px;
+    }
+    &.colorG { 
+      background-image: url("/resources/icons/sad.svg");
+      background-size: 19px 19px;
+    }
+  }
+
+  .questionMark {
+    // position: absolute;
+    flex:1;
+    float:right;
+    margin-top:2pt;
+
+    span {
+      background: url("#{$env}resources/icons/question_black.svg");
+      width: 10pt;
+      height: 10pt;
+      display: block;
+    
+      &:hover {
+        cursor: pointer;
+        background: url("#{$env}resources/icons/question-hover_black.svg");
+      }
+    }
   }
 }

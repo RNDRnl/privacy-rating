@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from './Label.scss';
 import LabelContext from '../../state/LabelContext'
-import { LabelTag } from "./LabelClasses";
 
 class Frame extends Component {  
   static contextType = LabelContext
@@ -27,7 +26,7 @@ class Frame extends Component {
     const { Label } = this.context
     
     return (
-      <div  className={styles.holder} onMouseLeave={() => this.handleExit()} >
+      <div className={styles.holder} onMouseLeave={() => this.handleExit()} >
           {Label != null &&
             <Label />
           }

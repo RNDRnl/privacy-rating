@@ -1,16 +1,23 @@
 import LabelTag from "../js/componentsLabel/LabelClasses";
 
 import { RatingConfig } from "./RatingConfig"
+import { RecommendationsConfig } from "./RecommendationsConfig"
+import { AboutDisc } from "../js/componentsAbout/AboutDisc";
+
 import FormConfig from "../js/componentsForm/FormConfig"
 import { Answer } from "../js/componentsForm/FormClasses";
 import Rating from "./Rating";
+import RecommendationPanel from "../js/componentsRecommendations/RecommendationsClasses";
+import ScoreDrawer from "../js/componentsScoreDrawer/ScoreDrawer";
+import ReportPDF from "../js/componentsReportPDF/ReportPDF";
+import { validateConfigLabel } from "./ValidationConfigLabel";
 
 export class LabelObject {
     score: any;
     rank: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
     categories: Category[] = new Array();
     domain: String;
-    year: 2020;
+    year: Number = new Date().getFullYear();
     calculateRank() {
         this.rank = scoreToRank(this.score);
     }
@@ -28,7 +35,7 @@ class Category {
     categoryName: String;
     sections: Section[] = new Array();
     calculateRank() {
-        this.rank = scoreToRank(this.score);
+        this.rank = scoreToCatagoryRank(this.score);
     }
     constructor(_score: any, _categoryName: String, _sections:Section[]) {
         this.categoryName = _categoryName;
@@ -38,24 +45,38 @@ class Category {
     }
 }
 
-const mapRange = (value:any, low1:any, high1:any, low2:any, high2:any) => {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+const mapToRank = (value:any) => {
+    if(value >= 8.0 && value <= 11.0) {
+        return 'A'
+    } else if (value >= 5.0 && value <= 7.0) {
+        return 'B'
+    } else if (value >= 2.0 && value <= 4.0) {
+        return 'C'
+    } else if (value >= -1.0 && value <= 1.0) {
+        return 'D'
+    } else if (value >= -4.0 && value <= -2.0) {
+        return 'E'
+    } else if (value >= -7.0 && value <= -5.0) {        
+        return 'F'
+    } else if (value >= -11.0 && value <= -8.0) {
+        return 'G'
+    }
 }
 
-const mapToRank = (value:any) => {
-    if(value >= 0.0 && value <= 0.25) {
+const mapToCatagoryRank = (value:any) => {
+    if(value == 3) {
         return 'A'
-    } else if (value >= 0.5 && value <= 1.25) {
+    } else if (value == 2) {
         return 'B'
-    } else if (value >= 1.5 && value <= 2.25) {
+    } else if (value == 1) {
         return 'C'
-    } else if (value >= 2.5 && value <= 3.25) {
+    } else if (value == 0) {
         return 'D'
-    } else if (value >= 3.5 && value <= 4.25) {
+    } else if (value == -1) {
         return 'E'
-    } else if (value >= 4.5 && value <= 5.25) {        
+    } else if (value == -2) {        
         return 'F'
-    } else if (value >= 5.5 && value <= 6.0) {
+    } else if (value == -3) {
         return 'G'
     }
 }
@@ -64,12 +85,26 @@ const scoreToRank = (score:any) => {
     return mapToRank(score);
 }
 
+const scoreToCatagoryRank = (score:any) => {
+    return mapToCatagoryRank(score);
+}
+
 export class Section {
     score: any;
     text: String;
-    constructor(_score: Number, _text: String) {
+    ranked: Boolean;
+    recommendation: String;
+    resultDesc: String;
+    hiddenDesc: String;
+    hidden: Boolean;
+    constructor(_score: Number, _text: String, _ranked: Boolean, _recommendation: String, _resultDesc: String, _hiddenDesc: String, _hidden: Boolean) {
         this.score = _score;
         this.text = _text;
+        this.ranked = _ranked;
+        this.recommendation = _recommendation;
+        this.resultDesc = _resultDesc;
+        this.hiddenDesc = _hiddenDesc;
+        this.hidden = _hidden;
     }
 }
 
@@ -103,7 +138,11 @@ const sumScore = (elements:any) => {
         if(element == null) {
             isInvalid = true
         } else {
-            runningScore += element.score
+            if(element.ranked) { 
+                runningScore += element.score
+            } else {
+                runningScore += 1 // non ranked is 1
+            }
         }
     });
 
@@ -114,7 +153,7 @@ const sumScore = (elements:any) => {
     }
 }
 
-const calculateScore = (elements:any, devide:any) => {
+const calculateScore = (elements:any) => {
 
     var runningScore = 0.0
     var isInvalid = false
@@ -130,7 +169,7 @@ const calculateScore = (elements:any, devide:any) => {
     if(isInvalid) {
         return null
     } else {
-        return (runningScore / devide);
+        return (runningScore); // no devide needed
     }
 }
 
@@ -188,19 +227,19 @@ const calculateProcess = (catagories:any, FormState:any) => {
     var value = 0;
     var text = "";
 
-    if(FormState.instruction_open!="0") {
+    if(FormState.checklist_open!="0") {
         var variant = "secondary";
         var value = 20;
         var text = "20%";
     }
-
-    if(FormState.checklist_open!="0") {
+    
+    if(FormState.domainSubmit!=null) {
         var variant = "secondary";
         var value = 30;
         var text = "30%";
     }
-    
-    if(FormState.domainSubmit!=null) {
+
+    if(FormState.instruction_open!="0") {
         var variant = "secondary";
         var value = 40;
         var text = "40%";
@@ -242,7 +281,7 @@ const FormStateToHash = (FormState:any) => {
             sections.push(getMatchingScore( FormState, cat, i));
         }
 
-        var score = calculateScore(sections, 3.0)
+        var score = calculateScore(sections)
         catagories.push( new Category(score, cat, sections) );
     });
 
@@ -277,14 +316,69 @@ const covertDomain = (domain:any) => {
     return domain.replace("**", ".")
 }
 
-const HashToLabelState = (labelHash:any) => {
+const replaceDataType = (text:any, dataType:any) => {
+    return capatalize(text.replace("##dataTypeNaming##", `${dataType}`))
+}
 
+const getDataType = (firstHashChar:any) => {
+    switch(firstHashChar) {
+        case "L":
+            return "sensitive" // C
+        case "R":
+            return "personal" // B
+        case "P":
+            return "anonymous" // A
+    }
+}
+
+const charToIndex = (firstHashChar:any) => {
+    switch(firstHashChar) {
+        case "L":
+            return 0 // C
+        case "R":
+            return 1 // B
+        case "P":
+            return 2 // A
+    }
+}
+
+const capatalize = (text:any) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+const HashToLabelState = (labelHash:any) => {
     var characters = labelHash.hash.split("")
     var sections = [];
+    var dataType = getDataType(characters[0]);
+
+    // list items to be hidden
+    var hiddenItems = [];
+    characters.forEach((char, index) => {
+        validateConfigLabel.LabelConsitions.forEach((condition) => {
+            if(condition.section_handle == `${indexToCategory(index)}_${indexToSection(index)}` && condition.section_value == `${char}`) {
+                console.log('condition triggered', condition)
+                condition.consequences.forEach((consequence) => {   
+                    hiddenItems.push(consequence.section_handle)
+                })
+            }
+        });
+    });
+    
     characters.forEach(function(char, index) {
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
         var resultRating = RatingConfig[targetPath];
-        var section = new Section(resultRating.score, resultRating.text);
+        
+        // lookup if needs to be hidden based on validation form
+        var resultRecommendation = RecommendationsConfig[targetPath];
+        
+        var discHandle = `${indexToCategory(index)}_${indexToSection(index)}`
+        var resultDescBullets = AboutDisc[discHandle].bullets
+        var bullet = resultDescBullets[charToIndex(char)]
+        var resultDesc = bullet.desc
+        var hiddenDesc = bullet.hiddenDesc
+        var hidden = hiddenItems.includes(targetPath);
+        
+        var section = new Section(resultRating.score, replaceDataType(resultRating.text, dataType), resultRating.ranked, resultRecommendation.text, resultDesc, hiddenDesc, hidden);
         sections.push(section);
     })
 
@@ -300,7 +394,7 @@ const HashToLabelState = (labelHash:any) => {
         new Category(sumScore(category4), "SECURITY", category4)
     ]
 
-    var cScore = calculateScore(categories, 4.0);
+    var cScore = calculateScore(categories);
     
     var domainValue = null;
     if(typeof labelHash.domain !== 'undefined') {
@@ -309,10 +403,16 @@ const HashToLabelState = (labelHash:any) => {
 
     var labelObject = new LabelObject(cScore, domainValue, categories);
     var labelRender = new LabelTag(labelObject).getTag;
-
+    var labelRecommenendations = new RecommendationPanel(labelObject).getTag;
+    var labelScoreDrawer = new ScoreDrawer(labelObject, labelHash.plain).getTag;
+    var reportPdf = new ReportPDF(labelObject, labelHash).getTag;
+    
     return {
         labelRender: labelRender, 
-        labelObject: labelObject
+        labelObject: labelObject,
+        labelRecommenendations: labelRecommenendations,
+        labelScoreDrawer: labelScoreDrawer,
+        reportPdf: reportPdf
     };
 }
 

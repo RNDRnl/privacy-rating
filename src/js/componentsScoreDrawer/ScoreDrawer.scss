@@ -1,0 +1,88 @@
+@import "src/main";
+
+
+.resultBox {
+    // margin-left: 268px;
+}
+
+.resultBoxHeader {
+
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+
+    .title {
+        flex:1;
+        font-size: 20px;
+    }
+
+    .result {
+        flex:1;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: right;
+        margin-right:16px;
+    }
+}
+
+.rankContainer {
+    display: flex;
+    margin-bottom: 1px;
+
+    .rank {
+        flex: 1;
+        background-color: rgba(lightgrey, 0.4);
+        margin:1px;
+        text-align: center;
+        padding: 10px 0px 10px 0px;
+        border-radius: 5px;
+            
+        &:first-child {
+            flex:1.3;
+            margin-left:0px;
+        }
+        &:last-child {
+            flex:1.3;
+            margin-right: 0px;
+        }
+        
+        &.colorA { background-color: $color-A; outline: 1px solid black;}
+        &.colorB { background-color: $color-B; outline: 1px solid black;}
+        &.colorC { background-color: $color-C; outline: 1px solid black;}
+        &.colorD { background-color: $color-D; outline: 1px solid black;}
+        &.colorE { background-color: $color-E; outline: 1px solid black;}
+        &.colorF { background-color: $color-F; outline: 1px solid black;}
+        &.colorG { background-color: $color-G; outline: 1px solid black;}
+    }
+}
+
+
+.chipContainer {
+    display: flex;
+
+    .chip {
+        flex: 1;
+        background-color: rgba(lightgrey, 0.4);
+        border-radius: 20%;
+        padding:4px;
+        line-height: 150%;
+        font-size: 12px;
+        margin: 0px 1px 0px 1px;
+        text-align: center;
+
+        &:first-child {
+            margin-left: 0px;
+        }
+        &:last-child {
+            margin-right: 0px;
+        }
+        
+
+        &.selected {
+            background-color: black;
+            color:white;
+        
+        }
+    }
+}
+

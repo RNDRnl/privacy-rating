@@ -10,8 +10,10 @@ interface CssExports {
   'colorF': string;
   'colorG': string;
   'container': string;
+  'hoverable': string;
   'icon': string;
   'label': string;
+  'nonHoverable': string;
   'notSelected': string;
   'selected': string;
 }

@@ -12,8 +12,8 @@ import {
 } from "react-bootstrap";
 const styles = require('./FormElements.scss');
 import FormContext from '../../state/FormContext';
-import classnames from "classnames";
-import Rating from "../../state/Rating"
+const classnames = require("classnames");
+import Rating, { NameRule } from "../../state/Rating"
 
 // //////////////
 // Category
@@ -26,27 +26,39 @@ export interface ValidPropsCategory {
     availableIf: String;
 }
 
+const CardRef : any = Card;
+const NavbarRef : any = Navbar;
+const AccordionRef : any = Accordion;
+const ListGroupRef : any = ListGroup;
+const ImageRef : any = Image;
+const OverlayTriggerRef : any = OverlayTrigger;
+const PopoverRef : any = Popover;
+const InputGroupRef : any = InputGroup;
+const FormControlRef : any = FormControl;
+
 export class FormCategory extends React.Component<ValidPropsCategory, {}> {
     static contextType = FormContext
     
     render() {
 
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any as any;
 
         var openState = checkForm( `${this.props.categoryName.toLowerCase()}_open` )
+        var fullyPrefilledState = checkForm( `${this.props.categoryName.toLowerCase()}_fully_prefilled` )
+        // console.log(this.props.categoryName.toLowerCase(), openState)
 
         return (
-            <Card key={""+this.props.categoryName}>
-                <Card.Header>
+            <CardRef key={""+this.props.categoryName}>
+                <CardRef.Header>
                         <div>
-                            <Navbar.Text className={styles.headerstyle}>
+                            <NavbarRef.Text className={styles.headerstyle}>
                                     { ((this.props.categoryName == 'Collection') || (this.props.categoryName == 'Sharing') || (this.props.categoryName == 'Control') || (this.props.categoryName == 'Security')) &&
-                                    <Image className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
+                                    <ImageRef className={styles.headerIconBig} src={`${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`}/>
                                     }
                                     {this.props.categoryName}
-                            </Navbar.Text>
+                            </NavbarRef.Text>
                           
-                            <Navbar.Text className={styles.justifyContentEnd}>
+                            <NavbarRef.Text className={styles.justifyContentEnd}>
                                 { openState == "1" &&
                                     <div className={classnames(styles.catStatus, styles.check)}>
                                         <div className={styles.smallCircle}></div>
@@ -55,24 +67,27 @@ export class FormCategory extends React.Component<ValidPropsCategory, {}> {
                                 { openState == "0" &&
                                     <div className={classnames(styles.catStatus, styles.cross)} ></div>
                                 }
-                            </Navbar.Text>
+                            </NavbarRef.Text>
                         </div>
-                </Card.Header>
-                <Accordion.Collapse eventKey={openState}>
-                    <Card.Body>
-                        <ListGroup className={styles.listGroup} variant="flush">
+                </CardRef.Header>
+                <AccordionRef.Collapse eventKey={openState}>
+                    <CardRef.Body>
+                        <ListGroupRef className={styles.listGroup} variant="flush">
+                            { fullyPrefilledState == "1" && (this.props.categoryName == 'Control') &&
+                                <div>Not applicable because no personal data is collected.</div>
+                            }
                             {this.props.children}
-                        </ListGroup>
-                    </Card.Body>
-                </Accordion.Collapse>
-            </Card>
+                        </ListGroupRef>
+                    </CardRef.Body>
+                </AccordionRef.Collapse>
+            </CardRef>
         );
     }
 }
 
 // //////////////
 // Section
-// /////////////
+// //////////////
 
 export interface ValidPropsSection { 
     sectionName: String; 
@@ -84,50 +99,71 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
     static contextType = FormContext
 
     render() {
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any;
 
-        // check!
         var currentName = this.props.sectionName
         
         var handle = currentName.substring(0, currentName.length - 2);
         var numberRef = parseInt(this.props.eventKey) - 1;
+        var numberRef2B = parseInt(this.props.eventKey) - 2; // 2B stands for two rows back
 
-        var checkPrefilled = checkForm(`${handle}_${numberRef}_a`);
-        if(checkPrefilled != null) {
-            if(checkPrefilled.prefilled) {
-                numberRef = numberRef -1;
+        var validA = false  
+        var validB = false               
+
+        if(numberRef>=0) {
+            var checkA = checkForm(`${handle}_${numberRef}_a`) 
+            if(checkA instanceof Rating) {
+                validA = checkA.rate != null                
             }
-        }
-        
-        var validA = false
-        var validB = false
-        
-        var checkA = checkForm(`${handle}_${numberRef}_a`) 
-        if(checkA instanceof Rating) {
-            if(checkA.rate != null) {
-                validA = true
-            }
+
+            var checkB = checkForm(`${handle}_${numberRef}_b`)
+            validB = checkB instanceof Rating            
         }
 
-        var checkB = checkForm(`${handle}_${numberRef}_b`)
-        if(checkB instanceof Rating) {
-            validB = true
+        var validA2B = true 
+        var validB2B = true
+        
+        if(numberRef2B>=0) {
+            validA2B = false
+            validB2B = false
+
+            var checkA2B = checkForm(`${handle}_${numberRef2B}_a`)             
+            if(checkA2B instanceof Rating) {
+                validA2B = checkA2B.rate != null                
+            }
+            
+            var checkB2B = checkForm(`${handle}_${numberRef2B}_b`)
+            validB2B = checkB2B instanceof Rating
         }
                 
-        var isValid = validA || validB
+        var isValid = (validA || validB) && (validA2B || validB2B)
+
+        //console.log(`conclususion:`, isValid ? "valid" : "not valid")            
         
         return (
             <div key={""+this.props.eventKey}>
+                {/* <div>Section {currentName}</div> */}
+                
                 { this.props.eventKey == "0" && 
                     <div>
+                        {/* <div>can pass</div> */}
                         {this.props.children}
                     </div>
                 }
-                { this.props.eventKey != "0" && isValid && 
+                { this.props.eventKey != "0" && isValid &&
                     <div>
-                        {this.props.children}
+                        {/* <div>xx {handle} eventKey:{this.props.eventKey} numberRef:{numberRef}</div> */}
+                        <div>
+                            {/* <div>keyevent not 0, but is valid</div> */}
+                            {this.props.children}
+                        </div>
                     </div>
                 }
+                {/* { !isValid &&
+                    <div>Sorry, will not be shown! I'm not valid</div>
+                } */}
+                {/* <div>Section end</div> */}
+                {/* <hr></hr> */}
             </div>
         );
     }
@@ -154,20 +190,41 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
     }
     
     render() {
-        const { checkForm } = this.context;
+        const { checkForm, getDataTypeNaming } = this.context as any;
 
         // check!
         var handle = this.props.sectionName
+        var dataTypeNaming = getDataTypeNaming()
         
-        var tempCheck = `${handle}_a`
+        var tempCheckA = `${handle}_a`
+        var tempCheckB = `${handle}_b`
         var showSecondQuestion = false
-        var isPrefilled = false;
-        if(checkForm(tempCheck) instanceof Rating) {
-            if(checkForm(tempCheck).rate == null) {
-                showSecondQuestion = true;
+
+        // can this be integrated in logic?
+        
+        var isPrefilled_a = false;
+        var isPrefilled_b = false;        
+        
+        // check if A prefilled
+        if(checkForm(tempCheckA) instanceof Rating) {
+            if(checkForm(tempCheckA).prefilled == true) {
+                isPrefilled_a = true;
             }
-            if(checkForm(tempCheck).prefilled == true) {
-                isPrefilled = true;
+        }
+
+        // check if B prefilled
+        if(checkForm(tempCheckB) instanceof Rating) {
+            if(checkForm(tempCheckB).prefilled == true) {
+                isPrefilled_b = true;
+            }
+        }
+
+        // 
+
+        // check if show second question
+        if(checkForm(tempCheckA) instanceof Rating) {
+            if(checkForm(tempCheckA).rate == null) {
+                showSecondQuestion = true;
             }
         }
         
@@ -177,34 +234,46 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
             var help = help_info.help_info[1];
             
             return(
-                <OverlayTrigger             
+                <OverlayTriggerRef             
                     trigger={"click"} 
                     key={'bottom'}
                     placement={'bottom'}
+                    rootClose
                     overlay={
-                    <Popover className={styles.popOver}  id={`popover-positioned-bottom`}>
-                        <Popover.Title as="h3">{helpTitle}</Popover.Title>
-                        <Popover.Content  >
+                    <PopoverRef className={styles.popOver}  id={`popover-positioned-bottom`}>
+                        <PopoverRef.Title as="h3">{helpTitle}</PopoverRef.Title>
+                        <PopoverRef.Content>
                             {help}
-                        </Popover.Content>
-                    </Popover>
+                        </PopoverRef.Content>
+                    </PopoverRef>
                     }
                 >
                     <button className={styles.helpButton} type="button">
                         Help
                     </button>
-                </OverlayTrigger>
+                </OverlayTriggerRef>
+            )
+        }
+
+        function RenderQuestionText(value) {
+            var filledString = value.question.replace("##dataTypeNaming##", `${dataTypeNaming}`)
+
+            return(
+                <span dangerouslySetInnerHTML={{ __html: filledString}}></span>
             )
         }
 
         return (
                 <div>
-                    { isPrefilled == false &&
-                    <div>
-                        { this.props.eventKey == "0" && 
-                            <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                    <div> 
+                                              
+                        { this.props.eventKey == "0" && !isPrefilled_a &&
+                        
+                            <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_a ? styles.prefilled : null)} key={""+this.props.question}>
+                                {/* <div>show slot A, prefilled {isPrefilled_a ? "true" : "false"}</div>  */}
+                                {/* <div>{this.props.sectionName}_a</div> */}
                                 <div className={styles.question}>
-                                    <div className={styles.questionText}>{this.props.question}</div>
+                                    <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
                                         {this.props.children}
                                         {this.props.help != null &&
@@ -212,12 +281,20 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                         }
                                     </div>
                                 </div>
-                            </ListGroup.Item>
+                            </ListGroupRef.Item>
                         }
-                        { this.props.eventKey != "0" && showSecondQuestion &&
-                            <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
+                        {/* { this.props.eventKey == "0" && isPrefilled_a &&
+                            <div>
+                                <h1>Is prefilled, So hidden</h1>
+                            </div>
+                        } */}
+                                                                                       
+                        { this.props.eventKey != "0" && showSecondQuestion && !isPrefilled_b &&
+                            <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_b ? styles.prefilled : null)} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
-                                    <div className={styles.questionText} >{this.props.question}</div>
+                                {/* <div>show slot B, prefilled {isPrefilled_b ? "true" : "false"}</div>   */}
+                                    {/* <div>{this.props.sectionName}_b</div> */}
+                                    <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
                                         {this.props.children}
                                         {this.props.help != null &&
@@ -225,20 +302,15 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                         }
                                     </div>
                                 </div>
-                            </ListGroup.Item>
+                            </ListGroupRef.Item>
                         }
-                        </div>
-                    }
-                    {/* { this.props.eventKey == "0" && isPrefilled == true &&
-                        <ListGroup.Item className={styles.ListGroupItem} key={""+this.props.eventKey}>
-                             <div className={classnames(styles.question, styles.prefilled)}>
-                                 <div className={styles.questionText}>{this.props.question}</div>
-                                 <div className={styles.answerContainer}>
-                                     {this.props.children}
-                                 </div>
-                             </div>
-                         </ListGroup.Item>
-                    } */}
+
+                        {/* { this.props.eventKey != "0" && isPrefilled_b &&
+                            <div>
+                                <h1>Is prefilled, So hidden</h1>
+                            </div>
+                        } */}
+                    </div>
             </div>
         );
     }
@@ -272,18 +344,18 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
           '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
           '(\\#[-a-z\\d_]*)?$','i'); 
         return !!pattern.test(str);
-      }
+    }
 
     handleChange(event) {
-        const { Form, updateFormMultiple } = this.context;
+        const { Form, updateFormMultiple } = this.context as any;
         
-        updateFormMultiple(
-            this.props.formRef,
-            event.target.value,
-            'validUrl',
-            this.validURL(event.target.value)    
-        )
+        const obj = {}
+        obj[`${this.props.formRef}`] = event.target.value
+        obj[`validUrl`] = this.validURL(event.target.value)
+        obj[``] = ``
+        obj[`checkHash`] = false
 
+        updateFormMultiple(obj)
     }
 
     handleClick() {
@@ -291,29 +363,28 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 
     render() {
 
-        const { Form } = this.context;
+        const { Form } = this.context as any;
+        const buttonIndex = (!Form.validUrl) ? (0) : 1
 
         return (
-            <ListGroup.Item key={""+this.props.eventKey}>
+            <ListGroupRef.Item key={""+this.props.eventKey}>
                     <div className={styles.question}>
                         <div className={styles.questionText} >
                             {this.props.prompt}
                         </div>
                     </div>
-                    <InputGroup className={classnames(styles.urlInput, "mb-3")} >
-                        <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon3">
+                    <InputGroupRef className={classnames(styles.urlInput, "mb-3")} >
+                        <InputGroupRef.Prepend>
+                        <InputGroupRef.Text id="basic-addon3">
                             https://
-                        </InputGroup.Text>
-                        </InputGroup.Prepend>
-                        <FormControl onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
-                    </InputGroup>
-                    { Form.validUrl &&
+                        </InputGroupRef.Text>
+                        </InputGroupRef.Prepend>
+                        <FormControlRef onChange={this.handleChange} id="basic-url" aria-describedby="basic-addon3" />
+                    </InputGroupRef>
                         <div className={styles.answerContainer}>
-                            {this.props.children}
+                            {this.props.children[buttonIndex]}
                         </div>
-                    }
-            </ListGroup.Item>
+            </ListGroupRef.Item>
         );
     }
 }
@@ -323,13 +394,14 @@ export class FormPrompt extends React.Component<ValidPropsFormPrompt, {}> {
 // /////////////
 
 export interface ValidPropsAnswer { 
-    formRef : String; 
+    formRef : String;
+    senderRef: String; 
     answer: Rating;
-    targetKey: String;
+    nameRule: NameRule;
     eventKey: string;
 }
 
-export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
+export class FormAnswer extends React.Component<ValidPropsAnswer, {}> {
     static contextType = FormContext
 
     constructor(props: any) {
@@ -338,21 +410,38 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
     }
 
     handleClick(e) {
-        const { updateFormMultiple } = this.context;
-        updateFormMultiple(
-            this.props.formRef, this.props.answer,
-            `${this.props.targetKey}_open`, "1",
-            "scrollTarget", e.pageY
-        );
+        const { updateFormMultiple } = this.context as any;
+
+        const obj = {}
+        obj[`${this.props.formRef}`] = this.props.answer
+        obj[`lastSender`] = this.props.senderRef
+        obj[`scrollTarget`] = e.pageY
+        if(this.props.nameRule != undefined) {
+            obj[`${this.props.nameRule.handle}`] = this.props.nameRule.value
+        }
+        // if( this.props.answer.preFills != undefined ) {
+        //     for (const [key, value] of Object.entries(this.props.answer.preFills)) {
+        //         console.log(key, value);
+        //         obj[`${value.label}`] = value.rating                
+        //     }
+        // }
+        
+
+        // console.log('answer', this.props.answer)
+        
+        updateFormMultiple(obj)
     }
 
     render() {
-        const { checkForm } = this.context;
+        const { checkForm } = this.context as any;
 
-        function CustomToggle({ className, answer, eventKey, handleClick }) {
+        function CustomToggle({ className, answer, nameRule, handleClick }) {
             return (
                 <button className={className} type="button" onClick={handleClick.handleClick} >
                     {answer.label}
+                    {/* {nameRule != null &&
+                        <div>{nameRule.value}</div>
+                    } */}
                 </button>
             );
         }
@@ -366,7 +455,7 @@ export class FormAnser extends React.Component<ValidPropsAnswer, {}> {
         }
 
         return (
-            <CustomToggle className={classToUse} answer={this.props.answer} eventKey={this.props.targetKey} handleClick={this} />           
+            <CustomToggle className={classToUse} answer={this.props.answer} nameRule={this.props.nameRule} handleClick={this} />           
         );
     }
 }

@@ -2,56 +2,56 @@ import {RatingLabel} from "./Rating"
 
 const RatingConfig = {
     // collection
-    collection_0_L: new RatingLabel(2.0,"Collects sensitive data"), 
-    collection_0_R: new RatingLabel(1.0,"Collects personal data"), 
-    collection_0_P: new RatingLabel(0.0,"Only collects anonymous data"),
+    collection_0_L: new RatingLabel(-1.0,"Collects sensitive data", false), 
+    collection_0_R: new RatingLabel(0.0,"Collects personal data", false), 
+    collection_0_P: new RatingLabel(1.0,"Only collects anonymous data", false), // [A]
     
-    collection_1_L: new RatingLabel(2.0,"Data used for profiling"),  
-    collection_1_R: new RatingLabel(1.0,"Data used for customization"),
-    collection_1_P: new RatingLabel(0.0,"Data used for functionality"),
+    collection_1_L: new RatingLabel(-1.0,"Data used for profiling", true),  
+    collection_1_R: new RatingLabel(0.0,"Data used for customization", true),
+    collection_1_P: new RatingLabel(1.0,"Data used for functionality", true), // hidden A Purpose question skipped because no personal data is collected
     
-    collection_2_L: new RatingLabel(2.0,"Data stored indefinitely"),
-    collection_2_R: new RatingLabel(1.0,"Data stored for a limited time"),
-    collection_2_P: new RatingLabel(0.0,"Data not stored"), 
+    collection_2_L: new RatingLabel(-1.0,"Data stored indefinitely", true),
+    collection_2_R: new RatingLabel(0.0,"Data stored for a limited time", true),
+    collection_2_P: new RatingLabel(1.0,"Data not stored", true), // hidden A Retention question skipped because no personal data is collected // [B]
     
     // sharing
-    sharing_0_L: new RatingLabel(2.0,"Sharing of user data"), 
-    sharing_0_R: new RatingLabel(1.0,"Sharing of anonymous user data"),
-    sharing_0_P: new RatingLabel(0.0,"No sharing of user data"),
+    sharing_0_L: new RatingLabel(-1.0,"Sharing of user data", true), 
+    sharing_0_R: new RatingLabel(0.0,"Sharing of anonymous user data", true),
+    sharing_0_P: new RatingLabel(1.0,"No sharing of user data", true),
     
-    sharing_1_L: new RatingLabel(2.0,"Sale of user data"), 
-    sharing_1_R: new RatingLabel(1.0,"Sale of anonymous user data"),
-    sharing_1_P: new RatingLabel(0.0,"No sale of user data"),
+    sharing_1_L: new RatingLabel(-1.0,"Sale of user data", true), 
+    sharing_1_R: new RatingLabel(0.0,"Sale of anonymous user data", true),
+    sharing_1_P: new RatingLabel(1.0,"No sale of user data", true),
     
-    sharing_2_L: new RatingLabel(2.0,"Disclosure to foreign law enforcement"), 
-    sharing_2_R: new RatingLabel(1.0,"Disclosure to local law enforcement"),
-    sharing_2_P: new RatingLabel(0.0,"Legally required disclosure to local law enforcement"), 
+    sharing_2_L: new RatingLabel(-1.0,"Disclosure to foreign law enforcement", true), 
+    sharing_2_R: new RatingLabel(0.0,"Disclosure to local law enforcement", true),
+    sharing_2_P: new RatingLabel(1.0,"Statutory disclosure to local law enforcement", true), 
    
     // control
-    control_0_L: new RatingLabel(2.0,"No opt-out"),
-    control_0_R: new RatingLabel(1.0,"Opt-out"),
-    control_0_P: new RatingLabel(0.0,"Opt-in"),
+    control_0_L: new RatingLabel(-1.0,"Cannot opt-out of ##dataTypeNaming## data collection", true), 
+    control_0_R: new RatingLabel(0.0,"Can opt-out of ##dataTypeNaming## data collection", true),
+    control_0_P: new RatingLabel(1.0,"Must opt-in for collection of ##dataTypeNaming## data", true), // hidden A Control question skipped because no personal data is collected // hidden B
     
-    control_1_L: new RatingLabel(2.0,"Data cannot be removed"),  
-    control_1_R: new RatingLabel(1.0,"Data hidden upon request"),
-    control_1_P: new RatingLabel(0.0,"Data removed upon request"),
+    control_1_L: new RatingLabel(-1.0,"##dataTypeNaming## data cannot be removed", true),  
+    control_1_R: new RatingLabel(0.0,"##dataTypeNaming## data hidden upon request", true),
+    control_1_P: new RatingLabel(1.0,"##dataTypeNaming## data removed upon request", true), // hidden A Right to be forgotten question skipped because no personal data is stored
     
-    control_2_L: new RatingLabel(2.0,"Data cannot be amended"),
-    control_2_R: new RatingLabel(1.0,"Some data can be amended"),
-    control_2_P: new RatingLabel(0.0,"All data can be amended"),  
+    control_2_L: new RatingLabel(-1.0,"##dataTypeNaming## data cannot be corrected", true),
+    control_2_R: new RatingLabel(0.0,"Some ##dataTypeNaming## data can be corrected", true), 
+    control_2_P: new RatingLabel(1.0,"All ##dataTypeNaming## data can be corrected", true), // hidden  A Correctness question skipped because no personal data is stored
     
     // security
-    security_0_L: new RatingLabel(2.0,"Poor security"),
-    security_0_R: new RatingLabel(1.0,"Basic security"),
-    security_0_P: new RatingLabel(0.0,"Industry standard security"),  
+    security_0_L: new RatingLabel(-1.0,"No security certification or best practice", true),
+    security_0_R: new RatingLabel(0.0,"Follows security best practices", true),
+    security_0_P: new RatingLabel(1.0,"Certified security", true),  
     
-    security_1_L: new RatingLabel(2.0,"No anonymization"), 
-    security_1_R: new RatingLabel(1.0,"Partial anonymization"),
-    security_1_P: new RatingLabel(0.0,"Anonymization"),
+    security_1_L: new RatingLabel(-1.0,"No anonymization", true), 
+    security_1_R: new RatingLabel(0.0,"Partial anonymization", true),
+    security_1_P: new RatingLabel(1.0,"Anonymization", true), // hidden A Anonymization question skipped because no personal data is collected
     
-    security_2_L: new RatingLabel(2.0,"Not legally accountable"),
-    security_2_R: new RatingLabel(1.0,"Legally binding privacy policy"),
-    security_2_P: new RatingLabel(0.0,"Legally accountable"),  
+    security_2_L: new RatingLabel(-1.0,"Not legally accountable", true),
+    security_2_R: new RatingLabel(0.0,"Legally binding privacy policy", true),
+    security_2_P: new RatingLabel(1.0,"Legally accountable", true),  
 }
 
 export { RatingConfig }

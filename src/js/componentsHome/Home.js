@@ -6,6 +6,9 @@ import Footer from "../Footer";
 import { Link } from "react-router-dom";
 import ImageGalleryView from "./ImageGalleryView";
 
+
+
+
 class Home extends Component {
 
     constructor() {
@@ -15,6 +18,7 @@ class Home extends Component {
     render() {
     return (
         <div  className={styles.holder} >
+           
             <Container>
                 <Header/>
                 <Row className={styles.backgroundSlider}>
@@ -65,6 +69,8 @@ class Home extends Component {
             <br />
             <Footer/>
             </Container>
+            {/* <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+            <link href="resources/css/imagegellery.css" rel="stylesheet"></link> */}
             </div>
     );
     }

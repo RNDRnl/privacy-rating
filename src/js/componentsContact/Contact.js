@@ -57,7 +57,7 @@ class ContactView extends Component {
                         <Col className={styles.contactField}>
                             <h1>Contact</h1>
                             <div className={styles.text}>
-                                <p>If you have any questions or want to conctact us please send us an e-mail and we will resopond to you.</p>
+                                <p>If you have any questions or want to conctact us please send us an e-mail and we will respond to you.</p>
                             </div>
                             <br/><br/>
                             <Form>

@@ -7,6 +7,8 @@ type LabelState = {
     timer: NodeJS.Timeout
 }
 
+const ImageRef : any = Image;
+
 class CategoryBox extends React.Component<{rating:any, categoryName:any, children:any}, LabelState> {
     static contextType = LabelContext
 
@@ -25,12 +27,12 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     setCategoryOpen() {
-        const {openCategory, setLabelState} = this.context
+        const {openCategory, setLabelState} = this.context  as any
         setLabelState(this.props.categoryName)
     }
 
     toggleCheck() {
-        const {openCategory, setLabelState} = this.context
+        const {openCategory, setLabelState} = this.context  as any
         this.cancelTimout();
 
         if (openCategory == this.props.categoryName) {
@@ -41,7 +43,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     handleMouseEnter( ) {
-       const {openCategory, setLabelState} = this.context
+       const {openCategory, setLabelState} = this.context  as any
        if (openCategory == this.props.categoryName) {
         this.cancelTimout();
        }
@@ -63,7 +65,7 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
     }
 
     render() {
-        const { openCategory } = this.context
+        const { openCategory } = this.context as any
 
         var colorStyle = null
         switch (this.props.rating) {
@@ -85,26 +87,40 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
                     break
         }
         var classNames = `${styles.container} ${colorStyle} `
+
+        // check if has non scored child
+        // var containsNonScored = this.props.children.some((child) => { return child.props.ranked == false })
+        var allChildsHidden = this.props.children.every((child) => { return child.props.hidden == true })
+
+        var interactive = !allChildsHidden //this.props.rating != "A" || containsNonScored;
+        
+        if (interactive) {
+            classNames += `${styles.hoverable} `
+        } else {
+            classNames += `${styles.nonHoverable} `
+        }
+
         if(openCategory != null) {
             if (openCategory != this.props.categoryName) {
                 classNames += `${styles.notSelected} `
             } else {
                 classNames += `${styles.selected} `
-            }
+            }            
         }
+        
 
         var iconGIF = `${process.env.BASE_PATH}/resources/icons/${this.props.categoryName.toLowerCase()}.gif`;
 
         return (
             <div className={classNames} 
-                onClick={() => this.handleClick()}  
-                onMouseEnter={() => this.handleMouseEnter()}
-                onMouseLeave={() => this.handleMouseLeave()}
+                onClick={() => interactive ? this.handleClick() : null}  
+                onMouseEnter={() => interactive ? this.handleMouseEnter() : null}
+                onMouseLeave={() => interactive ? this.handleMouseLeave() : null}
                 >
                 <div className={styles.label}>
                     {this.props.categoryName}
-                    <Image className={styles.icon} src={iconGIF} fluid />
-                    <Image className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
+                    <ImageRef className={styles.icon} src={iconGIF} fluid />
+                    <ImageRef className={styles.arrow} src={`${process.env.BASE_PATH}/resources/icons/arrow.svg`} fluid />
                     {this.props.children}
                 </div>
             </div>

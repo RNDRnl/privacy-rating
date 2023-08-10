@@ -1,0 +1,103 @@
+@import "src/main";
+
+.holder {
+  display: flex;
+  padding-left: 8pt;
+  padding-right: 10pt;
+  padding-bottom: 8pt;
+  cursor: default;
+  
+  &.withHover {
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  .label {
+    flex: 1;
+    font-family: cooper_hewittmedium, 'Courier New', Courier, monospace;
+    font-size: 11pt;
+    border-radius: 10pt;
+    margin: 2pt;
+    padding-top: 4pt;
+    display: flex;
+  }
+
+  .label__column {
+    &:nth-child(1) {
+      flex:0.2;   
+      text-align: right;   
+      margin-right:1vw;
+      
+    }
+    &:nth-child(3) {
+      flex:1.0;
+      :first-child {
+        font-size: 16pt;
+        line-height: 18pt;
+      }
+      .recommendationText {
+        max-height: 0px;
+        overflow: hidden;
+      }
+      // text-align: right;
+    }
+  }
+
+  .arrow {
+    height: 12pt;
+    width: 20pt;
+    margin-left: 5px;
+  }
+
+  .colouredDots {
+    margin-top: 1pt;
+    margin-bottom: 1pt;
+    width: 19px;
+    height: 19px;
+    border-radius: 100%;
+    float: left;
+    margin-right: 15pt;
+
+    &.none {
+      background-image: url("/resources/icons/none.svg");
+      background-color: $color-Grey-Text;
+      background-size: 19px 19px;
+    }
+    
+    &.colorA { 
+      background-image: url("/resources/icons/happy_t.svg");
+      background-color: $color-A;
+      background-size: 19px 19px;
+    }
+    &.colorD { 
+      background-image: url("/resources/icons/neutral_t.svg");
+      background-size: 19px 19px;
+      background-color: $color-D;
+    }
+    &.colorG { 
+      background-image: url("/resources/icons/sad_t.svg");
+      background-size: 19px 19px;
+      background-color: $color-G;
+    }
+  }
+
+  &.hidden {
+    opacity: 0.5;
+  }
+
+  &.unfolded {
+    .arrow {
+      transform: rotate(90deg);
+    }
+    
+    .label__column {
+      &:nth-child(3) {
+        .recommendationText {
+          max-height: 400px;
+        }
+      }
+    }
+  }
+}
+

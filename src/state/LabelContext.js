@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { HashToLabelState } from "./Logic"
+
 const LabelContext = React.createContext()
 
 class LabelProvider extends Component {
@@ -7,6 +8,9 @@ class LabelProvider extends Component {
     state = {
       Label: null,
       LabelObject : null,
+      LabelRecommendations: null,
+      LabelScoreDrawer: null,
+      ReportPDF: null,
       openCategory: null
     }
     
@@ -21,13 +25,16 @@ class LabelProvider extends Component {
       var labelData = HashToLabelState(labelHash);
       this.setState({
         Label: labelData.labelRender,
-        LabelObject: labelData.labelObject
+        LabelObject: labelData.labelObject,
+        LabelRecommendations: labelData.labelRecommenendations,
+        LabelScoreDrawer: labelData.labelScoreDrawer, 
+        ReportPDF: labelData.reportPdf
       });
     }
   
     render() {
       const { children } = this.props
-      const { Label, LabelObject, openCategory } = this.state
+      const { Label, LabelObject, LabelRecommendations, LabelScoreDrawer, ReportPDF, openCategory } = this.state
       const { setLabelState, pupulateLabel } = this
       
       return (
@@ -35,6 +42,9 @@ class LabelProvider extends Component {
           value={{
             Label,
             LabelObject,
+            LabelRecommendations,
+            LabelScoreDrawer,
+            ReportPDF,
             openCategory,
             setLabelState,
             pupulateLabel

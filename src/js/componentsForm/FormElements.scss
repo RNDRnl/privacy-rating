@@ -39,6 +39,13 @@
     }
 }
 
+.prefilled {
+    background-color: grey;
+    border-radius: 5px !important;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .headerstyle {
     font-family: cooper_hewittsemibold, 'Courier New', Courier, monospace;
     font-size: 22pt;
@@ -113,6 +120,31 @@
         pointer-events: none;
         opacity: 0.5;
     }
+
+    /* unvisited link */
+    a:link {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* visited link */
+    a:visited {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* selected link */
+    a:active {
+        color: black;
+        text-decoration: underline;
+    }
+
 }
 
 .answerButton {

@@ -1,5 +1,15 @@
 @import "src/main";
 
+.hoverable {
+  cursor: pointer;
+}
+
+.nonHoverable {
+  .arrow {
+      opacity: 0.0;    
+  }  
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -8,14 +18,17 @@
   background-color: white;
   border-radius: 8pt;
   margin-top: 4pt;
-  cursor: pointer;
   height: 34pt;
+  
   -webkit-transition: $duration;
   -moz-transition: $duration;
   -o-transition: $duration;
   -ms-transiton: $duration;
   transition: $duration;
   overflow: hidden;
+
+  
+
 
   &.colorA { background-color: $color-A;}
   &.colorB { background-color: $color-B;}
@@ -26,7 +39,7 @@
   &.colorG { background-color: $color-G;}
 
   &.selected {
-    height: 127pt;
+    height: 127pt;    
     text-align: center;
 
     .arrow {
@@ -42,6 +55,8 @@
     -o-transition: $duration;
     -ms-transiton: $duration;
     transition: $duration;
+
+   
 
     .label {
       font-size: 16pt;
@@ -78,6 +93,8 @@
       transition: $duration;
     }
   }
+
+ 
 
   .label {
     flex: 1;
