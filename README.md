@@ -2,7 +2,7 @@
 |  | value |
 | ------------- | ------------- |
 | stage | Development  |
-| branch name | Dev22  |
+| branch name | Master  |
 | release | tbd  |
 | license | [MIT](https://github.com/RNDRnl/privacy-rating/blob/master/LICENSE) |
 
