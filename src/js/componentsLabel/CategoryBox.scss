@@ -27,6 +27,7 @@
   transition: $duration;
   overflow: hidden;
 
+  
 
 
   &.colorA { background-color: $color-A;}
@@ -38,7 +39,7 @@
   &.colorG { background-color: $color-G;}
 
   &.selected {
-    height: 127pt;
+    height: 127pt;    
     text-align: center;
 
     .arrow {

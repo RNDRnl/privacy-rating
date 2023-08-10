@@ -62,7 +62,7 @@ export interface ValidPropsSection {
 export class LabelSectionElement extends React.Component<ValidPropsSection, {}> {
     render() {
         return (
-            <>
+            <>            
             { !this.props.hidden &&
                 <DescriptionBox sectionText={this.props.sectionText} sectionDesc={this.props.sectionDesc} score={this.props.score} ranked={this.props.ranked} hidden={this.props.hidden} />
             }
