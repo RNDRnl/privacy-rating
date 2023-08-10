@@ -131,7 +131,7 @@ const About = () => {
                     <Row className={styles.labelFrame}>
                         <Col>
                         <div className={styles.label}>
-                            <App labelId="RPPPPLPPPLLR" domain={"privacyrating**info"} />
+                            <App labelId="PPPPPLPPPLPR" domain={"privacyrating**info"} />
                         </div>                
                         </Col>
 

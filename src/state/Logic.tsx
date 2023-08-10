@@ -356,6 +356,7 @@ const HashToLabelState = (labelHash:any) => {
     characters.forEach((char, index) => {
         validateConfigLabel.LabelConsitions.forEach((condition) => {
             if(condition.section_handle == `${indexToCategory(index)}_${indexToSection(index)}` && condition.section_value == `${char}`) {
+                console.log('condition triggered', condition)
                 condition.consequences.forEach((consequence) => {   
                     hiddenItems.push(consequence.section_handle)
                 })

@@ -195,12 +195,7 @@ export default class ReportPDF {
                                         {/* <Emoticon score={s.score} /> */}                                            
                                         </View>
                                         <View style={stylesPDF.sectionFlex01}><Text style={stylesPDF.tinyType}>{s.score}</Text></View>
-                                        { s.hidden &&
-                                            <View style={stylesPDF.sectionFlex1}><Text style={stylesPDF.tinyType}>{s.hiddenDesc}</Text></View>
-                                        }
-                                        { !s.hidden &&
-                                            <View style={stylesPDF.sectionFlex1}><Text style={stylesPDF.tinyType}>{s.recommendation || "N.a."}</Text></View>                                       
-                                        }
+                                        <View style={stylesPDF.sectionFlex1}><Text style={stylesPDF.tinyType}>{s.recommendation || "N.a."}</Text></View>
                                     </View>
                                 )}
                             </View>
