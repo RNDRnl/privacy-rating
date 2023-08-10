@@ -62,7 +62,7 @@ export class CategoryTag {
         // } else {
             this.sections.forEach(function(element, index) {
                 // if(!element.ranked) {
-                    result.push( new SectionTag(element.text, element.resultDesc, element.score, element.ranked).getTag(index) ) ;
+                    result.push( new SectionTag(element.text, element.resultDesc, element.score, element.ranked, element.hidden).getTag(index) ) ;
                 // }
             })
         // }
@@ -84,15 +84,17 @@ export class SectionTag {
     sectionDesc: String;
     score: any;
     ranked: Boolean;
+    hidden: Boolean;
     getTag = (_index:any) => {
         return(
-            <LabelSectionElement key={_index} sectionText={this.sectionText} sectionDesc={this.sectionDesc} score={this.score} ranked={this.ranked} />
+            <LabelSectionElement key={_index} sectionText={this.sectionText} sectionDesc={this.sectionDesc} score={this.score} ranked={this.ranked} hidden={this.hidden} />            
         )
     }
-    constructor(_sectionText: any, _sectionDesc: any, _score: any, _ranked: Boolean) { 
+    constructor(_sectionText: any, _sectionDesc: any, _score: any, _ranked: Boolean, _hidden: Boolean) { 
         this.sectionText = _sectionText; 
         this.sectionDesc = _sectionDesc;
         this.score = _score;
         this.ranked = _ranked;
+        this.hidden = _hidden;
     }
 }

@@ -3,11 +3,13 @@ class Bullet {
     scored: Boolean
     title: String
     desc: String
-    constructor( score: String,scored: Boolean,  title: String, desc: String) {
+    hiddenDesc?: String
+    constructor( score: String,scored: Boolean,  title: String, desc: String, hiddenDesc?: String) {
         this.score = score       
         this.scored = scored
         this.title = title
         this.desc = desc
+        this.hiddenDesc = hiddenDesc
     }
 }
 
@@ -36,7 +38,7 @@ const AboutDisc = {
          [
             new Bullet("-1", true, "Data used for profiling", "Profiling is the automatic processing of user data to evaluate personal aspects relating to a natural person, in particular to analyse or predict aspects concerning the data subject's performance at work, economic situation, health, personal preferences or interests, reliability or behaviour, location or movements, where it produces legal effects concerning him or her or similarly significantly affects him or her. Common examples are targeting, profiling, or tracking cookies and cookies from advertisers."),
             new Bullet("0", true, "Data used for personalization", "Personalized content is content which is generated based on the preferences, data, or behavior of the user. Personalization is not essential for the operation of the website. Common examples are the personalized news feed, as well as analytics, persistent, and session cookies."),
-            new Bullet("+1", true, "Data used for functionality", "User data is used to provide basic functionality.")
+            new Bullet("+1", true, "Data used for functionality", "User data is used to provide basic functionality.", "Purpose question skipped because no personal data is collected")
         ]
     ),
     collection_2: new ToolTipDescription(
@@ -44,7 +46,7 @@ const AboutDisc = {
         [
             new Bullet("-1", true, "Data stored indefinitely", ""),
             new Bullet("0", true, "Data stored for a limited time", "User data is deleted after a pre-determined amount of time. This does not include technical data required for the service to function"),
-            new Bullet("+1", true, "Data not stored", "User data is deleted after completion of each session. This does not include technical data required for the service to function")
+            new Bullet("+1", true, "Data not stored", "User data is deleted after completion of each session. This does not include technical data required for the service to function", "Retention question skipped because no personal data is collected")
        ]
    ),
 
@@ -81,7 +83,7 @@ const AboutDisc = {
         [
             new Bullet("-1", true, "Must opt-in for collection of data", " Collection of personal data is mandatory and cannot be avoided"), 
             new Bullet("0", true, "Can opt-out of data collection", "Personal data is collected by default, but users can choose to be excluded."), 
-            new Bullet("+1", true, "Cannot opt-out of data collection", "No personal data is collected by default. Users need to explicitly accept the collection of personal data.") 
+            new Bullet("+1", true, "Cannot opt-out of data collection", "No personal data is collected by default. Users need to explicitly accept the collection of personal data.", "Control question skipped because no personal data is collected") 
         ]
     ),
     control_1: new ToolTipDescription(
@@ -89,7 +91,7 @@ const AboutDisc = {
         [
             new Bullet("-1", true, "Data cannot be removed", " Users do not have the right to ask for their personal data to be deleted."), 
             new Bullet("0", true, "Data hidden upon request", "Users may ask for their personal data to be hidden, but not removed."), 
-            new Bullet("+1", true, "Data removed upon request", "Users have the right to ask that their personal data be removed.") 
+            new Bullet("+1", true, "Data removed upon request", "Users have the right to ask that their personal data be removed.", "Right to be forgotten question skipped because no personal data is stored") 
         ]
     ),
     control_2: new ToolTipDescription(
@@ -97,7 +99,7 @@ const AboutDisc = {
         [
             new Bullet("-1", true, "Data cannot be corrected", "Users are unable to change, update, or amend ANY of the personal or sensitive data the provider may have gathered or generated based on their preferences or activity."), 
             new Bullet("0", true, "Some data can be corrected", "Users are able to PARTIALLY change, update, or amend personal or sensitive data the provider may have gathered or generated based on their preferences or activity."), 
-            new Bullet("+1", true, "All data can be corrected", "Users are able to change, update, or amend ALL personal or sensitive data the provider may have gathered or generated based on their preferences or activity.") 
+            new Bullet("+1", true, "All data can be corrected", "Users are able to change, update, or amend ALL personal or sensitive data the provider may have gathered or generated based on their preferences or activity.", "Correctness question skipped because no personal data is stored") 
         ]
     ),
 
@@ -115,7 +117,7 @@ const AboutDisc = {
         [
             new Bullet("-1", true, "No anonymization", "User data is not anonymized."),
             new Bullet("0", true, "Partial anonymization", "User data is pseudonymized. Pseudonymized data is data from which all information related relating to an identified or identifiable natural person has been replaced by one or more artificial identifiers - or pseudonyms - such that it could eventually be traced back to individual users with the help of additional information."),
-            new Bullet("+1", true, "Anonymization", "User data is anonymized. Anonymized data is data from which all information related and/or relating to an identified or identifiable natural person has been completely removed so that it can never be traced back to a single person.")
+            new Bullet("+1", true, "Anonymization", "User data is anonymized. Anonymized data is data from which all information related and/or relating to an identified or identifiable natural person has been completely removed so that it can never be traced back to a single person.", "Anonymization question skipped because no personal data is collected")
         ]
     ),
     security_2: new ToolTipDescription(

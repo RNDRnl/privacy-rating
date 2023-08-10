@@ -10,6 +10,7 @@ import Rating from "./Rating";
 import RecommendationPanel from "../js/componentsRecommendations/RecommendationsClasses";
 import ScoreDrawer from "../js/componentsScoreDrawer/ScoreDrawer";
 import ReportPDF from "../js/componentsReportPDF/ReportPDF";
+import { validateConfigLabel } from "./ValidationConfigLabel";
 
 export class LabelObject {
     score: any;
@@ -94,12 +95,16 @@ export class Section {
     ranked: Boolean;
     recommendation: String;
     resultDesc: String;
-    constructor(_score: Number, _text: String, _ranked: Boolean, _recommendation: String, _resultDesc: String) {
+    hiddenDesc: String;
+    hidden: Boolean;
+    constructor(_score: Number, _text: String, _ranked: Boolean, _recommendation: String, _resultDesc: String, _hiddenDesc: String, _hidden: Boolean) {
         this.score = _score;
         this.text = _text;
         this.ranked = _ranked;
-        this.recommendation = _recommendation
-        this.resultDesc = _resultDesc
+        this.recommendation = _recommendation;
+        this.resultDesc = _resultDesc;
+        this.hiddenDesc = _hiddenDesc;
+        this.hidden = _hidden;
     }
 }
 
@@ -345,17 +350,34 @@ const HashToLabelState = (labelHash:any) => {
     var characters = labelHash.hash.split("")
     var sections = [];
     var dataType = getDataType(characters[0]);
+
+    // list items to be hidden
+    var hiddenItems = [];
+    characters.forEach((char, index) => {
+        validateConfigLabel.LabelConsitions.forEach((condition) => {
+            if(condition.section_handle == `${indexToCategory(index)}_${indexToSection(index)}` && condition.section_value == `${char}`) {
+                condition.consequences.forEach((consequence) => {   
+                    hiddenItems.push(consequence.section_handle)
+                })
+            }
+        });
+    });
+    
     characters.forEach(function(char, index) {
         var targetPath = `${indexToCategory(index)}_${indexToSection(index)}_${(char)}`
         var resultRating = RatingConfig[targetPath];
+        
+        // lookup if needs to be hidden based on validation form
         var resultRecommendation = RecommendationsConfig[targetPath];
         
         var discHandle = `${indexToCategory(index)}_${indexToSection(index)}`
         var resultDescBullets = AboutDisc[discHandle].bullets
         var bullet = resultDescBullets[charToIndex(char)]
         var resultDesc = bullet.desc
-
-        var section = new Section(resultRating.score, replaceDataType(resultRating.text, dataType), resultRating.ranked, resultRecommendation.text, resultDesc);
+        var hiddenDesc = bullet.hiddenDesc
+        var hidden = hiddenItems.includes(targetPath);
+        
+        var section = new Section(resultRating.score, replaceDataType(resultRating.text, dataType), resultRating.ranked, resultRecommendation.text, resultDesc, hiddenDesc, hidden);
         sections.push(section);
     })
 

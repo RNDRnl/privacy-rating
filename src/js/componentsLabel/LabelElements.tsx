@@ -6,8 +6,6 @@ import Footer from "./Footer";
 import CategoryBox from "./CategoryBox";
 import DescriptionBox from "./DescriptionBox";
 const styles = require("./LabelElements.scss");
-
-
 // import LabelContext from '../../state/LabelContext';
 
 // //////////////
@@ -59,11 +57,16 @@ export interface ValidPropsSection {
     sectionDesc: String;
     score: any;
     ranked: Boolean;
+    hidden: Boolean;
 }
 export class LabelSectionElement extends React.Component<ValidPropsSection, {}> {
     render() {
         return (
-            <DescriptionBox sectionText={this.props.sectionText} sectionDesc={this.props.sectionDesc} score={this.props.score} ranked={this.props.ranked} />
+            <>
+            { !this.props.hidden &&
+                <DescriptionBox sectionText={this.props.sectionText} sectionDesc={this.props.sectionDesc} score={this.props.score} ranked={this.props.ranked} hidden={this.props.hidden} />
+            }
+            </>
         );
     }
 }

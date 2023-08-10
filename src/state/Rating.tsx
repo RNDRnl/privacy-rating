@@ -29,7 +29,6 @@ export class preFill {
 export default class Rating {
     rate: String
     label: String
-    preFills?: preFill[] = new Array()
     prefilled?: Boolean
 
     makePrefilled = () => {
@@ -38,10 +37,8 @@ export default class Rating {
     }
     
     constructor(_label: String, _rate: String) {
-        //_preFills?: preFill[]
         this.rate = _rate;
         this.label = _label;
-        // this.preFills = _preFills;
     }
 }
 

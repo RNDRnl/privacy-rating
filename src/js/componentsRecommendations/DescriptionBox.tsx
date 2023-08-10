@@ -7,7 +7,7 @@ type BoxState = {
     unfolded?: boolean 
 }
 
-class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked:Boolean, recommendationText:any}, BoxState> {
+class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked:Boolean, recommendationText:any, hidden:Boolean}, BoxState> {
     
     constructor(props) {
         super(props);
@@ -28,7 +28,7 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
         this.setState({
             unfolded: newState
         });      
-        console.log(newState);  
+        // console.log(newState);  
     }
 
     render() {
@@ -56,6 +56,10 @@ class DescriptionBox extends React.Component<{sectionText:any, score:any, ranked
             foldable = true
             classBox += `${styles.withHover} `
             break
+        }
+
+        if(this.props.hidden) {
+            classBox += `${styles.hidden} `
         }
 
         if(!this.props.ranked) {

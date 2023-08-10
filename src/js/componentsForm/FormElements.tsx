@@ -138,11 +138,11 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                 
         var isValid = (validA || validB) && (validA2B || validB2B)
 
-        console.log(`conclususion:`, isValid ? "valid" : "not valid")            
+        //console.log(`conclususion:`, isValid ? "valid" : "not valid")            
         
         return (
             <div key={""+this.props.eventKey}>
-                {/* <div>Section start</div> */}
+                {/* <div>Section {currentName}</div> */}
                 
                 { this.props.eventKey == "0" && 
                     <div>
@@ -163,6 +163,7 @@ export class FormSection extends React.Component<ValidPropsSection, {}> {
                     <div>Sorry, will not be shown! I'm not valid</div>
                 } */}
                 {/* <div>Section end</div> */}
+                {/* <hr></hr> */}
             </div>
         );
     }
@@ -270,6 +271,7 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                         
                             <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_a ? styles.prefilled : null)} key={""+this.props.question}>
                                 {/* <div>show slot A, prefilled {isPrefilled_a ? "true" : "false"}</div>  */}
+                                {/* <div>{this.props.sectionName}_a</div> */}
                                 <div className={styles.question}>
                                     <div className={styles.questionText}><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
@@ -281,11 +283,17 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
+                        {/* { this.props.eventKey == "0" && isPrefilled_a &&
+                            <div>
+                                <h1>Is prefilled, So hidden</h1>
+                            </div>
+                        } */}
                                                                                        
                         { this.props.eventKey != "0" && showSecondQuestion && !isPrefilled_b &&
                             <ListGroupRef.Item className={classnames(styles.ListGroupItem, isPrefilled_b ? styles.prefilled : null)} key={""+this.props.eventKey}>
                                 <div className={styles.question}>
                                 {/* <div>show slot B, prefilled {isPrefilled_b ? "true" : "false"}</div>   */}
+                                    {/* <div>{this.props.sectionName}_b</div> */}
                                     <div className={styles.questionText} ><RenderQuestionText question={this.props.question} /></div>
                                     <div className={styles.answerContainer}>
                                         {this.props.children}
@@ -296,6 +304,12 @@ export class FormQuestion extends React.Component<ValidPropsQuestion, {}> {
                                 </div>
                             </ListGroupRef.Item>
                         }
+
+                        {/* { this.props.eventKey != "0" && isPrefilled_b &&
+                            <div>
+                                <h1>Is prefilled, So hidden</h1>
+                            </div>
+                        } */}
                     </div>
             </div>
         );
@@ -405,15 +419,15 @@ export class FormAnswer extends React.Component<ValidPropsAnswer, {}> {
         if(this.props.nameRule != undefined) {
             obj[`${this.props.nameRule.handle}`] = this.props.nameRule.value
         }
-        if( this.props.answer.preFills != undefined ) {
-            for (const [key, value] of Object.entries(this.props.answer.preFills)) {
-                console.log(key, value);
-                obj[`${value.label}`] = value.rating                
-            }
-        }
+        // if( this.props.answer.preFills != undefined ) {
+        //     for (const [key, value] of Object.entries(this.props.answer.preFills)) {
+        //         console.log(key, value);
+        //         obj[`${value.label}`] = value.rating                
+        //     }
+        // }
         
 
-        console.log('answer', this.props.answer)
+        // console.log('answer', this.props.answer)
         
         updateFormMultiple(obj)
     }

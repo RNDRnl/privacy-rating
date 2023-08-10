@@ -43,11 +43,13 @@ export interface ValidPropsSection {
     score: any;
     ranked: Boolean;
     recommendationText: String;
+    hiddenDesc: String;
+    hidden: Boolean;
 }
 export class LabelSectionElement extends React.Component<ValidPropsSection, {}> {
     render() {
         return (
-            <DescriptionBox sectionText={this.props.sectionText} score={this.props.score} ranked={this.props.ranked} recommendationText={this.props.recommendationText} />
+            <DescriptionBox sectionText={this.props.hidden ? this.props.hiddenDesc : this.props.sectionText} score={this.props.score} ranked={this.props.ranked} recommendationText={this.props.recommendationText} hidden={this.props.hidden} />
         );
     }
 }

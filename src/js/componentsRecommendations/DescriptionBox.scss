@@ -82,6 +82,10 @@
     }
   }
 
+  &.hidden {
+    opacity: 0.5;
+  }
+
   &.unfolded {
     .arrow {
       transform: rotate(90deg);

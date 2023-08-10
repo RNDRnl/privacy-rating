@@ -56,7 +56,7 @@ export class RecommendationCategoryTag {
     getChildren = () => {
         var result: any = new Array()
         this.sections.forEach(function(element, index) {
-            result.push( new RecommendationSectionTag(element.text, element.score, element.ranked, element.recommendation).getTag(index) ) ;
+            result.push( new RecommendationSectionTag(element.text, element.score, element.ranked, element.recommendation, element.hiddenDesc, element.hidden).getTag(index) ) ;
         })
         return result
     }
@@ -76,15 +76,19 @@ export class RecommendationSectionTag {
     score: any;
     ranked: Boolean;
     recommendationText: String;
+    hiddenDesc: String;
+    hidden: Boolean;
     getTag = (_index:any) => {
         return(
-            <LabelSectionElement key={_index} sectionText={this.sectionText} score={this.score} ranked={this.ranked} recommendationText={this.recommendationText} />
+            <LabelSectionElement key={_index} sectionText={this.sectionText} score={this.score} ranked={this.ranked} recommendationText={this.recommendationText} hiddenDesc={this.hiddenDesc} hidden={this.hidden} />
         )
     }
-    constructor(_sectionText: any, _score: any, _ranked: any, _recommendationText:any) { 
+    constructor(_sectionText: any, _score: any, _ranked: any, _recommendationText:any, _hiddenDesc: String, _hidden: Boolean) { 
         this.sectionText = _sectionText; 
         this.score = _score;
         this.ranked = _ranked;
         this.recommendationText = _recommendationText;
+        this.hiddenDesc = _hiddenDesc;
+        this.hidden = _hidden;
     }
 }

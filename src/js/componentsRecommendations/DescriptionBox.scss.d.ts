@@ -6,6 +6,7 @@ interface CssExports {
   'colorD': string;
   'colorG': string;
   'colouredDots': string;
+  'hidden': string;
   'holder': string;
   'label': string;
   'label__column': string;

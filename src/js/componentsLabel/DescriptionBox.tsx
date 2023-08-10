@@ -1,7 +1,7 @@
 import * as React from "react";
 const styles = require("./DescriptionBox.scss");
 
-class DescriptionBox extends React.Component<{sectionText:any, sectionDesc:any, score:any, ranked: Boolean}, {}> {
+class DescriptionBox extends React.Component<{sectionText:any, sectionDesc:any, score:any, ranked: Boolean, hidden: Boolean}, {}> {
     
     render() {
         var classDots = `${styles.colouredDots} `
@@ -28,9 +28,9 @@ class DescriptionBox extends React.Component<{sectionText:any, sectionDesc:any, 
         return (
             <div className={styles.holder}>
                 <div className={styles.label}>
-                    <div className={classDots}/>                    
+                    <div className={classDots}/>  
                     {this.props.sectionText}
-                    <div className={styles.questionMark}>
+                    <div className={styles.questionMark}>                       
                          <span title={`${this.props.sectionDesc}`} />
                     </div>
                 </div>

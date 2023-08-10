@@ -89,9 +89,10 @@ class CategoryBox extends React.Component<{rating:any, categoryName:any, childre
         var classNames = `${styles.container} ${colorStyle} `
 
         // check if has non scored child
-        var containsNonScored = this.props.children.some((child) => { return child.props.ranked == false })
+        // var containsNonScored = this.props.children.some((child) => { return child.props.ranked == false })
+        var allChildsHidden = this.props.children.every((child) => { return child.props.hidden == true })
 
-        var interactive = true;// this.props.rating != "A" || containsNonScored;
+        var interactive = !allChildsHidden //this.props.rating != "A" || containsNonScored;
         
         if (interactive) {
             classNames += `${styles.hoverable} `

@@ -15,8 +15,8 @@ class Recommendations extends Component {
 
     render() {
         const { LabelObject, LabelRecommendations, LabelScoreDrawer, Label } = this.context;     
-        console.log('Label', LabelObject)          
-        console.log(this.context);
+        // console.log('Label', LabelObject)          
+        // console.log(this.context);
 
         return (
             <div className={styles.holder} >
