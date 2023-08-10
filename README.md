@@ -3,7 +3,7 @@
 | ------------- | ------------- |
 | stage | Development  |
 | branch name | master  |
-| release | tbd  |
+| release | 10.08.2023  |
 | license | [MIT](https://github.com/RNDRnl/privacy-rating/blob/master/LICENSE) |
 
 ## Privacy Rating
