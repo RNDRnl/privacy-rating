@@ -30,15 +30,15 @@
     }
     
     &.colorA { 
-      background-image: url("/resources/icons/happy.svg");
+      background-image: url("#{$env}resources/icons/happy.svg");
       background-size: 19px 19px;
     }
     &.colorD { 
-      background-image: url("/resources/icons/neutral.svg");
+      background-image: url("#{$env}resources/icons/neutral.svg");
       background-size: 19px 19px;
     }
     &.colorG { 
-      background-image: url("/resources/icons/sad.svg");
+      background-image: url("#{$env}resources/icons/sad.svg");
       background-size: 19px 19px;
     }
   }
