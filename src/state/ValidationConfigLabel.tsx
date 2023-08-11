@@ -19,16 +19,16 @@ export class MakeHiddenConsequence {
 }
 
 export class ValidateConfigLabel {
-    LabelConsitions: LabelCondition[] = new Array();
+    LabelConditions: LabelCondition[] = new Array();
     
-    constructor(_LabelConsitions: Array<LabelCondition>) {
-        this.LabelConsitions = _LabelConsitions;
+    constructor(_LabelConditions: Array<LabelCondition>) {
+        this.LabelConditions = _LabelConditions;
     }
 }
 
 var validateConfigLabel = new ValidateConfigLabel(
     [
-        new LabelCondition('collection_1', 'P', [
+        new LabelCondition('collection_0', 'P', [
             new MakeHiddenConsequence('collection_1_P'),
             new MakeHiddenConsequence('collection_2_P'),
             new MakeHiddenConsequence('control_0_P'),

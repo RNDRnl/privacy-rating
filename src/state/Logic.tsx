@@ -354,13 +354,12 @@ const HashToLabelState = (labelHash:any) => {
     // list items to be hidden
     var hiddenItems = [];
     characters.forEach((char, index) => {
-        validateConfigLabel.LabelConsitions.forEach((condition) => {
-            if(condition.section_handle == `${indexToCategory(index)}_${indexToSection(index)}` && condition.section_value == `${char}`) {
-                console.log('condition triggered', condition)
-                condition.consequences.forEach((consequence) => {   
-                    hiddenItems.push(consequence.section_handle)
-                })
-            }
+        validateConfigLabel.LabelConditions.forEach((condition) => {
+                if(condition.section_handle == `${indexToCategory(index)}_${indexToSection(index)}` && condition.section_value == `${char}`) {
+                    condition.consequences.forEach((consequence) => {   
+                        hiddenItems.push(consequence.section_handle)
+                    })
+                }
         });
     });
     
