@@ -8,7 +8,7 @@
 
 ## Privacy Rating
 ![preview](https://github.com/RNDRnl/privacy-rating/raw/master/resources/home/slideshow/1x/slide1.png "preview of privacy rating on page")
-[Generate your own label](https://rndrnl.github.io/privacy-rating/#/form)
+[Generate your own label](https://privacyrating.info/#/form)
 
 ## About
 
@@ -51,4 +51,4 @@ After build the static html files can be found in the `dist` directory
 
 ## Contact
 
-Contact us through our [form](https://rndrnl.github.io/privacy-rating/#/contact)
+Contact us through our [form](https://privacyrating.info/#/contact)
