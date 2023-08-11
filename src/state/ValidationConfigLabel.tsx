@@ -12,7 +12,7 @@ export class LabelCondition {
 }
 
 export class MakeHiddenConsequence {
-    section_handle: String;
+    section_handle: String;    
     constructor(_section_handle: String) {
         this.section_handle = _section_handle;
     }    
@@ -37,7 +37,7 @@ var validateConfigLabel = new ValidateConfigLabel(
             new MakeHiddenConsequence('security_1_P')
         ]), 
         new LabelCondition('collection_2', 'P', [
-            new MakeHiddenConsequence('control_0_P')
+            new MakeHiddenConsequence('control_1_P')
         ])
     ]
 );
