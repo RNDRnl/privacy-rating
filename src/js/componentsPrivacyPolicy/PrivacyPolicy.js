@@ -24,7 +24,7 @@ class PageView extends Component {
                 <Row className={styles.labelFrame}>
                     
                     <div className={styles.label}>
-                        <App labelId="PPPPPRPRRLRR" domain={"privacyrating**info"} />
+                        <App labelId="PPPPPLPPPLPR" domain={"privacyrating**info"} />
                     </div>
                     
                 </Row>
