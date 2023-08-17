@@ -50,7 +50,7 @@ NODE_ENV | current environment | production
 0. Set DOMAIN_PATH and BASE_PATH accordingly.
 1. After build the static html files can be found in the `dist` directory.
 2. Create a new file in the `dist` directory named privacy.rating.js and add the following content:
-'''function loadScript(url) {    
+   ```function loadScript(url) {    
     var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -58,9 +58,9 @@ NODE_ENV | current environment | production
     head.appendChild(script);
 }
 loadScript('https://privacyrating.info/static/styles.7d22c0d22b37c790e9a1.js');
-loadScript('https://privacyrating.info/static/app.7d22c0d22b37c790e9a1.js');'''
-3. Replace _styles.7d22c0d22b37c790e9a1.js_ and _app.7d22c0d22b37c790e9a1.js_ in the file above to match those in your 'dist' directory
-4. Make sure to enable CORS so that generated labels can be displayed on other domains.
+loadScript('https://privacyrating.info/static/app.7d22c0d22b37c790e9a1.js');```
+4. Replace _styles.7d22c0d22b37c790e9a1.js_ and _app.7d22c0d22b37c790e9a1.js_ in the file above to match those in your 'dist' directory
+5. Make sure to enable CORS so that generated labels can be displayed on other domains.
 
 
 ## Contact
