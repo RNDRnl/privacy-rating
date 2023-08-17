@@ -42,12 +42,26 @@ yarn build | build package |
 | variable | description | example
 | ------------- | ------------- |  ------------- 
 BASE_PATH | custom base path | /privacy-rating
-DOMAIN_PATH | flat domain name | https://rndr.github.io
+DOMAIN_PATH | flat domain name | https://privacyrating.info
 NODE_ENV | current environment | production
 
 #### Deployment
 
-After build the static html files can be found in the `dist` directory
+0. Set DOMAIN_PATH and BASE_PATH accordingly.
+1. After build the static html files can be found in the `dist` directory.
+2. Create a new file in the `dist` directory named privacy.rating.js and add the following content:
+'''function loadScript(url) {    
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    head.appendChild(script);
+}
+loadScript('https://privacyrating.info/static/styles.7d22c0d22b37c790e9a1.js');
+loadScript('https://privacyrating.info/static/app.7d22c0d22b37c790e9a1.js');'''
+3. Replace _styles.7d22c0d22b37c790e9a1.js_ and _app.7d22c0d22b37c790e9a1.js_ in the file above to match those in your 'dist' directory
+4. Make sure to enable CORS so that generated labels can be displayed on other domains.
+
 
 ## Contact
 
