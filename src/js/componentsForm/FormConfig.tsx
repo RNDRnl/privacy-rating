@@ -40,7 +40,7 @@ var FormConfig = new Form([
     new Category( "Instruction", "declare",
         [ new Section( "start_0",
                 [
-                    new Question( "Please answer the following questions regarding the handling of user data by the online service.\nThe questions relate to data handling in general, and do not measure compiance with any specific privacy law.\nWhen multiple answers apply, base your answer on \n1. The default use case and settings \n2. The worse‐case scenario", 
+                    new Question( "Please answer the following questions regarding the handling of user data by the online service.\nThe questions relate to data handling in general, and do not measure compliance with any specific privacy law.\nWhen multiple answers apply, choose the one that corresponds to: \n1. The default settings and \n2. The worse‐case scenario", 
                         [ 
                             new Answer( "declare", "instruction", 
                                 new Rating("Start", null)
